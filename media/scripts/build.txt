@@ -1,0 +1,70 @@
+module Morebuild
+{
+	imports
+    {
+    Base
+    }
+	
+	item WoodenWindows
+	{
+        Type = Moveable,
+        Weight = 0.5,
+        WorldObjectSprite = fixtures_windows_01_1,
+        DisplayName		= Wooden Windows,
+        Icon			= default,
+	}
+	
+	item WhiteTiledWindows
+	{
+        Type = Moveable,
+        Weight = 0.5,
+        WorldObjectSprite = fixtures_windows_01_8,
+        DisplayName		= White Tiled Windows,
+        Icon			= default,
+	}
+	
+	item TiledWindows
+	{
+        Type = Moveable,
+        Weight = 0.5,
+        WorldObjectSprite = fixtures_windows_01_16,
+        DisplayName		= Tiled Windows,
+        Icon			= default,
+	}
+	
+	item WhiteWindows
+	{
+        Type = Moveable,
+        Weight = 0.5,
+        WorldObjectSprite = fixtures_windows_01_24,
+        DisplayName		= White Windows,
+        Icon			= default,
+	}
+	
+	item ChromeWindows
+	{
+        Type = Moveable,
+        Weight = 0.5,
+        WorldObjectSprite = fixtures_windows_01_32,
+        DisplayName		= Chrome Windows,
+        Icon			= default,
+	}
+
+	item SliderWindows
+	{
+        Type = Moveable,
+        Weight = 0.5,
+        WorldObjectSprite = fixtures_windows_01_56,
+        DisplayName		= Slider Windows,
+        Icon			= default,
+	}
+	
+	item Barricade
+	{
+        Type = Moveable,
+        Weight = 0.5,
+        WorldObjectSprite = construction_01_9,
+        DisplayName		= Wood Barricade,
+        Icon			= woodBarricade,
+	}
+}

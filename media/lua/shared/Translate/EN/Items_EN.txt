@@ -1,0 +1,9 @@
+Items_EN = {
+  DisplayName_Slider_Windows = "Slider Windows",
+  DisplayName_Bar_becue = "Barbecue",
+  DisplayName_Chrome_Windows = "Chrome Windows",
+  DisplayName_Tiled_Windows = "Tiled Windows",
+  DisplayName_White_Tiled_Windows = "White Tiled Windows", 
+  DisplayName_White_Windows = "White Windows",
+  DisplayName_Wooden_Windows = "Wooden Windows",
+}

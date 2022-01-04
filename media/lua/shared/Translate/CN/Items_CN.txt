@@ -1,0 +1,9 @@
+Items_CN = {
+  DisplayName_Slider_Windows = "滑动窗户",
+  DisplayName_Bar_becue = "烧烤架",
+  DisplayName_Chrome_Windows = "镀铬窗户",
+  DisplayName_Tiled_Windows = "棕色平铺木窗",
+  DisplayName_White_Tiled_Windows = "白色平铺木窗", 
+  DisplayName_White_Windows = "白色木窗",
+  DisplayName_Wooden_Windows = "木窗",
+}

@@ -1,0 +1,6 @@
+name=More Build
+poster=poster.png
+id=MoreBuild
+description=Project Zomboid more build Mod. <BR> author: ProjectSky <BR> Date: September 10, 2015 <BR> Contact: sky.orc.mm@gmail.com
+tiledef=morebuild 275
+pack=morebuild
