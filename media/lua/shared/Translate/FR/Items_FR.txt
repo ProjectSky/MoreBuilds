@@ -1,9 +1,0 @@
-Items_FR = {
-  DisplayName_Slider_Windows = "Fenêtre coulissante",
-  DisplayName_Bar_becue = "Barbecue",
-  DisplayName_Chrome_Windows = "Fenêtre chromée",
-  DisplayName_Tiled_Windows = "Fenêtre à carreaux",
-  DisplayName_White_Tiled_Windows = "Fenêtre à carreaux blancs", 
-  DisplayName_White_Windows = "Fenêtre blanche",
-  DisplayName_Wooden_Windows = "Fenêtre en bois",
-}

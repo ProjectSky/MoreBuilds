@@ -1,8 +1,8 @@
-DebugWindow = ISCollapsableWindow:derive("MoreBuildings_debug")
+DebugWindow = ISCollapsableWindow:derive("MoreBuilds_Debug")
 DebugWindowInstance = nil
 DebugWindowInited = false
 
-local MoreBuildings_debug = {}
+local MoreBuilds_Debug = {}
 
 function DebugWindow:initialise()
 	ISCollapsableWindow.initialise(self)
@@ -131,7 +131,7 @@ local function OnKeyPressed(key)
 end
 
 local function func_Init()
-	if getSteamModeActive() and isAdmin() or getCurrentUserSteamID() == "76561198034557379" then
+	if getSteamModeActive() and isAdmin() then
     DebugWindowInited = true
 		Events.OnKeyPressed.Add(OnKeyPressed)
 	end

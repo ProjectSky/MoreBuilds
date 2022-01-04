@@ -15,16 +15,20 @@ function ISStove:create(x, y, z, north, sprite)
 end
 
 function ISStove:isValid(square)
-    if not self:haveMaterial(square) then
-        return false
-    end
-    if not buildUtil.canBePlace(self, square) then
-        return false
-    end
-    if buildUtil.stairIsBlockingPlacement(square, true, (self.nSprite == 4 or self.nSprite == 2)) then
-        return false
-    end
-    return square:isFreeOrMidair(false)
+	if not ISBuildingObject.isValid(self, square) then return false; end
+	if self.needToBeAgainstWall then
+        for i=0,square:getObjects():size()-1 do
+           local obj = square:getObjects():get(i);
+					 if self:getSprite() == obj:getTextureName() then return false end
+           if (not self.north and obj:getProperties():Is("WallN")) or (self.northSprite and obj:getProperties():Is("WallW")) then
+               return true;
+           end
+        end
+        return false;
+    else
+        if buildUtil.stairIsBlockingPlacement(square, true) then return false; end
+	end
+		return true;
 end
 
 function ISStove:update()
@@ -55,6 +59,7 @@ function ISStove:new(sprite, northSprite, corner)
     o.corner = corner
     o.canBarricade = false
     o.dismantable = true
+		o.needToBeAgainstWall = true
     o.name = name
     o.stopOnWalk = true
     o.stopOnRun = true
