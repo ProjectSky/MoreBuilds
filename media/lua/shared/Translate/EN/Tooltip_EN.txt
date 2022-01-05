@@ -59,7 +59,7 @@ Tooltip_EN = {
 	Tooltip_BarCorner_Description = "A corner section of counter.  Perfect for extra storage. ",
 	Tooltip_TrashCan_Description = "A trash can to stash your stuff in. ",
 	Tooltip_LightPole_Description = "A better looking light you craft. ",
-	Tooltip_Emergency_Lamp "emergency light for outdoor, with a large lighting range. ",
+	Tooltip_Emergency_Lamp = "emergency light for outdoor, with a large lighting range. ",
 	Tooltip_SmallTable_Description = "A wooden table that takes up a single tile. ",
 	Tooltip_LargeTable_Description = "A large table that takes up two tiles. ",
 	Tooltip_CouchFront_Description = "A comfortable couch that takes up two tiles. Only views of the couch front will be available from this menu item. ",

@@ -59,7 +59,7 @@ Tooltip_CN = {
 	Tooltip_BarCorner_Description = "完美的额外存储空间。",
 	Tooltip_TrashCan_Description = "一个垃圾桶。",
 	Tooltip_LightPole_Description = "一个灯柱 <br> 停电后可使用发电机供电 <br> 未停电时可使用电池或电源供电！",
-	Tooltip_Emergency_Lamp "一个户外的应急灯，照明范围较大 <br> 停电后可使用发电机供电 <br> 未停电时可使用电池或电源供电！",
+	Tooltip_Emergency_Lamp = "一个户外的应急灯，照明范围较大 <br> 停电后可使用发电机供电 <br> 未停电时可使用电池或电源供电！",
 	Tooltip_SmallTable_Description = "一个木制的桌子，占用一格空间。",
 	Tooltip_LargeTable_Description = "一个大桌子，占用两格空间。",
 	Tooltip_CouchFront_Description = "舒适的沙发，占用两格空间。",
