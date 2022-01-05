@@ -138,9 +138,7 @@ function MoreBuildClientCommands.OnDestroyIsoThumpable(o, player)
 	MoreBuildClientCommands.removePole(sq)
 end
 
---Events.EveryTenMinutes.Add(MoreBuildClientCommands.checkPower);
-
+Events.EveryTenMinutes.Add(MoreBuildClientCommands.checkPower);
 Events.OnObjectAdded.Add(MoreBuildClientCommands.OnObjectAdded)
 Events.OnDestroyIsoThumpable.Add(MoreBuildClientCommands.OnDestroyIsoThumpable)
-
 Events.OnClientCommand.Add(MoreBuildClientCommands.OnClientCommand)

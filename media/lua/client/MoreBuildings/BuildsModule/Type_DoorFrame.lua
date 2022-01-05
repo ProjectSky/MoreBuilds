@@ -1,333 +1,325 @@
 if not getMoreBuildInstance then
-	require("MoreBuildings/MoreBuilds_Main")
+  require('MoreBuildings/MoreBuilds_Main')
 end
 
 local MoreBuild = getMoreBuildInstance()
 
 MoreBuild.doorFramesMenuBuilder = function(subMenu, player)
-	local _sprite
-	local _option
-	local _tooltip
-	local _name = ""
+  local _sprite
+  local _option
+  local _tooltip
+  local _name = ''
 
-	MoreBuild.neededMaterials =
-	{
-		{
-			Material = "Plank",
-			Amount = 4,
-			Text = getItemNameFromFullType("Base.Plank"),
-		},
+  MoreBuild.neededMaterials = {
+    {
+      Material = 'Plank',
+      Amount = 4,
+      Text = getItemNameFromFullType('Base.Plank')
+    },
+    {
+      Material = 'Nails',
+      Amount = 4,
+      Text = getItemNameFromFullType('Base.Nails')
+    }
+  }
 
-		{
-			Material = "Nails",
-			Amount = 4,
-			Text = getItemNameFromFullType("Base.Nails"),
-		},
-	}
+  MoreBuild.neededTools = {'Hammer'}
 
-	MoreBuild.neededTools = {"Hammer"}
+  _sprite = {}
+  _sprite.sprite = 'location_restaurant_pileocrepe_01_10'
+  _sprite.northSprite = 'location_restaurant_pileocrepe_01_11'
+  _sprite.corner = 'location_restaurant_pileocrepe_01_3'
 
-	_sprite = {}
-	_sprite.sprite = "location_restaurant_pileocrepe_01_10"
-	_sprite.northSprite = "location_restaurant_pileocrepe_01_11"
-	_sprite.corner = "location_restaurant_pileocrepe_01_3"
+  _name = getText 'ContextMenu_LightBrownWood_DoorFrame'
 
-	_name = getText "ContextMenu_LightBrownWood_DoorFrame"
+  _option = subMenu[getText 'ContextMenu_Light_BrownWood']:addOption(_name, nil, MoreBuild.onBuildWoodenDoorFrame, _sprite, player, _name)
 
-	_option = subMenu[getText "ContextMenu_Light_BrownWood"]:addOption(_name, nil, MoreBuild.onBuildWoodenDoorFrame, _sprite, player, _name)
+  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.wallObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip:setName(_name)
+  _tooltip.description = MoreBuild.textDoorFrameDescription .. _tooltip.description
 
-	_tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.wallObject, MoreBuild.skillLevel.none, _option, player)
-	_tooltip:setName(_name)
-	_tooltip.description = MoreBuild.textDoorFrameDescription .. _tooltip.description
+  if MoreBuild.playerCanPlaster then
+    _tooltip.description = _tooltip.description .. MoreBuild.textPlasterGreen
+  else
+    _tooltip.description = _tooltip.description .. MoreBuild.textPlasterRed
+  end
 
-	if MoreBuild.playerCanPlaster then
-		_tooltip.description = _tooltip.description .. MoreBuild.textPlasterGreen
-	else
-		_tooltip.description = _tooltip.description .. MoreBuild.textPlasterRed
-	end
+  _tooltip:setTexture(_sprite.sprite)
 
-	_tooltip:setTexture(_sprite.sprite)
+  _sprite = {}
+  _sprite.sprite = 'location_shop_bargNclothes_01_34'
+  _sprite.northSprite = 'location_shop_bargNclothes_01_35'
+  _sprite.corner = 'location_shop_bargNclothes_01_27'
 
-	_sprite = {}
-	_sprite.sprite = "location_shop_bargNclothes_01_34"
-	_sprite.northSprite = "location_shop_bargNclothes_01_35"
-	_sprite.corner = "location_shop_bargNclothes_01_27"
+  _name = getText 'ContextMenu_DarkBrown_WoodDoorFrame'
 
-	_name = getText "ContextMenu_DarkBrown_WoodDoorFrame"
+  _option = subMenu[getText 'ContextMenu_Dark_BrownWood']:addOption(_name, nil, MoreBuild.onBuildWoodenDoorFrame, _sprite, player, _name)
 
-	_option = subMenu[getText "ContextMenu_Dark_BrownWood"]:addOption(_name, nil, MoreBuild.onBuildWoodenDoorFrame, _sprite, player, _name)
+  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.wallObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip:setName(_name)
+  _tooltip.description = MoreBuild.textDoorFrameDescription .. _tooltip.description
 
-	_tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.wallObject, MoreBuild.skillLevel.none, _option, player)
-	_tooltip:setName(_name)
-	_tooltip.description = MoreBuild.textDoorFrameDescription .. _tooltip.description
+  if MoreBuild.playerCanPlaster then
+    _tooltip.description = _tooltip.description .. MoreBuild.textPlasterGreen
+  else
+    _tooltip.description = _tooltip.description .. MoreBuild.textPlasterRed
+  end
 
-	if MoreBuild.playerCanPlaster then
-		_tooltip.description = _tooltip.description .. MoreBuild.textPlasterGreen
-	else
-		_tooltip.description = _tooltip.description .. MoreBuild.textPlasterRed
-	end
+  _tooltip:setTexture(_sprite.sprite)
 
-	_tooltip:setTexture(_sprite.sprite)
+  _sprite = {}
+  _sprite.sprite = 'walls_garage_02_26'
+  _sprite.northSprite = 'walls_garage_02_27'
+  _sprite.corner = 'walls_garage_02_19'
 
-	_sprite = {}
-	_sprite.sprite = "walls_garage_02_26"
-	_sprite.northSprite = "walls_garage_02_27"
-	_sprite.corner = "walls_garage_02_19"
+  _name = getText 'ContextMenu_GrayPlaster_DoorFrame'
 
-	_name = getText "ContextMenu_GrayPlaster_DoorFrame"
+  _option = subMenu[getText 'ContextMenu_Gray_Plaster']:addOption(_name, nil, MoreBuild.onBuildWoodenDoorFrame, _sprite, player, _name)
 
-	_option = subMenu[getText "ContextMenu_Gray_Plaster"]:addOption(_name, nil, MoreBuild.onBuildWoodenDoorFrame, _sprite, player, _name)
+  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.wallObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip:setName(_name)
+  _tooltip.description = MoreBuild.textDoorFrameDescription .. _tooltip.description
 
-	_tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.wallObject, MoreBuild.skillLevel.none, _option, player)
-	_tooltip:setName(_name)
-	_tooltip.description = MoreBuild.textDoorFrameDescription .. _tooltip.description
+  if MoreBuild.playerCanPlaster then
+    _tooltip.description = _tooltip.description .. MoreBuild.textPlasterGreen
+  else
+    _tooltip.description = _tooltip.description .. MoreBuild.textPlasterRed
+  end
 
-	if MoreBuild.playerCanPlaster then
-		_tooltip.description = _tooltip.description .. MoreBuild.textPlasterGreen
-	else
-		_tooltip.description = _tooltip.description .. MoreBuild.textPlasterRed
-	end
+  _tooltip:setTexture(_sprite.sprite)
 
-	_tooltip:setTexture(_sprite.sprite)
+  _sprite = {}
+  _sprite.sprite = 'walls_exterior_wooden_01_38'
+  _sprite.northSprite = 'walls_exterior_wooden_01_39'
+  _sprite.corner = 'walls_exterior_wooden_01_31'
 
-	_sprite = {}
-	_sprite.sprite = "walls_exterior_wooden_01_38"
-	_sprite.northSprite = "walls_exterior_wooden_01_39"
-	_sprite.corner = "walls_exterior_wooden_01_31"
+  _name = getText 'ContextMenu_GrayWood_DoorFrame'
 
-	_name = getText "ContextMenu_GrayWood_DoorFrame"
+  _option = subMenu[getText 'ContextMenu_Gray_Wood']:addOption(_name, nil, MoreBuild.onBuildWoodenDoorFrame, _sprite, player, _name)
 
-	_option = subMenu[getText "ContextMenu_Gray_Wood"]:addOption(_name, nil, MoreBuild.onBuildWoodenDoorFrame, _sprite, player, _name)
+  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.wallObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip:setName(_name)
+  _tooltip.description = MoreBuild.textDoorFrameDescription .. _tooltip.description
 
-	_tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.wallObject, MoreBuild.skillLevel.none, _option, player)
-	_tooltip:setName(_name)
-	_tooltip.description = MoreBuild.textDoorFrameDescription .. _tooltip.description
+  if MoreBuild.playerCanPlaster then
+    _tooltip.description = _tooltip.description .. MoreBuild.textPlasterGreen
+  else
+    _tooltip.description = _tooltip.description .. MoreBuild.textPlasterRed
+  end
 
-	if MoreBuild.playerCanPlaster then
-		_tooltip.description = _tooltip.description .. MoreBuild.textPlasterGreen
-	else
-		_tooltip.description = _tooltip.description .. MoreBuild.textPlasterRed
-	end
+  _tooltip:setTexture(_sprite.sprite)
 
-	_tooltip:setTexture(_sprite.sprite)
+  _sprite = {}
+  _sprite.sprite = 'walls_exterior_wooden_01_10'
+  _sprite.northSprite = 'walls_exterior_wooden_01_11'
+  _sprite.corner = 'walls_exterior_wooden_01_3'
 
-	_sprite = {}
-	_sprite.sprite = "walls_exterior_wooden_01_10"
-	_sprite.northSprite = "walls_exterior_wooden_01_11"
-	_sprite.corner = "walls_exterior_wooden_01_3"
+  _name = getText 'ContextMenu_RedBarnwood_DoorFrame'
 
-	_name = getText "ContextMenu_RedBarnwood_DoorFrame"
+  _option = subMenu[getText 'ContextMenu_Red_Barnwood']:addOption(_name, nil, MoreBuild.onBuildWoodenDoorFrame, _sprite, player, _name)
 
-	_option = subMenu[getText "ContextMenu_Red_Barnwood"]:addOption(_name, nil, MoreBuild.onBuildWoodenDoorFrame, _sprite, player, _name)
+  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.wallObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip:setName(_name)
+  _tooltip.description = MoreBuild.textDoorFrameDescription .. _tooltip.description
 
-	_tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.wallObject, MoreBuild.skillLevel.none, _option, player)
-	_tooltip:setName(_name)
-	_tooltip.description = MoreBuild.textDoorFrameDescription .. _tooltip.description
+  if MoreBuild.playerCanPlaster then
+    _tooltip.description = _tooltip.description .. MoreBuild.textPlasterGreen
+  else
+    _tooltip.description = _tooltip.description .. MoreBuild.textPlasterRed
+  end
 
-	if MoreBuild.playerCanPlaster then
-		_tooltip.description = _tooltip.description .. MoreBuild.textPlasterGreen
-	else
-		_tooltip.description = _tooltip.description .. MoreBuild.textPlasterRed
-	end
+  _tooltip:setTexture(_sprite.sprite)
 
-	_tooltip:setTexture(_sprite.sprite)
+  _sprite = {}
+  _sprite.sprite = 'location_shop_mall_01_10'
+  _sprite.northSprite = 'location_shop_mall_01_11'
+  _sprite.corner = 'location_shop_mall_01_3'
 
-	_sprite = {}
-	_sprite.sprite = "location_shop_mall_01_10"
-	_sprite.northSprite = "location_shop_mall_01_11"
-	_sprite.corner = "location_shop_mall_01_3"
+  _name = getText 'ContextMenu_WhitePlaster_DoorFrame'
 
-	_name = getText "ContextMenu_WhitePlaster_DoorFrame"
+  _option = subMenu[getText 'ContextMenu_White_Plaster']:addOption(_name, nil, MoreBuild.onBuildWoodenDoorFrame, _sprite, player, _name)
 
-	_option = subMenu[getText "ContextMenu_White_Plaster"]:addOption(_name, nil, MoreBuild.onBuildWoodenDoorFrame, _sprite, player, _name)
+  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.wallObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip:setName(_name)
+  _tooltip.description = MoreBuild.textDoorFrameDescription .. _tooltip.description
 
-	_tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.wallObject, MoreBuild.skillLevel.none, _option, player)
-	_tooltip:setName(_name)
-	_tooltip.description = MoreBuild.textDoorFrameDescription .. _tooltip.description
+  if MoreBuild.playerCanPlaster then
+    _tooltip.description = _tooltip.description .. MoreBuild.textPlasterGreen
+  else
+    _tooltip.description = _tooltip.description .. MoreBuild.textPlasterRed
+  end
 
-	if MoreBuild.playerCanPlaster then
-		_tooltip.description = _tooltip.description .. MoreBuild.textPlasterGreen
-	else
-		_tooltip.description = _tooltip.description .. MoreBuild.textPlasterRed
-	end
+  _tooltip:setTexture(_sprite.sprite)
 
-	_tooltip:setTexture(_sprite.sprite)
+  _sprite = {}
+  _sprite.sprite = 'walls_exterior_wooden_02_10'
+  _sprite.northSprite = 'walls_exterior_wooden_02_11'
+  _sprite.corner = 'walls_exterior_wooden_02_3'
 
-	_sprite = {}
-	_sprite.sprite = "walls_exterior_wooden_02_10"
-	_sprite.northSprite = "walls_exterior_wooden_02_11"
-	_sprite.corner = "walls_exterior_wooden_02_3"
+  _name = getText 'ContextMenu_WhiteWood_DoorFrame'
 
-	_name = getText "ContextMenu_WhiteWood_DoorFrame"
+  _option = subMenu[getText 'ContextMenu_White_Wood']:addOption(_name, nil, MoreBuild.onBuildWoodenDoorFrame, _sprite, player, _name)
 
-	_option = subMenu[getText "ContextMenu_White_Wood"]:addOption(_name, nil, MoreBuild.onBuildWoodenDoorFrame, _sprite, player, _name)
+  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.wallObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip:setName(_name)
+  _tooltip.description = MoreBuild.textDoorFrameDescription .. _tooltip.description
 
-	_tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.wallObject, MoreBuild.skillLevel.none, _option, player)
-	_tooltip:setName(_name)
-	_tooltip.description = MoreBuild.textDoorFrameDescription .. _tooltip.description
+  if MoreBuild.playerCanPlaster then
+    _tooltip.description = _tooltip.description .. MoreBuild.textPlasterGreen
+  else
+    _tooltip.description = _tooltip.description .. MoreBuild.textPlasterRed
+  end
 
-	if MoreBuild.playerCanPlaster then
-		_tooltip.description = _tooltip.description .. MoreBuild.textPlasterGreen
-	else
-		_tooltip.description = _tooltip.description .. MoreBuild.textPlasterRed
-	end
+  _tooltip:setTexture(_sprite.sprite)
 
-	_tooltip:setTexture(_sprite.sprite)
+  MoreBuild.neededMaterials = {
+    {
+      Material = 'Plank',
+      Amount = 2,
+      Text = getItemNameFromFullType('Base.Plank')
+    },
+    {
+      Material = 'Nails',
+      Amount = 3,
+      Text = getItemNameFromFullType('Base.Nails')
+    }
+  }
 
-	MoreBuild.neededMaterials =
-	{
-		{
-			Material = "Plank",
-			Amount = 2,
-			Text = getItemNameFromFullType("Base.Plank"),
-		},
+  MoreBuild.neededTools = {'Hammer'}
 
-		{
-			Material = "Nails",
-			Amount = 3,
-			Text = getItemNameFromFullType("Base.Nails"),
-		},
-	}
+  _sprite = {}
+  _sprite.sprite = 'walls_commercial_03_10'
+  _sprite.northSprite = 'walls_commercial_03_11'
+  _sprite.corner = 'walls_commercial_03_3'
 
-	MoreBuild.neededTools = {"Hammer"}
+  _name = getText 'ContextMenu_BrownCinder_Block_DoorFrame'
 
-	_sprite = {}
-	_sprite.sprite = "walls_commercial_03_10"
-	_sprite.northSprite = "walls_commercial_03_11"
-	_sprite.corner = "walls_commercial_03_3"
+  _option = subMenu[getText 'ContextMenu_Brown_Cinder_Block']:addOption(_name, nil, MoreBuild.onBuildStoneDoorFrame, _sprite, player, _name)
 
-	_name = getText "ContextMenu_BrownCinder_Block_DoorFrame"
+  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.stoneArchitecture, MoreBuild.skillLevel.none, _option, player)
+  _tooltip:setName(_name)
 
-	_option = subMenu[getText "ContextMenu_Brown_Cinder_Block"]:addOption(_name, nil, MoreBuild.onBuildStoneDoorFrame, _sprite, player, _name)
+  _tooltip.description = getText 'Tooltip_BrownCinder_Block_DoorFrame' .. _tooltip.description
 
-	_tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.stoneArchitecture, MoreBuild.skillLevel.none, _option, player)
-	_tooltip:setName(_name)
+  if MoreBuild.playerCanPlaster then
+    _tooltip.description = _tooltip.description .. MoreBuild.textPlasterGreen
+  else
+    _tooltip.description = _tooltip.description .. MoreBuild.textPlasterRed
+  end
 
-	_tooltip.description = getText "Tooltip_BrownCinder_Block_DoorFrame" .. _tooltip.description
+  _tooltip:setTexture(_sprite.sprite)
 
-	if MoreBuild.playerCanPlaster then
-		_tooltip.description = _tooltip.description .. MoreBuild.textPlasterGreen
-	else
-		_tooltip.description = _tooltip.description .. MoreBuild.textPlasterRed
-	end
+  _sprite = {}
+  _sprite.sprite = 'walls_commercial_03_42'
+  _sprite.northSprite = 'walls_commercial_03_43'
+  _sprite.corner = 'walls_commercial_03_35'
 
-	_tooltip:setTexture(_sprite.sprite)
+  _name = getText 'ContextMenu_GrayCinder_Block_DoorFrame'
 
-	_sprite = {}
-	_sprite.sprite = "walls_commercial_03_42"
-	_sprite.northSprite = "walls_commercial_03_43"
-	_sprite.corner = "walls_commercial_03_35"
+  _option = subMenu[getText 'ContextMenu_Gray_Cinder_Block']:addOption(_name, nil, MoreBuild.onBuildStoneDoorFrame, _sprite, player, _name)
 
-	_name = getText "ContextMenu_GrayCinder_Block_DoorFrame"
+  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.stoneArchitecture, MoreBuild.skillLevel.none, _option, player)
+  _tooltip:setName(_name)
+  _tooltip.description = getText 'Tooltip_GrayCinder_Block_DoorFrame' .. _tooltip.description
 
-	_option = subMenu[getText "ContextMenu_Gray_Cinder_Block"]:addOption(_name, nil, MoreBuild.onBuildStoneDoorFrame, _sprite, player, _name)
+  if MoreBuild.playerCanPlaster then
+    _tooltip.description = _tooltip.description .. MoreBuild.textPlasterGreen
+  else
+    _tooltip.description = _tooltip.description .. MoreBuild.textPlasterRed
+  end
 
-	_tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.stoneArchitecture, MoreBuild.skillLevel.none, _option, player)
-	_tooltip:setName(_name)
-	_tooltip.description = getText "Tooltip_GrayCinder_Block_DoorFrame" .. _tooltip.description
+  _tooltip:setTexture(_sprite.sprite)
 
-	if MoreBuild.playerCanPlaster then
-		_tooltip.description = _tooltip.description .. MoreBuild.textPlasterGreen
-	else
-		_tooltip.description = _tooltip.description .. MoreBuild.textPlasterRed
-	end
+  _sprite = {}
+  _sprite.sprite = 'walls_commercial_01_58'
+  _sprite.northSprite = 'walls_commercial_01_59'
+  _sprite.corner = 'walls_commercial_01_51'
 
-	_tooltip:setTexture(_sprite.sprite)
+  _name = getText 'ContextMenu_WhiteCinder_Block_DoorFrame'
 
-	_sprite = {}
-	_sprite.sprite = "walls_commercial_01_58"
-	_sprite.northSprite = "walls_commercial_01_59"
-	_sprite.corner = "walls_commercial_01_51"
+  _option = subMenu[getText 'ContextMenu_White_CinderBlock']:addOption(_name, nil, MoreBuild.onBuildStoneDoorFrame, _sprite, player, _name)
 
-	_name = getText "ContextMenu_WhiteCinder_Block_DoorFrame"
+  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.stoneArchitecture, MoreBuild.skillLevel.none, _option, player)
+  _tooltip:setName(_name)
+  _tooltip.description = getText 'Tooltip_WhiteCinder_Block_DoorFrame' .. _tooltip.description
 
-	_option = subMenu[getText "ContextMenu_White_CinderBlock"]:addOption(_name, nil, MoreBuild.onBuildStoneDoorFrame, _sprite, player, _name)
+  if MoreBuild.playerCanPlaster then
+    _tooltip.description = _tooltip.description .. MoreBuild.textPlasterGreen
+  else
+    _tooltip.description = _tooltip.description .. MoreBuild.textPlasterRed
+  end
 
-	_tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.stoneArchitecture, MoreBuild.skillLevel.none, _option, player)
-	_tooltip:setName(_name)
-	_tooltip.description = getText "Tooltip_WhiteCinder_Block_DoorFrame" .. _tooltip.description
+  _tooltip:setTexture(_sprite.sprite)
 
-	if MoreBuild.playerCanPlaster then
-		_tooltip.description = _tooltip.description .. MoreBuild.textPlasterGreen
-	else
-		_tooltip.description = _tooltip.description .. MoreBuild.textPlasterRed
-	end
+  _sprite = {}
+  _sprite.sprite = 'walls_exterior_house_01_14'
+  _sprite.northSprite = 'walls_exterior_house_01_15'
+  _sprite.corner = 'walls_exterior_house_01_7'
 
-	_tooltip:setTexture(_sprite.sprite)
+  _name = getText 'ContextMenu_RedBrick_DoorFrame'
 
-	_sprite = {}
-	_sprite.sprite = "walls_exterior_house_01_14"
-	_sprite.northSprite = "walls_exterior_house_01_15"
-	_sprite.corner = "walls_exterior_house_01_7"
+  _option = subMenu[getText 'ContextMenu_RedBrick_Wall']:addOption(_name, nil, MoreBuild.onBuildStoneDoorFrame, _sprite, player, _name)
 
-	_name = getText "ContextMenu_RedBrick_DoorFrame"
+  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.stoneArchitecture, MoreBuild.skillLevel.none, _option, player)
+  _tooltip:setName(_name)
+  _tooltip.description = getText 'Tooltip_RedBrick_DoorFrame' .. _tooltip.description
 
-	_option = subMenu[getText "ContextMenu_RedBrick_Wall"]:addOption(_name, nil, MoreBuild.onBuildStoneDoorFrame, _sprite, player, _name)
+  if MoreBuild.playerCanPlaster then
+    _tooltip.description = _tooltip.description .. MoreBuild.textPlasterGreen
+  else
+    _tooltip.description = _tooltip.description .. MoreBuild.textPlasterRed
+  end
 
-	_tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.stoneArchitecture, MoreBuild.skillLevel.none, _option, player)
-	_tooltip:setName(_name)
-	_tooltip.description = getText "Tooltip_RedBrick_DoorFrame" .. _tooltip.description
-
-	if MoreBuild.playerCanPlaster then
-		_tooltip.description = _tooltip.description .. MoreBuild.textPlasterGreen
-	else
-		_tooltip.description = _tooltip.description .. MoreBuild.textPlasterRed
-	end
-
-	_tooltip:setTexture(_sprite.sprite)
+  _tooltip:setTexture(_sprite.sprite)
 end
 
 MoreBuild.onBuildWoodenDoorFrame = function(ignoreThisArgument, sprite, player, name)
-	local _doorFrame = ISWoodenDoorFrame:new(sprite.sprite, sprite.northSprite, sprite.corner)
+  local _doorFrame = ISWoodenDoorFrame:new(sprite.sprite, sprite.northSprite, sprite.corner)
 
-	_doorFrame.canBePlastered = MoreBuild.playerCanPlaster
-	_doorFrame.modData["wallType"] = "doorframe"
-	_doorFrame.player = player
-	_doorFrame.name = name
+  _doorFrame.canBePlastered = MoreBuild.playerCanPlaster
+  _doorFrame.modData['wallType'] = 'doorframe'
+  _doorFrame.player = player
+  _doorFrame.name = name
 
+  _doorFrame.modData['need:Base.Plank'] = '4'
+  _doorFrame.modData['need:Base.Nails'] = '4'
+  _doorFrame.modData['xp:Woodwork'] = '5'
 
-	_doorFrame.modData["need:Base.Plank"] = "4"
-	_doorFrame.modData["need:Base.Nails"] = "4"
-	_doorFrame.modData["xp:Woodwork"] = "5"
-
-	getCell():setDrag(_doorFrame, player)
+  getCell():setDrag(_doorFrame, player)
 end
 
 MoreBuild.onBuildLowDoorFrame = function(ignoreThisArgument, sprite, player, name)
-	local _LowdoorFrame = ISWoodenDoorFrame:new(sprite.sprite, sprite.northSprite, sprite.corner)
+  local _LowdoorFrame = ISWoodenDoorFrame:new(sprite.sprite, sprite.northSprite, sprite.corner)
 
-	_LowdoorFrame.canBePlastered = MoreBuild.playerCanPlaster
-	_LowdoorFrame.modData["wallType"] = "doorframe"
-	_LowdoorFrame.player = player
-	_LowdoorFrame.name = name
+  _LowdoorFrame.canBePlastered = MoreBuild.playerCanPlaster
+  _LowdoorFrame.modData['wallType'] = 'doorframe'
+  _LowdoorFrame.player = player
+  _LowdoorFrame.name = name
 
+  _LowdoorFrame.modData['need:Base.Plank'] = '1'
+  _LowdoorFrame.modData['need:Base.Nails'] = '1'
+  _LowdoorFrame.modData['xp:Woodwork'] = '5'
 
-	_LowdoorFrame.modData["need:Base.Plank"] = "1"
-	_LowdoorFrame.modData["need:Base.Nails"] = "1"
-	_LowdoorFrame.modData["xp:Woodwork"] = "5"
-
-	getCell():setDrag(_LowdoorFrame, player)
+  getCell():setDrag(_LowdoorFrame, player)
 end
 
-
 MoreBuild.onBuildStoneDoorFrame = function(ignoreThisArgument, sprite, player, name)
-	local _doorFrame = ISWoodenDoorFrame:new(sprite.sprite, sprite.northSprite, sprite.corner)
+  local _doorFrame = ISWoodenDoorFrame:new(sprite.sprite, sprite.northSprite, sprite.corner)
 
-	_doorFrame.canBePlastered = MoreBuild.playerCanPlaster
-	_doorFrame.modData["wallType"] = "doorframe"
-	_doorFrame.player = player
-	_doorFrame.name = name
+  _doorFrame.canBePlastered = MoreBuild.playerCanPlaster
+  _doorFrame.modData['wallType'] = 'doorframe'
+  _doorFrame.player = player
+  _doorFrame.name = name
 
+  _doorFrame.modData['need:Base.Plank'] = '8'
+  _doorFrame.modData['need:Base.Nails'] = '4'
+  _doorFrame.modData['xp:Woodwork'] = '5'
 
-	_doorFrame.modData["need:Base.Plank"] = "8"
-	_doorFrame.modData["need:Base.Nails"] = "4"
-	_doorFrame.modData["xp:Woodwork"] = "5"
+  function _doorFrame:getHealth()
+    return MoreBuild.healthLevel.stoneWall + buildUtil.getWoodHealth(self)
+  end
 
-	function _doorFrame:getHealth()
-		return MoreBuild.healthLevel.stoneWall + buildUtil.getWoodHealth(self)
-	end
+  MoreBuild.equipToolPrimary(_doorFrame, player, 'Trowel')
 
-	MoreBuild.equipToolPrimary(_doorFrame, player, "Trowel")
-
-	getCell():setDrag(_doorFrame, player)
+  getCell():setDrag(_doorFrame, player)
 end

@@ -1,71 +1,70 @@
 if not getMoreBuildInstance then
-	require("MoreBuildings/MoreBuilds_Main")
+  require('MoreBuildings/MoreBuilds_Main')
 end
 
 local MoreBuild = getMoreBuildInstance()
 
 MoreBuild.onBuildWindow = function(ignoreThisArgument, sprite, player, name)
-	local _window = ISWindow:new(sprite.sprite, sprite.northSprite, getSpecificPlayer(player))
-	
-	_window.player = player
-	_window.name = name
+  local _window = ISWindow:new(sprite.sprite, sprite.northSprite, getSpecificPlayer(player))
 
-	_window.modData["need:Base.Plank"] = "4"
-	_window.modData["need:Base.Screws"] = "4"
-	_window.modData["xp:Woodwork"] = "15"
+  _window.player = player
+  _window.name = name
 
-	getCell():setDrag(_window, player)
+  _window.modData['need:Base.Plank'] = '4'
+  _window.modData['need:Base.Screws'] = '4'
+  _window.modData['xp:Woodwork'] = '15'
+
+  getCell():setDrag(_window, player)
 end
 
 MoreBuild.WindowsMenuBuilder = function(subMenu, player)
-    local _sprite = nil
-    local _option = nil
-    local _tooltip = nil
-    local _name = ''
-		
-		local _windowsData = MoreBuild.getWindowsData()
+  local _sprite = nil
+  local _option = nil
+  local _tooltip = nil
+  local _name = ''
 
-    MoreBuild.neededMaterials = {
-        {
-            Material = 'Screws',
-            Amount = 4,
-            Text = getItemNameFromFullType('Base.Screws')
-        },
-        {
-            Material = 'Plank',
-            Amount = 4,
-            Text = getItemNameFromFullType('Base.Plank')
-        }
+  local _windowsData = MoreBuild.getWindowsData()
+
+  MoreBuild.neededMaterials = {
+    {
+      Material = 'Screws',
+      Amount = 4,
+      Text = getItemNameFromFullType('Base.Screws')
+    },
+    {
+      Material = 'Plank',
+      Amount = 4,
+      Text = getItemNameFromFullType('Base.Plank')
     }
+  }
 
-    MoreBuild.neededTools = {'Screwdriver', 'Saw'}
-		
-		for _, _currentList in pairs(_windowsData) do
-			_sprite = {}
-			_sprite.sprite = _currentList[1]
-			_sprite.northSprite = _currentList[2]
+  MoreBuild.neededTools = {'Screwdriver', 'Saw'}
 
-			_name = MoreBuild.getMoveableDisplayName(_currentList[1])
+  for _, _currentList in pairs(_windowsData) do
+    _sprite = {}
+    _sprite.sprite = _currentList[1]
+    _sprite.northSprite = _currentList[2]
 
-			_option = subMenu:addOption(_name, worldobjects, MoreBuild.onBuildWindow, _sprite, player, _name, _icon);
+    _name = MoreBuild.getMoveableDisplayName(_currentList[1])
 
-			_tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.windowsObject, 0, _option,player)
-			_tooltip:setName(_name)
-			_tooltip.description = getText('Tooltip_WoodWindows') .. _tooltip.description
-			_tooltip:setTexture(_sprite.sprite)
-		end
+    _option = subMenu:addOption(_name, worldobjects, MoreBuild.onBuildWindow, _sprite, player, _name, _icon)
+
+    _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.windowsObject, 0, _option, player)
+    _tooltip:setName(_name)
+    _tooltip.description = getText('Tooltip_WoodWindows') .. _tooltip.description
+    _tooltip:setTexture(_sprite.sprite)
+  end
 end
 
 MoreBuild.getWindowsData = function()
-	local _windowsData =
-	{
-		{ "fixtures_windows_01_0", "fixtures_windows_01_1", },
-		{ "fixtures_windows_01_8", "fixtures_windows_01_9", },
-		{ "fixtures_windows_01_16", "fixtures_windows_01_17", },
-		{ "fixtures_windows_01_24", "fixtures_windows_01_25", },
-		{ "fixtures_windows_01_32", "fixtures_windows_01_33", },
-		{ "fixtures_windows_01_56", "fixtures_windows_01_57", },
-	}
+  local _windowsData = {
+    {'fixtures_windows_01_0', 'fixtures_windows_01_1'},
+    {'fixtures_windows_01_8', 'fixtures_windows_01_9'},
+    {'fixtures_windows_01_16', 'fixtures_windows_01_17'},
+    {'fixtures_windows_01_24', 'fixtures_windows_01_25'},
+    {'fixtures_windows_01_32', 'fixtures_windows_01_33'},
+    {'fixtures_windows_01_56', 'fixtures_windows_01_57'}
+  }
 
-	return _windowsData
+  return _windowsData
 end

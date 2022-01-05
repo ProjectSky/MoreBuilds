@@ -28,7 +28,6 @@ function ISToggleLight:perform()
     MoreBuildClientCommands.addPole(self.lightSource:getSquare())
     self.lightSource:toggleLightSource(not self.lightSource:isLightSourceOn())
   end
-  -- needed to remove from queue / start next.
   ISBaseTimedAction.perform(self)
 end
 
