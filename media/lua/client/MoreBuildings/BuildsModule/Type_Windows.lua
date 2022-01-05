@@ -5,7 +5,7 @@ end
 local MoreBuild = getMoreBuildInstance()
 
 MoreBuild.onBuildWindow = function(ignoreThisArgument, sprite, player, name)
-  local _window = ISWindow:new(sprite.sprite, sprite.northSprite, getSpecificPlayer(player))
+  local _window = ISWindowObj:new(sprite.sprite, sprite.northSprite, getSpecificPlayer(player))
 
   _window.player = player
   _window.name = name
