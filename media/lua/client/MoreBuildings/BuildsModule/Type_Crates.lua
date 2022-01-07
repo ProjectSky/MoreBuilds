@@ -100,6 +100,36 @@ MoreBuild.cratesMenuBuilder = function(subMenu, player)
   _tooltip.description = getText 'Tooltip_Dog_House' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
 
+  _sprite = {}
+  _sprite.sprite = 'location_military_generic_01_0'
+  _sprite.northSprite = 'location_military_generic_01_2'
+  _sprite.eastSprite = 'location_military_generic_01_4'
+
+  _name = getText 'ContextMenu_ArmyGreen_MilitaryCrate'
+  _icon = 'militarycrate'
+
+  _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenContainer, _sprite, player, _name, _icon)
+
+  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.simpleContainer, MoreBuild.skillLevel.none, _option, player)
+  _tooltip:setName(_name)
+  _tooltip.description = getText 'Tooltip_ArmyGreen_MilitaryCrate' .. _tooltip.description
+  _tooltip:setTexture(_sprite.sprite)
+
+  _sprite = {}
+  _sprite.sprite = 'location_military_generic_01_8'
+  _sprite.northSprite = 'location_military_generic_01_10'
+  _sprite.eastSprite = 'location_military_generic_01_12'
+
+  _name = getText 'ContextMenu_ArmyGray_MilitaryCrate'
+  _icon = 'militarycrate'
+
+  _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenContainer, _sprite, player, _name, _icon)
+
+  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.simpleContainer, MoreBuild.skillLevel.none, _option, player)
+  _tooltip:setName(_name)
+  _tooltip.description = getText 'Tooltip_ArmyGray_MilitaryCrate' .. _tooltip.description
+  _tooltip:setTexture(_sprite.sprite)
+
   local _cardboardBoxesData = MoreBuild.getCardboardBoxesData()
 
   for _, _currentList in pairs(_cardboardBoxesData) do

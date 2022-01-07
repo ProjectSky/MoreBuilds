@@ -6,10 +6,12 @@
 -- Project Zomboid More Build Mod
 --
 
+local CacheObjectContext = {}
+
 local MoreBuild = {}
 MoreBuild.NAME = 'More Build'
 MoreBuild.AUTHOR = 'ProjectSky, SiderisAnon'
-MoreBuild.VERSION = '1.1.0'
+MoreBuild.VERSION = '1.1.1'
 
 print('Mod Loaded: ' .. MoreBuild.NAME .. ' by ' .. MoreBuild.AUTHOR .. ' (v' .. MoreBuild.VERSION .. ')')
 
@@ -325,7 +327,7 @@ MoreBuild.doBuildMenu = function(player, context, worldobjects, test)
     context:addSubMenu(_SurvivalOption, _SurvivalThirdTierMenu)
     MoreBuild.SurvivalPostsMenuBuilder(_SurvivalThirdTierMenu, player)
 
-    MoreBuild.doWaterWellInfo(player, context, worldobjects)
+    --MoreBuild.doWaterWellInfo(player, context, worldobjects)
   end
 end
 

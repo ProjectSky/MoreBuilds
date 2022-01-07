@@ -20,14 +20,15 @@ function ISWaterWell:create(x, y, z, north, sprite)
   self.javaObject:setBreakSound('breakdoor')
   self.sq:AddSpecialObject(self.javaObject)
   ISWaterWell.waterAmount = ZombRand(10, 50)
-  self.javaObject:getModData()['waterMax'] = 1200
+  self.javaObject:getModData()['waterMax'] = self.waterMax
   self.javaObject:getModData()['waterAmount'] = ISWaterWell.waterAmount
+  self.javaObject:setSpecialTooltip(true)
   local WaterWell = {}
   WaterWell.x = self.sq:getX()
   WaterWell.y = self.sq:getY()
   WaterWell.z = self.sq:getZ()
   WaterWell.waterAmount = ISWaterWell.waterAmount
-  WaterWell.waterMax = 1200
+  WaterWell.waterMax = self.waterMax
   WaterWell.exterior = self.sq:isOutside()
   table.insert(ISWaterWell.WaterWells, WaterWell)
   self.javaObject:transmitCompleteItemToServer()
@@ -43,7 +44,7 @@ function ISWaterWell:new(player, sprite, waterMax)
   o.name = 'Water Well'
   o.waterMax = waterMax
   o.player = player
-  o.dismantable = true
+  o.dismantable = false
   o.canBarricade = false
   o.blockAllTheSquare = true
   return o
@@ -54,44 +55,17 @@ function ISWaterWell:getHealth()
 end
 
 function ISWaterWell:isValid(square)
-  if not self:haveMaterial(square) then
-    return false
-  end
-  if not square:isOutside() then
-    return false
-  end
-  for i = 1, square:getObjects():size() do
-    local obj = square:getObjects():get(i - 1)
-    if obj:getTextureName() and getPlayer():getZ() == 0 and (luautils.stringStarts(obj:getTextureName(), 'floors_exterior_natural') or luautils.stringStarts(obj:getTextureName(), 'blends_natural_01')) then
-      return true
-    end
-  end
-  if not square then
-    return false
-  end
-  if square:isSolid() or square:isSolidTrans() then
-    return false
-  end
-  if square:HasStairs() then
-    return false
-  end
-  if square:HasTree() then
+  if not ISBuildingObject.isValid(self, square) then
     return false
   end
   if not square:getMovingObjects():isEmpty() then
     return false
   end
-  if not square:TreatAsSolidFloor() then
-    return false
-  end
   for i = 1, square:getObjects():size() do
     local obj = square:getObjects():get(i - 1)
-    if self:getSprite() == obj:getTextureName() then
-      return false
+    if obj:getTextureName() and getSpecificPlayer(self.player):getZ() == 0 and (luautils.stringStarts(obj:getTextureName(), 'floors_exterior_natural') or luautils.stringStarts(obj:getTextureName(), 'blends_natural_01')) then
+      return true
     end
-  end
-  if buildUtil.stairIsBlockingPlacement(square, true) then
-    return false
   end
 end
 
@@ -120,7 +94,9 @@ function ISWaterWell.checkRain()
   if isClient() then
     return
   end
-  if RainManager.isRaining() then
+
+  local rainIntensity = Math.round(RainManager.getRainIntensity() * 100 ) / 100 --get rain intensity
+  if rainIntensity > 0 then
     for iB, vB in ipairs(ISWaterWell.WaterWells) do
       if vB.waterAmount < vB.waterMax then
         local square = getCell():getGridSquare(vB.x, vB.y, vB.z)
@@ -128,10 +104,10 @@ function ISWaterWell.checkRain()
           vB.exterior = square:isOutside()
         end
         if vB.exterior then
-          vB.waterAmount = math.min(vB.waterMax, vB.waterAmount + 0.2)
+          vB.waterAmount = math.min(vB.waterMax, vB.waterAmount + rainIntensity)
           local obj = ISWaterWell.findObject(square)
           if obj then
-            noise('added rain to WaterWell at ' .. vB.x .. ',' .. vB.y .. ',' .. vB.z .. ' waterAmount=' .. vB.waterAmount)
+            noise('added rain to WaterWell at ' .. vB.x .. ',' .. vB.y .. ',' .. vB.z .. ' waterAmount=' .. vB.waterAmount .. ' rainIntensity=' .. rainIntensity)
             obj:setWaterAmount(vB.waterAmount)
             obj:transmitModData()
           end
@@ -145,17 +121,15 @@ function ISWaterWell.checkEveryHours()
   if isClient() then
     return
   end
+
   for iB, vB in ipairs(ISWaterWell.WaterWells) do
     if vB.waterAmount < vB.waterMax then
       local square = getCell():getGridSquare(vB.x, vB.y, vB.z)
       if square then
-        vB.exterior = square:isOutside()
-      end
-      if vB.exterior then
         vB.waterAmount = math.min(vB.waterMax, vB.waterAmount + ZombRand(5, 10))
         local obj = ISWaterWell.findObject(square)
         if obj then
-          noise('added rain to WaterWell at ' .. vB.x .. ',' .. vB.y .. ',' .. vB.z .. ' waterAmount=' .. vB.waterAmount)
+          noise('added water to WaterWell at ' .. vB.x .. ',' .. vB.y .. ',' .. vB.z .. ' waterAmount=' .. vB.waterAmount)
           obj:setWaterAmount(vB.waterAmount)
           obj:transmitModData()
         end

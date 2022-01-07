@@ -49,7 +49,7 @@ MoreBuild.SurvivalPostsMenuBuilder = function(subMenu, player)
 
   _name = getText 'ContextMenu_Water_Well'
 
-  _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWaterWell, _sprite, player, _name, _icon)
+  _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWaterWell, player, _sprite.sprite, nil)
 
   _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.waterwellObject, MoreBuild.skillLevel.none, _option, player)
   _tooltip:setName(_name)
@@ -269,8 +269,8 @@ MoreBuild.onBuildGenerator = function(ignoreThisArgument, sprite, player, name)
   getCell():setDrag(_Generator, player)
 end
 
-MoreBuild.onBuildWaterWell = function(ignoreThisArgument, sprite, player, name)
-  local _WaterWell = ISWaterWell:new(sprite.sprite, sprite.northSprite, sprite.corner)
+MoreBuild.onBuildWaterWell = function(ignoreThisArgument, player, sprite, waterMax)
+  local _WaterWell = ISWaterWell:new(player, sprite, 1200) --waterMax
   _WaterWell.player = player
   _WaterWell.name = name
 
@@ -340,34 +340,57 @@ MoreBuild.onBuildFireplace = function(ignoreThisArgument, sprite, player, name)
   _fireplace.name = name
 
   _fireplace.modData['need:Base.Stone'] = '10'
-  _fireplace.modData['use:Base.Dirtbag'] = '4'
+  _fireplace.modData['use:Base.Dirtbag'] = '1'
   _fireplace.modData['use:Base.BucketWaterFull'] = '25'
   _fireplace.modData['xp:Woodwork'] = '15'
 
   getCell():setDrag(_fireplace, player)
 end
 
+--[[
 MoreBuild.doWaterWellInfo = function(player, context, worldobjects)
-  local WellWater
+  local waterwell
+  local amount
 
   for _, v in ipairs(worldobjects) do
     local modData = v:getModData()
 
     if modData['IsWaterWell'] then
-      WellWaterAmount = v:getWaterAmount()
-      objx = v:getX()
-      objy = v:getY()
-      WellWater = v
+      amount = v:getWaterAmount()
+      waterwell = v
     end
   end
 
-  if WellWater and getSpecificPlayer(player):DistToSquared(objx + 0.5, objy + 0.5) < 2 * 2 then
+  if waterwell and getSpecificPlayer(player):DistToSquared(waterwell:getX() + 0.5, waterwell:getY() + 0.5) < 2 * 2 then
     local _option = context:addOption(getText('ContextMenu_Water_Well'), worldobjects, nil)
     _option.toolTip = ISToolTip:new()
     _option.toolTip:initialise()
     _option.toolTip:setVisible(false)
-    _option.toolTip:setName(getText('ContextMenu_Water_Well'))
-    _option.toolTip.description = getText('Tooltip_WaterAmount') .. WellWaterAmount
-    _option.toolTip:setTexture('morebuild_01_0')
+    --_option.toolTip:setName(getText('ContextMenu_Water_Well'))
+    _option.toolTip.description = getText('Tooltip_WaterAmount', amount)
+    --_option.toolTip:setTexture('morebuild_01_0')
   end
 end
+--]]
+
+local function DoSpecialWellTooltip(tooltipUI, square)
+	local playerObj = getSpecificPlayer(0)
+	if not playerObj or playerObj:getPerkLevel(Perks.Woodwork) < 4 or playerObj:getZ() ~= square:getZ() or
+			playerObj:DistToSquared(square:getX() + 0.5, square:getY() + 0.5) > 2 * 2 then
+		return
+	end
+	
+	local waterwell = ISWaterWell.findObject(square)
+	if not waterwell or not waterwell:getModData()["waterMax"] then return end
+
+	local smallFontHgt = getTextManager():getFontFromEnum(UIFont.Small):getLineHeight()
+	tooltipUI:setHeight(6 + smallFontHgt + 6 + smallFontHgt + 12)
+
+	local textX = 12
+	local textY = 6 + smallFontHgt + 6
+	tooltipUI:DrawTextureScaledColor(nil, 0, 0, tooltipUI:getWidth(), tooltipUI:getHeight(), 0, 0, 0, 0.75)
+	tooltipUI:DrawTextCentre(getText("ContextMenu_Water_Well"), tooltipUI:getWidth() / 2, 6, 1, 1, 1, 1)
+	tooltipUI:DrawText(getText('Tooltip_WaterAmount', waterwell:getWaterAmount()), textX, textY, 1, 1, 1, 1)
+end
+
+Events.DoSpecialTooltip.Add(DoSpecialWellTooltip)

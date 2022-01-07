@@ -270,6 +270,39 @@ MoreBuild.wallsMenuBuilder = function(subMenu, player)
   end
 
   _tooltip:setTexture(_sprite.sprite)
+
+  MoreBuild.neededMaterials = {
+    {
+      Material = 'Plank',
+      Amount = 4,
+      Text = getItemNameFromFullType('Base.Plank')
+    },
+    {
+      Material = 'Nails',
+      Amount = 4,
+      Text = getItemNameFromFullType('Base.Nails')
+    }
+  }
+
+  local _windowsWallData = MoreBuild.getWindowsWallData()
+
+  for k, _currentList in pairs(_windowsWallData) do
+
+    _sprite = {}
+    _sprite.sprite = _currentList[1]
+    _sprite.northSprite = _currentList[2]
+    _sprite.corner = _currentList[3]
+
+    _name = getText 'ContextMenu_Glass_Wall' .. k
+
+    _option = subMenu[getText 'ContextMenu_Glass_Wall']:addOption(_name, nil, MoreBuild.onBuildWindowWall, _sprite, player, _name)
+
+    _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.stoneArchitecture, MoreBuild.skillLevel.none, _option, player)
+    _tooltip:setName(_name)
+    _tooltip.description = getText 'Tooltip_Glass_Wall' .. _tooltip.description
+
+    _tooltip:setTexture(_sprite.sprite)
+  end
 end
 
 MoreBuild.onBuildWoodenWall = function(ignoreThisArgument, sprite, player, name)
@@ -312,6 +345,19 @@ MoreBuild.onBuildStoneWall = function(ignoreThisArgument, sprite, player, name)
   getCell():setDrag(_wall, player)
 end
 
+MoreBuild.onBuildWindowWall = function(ignoreThisArgument, sprite, player, name)
+  local _window = ISWindowWallObj:new(sprite.sprite, sprite.northSprite, getSpecificPlayer(player))
+
+  _window.player = player
+  _window.name = name
+
+  _window.modData['need:Base.Plank'] = '4'
+  _window.modData['need:Base.Screws'] = '4'
+  _window.modData['xp:Woodwork'] = '15'
+
+  getCell():setDrag(_window, player)
+end
+
 MoreBuild.wallStylesMenuBuilder = function(subMenu, player, context, worldobjects)
   local _stylesOptions = {}
   local _stylesSubMenus = {}
@@ -326,7 +372,8 @@ MoreBuild.wallStylesMenuBuilder = function(subMenu, player, context, worldobject
     getText 'ContextMenu_Brown_Cinder_Block',
     getText 'ContextMenu_Gray_Cinder_Block',
     getText 'ContextMenu_White_CinderBlock',
-    getText 'ContextMenu_RedBrick_Wall'
+    getText 'ContextMenu_RedBrick_Wall',
+    getText 'ContextMenu_Glass_Wall'
   }
 
   for _, _style in pairs(_styleList) do
@@ -341,4 +388,20 @@ MoreBuild.wallStylesMenuBuilder = function(subMenu, player, context, worldobject
   MoreBuild.windowFramesMenuBuilder(_stylesSubMenus, player)
   MoreBuild.fencesMenuBuilder(_stylesSubMenus, player)
   MoreBuild.fencePostsMenuBuilder(_stylesSubMenus, player)
+end
+
+MoreBuild.getWindowsWallData = function()
+  local _windowsWallData = {
+    {'walls_commercial_01_0', 'walls_commercial_01_1', 'walls_commercial_01_2'},
+    {'walls_commercial_01_16', 'walls_commercial_01_17', 'walls_commercial_01_19'},
+    {'walls_commercial_01_32', 'walls_commercial_01_33', 'walls_commercial_01_35'},
+    {'walls_commercial_01_40', 'walls_commercial_01_41', 'walls_commercial_01_35'},
+    {'walls_commercial_01_64', 'walls_commercial_01_65', 'walls_commercial_01_67'},
+    {'walls_commercial_01_80', 'walls_commercial_01_81', 'walls_commercial_01_83'},
+    {'walls_commercial_01_96', 'walls_commercial_01_97', 'walls_commercial_01_99'},
+    {'walls_commercial_01_112', 'walls_commercial_01_113', 'walls_commercial_01_115'},
+    {'walls_commercial_02_0', 'walls_commercial_02_1', 'walls_commercial_02_3'},
+    {'walls_commercial_02_8', 'walls_commercial_02_9', 'walls_commercial_02_11'}
+  }
+  return _windowsWallData
 end

@@ -104,6 +104,21 @@ MoreBuild.metalLockersMenuBuilder = function(subMenu, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_Yellow_Lockers' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
+
+  _sprite = {}
+  _sprite.sprite = 'location_military_generic_01_23'
+  _sprite.northSprite = 'location_military_generic_01_22'
+  _sprite.southSprite = 'location_military_generic_01_31'
+  _sprite.eastSprite = 'location_military_generic_01_30'
+
+  _name = getText 'ContextMenu_Military_Lockers'
+
+  _option = subMenu:addOption(_name, nil, MoreBuild.onBuildHangingMetalLocker, _sprite, player, _name)
+
+  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.complexFurniture, MoreBuild.skillLevel.none, _option, player)
+  _tooltip:setName(_name)
+  _tooltip.description = getText 'Tooltip_Military_Lockers' .. _tooltip.description
+  _tooltip:setTexture(_sprite.sprite)
 end
 
 MoreBuild.onBuildMetalLocker = function(ignoreThisArgument, sprite, player, name)

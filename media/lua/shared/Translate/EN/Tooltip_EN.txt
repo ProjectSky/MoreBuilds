@@ -160,7 +160,12 @@ Tooltip_EN = {
 	Tooltip_Metal_LowDoor = "A lower metal door, need to be installed door frame. ",
 	Tooltip_Low_DoorFrame = "A lower door frame, used to install the lower door. <br> <br> Bad appearance, I will not art, My bad :) ",
 	Tooltip_Fuel_Generator = "A fuel generator. After the start can give housing power supply. <br> <br> Although only low electrical skill requirements, But its Condition is related to your electrical level! ",
-	Tooltip_WaterAmount = "Water amount:  ",
+	Tooltip_WaterAmount = "Water amount: %1",
 	Tooltip_Stove = "A beautiful and warm fireplace can be used to cook food.",
 	Tooltip_BookShelf = "Multi layer bookshelf, used to store books or magazines.",
+	Tooltip_Glass_Wall = "A glass wall, do you think it can stop zombies?",
+	Tooltip_Safety_Door = "No one knows the code for this door!",
+	Tooltip_ArmyGreen_MilitaryCrate = "A military green crate, these boxes are often used by the army to store some military supplies, can be stacked.",
+	Tooltip_ArmyGray_MilitaryCrate = "A military gray crate, these boxes are often used by the army to store some military supplies, can be stacked.",
+	Tooltip_Military_Lockers = "A military lockers, used store your weapons.",
 }

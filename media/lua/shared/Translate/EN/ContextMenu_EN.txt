@@ -143,6 +143,7 @@ ContextMenu_EN = {
 	ContextMenu_Wood_FortressDoor = "Wood Fortress Door",
 	ContextMenu_Spiffos_Door = "Spiffo's Door",
 	ContextMenu_Outhouse_Door = "Outhouse Door",
+	ContextMenu_Safety_Door = "Safety Door",
 	ContextMenu_WhitePicket_FencePost = "White Picket Fence",
 	ContextMenu_BeigeFence_WithRail = "Beige Fence With Rail",
 	ContextMenu_GreenMetal_Fence = "Green Metal Fence",
@@ -487,4 +488,7 @@ ContextMenu_EN = {
 	ContextMenu_Fireplace = "Fireplace",
 	ContextMenu_BookShelf_Menu = "Book Shelf",
 	ContextMenu_Decorations_Other = "Other",
+	ContextMenu_ArmyGreen_MilitaryCrate = "Army Green Military Crate",
+	ContextMenu_ArmyGray_MilitaryCrate = "Army Gray Military Crate",
+	ContextMenu_Military_Lockers = "Military Lockers",
 }

@@ -159,6 +159,6 @@ Tooltip_FR = {
 	Tooltip_Metal_LowDoor = "Une petite porte en m�tal. Elle doit �tre install�e sur un cadre appropri�.",
 	Tooltip_Low_DoorFrame = "Un petit cadre de porte, pour y installer les petites portes. <br> <br> L'apparence est moche, je ne suis pas artiste, d�sol� :)",
 	Tooltip_Fuel_Generator = "Un g�n�rateur � essence. Apr�s l'avoir d�marr�, il procurera une provision d'�lectricit� � votre maison. <br> <br> Il ne n�cessite pas de comp�tence �lev�e, mais son �tat varie en fonction de votre niveau d'�lectricien ! ",
-	Tooltip_WaterAmount = "Quantit� d'eau :  ",
+	Tooltip_WaterAmount = "Quantit� d'eau: %1",
 
 }

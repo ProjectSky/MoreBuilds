@@ -502,10 +502,10 @@ MoreBuild.otherDoorsMenuBuilder = function(subMenu, player)
   _tooltip:setTexture(_sprite.sprite)
 
   _sprite = {}
-  _sprite.sprite = 'fixtures_bathroom_02_26'
-  _sprite.northSprite = 'fixtures_bathroom_02_27'
-  _sprite.openSprite = 'fixtures_bathroom_02_28'
-  _sprite.openNorthSprite = 'fixtures_bathroom_02_29'
+  _sprite.sprite = 'fixtures_bathroom_02_32'
+  _sprite.northSprite = 'fixtures_bathroom_02_33'
+  _sprite.openSprite = 'fixtures_bathroom_02_34'
+  _sprite.openNorthSprite = 'fixtures_bathroom_02_35'
 
   _name = getText 'ContextMenu_Outhouse_Door'
 
@@ -514,6 +514,21 @@ MoreBuild.otherDoorsMenuBuilder = function(subMenu, player)
   _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.doorObject, MoreBuild.skillLevel.none, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_Outhouse_Door' .. _tooltip.description
+  _tooltip:setTexture(_sprite.sprite)
+
+  _sprite = {}
+  _sprite.sprite = 'fixtures_doors_01_32'
+  _sprite.northSprite = 'fixtures_doors_01_33'
+  _sprite.openSprite = 'fixtures_doors_01_34'
+  _sprite.openNorthSprite = 'fixtures_doors_01_35'
+
+  _name = getText 'ContextMenu_Safety_Door'
+
+  _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenDoor, _sprite, player, _name)
+
+  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.doorObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip:setName(_name)
+  _tooltip.description = getText 'Tooltip_Safety_Door' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
 end
 

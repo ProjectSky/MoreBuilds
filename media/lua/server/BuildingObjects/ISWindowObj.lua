@@ -4,43 +4,26 @@ ISWindowObj = ISBuildingObject:derive('ISWindowObj')
 
 function ISWindowObj:create(x, y, z, north, sprite)
   local cell = getWorld():getCell()
-  local direction = nil
+  local north = nil
   self.sq = cell:getGridSquare(x, y, z)
-  for i = 0, self.sq:getObjects():size() - 1 do
-    local obj = self.sq:getObjects():get(i)
-    local prop = obj:getSprite():getProperties()
-    if prop:Is(IsoFlagType.WindowW) then
-      direction = false
-    elseif prop:Is(IsoFlagType.WindowN) then
-      direction = true
-    end
-  end
-  self.javaObject = IsoWindow.new(getCell(), self.sq, getSprite(sprite), direction)
-  self.sq:AddSpecialObject(self.javaObject)
+  local props = ISMoveableSpriteProps.new(getSprite(sprite))
+  north = props.facing and (props.facing == "N" or props.facing == "S")
+  self.javaObject = IsoWindow.new(getCell(), self.sq, getSprite(sprite), north)
   buildUtil.consumeMaterial(self)
+  self.sq:AddSpecialObject(self.javaObject)
   self.javaObject:setIsLocked(false)
   self.javaObject:transmitCompleteItemToServer()
 end
 
 function ISWindowObj:isValid(square)
-  local direction = nil
-  for i = 0, square:getObjects():size() - 1 do
-    local obj = square:getObjects():get(i)
-    local prop = obj:getSprite():getProperties()
-    if instanceof(obj, 'IsoWindow') or instanceof(obj, 'IsoBarricade') then
-      return false
-    end
-  end
-  local props = getSprite(self:getSprite()):getProperties()
-  if (props:Val('Facing') == 'N') then
-    direction = 'S'
-  elseif (props:Val('Facing') == 'W') then
-    direction = 'E'
-  end
-  return ISMoveableSpriteProps:getWallForFacing(square, direction, 'WindowFrame')
-end
+  if not self:haveMaterial(square) then return false end
+	if square:isVehicleIntersecting() then return false end
 
-function ISWindowObj:update()
+  local sharedSprite = getSprite(self:getSprite())
+  if sharedSprite then
+		local props = ISMoveableSpriteProps.new(sharedSprite)
+		return props:canPlaceMoveable("bogus", square, nil)
+	end
 end
 
 function ISWindowObj:stop()
@@ -51,21 +34,18 @@ function ISWindowObj:stop()
   ISBaseTimedAction.stop(self)
 end
 
-function ISWindowObj:start()
-end
-
 function ISWindowObj:perform()
   ISBaseTimedAction.perform(self)
 end
 
-function ISWindowObj:new(sprite, northSprite, corner)
+function ISWindowObj:new(sprite, northSprite, player)
   local o = {}
   setmetatable(o, self)
   self.__index = self
   o:init()
   o:setSprite(sprite)
   o:setNorthSprite(northSprite)
-  o.corner = corner
+  o.player = player
   o.canBarricade = true
   o.dismantable = true
   o.name = name
