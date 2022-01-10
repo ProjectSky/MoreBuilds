@@ -94,8 +94,7 @@ function ISWaterWell.checkRain()
   if isClient() then
     return
   end
-
-  local rainIntensity = Math.round(RainManager.getRainIntensity() * 100 ) / 100 --get rain intensity
+  local rainIntensity = Math.round(ClimateManager.getInstance():getRainIntensity() * 100) / 100 --get rain intensity
   if rainIntensity > 0 then
     for iB, vB in ipairs(ISWaterWell.WaterWells) do
       if vB.waterAmount < vB.waterMax then

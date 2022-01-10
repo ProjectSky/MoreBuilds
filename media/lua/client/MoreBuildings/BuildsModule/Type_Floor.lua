@@ -205,7 +205,8 @@ MoreBuild.getFloorsData = function()
       {'floors_interior_tilesandwood_01_49', 'floors_interior_tilesandwood_01_49', getText 'ContextMenu_YellowSquare_Flooring', false},
       {'floors_interior_tilesandwood_01_50', 'floors_interior_tilesandwood_01_50', getText 'ContextMenu_OrangeSquare_Flooring', false},
       {'recreational_sports_01_34', 'recreational_sports_01_34', getText 'ContextMenu_RubberFloor_Padding', false},
-      {'floors_burnt_01_0', 'floors_burnt_01_0', getText 'ContextMenu_Burnt_Floor', false}
+      {'floors_burnt_01_0', 'floors_burnt_01_0', getText 'ContextMenu_Burnt_Floor', false},
+      {'roofs_02_54', 'roofs_02_55', getText 'ContextMenu_Glass_Floor', false}
     },
     [getText 'ContextMenu_Industrial_Flooring'] = {
       {'industry_01_7', 'industry_01_7', getText 'ContextMenu_GrayIndustrial_Flooring', false},

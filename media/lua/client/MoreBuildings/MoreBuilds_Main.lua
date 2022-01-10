@@ -11,7 +11,7 @@ local CacheObjectContext = {}
 local MoreBuild = {}
 MoreBuild.NAME = 'More Build'
 MoreBuild.AUTHOR = 'ProjectSky, SiderisAnon'
-MoreBuild.VERSION = '1.1.1'
+MoreBuild.VERSION = '1.1.2'
 
 print('Mod Loaded: ' .. MoreBuild.NAME .. ' by ' .. MoreBuild.AUTHOR .. ' (v' .. MoreBuild.VERSION .. ')')
 
@@ -74,6 +74,7 @@ MoreBuild.skillLevel = {
   floorObject = 1,
   wallObject = 2,
   doorObject = 3,
+  garageDoorObject = 6,
   stairsObject = 6,
   stoneArchitecture = 5,
   metalArchitecture = 5,
@@ -166,6 +167,12 @@ MoreBuild.doBuildMenu = function(player, context, worldobjects, test)
 
     context:addSubMenu(_WindowsOption, _WindowsSubMenu)
     MoreBuild.WindowsMenuBuilder(_WindowsSubMenu, player, context, worldobjects)
+
+    local _HighMetalFenceOption = _architectureThirdTierMenu:addOption(getText('ContextMenu_HighMetal_Fence'), worldobjects, nil)
+    local _HighMetalFenceSubMenu = _architectureThirdTierMenu:getNew(_architectureThirdTierMenu)
+
+    context:addSubMenu(_HighMetalFenceOption, _HighMetalFenceSubMenu)
+    MoreBuild.highMetalFenceMenuBuilder(_HighMetalFenceSubMenu, player, context, worldobjects)
 
     local _moreFencesOption = _architectureThirdTierMenu:addOption(getText('ContextMenu_Fences_Menu'), worldobjects, nil)
     local _moreFencesSubMenu = _architectureThirdTierMenu:getNew(_architectureThirdTierMenu)

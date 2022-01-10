@@ -98,18 +98,18 @@ function MoreBuildClientCommands.checkPower()
   local temptable = MoreBuildClientCommands.Lightpoles
   for i, v in ipairs(temptable) do
     local square = getCell():getGridSquare(v.x, v.y, v.z)
-		if square then
-			if not (square:haveElectricity() or (SandboxVars.ElecShutModifier > -1 and GameTime:getInstance():getNightsSurvived() < SandboxVars.ElecShutModifier)) then
-				local obj = MoreBuildClientCommands.findObject(square)
-				if obj then
-					obj:toggleLightSource(false)
-					obj:sendObjectChange('lightSource')
-					MoreBuildClientCommands.removePole(square)
-				else
-					MoreBuildClientCommands.removePole(square)
-				end
-			end
-		end
+    if square then
+      if not (square:haveElectricity() or (SandboxVars.ElecShutModifier > -1 and GameTime:getInstance():getNightsSurvived() < SandboxVars.ElecShutModifier)) then
+        local obj = MoreBuildClientCommands.findObject(square)
+        if obj then
+          obj:toggleLightSource(false)
+          obj:sendObjectChange('lightSource')
+          MoreBuildClientCommands.removePole(square)
+        else
+          MoreBuildClientCommands.removePole(square)
+        end
+      end
+    end
   end
 end
 

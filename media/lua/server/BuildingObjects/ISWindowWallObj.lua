@@ -5,11 +5,10 @@ ISWindowWallObj = ISBuildingObject:derive('ISWindowWallObj')
 function ISWindowWallObj:create(x, y, z, north, sprite)
   local cell = getWorld():getCell()
   self.sq = cell:getGridSquare(x, y, z)
-  local prop = getSprite(sprite):getProperties()
 
-  self.javaObject = IsoWindow.new(getCell(), self.sq, getSprite(sprite), prop:Is(IsoFlagType.WindowN) or false)
-  self.sq:AddSpecialObject(self.javaObject)
+  self.javaObject = IsoWindow.new(getCell(), self.sq, getSprite(sprite), north)
   buildUtil.consumeMaterial(self)
+  self.sq:AddSpecialObject(self.javaObject)
   self.javaObject:transmitCompleteItemToServer()
 end
 

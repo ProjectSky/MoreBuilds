@@ -311,8 +311,8 @@ MoreBuild.onBuildStoneDoorFrame = function(ignoreThisArgument, sprite, player, n
   _doorFrame.player = player
   _doorFrame.name = name
 
-  _doorFrame.modData['need:Base.Plank'] = '8'
-  _doorFrame.modData['need:Base.Nails'] = '4'
+  _doorFrame.modData['need:Base.Plank'] = '2'
+  _doorFrame.modData['need:Base.Nails'] = '3'
   _doorFrame.modData['xp:Woodwork'] = '5'
 
   function _doorFrame:getHealth()
