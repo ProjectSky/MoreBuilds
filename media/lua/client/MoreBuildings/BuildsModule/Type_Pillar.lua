@@ -219,7 +219,7 @@ MoreBuild.onBuildStonePillar = function(ignoreThisArgument, sprite, player, name
     return MoreBuild.healthLevel.stoneWall + buildUtil.getWoodHealth(self)
   end
 
-  MoreBuild.equipToolPrimary(_pillar, player, 'Trowel')
+  MoreBuild.equipToolPrimary(_pillar, player, 'Hammer')
 
   getCell():setDrag(_pillar, player)
 end

@@ -27,6 +27,8 @@ function ISHighMetalFence:addPart(x, y, z, north, sprite)
 
   self.javaObject = IsoThumpable.new(cell, sq, sprite, north, self)
 
+  self.javaObject:setThumpSound("ZombieThumpMetal")
+
   sq:AddSpecialObject(self.javaObject)
   self.javaObject:transmitCompleteItemToServer()
 end

@@ -185,8 +185,6 @@ MoreBuild.wallsMenuBuilder = function(subMenu, player)
     }
   }
 
-  MoreBuild.neededTools = {'Hammer'}
-
   _sprite = {}
   _sprite.sprite = 'walls_commercial_03_0'
   _sprite.northSprite = 'walls_commercial_03_1'
@@ -278,9 +276,9 @@ MoreBuild.wallsMenuBuilder = function(subMenu, player)
       Text = getItemNameFromFullType('Base.Plank')
     },
     {
-      Material = 'Nails',
+      Material = 'Screws',
       Amount = 4,
-      Text = getItemNameFromFullType('Base.Nails')
+      Text = getItemNameFromFullType('Base.Screws')
     }
   }
 
@@ -340,7 +338,7 @@ MoreBuild.onBuildStoneWall = function(ignoreThisArgument, sprite, player, name)
     return MoreBuild.healthLevel.stoneWall + buildUtil.getWoodHealth(self)
   end
 
-  MoreBuild.equipToolPrimary(_wall, player, 'Trowel')
+  MoreBuild.equipToolPrimary(_wall, player, 'Hammer')
 
   getCell():setDrag(_wall, player)
 end

@@ -11,7 +11,7 @@ local CacheObjectContext = {}
 local MoreBuild = {}
 MoreBuild.NAME = 'More Build'
 MoreBuild.AUTHOR = 'ProjectSky, SiderisAnon'
-MoreBuild.VERSION = '1.1.2'
+MoreBuild.VERSION = '1.1.3'
 
 print('Mod Loaded: ' .. MoreBuild.NAME .. ' by ' .. MoreBuild.AUTHOR .. ' (v' .. MoreBuild.VERSION .. ')')
 
@@ -96,7 +96,8 @@ MoreBuild.healthLevel = {
   woodContainer = 200,
   stoneContainer = 250,
   metalContainer = 350,
-  wallDecoration = 50
+  wallDecoration = 50,
+  woodenFence = 100
 }
 
 MoreBuild.getMoveableDisplayName = function(sprite)
@@ -341,7 +342,8 @@ end
 MoreBuild.haveAToolToBuildWithWith = function(player)
   local _inventory = getSpecificPlayer(player):getInventory()
   MoreBuild.toolsList = {}
-  MoreBuild.toolsList['Hammer'] = _inventory:contains('Hammer') or _inventory:contains('HammerStone') or _inventory:contains('BallPeenHammer') or _inventory:contains('WoodenMallet') or _inventory:contains('ClubHammer')
+  --MoreBuild.toolsList['Hammer'] = _inventory:contains('Hammer') or _inventory:contains('HammerStone') or _inventory:contains('BallPeenHammer') or _inventory:contains('WoodenMallet') or _inventory:contains('ClubHammer')
+	MoreBuild.toolsList['Hammer'] = _inventory:contains('Hammer')
   MoreBuild.toolsList['Screwdriver'] = _inventory:contains('Screwdriver')
   MoreBuild.toolsList['HandShovel'] = _inventory:contains('HandShovel')
   MoreBuild.toolsList['Saw'] = _inventory:contains('Saw')
@@ -356,17 +358,27 @@ MoreBuild.haveAToolToBuildWithWith = function(player)
   return MoreBuild.toolsList['Hammer'] or ISBuildMenu.cheat
 end
 
+local function predicateNotBroken(item)
+	return not item:isBroken()
+end
+
 MoreBuild.equipToolPrimary = function(object, player, tool)
+  local tool = nil
   if MoreBuild.toolsList[tool] then
-    ISInventoryPaneContextMenu.equipWeapon(getSpecificPlayer(player):getInventory():getItemFromType(tool), true, false, player)
+    tool = getSpecificPlayer(player):getInventory():getFirstTagEvalRecurse(tool, predicateNotBroken)
+    if not tool then error("invalid tool!") return end
+    ISInventoryPaneContextMenu.equipWeapon(tool, true, false, player)
 
     object.noNeedHammer = true
   end
 end
 
 MoreBuild.equipToolSecondary = function(object, player, tool)
+  local tool = nil
   if MoreBuild.toolsList[tool] then
-    ISInventoryPaneContextMenu.equipWeapon(getSpecificPlayer(player):getInventory():getItemFromType(tool), false, false, player)
+    tool = getSpecificPlayer(player):getInventory():getFirstTagEvalRecurse(tool, predicateNotBroken)
+    if not tool then error("invalid tool!") return end
+    ISInventoryPaneContextMenu.equipWeapon(tool, false, false, player)
   end
 end
 

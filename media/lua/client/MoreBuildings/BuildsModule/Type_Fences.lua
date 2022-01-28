@@ -279,7 +279,7 @@ MoreBuild.onBuildWoodenFence = function(ignoreThisArgument, sprite, player, name
   local _fence = ISWoodenWall:new(sprite.sprite, sprite.northSprite, sprite.corner)
 
   _fence.hoppable = true
-  _fence.isDestroyed = false
+  _fence.isThumpable = true
   _fence.player = player
   _fence.name = name
 
@@ -288,7 +288,7 @@ MoreBuild.onBuildWoodenFence = function(ignoreThisArgument, sprite, player, name
   _fence.modData['xp:Woodwork'] = '5'
 
   function _fence:getHealth()
-    return MoreBuild.healthLevel.WoodenFence
+    return MoreBuild.healthLevel.woodenFence
   end
 
   getCell():setDrag(_fence, player)
@@ -298,8 +298,7 @@ MoreBuild.onBuildStoneFence = function(ignoreThisArgument, sprite, player, name)
   local _fence = ISWoodenWall:new(sprite.sprite, sprite.northSprite, sprite.corner)
 
   _fence.hoppable = true
-  _fence.isThumpable = false
-  _fence.canBarricade = true
+  _fence.isThumpable = true
   _fence.player = player
   _fence.name = name
 
@@ -311,7 +310,7 @@ MoreBuild.onBuildStoneFence = function(ignoreThisArgument, sprite, player, name)
     return MoreBuild.healthLevel.stoneWall + buildUtil.getWoodHealth(self)
   end
 
-  MoreBuild.equipToolPrimary(_fence, player, 'Trowel')
+  MoreBuild.equipToolPrimary(_fence, player, 'Hammer')
 
   getCell():setDrag(_fence, player)
 end
@@ -319,7 +318,7 @@ end
 MoreBuild.onBuildMetalFence = function(ignoreThisArgument, sprite, player, name)
   local _fence = ISWoodenWall:new(sprite.sprite, sprite.northSprite, sprite.corner)
 
-  _fence.hoppable = false
+  _fence.hoppable = true
   _fence.isThumpable = true
   _fence.player = player
   _fence.name = name

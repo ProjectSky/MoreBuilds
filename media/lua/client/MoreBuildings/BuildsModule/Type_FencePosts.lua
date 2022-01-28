@@ -297,7 +297,7 @@ MoreBuild.onBuildStoneFencePost = function(ignoreThisArgument, sprite, player, n
     return MoreBuild.healthLevel.stoneWall + buildUtil.getWoodHealth(self)
   end
 
-  MoreBuild.equipToolPrimary(_fencePost, player, 'Trowel')
+  MoreBuild.equipToolPrimary(_fencePost, player, 'Hammer')
 
   getCell():setDrag(_fencePost, player)
 end
@@ -305,9 +305,9 @@ end
 MoreBuild.onBuildMetalFencePost = function(ignoreThisArgument, sprite, player, name)
   local _fencePost = ISWoodenWall:new(sprite.sprite, sprite.northSprite, nil)
 
-  _fencePost.hoppable = false
-  _fencePost.isThumpable = true
-  _fencePost.canBarricade = true
+  _fencePost.canPassThrough = true
+  _fencePost.canBarricade = false
+  _fencePost.isCorner = true
   _fencePost.player = player
   _fencePost.name = name
 

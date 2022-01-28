@@ -204,6 +204,21 @@ MoreBuild.woodenDoorsMenuBuilder = function(subMenu, player)
   _tooltip:setName(_name)
   _tooltip.description = MoreBuild.textDoorGenericDescription .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
+	
+	_sprite = {}
+  _sprite.sprite = 'fixtures_doors_01_36'
+  _sprite.northSprite = 'fixtures_doors_01_37'
+  _sprite.openSprite = 'fixtures_doors_01_38'
+  _sprite.openNorthSprite = 'fixtures_doors_01_39'
+
+  _name = getText 'ContextMenu_Brown_WoodenDoor'
+
+  _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenDoor, _sprite, player, _name)
+
+  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.doorObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip:setName(_name)
+  _tooltip.description = MoreBuild.textDoorGenericDescription .. _tooltip.description
+  _tooltip:setTexture(_sprite.sprite)
 
   _sprite = {}
   _sprite.sprite = 'fixtures_doors_01_12'

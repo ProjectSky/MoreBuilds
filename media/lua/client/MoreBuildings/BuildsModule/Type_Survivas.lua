@@ -124,7 +124,6 @@ MoreBuild.SurvivalPostsMenuBuilder = function(subMenu, player)
   _sprite = {}
   _sprite.sprite = 'appliances_cooking_01_35'
   _sprite.northSprite = 'appliances_cooking_01_35'
-  _sprite.corner = 'appliances_cooking_01_35'
 
   _name = MoreBuild.getMoveableDisplayName(_sprite.sprite)
   _option = subMenu:addOption(_name, worldobjects, MoreBuild.onBuildBarbecue, _sprite, player, _name, _icon)
@@ -163,15 +162,17 @@ MoreBuild.SurvivalPostsMenuBuilder = function(subMenu, player)
     }
   }
 
-  MoreBuild.neededTools = {'Hammer', 'Screwdriver', 'Saw'}
+  MoreBuild.neededTools = {'Screwdriver', 'Saw'}
 
   _sprite = {}
   _sprite.sprite = 'appliances_misc_01_0'
   _sprite.northSprite = 'appliances_misc_01_0'
   _sprite.corner = 'appliances_misc_01_0'
 
+  local perk = getSpecificPlayer(player):getPerkLevel(Perks.Electricity)
+
   _name = getText 'ContextMenu_Fuel_Generator'
-  _option = subMenu:addOption(_name, worldobjects, MoreBuild.onBuildGenerator, _sprite, player, _name, _icon)
+  _option = subMenu:addOption(_name, worldobjects, MoreBuild.onBuildGenerator, _sprite, perk, _name, player)
   _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.barbecueObject, MoreBuild.skillLevel.generatorObject, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText('Tooltip_Fuel_Generator') .. _tooltip.description
@@ -243,7 +244,7 @@ MoreBuild.SurvivalPostsMenuBuilder = function(subMenu, player)
 end
 
 MoreBuild.onBuildBarbecue = function(ignoreThisArgument, sprite, player, name)
-  local _Barbecue = ISBarbecue:new(sprite.sprite, sprite.northSprite, sprite.corner)
+  local _Barbecue = ISBarbecue:new(sprite.sprite, sprite.northSprite, player)
   _Barbecue.player = player
   _Barbecue.name = name
 
@@ -254,10 +255,14 @@ MoreBuild.onBuildBarbecue = function(ignoreThisArgument, sprite, player, name)
   getCell():setDrag(_Barbecue, player)
 end
 
-MoreBuild.onBuildGenerator = function(ignoreThisArgument, sprite, player, name)
-  local _Generator = ISGenerator:new(sprite.sprite, sprite.northSprite, sprite.corner)
+MoreBuild.onBuildGenerator = function(ignoreThisArgument, sprite, perk, name, player)
+  local _Generator = ISGenerator:new(sprite.sprite, sprite.northSprite, perk)
   _Generator.player = player
   _Generator.name = name
+  _Generator.completionSound = "BuildMetalStructureSmallScrap"
+  _Generator.craftingBank = "BlowTorch"
+  _Generator.noNeedHammer = true
+  _Generator.actionAnim = "BlowTorchMid"
 
   _Generator.modData['need:Radio.ElectricWire'] = '2'
   _Generator.modData['need:Base.Aluminum'] = '10'
@@ -320,7 +325,7 @@ MoreBuild.onBuildfridge = function(ignoreThisArgument, sprite, player, name, ico
 end
 
 MoreBuild.onBuildStove = function(ignoreThisArgument, sprite, player, name)
-  local _stove = ISStove:new(sprite.sprite, sprite.northSprite, getSpecificPlayer(player))
+  local _stove = ISStove:new(sprite.sprite, sprite.northSprite, player)
 
   _stove.player = player
   _stove.name = name
@@ -334,7 +339,7 @@ MoreBuild.onBuildStove = function(ignoreThisArgument, sprite, player, name)
 end
 
 MoreBuild.onBuildFireplace = function(ignoreThisArgument, sprite, player, name)
-  local _fireplace = ISStove:new(sprite.sprite, sprite.northSprite, getSpecificPlayer(player))
+  local _fireplace = ISStove:new(sprite.sprite, sprite.northSprite, player)
 
   _fireplace.player = player
   _fireplace.name = name

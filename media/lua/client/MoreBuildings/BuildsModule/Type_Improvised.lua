@@ -327,7 +327,7 @@ MoreBuild.onBuildStoneContainer = function(ignoreThisArgument, sprite, player, n
     return MoreBuild.healthLevel.stoneContainer + buildUtil.getWoodHealth(self)
   end
 
-  MoreBuild.equipToolPrimary(_container, player, 'Trowel')
+  MoreBuild.equipToolPrimary(_container, player, 'Hammer')
 
   getCell():setDrag(_container, player)
 end

@@ -319,7 +319,7 @@ MoreBuild.onBuildStoneDoorFrame = function(ignoreThisArgument, sprite, player, n
     return MoreBuild.healthLevel.stoneWall + buildUtil.getWoodHealth(self)
   end
 
-  MoreBuild.equipToolPrimary(_doorFrame, player, 'Trowel')
+  MoreBuild.equipToolPrimary(_doorFrame, player, 'Hammer')
 
   getCell():setDrag(_doorFrame, player)
 end

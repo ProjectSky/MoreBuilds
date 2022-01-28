@@ -305,7 +305,7 @@ MoreBuild.onBuildStoneWindowFrame = function(ignoreThisArgument, sprite, player,
     return MoreBuild.healthLevel.stoneWall + buildUtil.getWoodHealth(self)
   end
 
-  MoreBuild.equipToolPrimary(_windowFrame, player, 'Trowel')
+  MoreBuild.equipToolPrimary(_windowFrame, player, 'Hammer')
 
   getCell():setDrag(_windowFrame, player)
 end
