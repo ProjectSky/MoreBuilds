@@ -22,23 +22,24 @@ MoreBuild.couchesMenuBuilder = function(subMenu, player, context, worldobjects)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Plank',
-      Amount = 6,
-      Text = getItemNameFromFullType('Base.Plank')
+      Material = 'Base.Plank',
+      Amount = 6
     },
     {
-      Material = 'Nails',
-      Amount = 4,
-      Text = getItemNameFromFullType('Base.Nails')
+      Material = 'Base.Nails',
+      Amount = 4
     },
     {
-      Material = 'Sheet',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.Sheet')
+      Material = 'Base.Sheet',
+      Amount = 1
     }
   }
 
   MoreBuild.neededTools = {'Hammer'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.complexFurniture
+  }
 
   for _, _currentList in pairs(_couchData) do
     _name = _currentList[9]
@@ -51,7 +52,7 @@ MoreBuild.couchesMenuBuilder = function(subMenu, player, context, worldobjects)
 
     _option = _frontViewSubMenu:addOption(_name, nil, MoreBuild.onBuildCouch, _sprite, player, _name)
 
-    _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.complexFurniture, MoreBuild.skillLevel.none, _option, player)
+    _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
     _tooltip.description = MoreBuild.textCouchFrontDescription .. _tooltip.description
     _tooltip:setName(_name)
     _tooltip:setTexture(_sprite.sprite)
@@ -64,7 +65,7 @@ MoreBuild.couchesMenuBuilder = function(subMenu, player, context, worldobjects)
 
     _option = _backViewSubMenu:addOption(_name, nil, MoreBuild.onBuildCouch, _sprite, player, _name)
 
-    _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.complexFurniture, MoreBuild.skillLevel.none, _option, player)
+    _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
     _tooltip.description = MoreBuild.textCouchRearDescription .. _tooltip.description
     _tooltip:setName(_name)
     _tooltip:setTexture(_sprite.sprite)

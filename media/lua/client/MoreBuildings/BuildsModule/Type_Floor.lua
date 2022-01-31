@@ -12,18 +12,20 @@ MoreBuild.floorsMenuBuilder = function(subMenu, player, context, worldobjects)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Plank',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.Plank')
+      Material = 'Base.Plank',
+      Amount = 1
     },
     {
-      Material = 'Nails',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.Nails')
+      Material = 'Base.Nails',
+      Amount = 1
     }
   }
 
   MoreBuild.neededTools = {'Hammer'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.floorObject
+  }
 
   local _floorData = MoreBuild.getFloorsData()
   local _currentOption
@@ -43,7 +45,7 @@ MoreBuild.floorsMenuBuilder = function(subMenu, player, context, worldobjects)
 
       _option = _currentSubMenu:addOption(_name, nil, MoreBuild.onBuildTwoSpriteFloor, _sprite, player, _name)
 
-      _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.floorObject, MoreBuild.skillLevel.none, _option, player)
+      _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
       _tooltip:setName(_name)
       _tooltip:setTexture(_sprite.sprite)
 

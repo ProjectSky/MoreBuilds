@@ -12,14 +12,12 @@ MoreBuild.flowerBedsMenuBuilder = function(subMenu, player, context, worldobject
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Plank',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.Plank')
+      Material = 'Base.Plank',
+      Amount = 1
     },
     {
-      Material = 'Twigs',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.Twigs')
+      Material = 'Base.Twigs',
+      Amount = 1
     }
   }
 
@@ -39,18 +37,20 @@ MoreBuild.flowerBedsMenuBuilder = function(subMenu, player, context, worldobject
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Plank',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.Plank')
+      Material = 'Base.Plank',
+      Amount = 1
     },
     {
-      Material = 'Twigs',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.Twigs')
+      Material = 'Base.Twigs',
+      Amount = 1
     }
   }
 
   MoreBuild.neededTools = {'HandShovel'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.landscaping
+  }
 
   for _, _currentList in pairs(_flowerBedsData[getText 'ContextMenu_Just_Flowers']) do
     _sprite = {}
@@ -60,7 +60,7 @@ MoreBuild.flowerBedsMenuBuilder = function(subMenu, player, context, worldobject
 
     _option = _justFlowersSubMenu:addOption(_name, nil, MoreBuild.onBuildFlowerFloor, _sprite, player, _name)
 
-    _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.landscaping, MoreBuild.skillLevel.none, _option, player)
+    _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
     _tooltip.description = _currentList[3] .. _tooltip.description
     _tooltip:setName(_name)
     _tooltip:setTexture(_sprite.sprite)
@@ -68,14 +68,12 @@ MoreBuild.flowerBedsMenuBuilder = function(subMenu, player, context, worldobject
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Plank',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.Plank')
+      Material = 'Base.Plank',
+      Amount = 1
     },
     {
-      Material = 'Twigs',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.Twigs')
+      Material = 'Base.Twigs',
+      Amount = 1
     }
   }
 
@@ -92,7 +90,7 @@ MoreBuild.flowerBedsMenuBuilder = function(subMenu, player, context, worldobject
 
     _option = _stoneLinedSubMenu:addOption(_name, nil, MoreBuild.onBuildFourSpriteFlowerFloor, _sprite, player, _name)
 
-    _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.landscaping, MoreBuild.skillLevel.none, _option, player)
+    _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
     _tooltip.description = _currentList[6] .. _tooltip.description
     _tooltip:setName(_name)
     _tooltip:setTexture(_sprite.sprite)

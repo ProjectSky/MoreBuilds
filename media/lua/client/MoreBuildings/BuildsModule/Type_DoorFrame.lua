@@ -12,18 +12,20 @@ MoreBuild.doorFramesMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Plank',
-      Amount = 4,
-      Text = getItemNameFromFullType('Base.Plank')
+      Material = 'Base.Plank',
+      Amount = 4
     },
     {
-      Material = 'Nails',
-      Amount = 4,
-      Text = getItemNameFromFullType('Base.Nails')
+      Material = 'Base.Nails',
+      Amount = 4
     }
   }
 
   MoreBuild.neededTools = {'Hammer'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.wallObject
+  }
 
   _sprite = {}
   _sprite.sprite = 'location_restaurant_pileocrepe_01_10'
@@ -34,7 +36,7 @@ MoreBuild.doorFramesMenuBuilder = function(subMenu, player)
 
   _option = subMenu[getText 'ContextMenu_Light_BrownWood']:addOption(_name, nil, MoreBuild.onBuildWoodenDoorFrame, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.wallObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = MoreBuild.textDoorFrameDescription .. _tooltip.description
 
@@ -55,7 +57,7 @@ MoreBuild.doorFramesMenuBuilder = function(subMenu, player)
 
   _option = subMenu[getText 'ContextMenu_Dark_BrownWood']:addOption(_name, nil, MoreBuild.onBuildWoodenDoorFrame, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.wallObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = MoreBuild.textDoorFrameDescription .. _tooltip.description
 
@@ -76,7 +78,7 @@ MoreBuild.doorFramesMenuBuilder = function(subMenu, player)
 
   _option = subMenu[getText 'ContextMenu_Gray_Plaster']:addOption(_name, nil, MoreBuild.onBuildWoodenDoorFrame, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.wallObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = MoreBuild.textDoorFrameDescription .. _tooltip.description
 
@@ -97,7 +99,7 @@ MoreBuild.doorFramesMenuBuilder = function(subMenu, player)
 
   _option = subMenu[getText 'ContextMenu_Gray_Wood']:addOption(_name, nil, MoreBuild.onBuildWoodenDoorFrame, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.wallObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = MoreBuild.textDoorFrameDescription .. _tooltip.description
 
@@ -118,7 +120,7 @@ MoreBuild.doorFramesMenuBuilder = function(subMenu, player)
 
   _option = subMenu[getText 'ContextMenu_Red_Barnwood']:addOption(_name, nil, MoreBuild.onBuildWoodenDoorFrame, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.wallObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = MoreBuild.textDoorFrameDescription .. _tooltip.description
 
@@ -139,7 +141,7 @@ MoreBuild.doorFramesMenuBuilder = function(subMenu, player)
 
   _option = subMenu[getText 'ContextMenu_White_Plaster']:addOption(_name, nil, MoreBuild.onBuildWoodenDoorFrame, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.wallObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = MoreBuild.textDoorFrameDescription .. _tooltip.description
 
@@ -160,7 +162,7 @@ MoreBuild.doorFramesMenuBuilder = function(subMenu, player)
 
   _option = subMenu[getText 'ContextMenu_White_Wood']:addOption(_name, nil, MoreBuild.onBuildWoodenDoorFrame, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.wallObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = MoreBuild.textDoorFrameDescription .. _tooltip.description
 
@@ -174,18 +176,20 @@ MoreBuild.doorFramesMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Plank',
-      Amount = 2,
-      Text = getItemNameFromFullType('Base.Plank')
+      Material = 'Base.Plank',
+      Amount = 2
     },
     {
-      Material = 'Nails',
-      Amount = 3,
-      Text = getItemNameFromFullType('Base.Nails')
+      Material = 'Base.Nails',
+      Amount = 3
     }
   }
 
   MoreBuild.neededTools = {'Hammer'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.stoneArchitecture
+  }
 
   _sprite = {}
   _sprite.sprite = 'walls_commercial_03_10'
@@ -196,7 +200,7 @@ MoreBuild.doorFramesMenuBuilder = function(subMenu, player)
 
   _option = subMenu[getText 'ContextMenu_Brown_Cinder_Block']:addOption(_name, nil, MoreBuild.onBuildStoneDoorFrame, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.stoneArchitecture, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
 
   _tooltip.description = getText 'Tooltip_BrownCinder_Block_DoorFrame' .. _tooltip.description
@@ -218,7 +222,7 @@ MoreBuild.doorFramesMenuBuilder = function(subMenu, player)
 
   _option = subMenu[getText 'ContextMenu_Gray_Cinder_Block']:addOption(_name, nil, MoreBuild.onBuildStoneDoorFrame, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.stoneArchitecture, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_GrayCinder_Block_DoorFrame' .. _tooltip.description
 
@@ -239,7 +243,7 @@ MoreBuild.doorFramesMenuBuilder = function(subMenu, player)
 
   _option = subMenu[getText 'ContextMenu_White_CinderBlock']:addOption(_name, nil, MoreBuild.onBuildStoneDoorFrame, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.stoneArchitecture, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_WhiteCinder_Block_DoorFrame' .. _tooltip.description
 
@@ -260,7 +264,7 @@ MoreBuild.doorFramesMenuBuilder = function(subMenu, player)
 
   _option = subMenu[getText 'ContextMenu_RedBrick_Wall']:addOption(_name, nil, MoreBuild.onBuildStoneDoorFrame, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.stoneArchitecture, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_RedBrick_DoorFrame' .. _tooltip.description
 

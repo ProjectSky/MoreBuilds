@@ -27,18 +27,20 @@ MoreBuild.signsMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Plank',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.Plank')
+      Material = 'Base.Plank',
+      Amount = 1
     },
     {
-      Material = 'Nails',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.Nails')
+      Material = 'Base.Nails',
+      Amount = 1
     }
   }
 
   MoreBuild.neededTools = {'Hammer'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.simpleObject
+  }
 
   local _signsData = MoreBuild.getSignData()
 
@@ -53,7 +55,7 @@ MoreBuild.signsMenuBuilder = function(subMenu, player)
 
     _option = subMenu:addOption(_name, nil, MoreBuild.onBuildSign, _sprite, player, _name)
 
-    _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.simpleObject, MoreBuild.skillLevel.none, _option, player)
+    _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
     _tooltip.description = _currentList[6] .. _tooltip.description
     _tooltip:setName(_name)
     _tooltip:setTexture(_sprite.sprite)
@@ -68,18 +70,20 @@ MoreBuild.roadwayMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Plank',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.Plank')
+      Material = 'Base.Plank',
+      Amount = 1
     },
     {
-      Material = 'Nails',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.Nails')
+      Material = 'Base.Nails',
+      Amount = 1
     }
   }
 
   MoreBuild.neededTools = {'Hammer'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.simpleObject
+  }
 
   local _roadwaysData = MoreBuild.getRoadwayData()
 
@@ -94,7 +98,7 @@ MoreBuild.roadwayMenuBuilder = function(subMenu, player)
 
     _option = subMenu:addOption(_name, nil, MoreBuild.onBuildSign, _sprite, player, _name)
 
-    _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.simpleObject, MoreBuild.skillLevel.none, _option, player)
+    _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
     _tooltip.description = _currentList[6] .. _tooltip.description
     _tooltip:setName(_name)
     _tooltip:setTexture(_sprite.sprite)

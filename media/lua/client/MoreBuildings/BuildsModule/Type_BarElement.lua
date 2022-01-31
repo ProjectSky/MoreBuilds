@@ -12,18 +12,20 @@ MoreBuild.counterElementsMenuBuilder = function(subMenu, player, context, worldo
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Plank',
-      Amount = 4,
-      Text = getItemNameFromFullType('Base.Plank')
+      Material = 'Base.Plank',
+      Amount = 4
     },
     {
-      Material = 'Nails',
-      Amount = 4,
-      Text = getItemNameFromFullType('Base.Nails')
+      Material = 'Base.Nails',
+      Amount = 4
     }
   }
 
   MoreBuild.neededTools = {'Hammer'}
+  
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.advancedContainer
+  }
 
   local _counterData = MoreBuild.getBarElementData()
   local _currentOption
@@ -45,7 +47,7 @@ MoreBuild.counterElementsMenuBuilder = function(subMenu, player, context, worldo
 
       _option = _currentSubMenu:addOption(_name, nil, MoreBuild.onBuildBarElement, _sprite, player, _name)
 
-      _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.advancedContainer, MoreBuild.skillLevel.none, _option, player)
+      _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
       _tooltip:setName(_name)
       _tooltip.description = _currentList[6] .. _tooltip.description
       _tooltip:setTexture(_sprite.sprite)

@@ -13,23 +13,24 @@ MoreBuild.improvisedMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Sheet',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.Sheet')
+      Material = 'Base.Sheet',
+      Amount = 1
     },
     {
-      Material = 'Screws',
-      Amount = 2,
-      Text = getItemNameFromFullType('Base.Screws')
+      Material = 'Base.Screws',
+      Amount = 2
     },
     {
-      Material = 'SheetMetal',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.SheetMetal')
+      Material = 'Base.SheetMetal',
+      Amount = 1
     }
   }
 
   MoreBuild.neededTools = {'Screwdriver'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.simpleContainer
+  }
 
   _sprite = {}
   _sprite.sprite = 'appliances_laundry_01_24'
@@ -40,25 +41,27 @@ MoreBuild.improvisedMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildLaundryCart, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.simpleContainer, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_Laundry_Cart' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Plank',
-      Amount = 2,
-      Text = getItemNameFromFullType('Base.Plank')
+      Material = 'Base.Plank',
+      Amount = 2
     },
     {
-      Material = 'Nails',
-      Amount = 3,
-      Text = getItemNameFromFullType('Base.Nails')
+      Material = 'Base.Nails',
+      Amount = 3
     }
   }
 
   MoreBuild.neededTools = {'Hammer'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.complexContainer
+  }
 
   _sprite = {}
   _sprite.sprite = 'construction_01_4'
@@ -69,25 +72,27 @@ MoreBuild.improvisedMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildStoneContainer, _sprite, player, _name, _icon)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.complexContainer, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_Pallet_of_Bricks' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'SheetMetal',
-      Amount = 2,
-      Text = getItemNameFromFullType('Base.SheetMetal')
+      Material = 'Base.SheetMetal',
+      Amount = 2
     },
     {
-      Material = 'Screws',
-      Amount = 2,
-      Text = getItemNameFromFullType('Base.Screws')
+      Material = 'Base.Screws',
+      Amount = 2
     }
   }
 
   MoreBuild.neededTools = {'Screwdriver'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.advancedContainer
+  }
 
   _sprite = {}
   _sprite.sprite = 'industry_01_22'
@@ -98,7 +103,7 @@ MoreBuild.improvisedMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildMetalContainer, _sprite, player, _name, _icon)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.advancedContainer, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_Metal_Barrel' .. _tooltip.description .. MoreBuild.textCanRotate
   _tooltip:setTexture(_sprite.sprite)
@@ -114,25 +119,27 @@ MoreBuild.improvisedMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildMetalContainer, _sprite, player, _name, _icon)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.advancedContainer, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_Post_Box' .. _tooltip.description .. MoreBuild.textCanRotate
   _tooltip:setTexture(_sprite.sprite)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Plank',
-      Amount = 2,
-      Text = getItemNameFromFullType('Base.Plank')
+      Material = 'Base.Plank',
+      Amount = 2
     },
     {
-      Material = 'Nails',
-      Amount = 2,
-      Text = getItemNameFromFullType('Base.Nails')
+      Material = 'Base.Nails',
+      Amount = 2
     }
   }
 
   MoreBuild.neededTools = {'Hammer'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.simpleContainer
+  }
 
   _sprite = {}
   _sprite.sprite = 'trashcontainers_01_0'
@@ -145,7 +152,7 @@ MoreBuild.improvisedMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenContainer, _sprite, player, _name, _icon)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.simpleContainer, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_RecyclingBin' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -162,18 +169,20 @@ MoreBuild.trashMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Plank',
-      Amount = 2,
-      Text = getItemNameFromFullType('Base.Plank')
+      Material = 'Base.Plank',
+      Amount = 2
     },
     {
-      Material = 'Nails',
-      Amount = 2,
-      Text = getItemNameFromFullType('Base.Nails')
+      Material = 'Base.Nails',
+      Amount = 2
     }
   }
 
   MoreBuild.neededTools = {'Hammer'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.simpleContainer
+  }
 
   for _, _currentList in pairs(_trashCanData['Wood']) do
     _sprite = {}
@@ -184,7 +193,7 @@ MoreBuild.trashMenuBuilder = function(subMenu, player)
 
     _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenContainer, _sprite, player, _name, _icon)
 
-    _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.simpleContainer, MoreBuild.skillLevel.none, _option, player)
+    _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
     _tooltip.description = MoreBuild.textTrashCanDescription .. _tooltip.description
     _tooltip:setName(_name)
     _tooltip:setTexture(_sprite.sprite)
@@ -192,18 +201,20 @@ MoreBuild.trashMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'SheetMetal',
-      Amount = 2,
-      Text = getItemNameFromFullType('Base.SheetMetal')
+      Material = 'Base.SheetMetal',
+      Amount = 2
     },
     {
-      Material = 'Screws',
-      Amount = 2,
-      Text = getItemNameFromFullType('Base.Screws')
+      Material = 'Base.Screws',
+      Amount = 2
     }
   }
 
   MoreBuild.neededTools = {'Screwdriver'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.complexContainer
+  }
 
   for _, _currentList in pairs(_trashCanData['Metal']) do
     _sprite = {}
@@ -214,7 +225,7 @@ MoreBuild.trashMenuBuilder = function(subMenu, player)
 
     _option = subMenu:addOption(_name, nil, MoreBuild.onBuildMetalContainer, _sprite, player, _name, _icon)
 
-    _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.complexContainer, MoreBuild.skillLevel.none, _option, player)
+    _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
     _tooltip.description = MoreBuild.textTrashCanDescription .. _tooltip.description
     _tooltip:setName(_name)
     _tooltip:setTexture(_sprite.sprite)
@@ -222,14 +233,12 @@ MoreBuild.trashMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Plank',
-      Amount = 2,
-      Text = getItemNameFromFullType('Base.Plank')
+      Material = 'Base.Plank',
+      Amount = 2
     },
     {
-      Material = 'Nails',
-      Amount = 3,
-      Text = getItemNameFromFullType('Base.Nails')
+      Material = 'Base.Nails',
+      Amount = 3
     }
   }
 
@@ -244,7 +253,7 @@ MoreBuild.trashMenuBuilder = function(subMenu, player)
 
     _option = subMenu:addOption(_name, nil, MoreBuild.onBuildStoneContainer, _sprite, player, _name, _icon)
 
-    _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.complexContainer, MoreBuild.skillLevel.none, _option, player)
+    _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
     _tooltip.description = MoreBuild.textTrashCanDescription .. _tooltip.description
     _tooltip:setName(_name)
     _tooltip:setTexture(_sprite.sprite)

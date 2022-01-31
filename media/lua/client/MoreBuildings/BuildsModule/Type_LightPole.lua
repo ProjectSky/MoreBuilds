@@ -14,38 +14,37 @@ MoreBuild.lightPostMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'ScrapMetal',
-      Amount = 10,
-      Text = getItemNameFromFullType('Base.ScrapMetal')
+      Material = 'Base.ScrapMetal',
+      Amount = 10
     },
     {
-      Material = 'Screws',
-      Amount = 4,
-      Text = getItemNameFromFullType('Base.Screws')
+      Material = 'Base.Screws',
+      Amount = 4
     },
     {
-      Material = 'LightBulb',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.LightBulb')
+      Material = 'Base.LightBulb',
+      Amount = 1
     },
     {
-      Material = 'ElectricWire',
-      Amount = 1,
-      Text = getItemNameFromFullType('Radio.ElectricWire')
+      Material = 'Radio.ElectricWire',
+      Amount = 1
     },
     {
-      Material = 'ElectronicsScrap',
-      Amount = 5,
-      Text = getItemNameFromFullType('Base.ElectronicsScrap')
+      Material = 'Base.ElectronicsScrap',
+      Amount = 5
     },
     {
-      Material = 'BlowTorch',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.BlowTorch')
+      Material = 'Base.BlowTorch',
+      Amount = 1
     }
   }
 
   MoreBuild.neededTools = {'Hammer', 'Screwdriver'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.lighting,
+    Electricity = MoreBuild.skillLevel.lightingObject
+  }
 
   for _, _currentList in pairs(_lightPoleData) do
     _sprite = {}
@@ -55,7 +54,7 @@ MoreBuild.lightPostMenuBuilder = function(subMenu, player)
 
     _option = subMenu:addOption(_name, nil, MoreBuild.onBuildLightPole, _sprite, player, _name)
 
-    _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.lighting, MoreBuild.skillLevel.lightingObject, _option, player)
+    _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
     _tooltip.description = MoreBuild.textLightPoleDescription .. _tooltip.description
     _tooltip:setName(_name)
     _tooltip:setTexture(_sprite.sprite)
@@ -63,34 +62,28 @@ MoreBuild.lightPostMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'ScrapMetal',
-      Amount = 15,
-      Text = getItemNameFromFullType('Base.ScrapMetal')
+      Material = 'Base.ScrapMetal',
+      Amount = 15
     },
     {
-      Material = 'Screws',
-      Amount = 5,
-      Text = getItemNameFromFullType('Base.Screws')
+      Material = 'Base.Screws',
+      Amount = 5
     },
     {
-      Material = 'LightBulb',
-      Amount = 2,
-      Text = getItemNameFromFullType('Base.LightBulb')
+      Material = 'Base.LightBulb',
+      Amount = 2
     },
     {
-      Material = 'ElectricWire',
-      Amount = 1,
-      Text = getItemNameFromFullType('Radio.ElectricWire')
+      Material = 'Radio.ElectricWire',
+      Amount = 1
     },
     {
-      Material = 'ElectronicsScrap',
-      Amount = 5,
-      Text = getItemNameFromFullType('Base.ElectronicsScrap')
+      Material = 'Base.ElectronicsScrap',
+      Amount = 5
     },
     {
-      Material = 'BlowTorch',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.BlowTorch')
+      Material = 'Base.BlowTorch',
+      Amount = 1
     }
   }
 
@@ -104,7 +97,7 @@ MoreBuild.lightPostMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildOutdoorLight, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.lighting, MoreBuild.skillLevel.lightingObject, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip.description = getText "Tooltip_Emergency_Lamp" .. _tooltip.description
   _tooltip:setName(_name)
   _tooltip:setTexture(_sprite.sprite)

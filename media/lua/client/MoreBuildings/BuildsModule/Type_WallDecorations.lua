@@ -36,18 +36,20 @@ MoreBuild.wallDecorationsMenuBuilder = function(subMenu, player, context, worldo
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'SheetPaper2',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.SheetPaper2')
+      Material = 'Base.SheetPaper2',
+      Amount = 1
     },
     {
-      Material = 'Nails',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.Nails')
+      Material = 'Base.Nails',
+      Amount = 1
     }
   }
 
   MoreBuild.neededTools = {'Hammer'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.simpleDecoration
+  }
 
   for _subsectionName, _subsectionData in pairs(_wallDecorationData) do
     _currentOption = subMenu:addOption(_subsectionName, worldobjects, nil)
@@ -63,7 +65,7 @@ MoreBuild.wallDecorationsMenuBuilder = function(subMenu, player, context, worldo
 
       _option = _currentSubMenu:addOption(_name, nil, MoreBuild.onBuildWallDecoration, _sprite, player, _name)
 
-      _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.simpleDecoration, MoreBuild.skillLevel.none, _option, player)
+      _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
       _tooltip.description = _currentList[4] .. _tooltip.description
       _tooltip:setName(_name)
       _tooltip:setTexture(_sprite.sprite)

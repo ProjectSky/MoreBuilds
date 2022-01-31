@@ -38,18 +38,20 @@ MoreBuild.BookShelfMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Plank',
-      Amount = 6,
-      Text = getItemNameFromFullType('Base.Plank')
+      Material = 'Base.Plank',
+      Amount = 6
     },
     {
-      Material = 'Nails',
-      Amount = 6,
-      Text = getItemNameFromFullType('Base.Nails')
+      Material = 'Base.Nails',
+      Amount = 6
     }
   }
 
   MoreBuild.neededTools = {'Hammer'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.complexFurniture
+  }
 
   _sprite = {}
   _sprite.sprite = 'furniture_shelving_01_41'
@@ -61,7 +63,7 @@ MoreBuild.BookShelfMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildBookShelf, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.complexFurniture, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_BookShelf' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -76,7 +78,7 @@ MoreBuild.BookShelfMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildBookShelf, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.complexFurniture, 0, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_BookShelf' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)

@@ -12,33 +12,33 @@ MoreBuild.highMetalFenceMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Wire',
-      Amount = 4,
-      Text = getItemNameFromFullType('Base.Wire')
+      Material = 'Base.Wire',
+      Amount = 4
     },
     {
-      Material = 'SmallSheetMetal',
-      Amount = 4,
-      Text = getItemNameFromFullType('Base.SmallSheetMetal')
+      Material = 'Base.SmallSheetMetal',
+      Amount = 4
     },
     {
-      Material = 'ScrapMetal',
-      Amount = 20,
-      Text = getItemNameFromFullType('Base.ScrapMetal')
+      Material = 'Base.ScrapMetal',
+      Amount = 20
     },
     {
-      Material = 'WeldingRods',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.WeldingRods')
+      Material = 'Base.WeldingRods',
+      Amount = 1
     },
     {
-      Material = 'BlowTorch',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.BlowTorch')
+      Material = 'Base.BlowTorch',
+      Amount = 1
     }
   }
 
   MoreBuild.neededTools = {'Hammer'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.wallObject,
+    MetalWelding = 4
+  }
 
   local _highMetalFenceData = MoreBuild.getHighMetalFenceData()
 
@@ -53,7 +53,7 @@ MoreBuild.highMetalFenceMenuBuilder = function(subMenu, player)
 
     _option = subMenu:addOption(_name, nil, MoreBuild.onBuildHighMetalFence, _sprite, player, _name)
 
-    _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.wallObject, MoreBuild.skillLevel.none, _option, player)
+    _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
     _tooltip:setName(_name)
     _tooltip.description = getText 'Tooltip_HighMetal_Fence' .. _tooltip.description
     _tooltip:setTexture(_sprite.sprite1)

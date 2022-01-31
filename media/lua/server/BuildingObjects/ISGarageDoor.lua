@@ -212,16 +212,16 @@ function ISGarageDoor:partExists(square, index)
     elseif index == 2 then
       spriteName = self.northSprite2
     else
-			spriteName = self.northSprite3
-		end
+      spriteName = self.northSprite3
+    end
   else
     if index == 1 then
       spriteName = self.sprite
     elseif index == 2 then
       spriteName = self.sprite2
     else
-			spriteName = self.sprite3
-		end
+      spriteName = self.sprite3
+    end
   end
   local objects = square:getSpecialObjects()
   for i = 1, objects:size() do

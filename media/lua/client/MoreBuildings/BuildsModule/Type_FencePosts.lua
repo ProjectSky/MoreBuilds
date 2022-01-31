@@ -12,18 +12,20 @@ MoreBuild.moreFencePostsMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Plank',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.Plank')
+      Material = 'Base.Plank',
+      Amount = 1
     },
     {
-      Material = 'Nails',
-      Amount = 2,
-      Text = getItemNameFromFullType('Base.Nails')
+      Material = 'Base.Nails',
+      Amount = 2
     }
   }
 
   MoreBuild.neededTools = {'Hammer'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.wallObject
+  }
 
   _sprite = {}
   _sprite.sprite = 'fencing_01_7'
@@ -33,7 +35,7 @@ MoreBuild.moreFencePostsMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenFencePost, _sprite, player)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.wallObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_WhitePicket_FencePost' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -46,7 +48,7 @@ MoreBuild.moreFencePostsMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenFencePost, _sprite, player)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.wallObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_Beige_FencePost_WithRail' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -59,25 +61,27 @@ MoreBuild.moreFencePostsMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenFencePost, _sprite, player)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.wallObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_Beige_FencePost_WithRail' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'SheetMetal',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.SheetMetal')
+      Material = 'Base.SheetMetal',
+      Amount = 1
     },
     {
-      Material = 'Screws',
-      Amount = 2,
-      Text = getItemNameFromFullType('Base.Screws')
+      Material = 'Base.Screws',
+      Amount = 2
     }
   }
 
   MoreBuild.neededTools = {'Screwdriver'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.metalArchitecture
+  }
 
   _sprite = {}
   _sprite.sprite = 'industry_railroad_05_43'
@@ -87,7 +91,7 @@ MoreBuild.moreFencePostsMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildStoneFence, _sprite, player)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.metalArchitecture, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_GreenMetal_FencePost' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -100,25 +104,27 @@ MoreBuild.moreFencePostsMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildStoneFence, _sprite, player)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.metalArchitecture, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_GreenMetal_FencePost' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Plank',
-      Amount = 2,
-      Text = getItemNameFromFullType('Base.Plank')
+      Material = 'Base.Plank',
+      Amount = 2
     },
     {
-      Material = 'Nails',
-      Amount = 3,
-      Text = getItemNameFromFullType('Base.Nails')
+      Material = 'Base.Nails',
+      Amount = 3
     }
   }
 
   MoreBuild.neededTools = {'Hammer'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.metalArchitecture
+  }
 
   _sprite = {}
   _sprite.sprite = 'construction_01_3'
@@ -128,7 +134,7 @@ MoreBuild.moreFencePostsMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildStoneFencePost, _sprite, player)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.stoneArchitecture, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_RoughBrick_FencePost' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -142,18 +148,20 @@ MoreBuild.fencePostsMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Plank',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.Plank')
+      Material = 'Base.Plank',
+      Amount = 1
     },
     {
-      Material = 'Nails',
-      Amount = 2,
-      Text = getItemNameFromFullType('Base.Nails')
+      Material = 'Base.Nails',
+      Amount = 2
     }
   }
 
   MoreBuild.neededTools = {'Hammer'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.metalArchitecture
+  }
 
   _sprite = {}
   _sprite.sprite = 'location_restaurant_pileocrepe_01_47'
@@ -163,7 +171,7 @@ MoreBuild.fencePostsMenuBuilder = function(subMenu, player)
 
   _option = subMenu[getText 'ContextMenu_Light_BrownWood']:addOption(_name, nil, MoreBuild.onBuildWoodenFencePost, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.wallObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = MoreBuild.textFencePostDescription .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -176,7 +184,7 @@ MoreBuild.fencePostsMenuBuilder = function(subMenu, player)
 
   _option = subMenu[getText 'ContextMenu_Gray_Plaster']:addOption(_name, nil, MoreBuild.onBuildWoodenFencePost, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.wallObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = MoreBuild.textFencePostDescription .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -189,25 +197,27 @@ MoreBuild.fencePostsMenuBuilder = function(subMenu, player)
 
   _option = subMenu[getText 'ContextMenu_Gray_Wood']:addOption(_name, nil, MoreBuild.onBuildWoodenFencePost, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.wallObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = MoreBuild.textFencePostDescription .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Plank',
-      Amount = 2,
-      Text = getItemNameFromFullType('Base.Plank')
+      Material = 'Base.Plank',
+      Amount = 2
     },
     {
-      Material = 'Nails',
-      Amount = 3,
-      Text = getItemNameFromFullType('Base.Nails')
+      Material = 'Base.Nails',
+      Amount = 3
     }
   }
 
   MoreBuild.neededTools = {'Hammer'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.stoneArchitecture
+  }
 
   _sprite = {}
   _sprite.sprite = 'walls_commercial_03_7'
@@ -217,7 +227,7 @@ MoreBuild.fencePostsMenuBuilder = function(subMenu, player)
 
   _option = subMenu[getText 'ContextMenu_Brown_Cinder_Block']:addOption(_name, nil, MoreBuild.onBuildStoneFencePost, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.stoneArchitecture, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_BrownCinder_Block_FencePost' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -230,7 +240,7 @@ MoreBuild.fencePostsMenuBuilder = function(subMenu, player)
 
   _option = subMenu[getText 'ContextMenu_Gray_Cinder_Block']:addOption(_name, nil, MoreBuild.onBuildStoneFencePost, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.stoneArchitecture, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_GrayCinder_Block_FencePost' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -243,7 +253,7 @@ MoreBuild.fencePostsMenuBuilder = function(subMenu, player)
 
   _option = subMenu[getText 'ContextMenu_White_CinderBlock']:addOption(_name, nil, MoreBuild.onBuildStoneFencePost, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.stoneArchitecture, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_WhiteCinder_Block_FencePost' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -256,7 +266,7 @@ MoreBuild.fencePostsMenuBuilder = function(subMenu, player)
 
   _option = subMenu[getText 'ContextMenu_RedBrick_Wall']:addOption(_name, nil, MoreBuild.onBuildStoneFencePost, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.stoneArchitecture, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_Red_BrickFence' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)

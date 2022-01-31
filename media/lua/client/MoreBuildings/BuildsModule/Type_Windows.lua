@@ -27,18 +27,20 @@ MoreBuild.WindowsMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Screws',
-      Amount = 4,
-      Text = getItemNameFromFullType('Base.Screws')
+      Material = 'Base.Screws',
+      Amount = 4
     },
     {
-      Material = 'Plank',
-      Amount = 4,
-      Text = getItemNameFromFullType('Base.Plank')
+      Material = 'Base.Plank',
+      Amount = 4
     }
   }
 
   MoreBuild.neededTools = {'Screwdriver', 'Saw'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.windowsObject
+  }
 
   for _, _currentList in pairs(_windowsData) do
     _sprite = {}
@@ -49,7 +51,7 @@ MoreBuild.WindowsMenuBuilder = function(subMenu, player)
 
     _option = subMenu:addOption(_name, worldobjects, MoreBuild.onBuildWindow, _sprite, player, _name, _icon)
 
-    _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.windowsObject, 0, _option, player)
+    _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
     _tooltip:setName(_name)
     _tooltip.description = getText('Tooltip_WoodWindows') .. _tooltip.description
     _tooltip:setTexture(_sprite.sprite)

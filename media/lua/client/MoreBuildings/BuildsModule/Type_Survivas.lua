@@ -14,33 +14,32 @@ MoreBuild.SurvivalPostsMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Nails',
-      Amount = 10,
-      Text = getItemNameFromFullType('Base.Nails')
+      Material = 'Base.Nails',
+      Amount = 10
     },
     {
-      Material = 'Rope',
-      Amount = 5,
-      Text = getItemNameFromFullType('Base.Rope')
+      Material = 'Base.Rope',
+      Amount = 5
     },
     {
-      Material = 'Plank',
-      Amount = 5,
-      Text = getItemNameFromFullType('Base.Plank')
+      Material = 'Base.Plank',
+      Amount = 5
     },
     {
-      Material = 'Gravelbag',
-      Amount = 2,
-      Text = getItemNameFromFullType('Base.Gravelbag')
+      Material = 'Base.Gravelbag',
+      Amount = 2
     },
     {
-      Material = 'BucketEmpty',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.BucketEmpty')
+      Material = 'Base.BucketEmpty',
+      Amount = 1
     }
   }
 
   MoreBuild.neededTools = {'Hammer', 'Spade', 'Saw'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.waterwellObject
+  }
 
   _sprite = {}
   _sprite.sprite = 'morebuild_01_0'
@@ -51,7 +50,7 @@ MoreBuild.SurvivalPostsMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWaterWell, player, _sprite.sprite, nil)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.waterwellObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_Water_Well' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -60,28 +59,29 @@ MoreBuild.SurvivalPostsMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'SheetMetal',
-      Amount = 4,
-      Text = getItemNameFromFullType('Base.SheetMetal')
+      Material = 'Base.SheetMetal',
+      Amount = 4
     },
     {
-      Material = 'Screws',
-      Amount = 5,
-      Text = getItemNameFromFullType('Base.Screws')
+      Material = 'Base.Screws',
+      Amount = 5
     },
     {
-      Material = 'ElectricWire',
-      Amount = 2,
-      Text = getItemNameFromFullType('Radio.ElectricWire')
+      Material = 'Radio.ElectricWire',
+      Amount = 2
     },
     {
-      Material = 'ElectronicsScrap',
-      Amount = 10,
-      Text = getItemNameFromFullType('Base.ElectronicsScrap')
+      Material = 'Base.ElectronicsScrap',
+      Amount = 10
     }
   }
 
   MoreBuild.neededTools = {'Hammer', 'Screwdriver', 'Saw'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.advancedContainer,
+    Electricity = MoreBuild.skillLevel.fridgeObject
+  }
 
   _sprite = {}
   _sprite.sprite = 'appliances_refrigeration_01_24'
@@ -94,7 +94,7 @@ MoreBuild.SurvivalPostsMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildfridge, _sprite, player, _name, _icon)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.advancedContainer, MoreBuild.skillLevel.fridgeObject, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_Mini_Fridge' .. _tooltip.description .. MoreBuild.textCanRotate
   _tooltip:setTexture(_sprite.sprite)
@@ -103,23 +103,24 @@ MoreBuild.SurvivalPostsMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'SheetMetal',
-      Amount = 2,
-      Text = getItemNameFromFullType('Base.SheetMetal')
+      Material = 'Base.SheetMetal',
+      Amount = 2
     },
     {
-      Material = 'Screws',
-      Amount = 3,
-      Text = getItemNameFromFullType('Base.Screws')
+      Material = 'Base.Screws',
+      Amount = 3
     },
     {
-      Material = 'Plank',
-      Amount = 2,
-      Text = getItemNameFromFullType('Base.Plank')
+      Material = 'Base.Plank',
+      Amount = 2
     }
   }
 
   MoreBuild.neededTools = {'Hammer', 'Screwdriver'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.barbecueObject
+  }
 
   _sprite = {}
   _sprite.sprite = 'appliances_cooking_01_35'
@@ -127,7 +128,7 @@ MoreBuild.SurvivalPostsMenuBuilder = function(subMenu, player)
 
   _name = MoreBuild.getMoveableDisplayName(_sprite.sprite)
   _option = subMenu:addOption(_name, worldobjects, MoreBuild.onBuildBarbecue, _sprite, player, _name, _icon)
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.barbecueObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText('Tooltip_Barbecue') .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -136,33 +137,33 @@ MoreBuild.SurvivalPostsMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'ElectricWire',
-      Amount = 2,
-      Text = getItemNameFromFullType('Radio.ElectricWire')
+      Material = 'Radio.ElectricWire',
+      Amount = 2
     },
     {
-      Material = 'Aluminum',
-      Amount = 10,
-      Text = getItemNameFromFullType('Base.Aluminum')
+      Material = 'Base.Aluminum',
+      Amount = 10
     },
     {
-      Material = 'SheetMetal',
-      Amount = 4,
-      Text = getItemNameFromFullType('Base.SheetMetal')
+      Material = 'Base.SheetMetal',
+      Amount = 4
     },
     {
-      Material = 'Screws',
-      Amount = 10,
-      Text = getItemNameFromFullType('Base.Screws')
+      Material = 'Base.Screws',
+      Amount = 10
     },
     {
-      Material = 'ElectronicsScrap',
-      Amount = 100,
-      Text = getItemNameFromFullType('Base.ElectronicsScrap')
+      Material = 'Base.ElectronicsScrap',
+      Amount = 100
     }
   }
 
   MoreBuild.neededTools = {'Screwdriver', 'Saw'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.barbecueObject,
+    Electricity = MoreBuild.skillLevel.generatorObject
+  }
 
   _sprite = {}
   _sprite.sprite = 'appliances_misc_01_0'
@@ -173,7 +174,7 @@ MoreBuild.SurvivalPostsMenuBuilder = function(subMenu, player)
 
   _name = getText 'ContextMenu_Fuel_Generator'
   _option = subMenu:addOption(_name, worldobjects, MoreBuild.onBuildGenerator, _sprite, perk, _name, player)
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.barbecueObject, MoreBuild.skillLevel.generatorObject, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText('Tooltip_Fuel_Generator') .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -182,23 +183,24 @@ MoreBuild.SurvivalPostsMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'SheetMetal',
-      Amount = 6,
-      Text = getItemNameFromFullType('Base.SheetMetal')
+      Material = 'Base.SheetMetal',
+      Amount = 6
     },
     {
-      Material = 'Nails',
-      Amount = 20,
-      Text = getItemNameFromFullType('Base.Nails')
+      Material = 'Base.Nails',
+      Amount = 20
     },
     {
-      Material = 'Screws',
-      Amount = 10,
-      Text = getItemNameFromFullType('Base.Screws')
+      Material = 'Base.Screws',
+      Amount = 10
     }
   }
 
   MoreBuild.neededTools = {'Hammer', 'Screwdriver'}
+
+  local needSkills = {
+    Woodwork = 7
+  }
 
   _sprite = {}
   _sprite.sprite = 'appliances_cooking_01_17'
@@ -206,26 +208,23 @@ MoreBuild.SurvivalPostsMenuBuilder = function(subMenu, player)
 
   _name = MoreBuild.getMoveableDisplayName(_sprite.sprite)
   _option = subMenu:addOption(_name, worldobjects, MoreBuild.onBuildStove, _sprite, player, _name, _icon)
-  _tooltip = MoreBuild.canBuildObject(7, 0, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText('Tooltip_Stove') .. _tooltip.description .. MoreBuild.textCanRotate
   _tooltip:setTexture(_sprite.sprite)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Stone',
-      Amount = 10,
-      Text = getItemNameFromFullType('Base.Stone')
+      Material = 'Base.Stone',
+      Amount = 10
     },
     {
-      Material = 'Dirtbag',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.Dirtbag')
+      Material = 'Base.Dirtbag',
+      Amount = 1
     },
     {
-      Material = 'BucketWaterFull',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.BucketWaterFull')
+      Material = 'Base.BucketWaterFull',
+      Amount = 1
     }
   }
 
@@ -237,7 +236,7 @@ MoreBuild.SurvivalPostsMenuBuilder = function(subMenu, player)
 
   _name = getText 'ContextMenu_Fireplace'
   _option = subMenu:addOption(_name, worldobjects, MoreBuild.onBuildFireplace, _sprite, player, _name, _icon)
-  _tooltip = MoreBuild.canBuildObject(7, 0, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText('Tooltip_Stove') .. _tooltip.description .. MoreBuild.textCanRotate
   _tooltip:setTexture(_sprite.sprite)

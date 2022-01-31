@@ -12,23 +12,24 @@ MoreBuild.bedsMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Plank',
-      Amount = 6,
-      Text = getItemNameFromFullType('Base.Plank')
+      Material = 'Base.Plank',
+      Amount = 6
     },
     {
-      Material = 'Nails',
-      Amount = 4,
-      Text = getItemNameFromFullType('Base.Nails')
+      Material = 'Base.Nails',
+      Amount = 4
     },
     {
-      Material = 'Mattress',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.Mattress')
+      Material = 'Base.Mattress',
+      Amount = 1
     }
   }
 
   MoreBuild.neededTools = {'Hammer'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.complexFurniture
+  }
 
   local _bedsData = MoreBuild.getBedData()
 
@@ -43,7 +44,7 @@ MoreBuild.bedsMenuBuilder = function(subMenu, player)
 
     _option = subMenu:addOption(_name, nil, MoreBuild.onBuildBed, _sprite, player, _name)
 
-    _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.complexFurniture, MoreBuild.skillLevel.none, _option, player)
+    _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
     _tooltip.description = _currentList[6] .. _tooltip.description
     _tooltip:setName(_name)
     _tooltip:setTexture(_sprite.sprite)

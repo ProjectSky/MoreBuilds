@@ -13,18 +13,20 @@ MoreBuild.cratesMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Plank',
-      Amount = 2,
-      Text = getItemNameFromFullType('Base.Plank')
+      Material = 'Base.Plank',
+      Amount = 2
     },
     {
-      Material = 'Nails',
-      Amount = 2,
-      Text = getItemNameFromFullType('Base.Nails')
+      Material = 'Base.Nails',
+      Amount = 2
     }
   }
 
   MoreBuild.neededTools = {'Hammer'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.simpleContainer
+  }
 
   _sprite = {}
   _sprite.sprite = 'location_shop_greenes_01_35'
@@ -35,7 +37,7 @@ MoreBuild.cratesMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenContainer, _sprite, player, _name, _icon)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.simpleContainer, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
 
   _tooltip.description = getText 'Tooltip_Half_Crate' .. _tooltip.description
@@ -50,7 +52,7 @@ MoreBuild.cratesMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildPassThroughContainer, _sprite, player, _name, _icon)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.simpleContainer, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
 
   _tooltip.description = getText 'Tooltip_Grocery_Box' .. _tooltip.description
@@ -65,7 +67,7 @@ MoreBuild.cratesMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildPassThroughContainer, _sprite, player, _name, _icon)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.simpleContainer, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_Outhouse_Box' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -79,7 +81,7 @@ MoreBuild.cratesMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenContainer, _sprite, player, _name, _icon)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.simpleContainer, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_Theatre_Storage' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -95,7 +97,7 @@ MoreBuild.cratesMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenContainer, _sprite, player, _name, _icon)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.simpleContainer, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_Dog_House' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -110,7 +112,7 @@ MoreBuild.cratesMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenContainer, _sprite, player, _name, _icon)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.simpleContainer, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_ArmyGreen_MilitaryCrate' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -125,7 +127,7 @@ MoreBuild.cratesMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenContainer, _sprite, player, _name, _icon)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.simpleContainer, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_ArmyGray_MilitaryCrate' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -141,7 +143,7 @@ MoreBuild.cratesMenuBuilder = function(subMenu, player)
 
     _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenContainer, _sprite, player, _name, _currentList[4])
 
-    _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.simpleContainer, MoreBuild.skillLevel.none, _option, player)
+    _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
     _tooltip:setName(_name)
     _tooltip.description = _currentList[5] .. _tooltip.description
     _tooltip:setTexture(_sprite.sprite)

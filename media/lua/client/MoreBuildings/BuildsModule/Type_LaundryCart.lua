@@ -38,23 +38,24 @@ MoreBuild.dressersMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Plank',
-      Amount = 4,
-      Text = getItemNameFromFullType('Base.Plank')
+      Material = 'Base.Plank',
+      Amount = 4
     },
     {
-      Material = 'Nails',
-      Amount = 4,
-      Text = getItemNameFromFullType('Base.Nails')
+      Material = 'Base.Nails',
+      Amount = 4
     },
     {
-      Material = 'Drawer',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.Drawer')
+      Material = 'Base.Drawer',
+      Amount = 1
     }
   }
 
   MoreBuild.neededTools = {'Hammer'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.advancedContainer
+  }
 
   local _dresserData = MoreBuild.getDresserData()
 
@@ -69,7 +70,7 @@ MoreBuild.dressersMenuBuilder = function(subMenu, player)
 
     _option = subMenu:addOption(_name, nil, MoreBuild.onBuildDresser, _sprite, player, _name)
 
-    _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.advancedContainer, MoreBuild.skillLevel.none, _option, player)
+    _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
     _tooltip:setName(_name)
     _tooltip.description = _currentList[6] .. _tooltip.description
     _tooltip:setTexture(_sprite.sprite)
@@ -119,23 +120,24 @@ MoreBuild.otherFurnitureMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Plank',
-      Amount = 4,
-      Text = getItemNameFromFullType('Base.Plank')
+      Material = 'Base.Plank',
+      Amount = 4
     },
     {
-      Material = 'Nails',
-      Amount = 4,
-      Text = getItemNameFromFullType('Base.Nails')
+      Material = 'Base.Nails',
+      Amount = 4
     },
     {
-      Material = 'Drawer',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.Drawer')
+      Material = 'Base.Drawer',
+      Amount = 1
     }
   }
 
   MoreBuild.neededTools = {'Hammer'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.advancedContainer
+  }
 
   local _furnitureData = MoreBuild.getOtherFurnitureData()
 
@@ -151,7 +153,7 @@ MoreBuild.otherFurnitureMenuBuilder = function(subMenu, player)
 
     _option = subMenu:addOption(_name, nil, MoreBuild.onBuildDresser, _sprite, player, _name, _icon)
 
-    _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.advancedContainer, MoreBuild.skillLevel.none, _option, player)
+    _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
     _tooltip.description = _currentList[7] .. _tooltip.description
     _tooltip:setName(_name)
     _tooltip:setTexture(_sprite.sprite)

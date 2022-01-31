@@ -12,23 +12,24 @@ MoreBuild.metalLockersMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'SheetMetal',
-      Amount = 2,
-      Text = getItemNameFromFullType('Base.SheetMetal')
+      Material = 'Base.SheetMetal',
+      Amount = 2
     },
     {
-      Material = 'Screws',
-      Amount = 6,
-      Text = getItemNameFromFullType('Base.Screws')
+      Material = 'Base.Screws',
+      Amount = 6
     },
     {
-      Material = 'Hinge',
-      Amount = 2,
-      Text = getItemNameFromFullType('Base.Hinge')
+      Material = 'Base.Hinge',
+      Amount = 2
     }
   }
 
   MoreBuild.neededTools = {'Screwdriver'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.complexFurniture
+  }
 
   _sprite = {}
   _sprite.sprite = 'furniture_storage_02_9'
@@ -40,7 +41,7 @@ MoreBuild.metalLockersMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildMetalLocker, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.complexFurniture, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_Gun_Locker' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -55,7 +56,7 @@ MoreBuild.metalLockersMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildMetalLocker, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.complexFurniture, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_Metal_Locker' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -70,7 +71,7 @@ MoreBuild.metalLockersMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildMetalLocker, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.complexFurniture, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_Lock_Boxes' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -85,7 +86,7 @@ MoreBuild.metalLockersMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildHangingMetalLocker, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.complexFurniture, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_Blue_Lockers' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -100,7 +101,7 @@ MoreBuild.metalLockersMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildHangingMetalLocker, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.complexFurniture, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_Yellow_Lockers' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -115,7 +116,7 @@ MoreBuild.metalLockersMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildHangingMetalLocker, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.complexFurniture, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_Military_Lockers' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)

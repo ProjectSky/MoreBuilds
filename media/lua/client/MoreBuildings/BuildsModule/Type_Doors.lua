@@ -56,38 +56,36 @@ MoreBuild.garageDoorMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Plank',
-      Amount = 8,
-      Text = getItemNameFromFullType('Base.Plank')
+      Material = 'Base.Plank',
+      Amount = 8
     },
     {
-      Material = 'Nails',
-      Amount = 8,
-      Text = getItemNameFromFullType('Base.Nails')
+      Material = 'Base.Nails',
+      Amount = 8
     },
     {
-      Material = 'Doorknob',
-      Amount = 2,
-      Text = getItemNameFromFullType('Base.Doorknob')
+      Material = 'Base.Doorknob',
+      Amount = 2
     },
     {
-      Material = 'Hinge',
-      Amount = 4,
-      Text = getItemNameFromFullType('Base.Hinge')
+      Material = 'Base.Hinge',
+      Amount = 4
     },
     {
-      Material = 'Screws',
-      Amount = 8,
-      Text = getItemNameFromFullType('Base.Screws')
+      Material = 'Base.Screws',
+      Amount = 8
     },
     {
-      Material = 'SmallSheetMetal',
-      Amount = 4,
-      Text = getItemNameFromFullType('Base.SmallSheetMetal')
+      Material = 'Base.SmallSheetMetal',
+      Amount = 4
     }
   }
 
   MoreBuild.neededTools = {'Hammer', 'Screwdriver', 'Saw'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.garageDoorObject
+  }
 
   _sprite = {}
   _sprite.sprite = 'walls_garage_01_'
@@ -95,7 +93,7 @@ MoreBuild.garageDoorMenuBuilder = function(subMenu, player)
   _name = getText 'ContextMenu_White_Garage_Door'
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildGarageDoor, _sprite, 0, player)
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.garageDoorObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_White_Garage_Door' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite .. 1)
@@ -103,7 +101,7 @@ MoreBuild.garageDoorMenuBuilder = function(subMenu, player)
   _name = getText 'ContextMenu_Green_Garage_Door'
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildGarageDoor, _sprite, 16, player)
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.garageDoorObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_Green_Garage_Door' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite .. 17)
@@ -111,7 +109,7 @@ MoreBuild.garageDoorMenuBuilder = function(subMenu, player)
   _name = getText 'ContextMenu_Grey_Garage_Door'
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildGarageDoor, _sprite, 48, player)
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.garageDoorObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_Grey_Garage_Door' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite .. 49)
@@ -122,7 +120,7 @@ MoreBuild.garageDoorMenuBuilder = function(subMenu, player)
   _name = getText 'ContextMenu_Rolling_Garage_Door'
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildGarageDoor, _sprite, 0, player)
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.garageDoorObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_Rolling_Garage_Door' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite .. 1)
@@ -130,7 +128,7 @@ MoreBuild.garageDoorMenuBuilder = function(subMenu, player)
   _name = getText 'ContextMenu_Red_Window_Garage_Door'
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildGarageDoor, _sprite, 32, player)
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.garageDoorObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_Red_Window_Garage_Door' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite .. 33)
@@ -138,7 +136,7 @@ MoreBuild.garageDoorMenuBuilder = function(subMenu, player)
   _name = getText 'ContextMenu_Gray_Window_Garage_Door'
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildGarageDoor, _sprite, 48, player)
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.garageDoorObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_Gray_Window_Garage_Door' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite .. 49)
@@ -152,28 +150,28 @@ MoreBuild.woodenDoorsMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Plank',
-      Amount = 4,
-      Text = getItemNameFromFullType('Base.Plank')
+      Material = 'Base.Plank',
+      Amount = 4
     },
     {
-      Material = 'Nails',
-      Amount = 4,
-      Text = getItemNameFromFullType('Base.Nails')
+      Material = 'Base.Nails',
+      Amount = 4
     },
     {
-      Material = 'Doorknob',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.Doorknob')
+      Material = 'Base.Doorknob',
+      Amount = 1
     },
     {
-      Material = 'Hinge',
-      Amount = 2,
-      Text = getItemNameFromFullType('Base.Hinge')
+      Material = 'Base.Hinge',
+      Amount = 2
     }
   }
 
   MoreBuild.neededTools = {'Hammer'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.doorObject
+  }
 
   _sprite = {}
   _sprite.sprite = 'fixtures_doors_02_0'
@@ -185,7 +183,7 @@ MoreBuild.woodenDoorsMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenDoor, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.doorObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = MoreBuild.textDoorGenericDescription .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -200,22 +198,7 @@ MoreBuild.woodenDoorsMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenDoor, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.doorObject, MoreBuild.skillLevel.none, _option, player)
-  _tooltip:setName(_name)
-  _tooltip.description = MoreBuild.textDoorGenericDescription .. _tooltip.description
-  _tooltip:setTexture(_sprite.sprite)
-	
-	_sprite = {}
-  _sprite.sprite = 'fixtures_doors_01_36'
-  _sprite.northSprite = 'fixtures_doors_01_37'
-  _sprite.openSprite = 'fixtures_doors_01_38'
-  _sprite.openNorthSprite = 'fixtures_doors_01_39'
-
-  _name = getText 'ContextMenu_Brown_WoodenDoor'
-
-  _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenDoor, _sprite, player, _name)
-
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.doorObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = MoreBuild.textDoorGenericDescription .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -230,7 +213,7 @@ MoreBuild.woodenDoorsMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenDoor, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.doorObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = MoreBuild.textDoorGenericDescription .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -245,7 +228,7 @@ MoreBuild.woodenDoorsMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenDoor, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.doorObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = MoreBuild.textDoorGenericDescription .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -260,7 +243,7 @@ MoreBuild.woodenDoorsMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenDoor, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.doorObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = MoreBuild.textDoorGenericDescription .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -274,28 +257,28 @@ MoreBuild.panelDoorsMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Plank',
-      Amount = 4,
-      Text = getItemNameFromFullType('Base.Plank')
+      Material = 'Base.Plank',
+      Amount = 4
     },
     {
-      Material = 'Nails',
-      Amount = 4,
-      Text = getItemNameFromFullType('Base.Nails')
+      Material = 'Base.Nails',
+      Amount = 4
     },
     {
-      Material = 'Doorknob',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.Doorknob')
+      Material = 'Base.Doorknob',
+      Amount = 1
     },
     {
-      Material = 'Hinge',
-      Amount = 2,
-      Text = getItemNameFromFullType('Base.Hinge')
+      Material = 'Base.Hinge',
+      Amount = 2
     }
   }
 
   MoreBuild.neededTools = {'Hammer'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.doorObject
+  }
 
   _sprite = {}
   _sprite.sprite = 'fixtures_doors_02_16'
@@ -307,7 +290,7 @@ MoreBuild.panelDoorsMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenDoor, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.doorObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_Brown_PanelDoor' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -322,7 +305,7 @@ MoreBuild.panelDoorsMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenDoor, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.doorObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_Brown_PanelDoor' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -337,7 +320,7 @@ MoreBuild.panelDoorsMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenDoor, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.doorObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_Brown_PanelDoor' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -351,28 +334,28 @@ MoreBuild.industrialDoorsMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Plank',
-      Amount = 4,
-      Text = getItemNameFromFullType('Base.Plank')
+      Material = 'Base.Plank',
+      Amount = 4
     },
     {
-      Material = 'Nails',
-      Amount = 4,
-      Text = getItemNameFromFullType('Base.Nails')
+      Material = 'Base.Nails',
+      Amount = 4
     },
     {
-      Material = 'Doorknob',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.Doorknob')
+      Material = 'Base.Doorknob',
+      Amount = 1
     },
     {
-      Material = 'Hinge',
-      Amount = 2,
-      Text = getItemNameFromFullType('Base.Hinge')
+      Material = 'Base.Hinge',
+      Amount = 2
     }
   }
 
   MoreBuild.neededTools = {'Hammer'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.doorObject
+  }
 
   _sprite = {}
   _sprite.sprite = 'fixtures_doors_02_12'
@@ -384,7 +367,7 @@ MoreBuild.industrialDoorsMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenDoor, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.doorObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = MoreBuild.textDoorIndustrial .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -399,7 +382,7 @@ MoreBuild.industrialDoorsMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenDoor, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.doorObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = MoreBuild.textDoorIndustrial .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -414,7 +397,7 @@ MoreBuild.industrialDoorsMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenDoor, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.doorObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = MoreBuild.textDoorIndustrial .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -429,7 +412,7 @@ MoreBuild.industrialDoorsMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenDoor, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.doorObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = MoreBuild.textDoorIndustrial .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -444,7 +427,7 @@ MoreBuild.industrialDoorsMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenDoor, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.doorObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = MoreBuild.textDoorIndustrial .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -459,7 +442,7 @@ MoreBuild.industrialDoorsMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenDoor, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.doorObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = MoreBuild.textDoorIndustrial .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -473,28 +456,28 @@ MoreBuild.exteriorDoorsMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Plank',
-      Amount = 4,
-      Text = getItemNameFromFullType('Base.Plank')
+      Material = 'Base.Plank',
+      Amount = 4
     },
     {
-      Material = 'Nails',
-      Amount = 4,
-      Text = getItemNameFromFullType('Base.Nails')
+      Material = 'Base.Nails',
+      Amount = 4
     },
     {
-      Material = 'Doorknob',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.Doorknob')
+      Material = 'Base.Doorknob',
+      Amount = 1
     },
     {
-      Material = 'Hinge',
-      Amount = 2,
-      Text = getItemNameFromFullType('Base.Hinge')
+      Material = 'Base.Hinge',
+      Amount = 2
     }
   }
 
   MoreBuild.neededTools = {'Hammer'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.doorObject
+  }
 
   _sprite = {}
   _sprite.sprite = 'fixtures_doors_01_56'
@@ -506,7 +489,7 @@ MoreBuild.exteriorDoorsMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenDoor, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.doorObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = MoreBuild.textDoorExterior .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -521,7 +504,7 @@ MoreBuild.exteriorDoorsMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenDoor, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.doorObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = MoreBuild.textDoorExterior .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -536,7 +519,7 @@ MoreBuild.exteriorDoorsMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenDoor, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.doorObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = MoreBuild.textDoorExterior .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -550,28 +533,28 @@ MoreBuild.otherDoorsMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Plank',
-      Amount = 4,
-      Text = getItemNameFromFullType('Base.Plank')
+      Material = 'Base.Plank',
+      Amount = 4
     },
     {
-      Material = 'Nails',
-      Amount = 4,
-      Text = getItemNameFromFullType('Base.Nails')
+      Material = 'Base.Nails',
+      Amount = 4
     },
     {
-      Material = 'Doorknob',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.Doorknob')
+      Material = 'Base.Doorknob',
+      Amount = 1
     },
     {
-      Material = 'Hinge',
-      Amount = 2,
-      Text = getItemNameFromFullType('Base.Hinge')
+      Material = 'Base.Hinge',
+      Amount = 2
     }
   }
 
   MoreBuild.neededTools = {'Hammer'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.doorObject
+  }
 
   _sprite = {}
   _sprite.sprite = 'fixtures_doors_01_28'
@@ -583,7 +566,7 @@ MoreBuild.otherDoorsMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenDoor, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.doorObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_Rough_WoodenDoor' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -598,7 +581,7 @@ MoreBuild.otherDoorsMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenDoor, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.doorObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_Wood_FortressDoor' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -613,7 +596,7 @@ MoreBuild.otherDoorsMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenDoor, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.doorObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_Spiffos_Door' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -628,7 +611,7 @@ MoreBuild.otherDoorsMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenDoor, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.doorObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_Outhouse_Door' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -643,7 +626,7 @@ MoreBuild.otherDoorsMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenDoor, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.doorObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_Safety_Door' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -657,18 +640,20 @@ MoreBuild.lowDoorsMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Plank',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.Plank')
+      Material = 'Base.Plank',
+      Amount = 1
     },
     {
-      Material = 'Nails',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.Nails')
+      Material = 'Base.Nails',
+      Amount = 1
     }
   }
 
   MoreBuild.neededTools = {'Hammer'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.wallObject
+  }
 
   _sprite = {}
   _sprite.sprite = 'fixtures_doors_frames_01_0'
@@ -678,35 +663,35 @@ MoreBuild.lowDoorsMenuBuilder = function(subMenu, player)
   _name = getText 'ContextMenu_Low_DoorFrame'
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildLowDoorFrame, _sprite, player, _name)
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.wallObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_Low_DoorFrame' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Plank',
-      Amount = 4,
-      Text = getItemNameFromFullType('Base.Plank')
+      Material = 'Base.Plank',
+      Amount = 4
     },
     {
-      Material = 'Nails',
-      Amount = 4,
-      Text = getItemNameFromFullType('Base.Nails')
+      Material = 'Base.Nails',
+      Amount = 4
     },
     {
-      Material = 'Doorknob',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.Doorknob')
+      Material = 'Base.Doorknob',
+      Amount = 1
     },
     {
-      Material = 'Hinge',
-      Amount = 2,
-      Text = getItemNameFromFullType('Base.Hinge')
+      Material = 'Base.Hinge',
+      Amount = 2
     }
   }
 
   MoreBuild.neededTools = {'Hammer'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.doorObject
+  }
 
   _sprite = {}
   _sprite.sprite = 'fixtures_doors_fences_01_4'
@@ -718,7 +703,7 @@ MoreBuild.lowDoorsMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenDoor, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.doorObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_Low_WoodenDoor' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -733,31 +718,27 @@ MoreBuild.lowDoorsMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenDoor, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.doorObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_White_Low_WoodenDoor' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Wire',
-      Amount = 4,
-      Text = getItemNameFromFullType('Base.Wire')
+      Material = 'Base.Wire',
+      Amount = 4
     },
     {
-      Material = 'Nails',
-      Amount = 4,
-      Text = getItemNameFromFullType('Base.Nails')
+      Material = 'Base.Nails',
+      Amount = 4
     },
     {
-      Material = 'Doorknob',
-      Amount = 1,
-      Text = getItemNameFromFullType('Base.Doorknob')
+      Material = 'Base.Doorknob',
+      Amount = 1
     },
     {
-      Material = 'Hinge',
-      Amount = 2,
-      Text = getItemNameFromFullType('Base.Hinge')
+      Material = 'Base.Hinge',
+      Amount = 2
     }
   }
 
@@ -773,7 +754,7 @@ MoreBuild.lowDoorsMenuBuilder = function(subMenu, player)
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildLowdoorframe, _sprite, player, _name)
 
-  _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.doorObject, MoreBuild.skillLevel.none, _option, player)
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_Metal_LowDoor' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)

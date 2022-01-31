@@ -12,18 +12,20 @@ MoreBuild.chairsMenuBuilder = function(subMenu, player, context, worldobjects)
 
   MoreBuild.neededMaterials = {
     {
-      Material = 'Plank',
-      Amount = 5,
-      Text = getItemNameFromFullType('Base.Plank')
+      Material = 'Base.Plank',
+      Amount = 5
     },
     {
-      Material = 'Nails',
-      Amount = 4,
-      Text = getItemNameFromFullType('Base.Nails')
+      Material = 'Base.Nails',
+      Amount = 4
     }
   }
 
   MoreBuild.neededTools = {'Hammer'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.simpleFurniture
+  }
 
   local _chairsData = MoreBuild.getSeatingData()
   local _currentOption
@@ -44,7 +46,7 @@ MoreBuild.chairsMenuBuilder = function(subMenu, player, context, worldobjects)
       _name = _currentList[5]
 
       _option = _currentSubMenu:addOption(_name, nil, MoreBuild.onBuildWoodenChair, _sprite, player, _name)
-      _tooltip = MoreBuild.canBuildObject(MoreBuild.skillLevel.simpleFurniture, MoreBuild.skillLevel.none, _option, player)
+      _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
       _tooltip.description = _currentList[6] .. _tooltip.description
       _tooltip:setName(_name)
       _tooltip:setTexture(_sprite.sprite)
