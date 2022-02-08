@@ -1,5 +1,3 @@
-require 'TimedActions/ISBaseTimedAction'
-
 ISGenerator = ISBuildingObject:derive('ISGenerator')
 
 function ISGenerator:create(x, y, z, north, sprite)

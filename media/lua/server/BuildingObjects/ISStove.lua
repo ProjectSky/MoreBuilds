@@ -1,8 +1,3 @@
---***********************************************************
---**                    ROBERT JOHNSON                     **
---***********************************************************
-require 'TimedActions/ISBaseTimedAction'
-
 ISStove = ISBuildingObject:derive('ISStove')
 
 function ISStove:create(x, y, z, north, sprite)
@@ -35,18 +30,6 @@ function ISStove:isValid(square)
     end
   end
   return true
-end
-
-function ISStove:stop()
-  if self.sound then
-    getSoundManager():StopSound(self.sound)
-  end
-
-  ISBaseTimedAction.stop(self)
-end
-
-function ISStove:perform()
-  ISBaseTimedAction.perform(self)
 end
 
 function ISStove:render(x, y, z, square)

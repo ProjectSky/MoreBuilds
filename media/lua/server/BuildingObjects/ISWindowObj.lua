@@ -1,5 +1,3 @@
-require 'TimedActions/ISBaseTimedAction'
-
 ISWindowObj = ISBuildingObject:derive('ISWindowObj')
 
 function ISWindowObj:create(x, y, z, north, sprite)

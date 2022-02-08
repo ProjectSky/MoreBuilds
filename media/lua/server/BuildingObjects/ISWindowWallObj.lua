@@ -1,5 +1,3 @@
-require 'TimedActions/ISBaseTimedAction'
-
 ISWindowWallObj = ISBuildingObject:derive('ISWindowWallObj')
 
 function ISWindowWallObj:create(x, y, z, north, sprite)
@@ -20,18 +18,6 @@ function ISWindowWallObj:isValid(square)
     return false
   end
   return true
-end
-
-function ISWindowWallObj:stop()
-  if self.sound then
-    getSoundManager():StopSound(self.sound)
-  end
-
-  ISBaseTimedAction.stop(self)
-end
-
-function ISWindowWallObj:perform()
-  ISBaseTimedAction.perform(self)
 end
 
 function ISWindowWallObj:render(x, y, z, square)

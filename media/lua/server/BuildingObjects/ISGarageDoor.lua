@@ -25,6 +25,8 @@ function ISGarageDoor:addDoorPart(x, y, z, north, sprite, index)
     return
   end
   self.javaObject = IsoDoor.new(cell, self.sq, sprite, north)
+  self.javaObject:setHealth(self:getHealth())
+  self.sq:AddSpecialObject(self.javaObject)
 
   local consumedItems = {}
   if index == 1 then
@@ -37,8 +39,11 @@ function ISGarageDoor:addDoorPart(x, y, z, north, sprite, index)
     end
   end
 
-  self.sq:AddSpecialObject(self.javaObject)
   self.javaObject:transmitCompleteItemToServer()
+end
+
+function ISGarageDoor:getHealth()
+	return 700 + buildUtil.getWoodHealth(self);
 end
 
 function ISGarageDoor:isValid(square)

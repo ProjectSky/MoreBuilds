@@ -772,11 +772,6 @@ MoreBuild.onBuildWoodenDoor = function(ignoreThisArgument, sprite, player, name)
   _door.modData['need:Base.Doorknob'] = '1'
   _door.modData['xp:Woodwork'] = '5'
 
-  local _knob = getSpecificPlayer(player):getInventory():FindAndReturn('Base.Doorknob')
-  if _knob and _knob:getKeyId() ~= -1 then
-    _door.keyId = _knob:getKeyId()
-  end
-
   getCell():setDrag(_door, player)
 end
 
@@ -791,11 +786,6 @@ MoreBuild.onBuildLowdoorframe = function(ignoreThisArgument, sprite, player, nam
   _lowdoorframe.modData['need:Base.Hinge'] = '1'
   _lowdoorframe.modData['need:Base.Doorknob'] = '2'
   _lowdoorframe.modData['xp:Woodwork'] = '5'
-
-  local _knob = getSpecificPlayer(player):getInventory():FindAndReturn('Base.Doorknob')
-  if _knob and _knob:getKeyId() ~= -1 then
-    _lowdoorframe.keyId = _knob:getKeyId()
-  end
 
   getCell():setDrag(_lowdoorframe, player)
 end
@@ -812,6 +802,10 @@ MoreBuild.onBuildGarageDoor = function(ignoreThisArgument, sprite, spriteIndex, 
   _garageDoor.modData['need:Base.Screws'] = '8'
   _garageDoor.modData['need:Base.SmallSheetMetal'] = '4'
   _garageDoor.modData['xp:Woodwork'] = '15'
+
+  function _garageDoor:getHealth()
+    return MoreBuild.healthLevel.metalDoor + buildUtil.getWoodHealth(self)
+  end
 
   getCell():setDrag(_garageDoor, player)
 end

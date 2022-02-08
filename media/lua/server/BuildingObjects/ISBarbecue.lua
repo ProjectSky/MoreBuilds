@@ -1,11 +1,9 @@
-require 'TimedActions/ISBaseTimedAction'
-
 ISBarbecue = ISBuildingObject:derive('ISBarbecue')
 
 function ISBarbecue:create(x, y, z, north, sprite)
   local cell = getWorld():getCell()
   self.sq = cell:getGridSquare(x, y, z)
-  self.javaObject = IsoBarbecue.new(getCell(), self.sq, sprite)
+  self.javaObject = IsoBarbecue.new(getCell(), self.sq, getSprite(sprite))
   self.javaObject:setMovedThumpable(true)
   --self.javaObject:setFuelAmount(ZombRand(0,100));
   --self.javaObject:setLit(false)
@@ -19,18 +17,6 @@ function ISBarbecue:isValid(square)
     return false
   end
   return true
-end
-
-function ISBarbecue:stop()
-  if self.sound then
-    getSoundManager():StopSound(self.sound)
-  end
-
-  ISBaseTimedAction.stop(self)
-end
-
-function ISBarbecue:perform()
-  ISBaseTimedAction.perform(self)
 end
 
 function ISBarbecue:render(x, y, z, square)

@@ -13,11 +13,11 @@ MoreBuild.stairsMenuBuilder = function(subMenu, player)
   MoreBuild.neededMaterials = {
     {
       Material = 'Base.Plank',
-      Amount = 8
+      Amount = 15
     },
     {
       Material = 'Base.Nails',
-      Amount = 8
+      Amount = 15
     }
   }
 
@@ -144,15 +144,15 @@ MoreBuild.stairsMenuBuilder = function(subMenu, player)
   MoreBuild.neededMaterials = {
     {
       Material = 'Base.SheetMetal',
-      Amount = 4
+      Amount = 10
     },
     {
       Material = 'Base.Screws',
-      Amount = 8
+      Amount = 15
     }
   }
 
-  MoreBuild.neededTools = {'Screwdriver'}
+  MoreBuild.neededTools = {'Hammer', 'Screwdriver'}
 
   _sprite = {}
   _sprite.upToLeft01 = 'fixtures_stairs_01_3'
@@ -181,9 +181,9 @@ MoreBuild.onBuildWoodenStairs = function(ignoreThisArgument, sprite, player, nam
   _stairs.player = player
   _stairs.name = name
 
-  _stairs.modData['need:Base.Plank'] = '8'
-  _stairs.modData['need:Base.Nails'] = '8'
-  _stairs.modData['xp:Woodwork'] = '5'
+  _stairs.modData['need:Base.Plank'] = '15'
+  _stairs.modData['need:Base.Nails'] = '15'
+  _stairs.modData['xp:Woodwork'] = '10'
 
   getCell():setDrag(_stairs, player)
 end
@@ -195,15 +195,15 @@ MoreBuild.onBuildMetalStairs = function(ignoreThisArgument, sprite, player, name
   _stairs.player = player
   _stairs.name = name
 
-  _stairs.modData['need:Base.SheetMetal'] = '4'
-  _stairs.modData['need:Base.Screws'] = '8'
-  _stairs.modData['xp:Woodwork'] = '5'
+  _stairs.modData['need:Base.SheetMetal'] = '10'
+  _stairs.modData['need:Base.Screws'] = '15'
+  _stairs.modData['xp:Woodwork'] = '15'
 
   function _stairs:getHealth()
     return MoreBuild.healthLevel.metalStairs + buildUtil.getWoodHealth(self)
   end
 
-  MoreBuild.equipToolPrimary(_stairs, player, 'Screwdriver')
+  MoreBuild.equipToolPrimary(_stairs, player, 'Hammer')
 
   getCell():setDrag(_stairs, player)
 end
