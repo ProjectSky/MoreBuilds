@@ -25,7 +25,7 @@ local getText = getText
 local MoreBuild = {}
 MoreBuild.NAME = 'More Builds'
 MoreBuild.AUTHOR = 'ProjectSky, SiderisAnon'
-MoreBuild.VERSION = '1.1.5'
+MoreBuild.VERSION = '1.1.6'
 
 print('Mod Loaded: ' .. MoreBuild.NAME .. ' by ' .. MoreBuild.AUTHOR .. ' (v' .. MoreBuild.VERSION .. ')')
 
@@ -65,6 +65,8 @@ MoreBuild.textDresserDescription = getText('Tooltip_Dresser_Description')
 MoreBuild.textBedDescription = getText('Tooltip_Bed_Description')
 MoreBuild.textFlowerBedDescription = getText('Tooltip_FlowerBed_Description')
 
+-- 建筑技能需求定义
+-- TODO: 优化结构
 MoreBuild.skillLevel = {
   simpleObject = 1,
   waterwellObject = 7,
@@ -98,6 +100,8 @@ MoreBuild.skillLevel = {
   windowsObject = 2,
 }
 
+-- 建筑耐久定义
+-- TODO: 优化结构
 MoreBuild.healthLevel = {
   stoneWall = 300,
   metalWall = 700,
@@ -110,18 +114,12 @@ MoreBuild.healthLevel = {
   metalDoor = 700
 }
 
-MoreBuild.getMoveableDisplayName = function(sprite)
-  local props = getSprite(sprite):getProperties()
-  if props:Is('CustomName') then
-    local name = props:Val('CustomName')
-    if props:Is('GroupName') then
-      name = props:Val('GroupName') .. ' ' .. name
-    end
-    return getMoveableDisplayName(name)
-  end
-  return false
-end
-
+--- OnFillWorldObjectContextMenu回调
+-- @param IsoPlayer: 调用的IsoPlayer实例
+-- @param ISContextMenu: Context menu
+-- @param table: World objects
+-- @param Boolean: 如果是测试附近对象则返回true, 否则返回false
+-- TODO: 优化性能, ISContextMenu过差, 经测试, 注册300+ISContextMenu实例会导致游戏主线程冻结0.244秒左右, 这是非常严重的性能问题, 需要官方解决
 MoreBuild.doBuildMenu = function(player, context, worldobjects, test)
   if getCore():getGameMode() == 'LastStand' then
     return
@@ -342,57 +340,89 @@ MoreBuild.doBuildMenu = function(player, context, worldobjects, test)
   end
 end
 
+--- 检查物品是否损坏
+-- @param item InventoryItem: InventoryItem实例
+-- @return Boolean: 如果物品未损坏返回true, 否则返回false
 local function predicateNotBroken(item)
 	return not item:isBroken()
 end
 
--- TODO: 添加多工具支持
+--- 获取可移动家具本地化字符串
+-- @param sprite IsoSprite: IsoSprite实例
+-- @return String: 获取的本地化字符串
+MoreBuild.getMoveableDisplayName = function(sprite)
+  local props = getSprite(sprite):getProperties()
+  if props:Is('CustomName') then
+    local name = props:Val('CustomName')
+    if props:Is('GroupName') then
+      name = props:Val('GroupName') .. ' ' .. name
+    end
+    return getMoveableDisplayName(name)
+  end
+end
+
+--- 检查玩家是否拥有某些工具
+-- @param player IsoPlayer: IsoPlayer实例
+-- @return Boolean: 如果满足工具条件需求则返回true否则返回false
 MoreBuild.haveAToolToBuild = function(player)
   local inv = getSpecificPlayer(player):getInventory()
   
+  -- 多个工具在表内添加即可 [类型] {工具1，工具2，工具3}
   MoreBuild.toolsList['Hammer'] = {"Base.Hammer", "Base.HammerStone", "Base.BallPeenHammer", "Base.WoodenMallet", "Base.ClubHammer"}
   MoreBuild.toolsList['Screwdriver'] = {"Base.Screwdriver"}
   MoreBuild.toolsList['HandShovel'] = {"farming.HandShovel"}
   MoreBuild.toolsList['Saw'] = {"Base.Saw"}
   MoreBuild.toolsList['Spade'] = {"Base.Shovel"}
 
-  local havaTools = nil
-
-  for _, type in pairs (MoreBuild.toolsList['Hammer']) do
-    havaTools = inv:containsTypeEvalRecurse(type, predicateNotBroken)
-    if havaTools then
-      havaTools = true
-      break
-    end
-  end
+  havaTools = MoreBuild.getBestTools(player, 'Hammer')
 
   return havaTools or ISBuildMenu.cheat
 end
 
+--- 获取玩家库存内最佳工具
+-- @param player IsoPlayer: IsoPlayer实例
+-- @param tool String: 工具类型
+-- @return InventoryItem: 获取到的最佳工具实例, 如未获取实例返回nil
+MoreBuild.getBestTools = function(player, tool)
+  local tools = nil
+  local toolList = MoreBuild.toolsList[tool]
+  local inv = getSpecificPlayer(player):getInventory()
+  for _, type in pairs (toolList) do
+    tools = inv:getBestTypeEvalRecurse(type, predicateNotBroken)
+    if tools then
+      return tools;
+    end
+  end
+end
+
+--- 装备主要工具
+-- @param object Isoobject: Isoobject实例
+-- @param player IsoPlayer: IsoPlayer实例
+-- @param tool String: 工具类型
 MoreBuild.equipToolPrimary = function(object, player, tool)
-  local inv = getSpecificPlayer(player):getInventory()
-  for _, type in pairs (MoreBuild.toolsList[tool]) do
-    tools = inv:getBestTypeEvalRecurse(type, predicateNotBroken)
-    if tools then
-      ISInventoryPaneContextMenu.equipWeapon(tools, true, false, player)
-      object.noNeedHammer = true
-      break
-    end
+  local tools = nil
+  tools = MoreBuild.getBestTools(player, tool)
+  if tools then
+    ISInventoryPaneContextMenu.equipWeapon(tools, true, false, player)
+    object.noNeedHammer = true
   end
 end
 
--- 未使用
+--- 装备次要工具
+-- @param object Isoobject: Isoobject实例
+-- @param player IsoPlayer: IsoPlayer实例
+-- @param tool String: 工具类型
+-- @info 未使用
 MoreBuild.equipToolSecondary = function(object, player, tool)
-  local inv = getSpecificPlayer(player):getInventory()
-  for _, type in pairs (MoreBuild.toolsList[tool]) do
-    tools = inv:getBestTypeEvalRecurse(type, predicateNotBroken)
-    if tools then
-      ISInventoryPaneContextMenu.equipWeapon(tools, false, false, player)
-      break
-    end
+  local tools = nil
+  tools = MoreBuild.getBestTools(player, tool)
+  if tools then
+    ISInventoryPaneContextMenu.equipWeapon(tools, false, false, player)
   end
 end
 
+--- 构造技能文本
+-- @param player IsoPlayer: IsoPlayer实例
 MoreBuild.buildSkillsList = function(player)
   local perks = PerkFactory.PerkList
   for i = 0, perks:size() - 1 do
@@ -404,7 +434,13 @@ MoreBuild.buildSkillsList = function(player)
   end
 end
 
--- ISBuildMenu.countMaterial性能过低，如果玩家库存中物品过多会卡游戏主线程，不使用
+--- 检查&构造材料提示文本
+-- @param player IsoPlayer: IsoPlayer实例
+-- @param material String: 材料类型
+-- @param amount String: 需要的材料数量
+-- @param tooltip ISToolTip: 工具提示实例
+-- @return Boolean: 如果满足检查条件则返回true否则返回false
+-- @info ISBuildMenu.countMaterial性能过低，如果玩家库存中物品过多会卡游戏主线程，不建议使用
 MoreBuild.tooltipCheckForMaterial = function(player, material, amount, tooltip)
   local inv = getSpecificPlayer(player):getInventory()
   local type = split(material, '\\.')[2]
@@ -431,19 +467,11 @@ MoreBuild.tooltipCheckForMaterial = function(player, material, amount, tooltip)
   return true
 end
 
-MoreBuild.getBestTools = function(player, tool)
-  local tools = nil
-  local toolList = MoreBuild.toolsList[tool]
-  local inv = getSpecificPlayer(player):getInventory()
-  for _, type in pairs (toolList) do
-    tools = inv:getBestTypeEvalRecurse(type, predicateNotBroken)
-    if tools then
-      return tools;
-    end
-  end
-end
-
--- TODO: 支持背包内工具
+--- 检查&构造工具提示文本
+-- @param player IsoPlayer: IsoPlayer实例
+-- @param tool String: 工具类型
+-- @param tooltip ISToolTip: 工具提示实例
+-- @return Boolean: 如果满足检查条件则返回true否则返回false
 MoreBuild.tooltipCheckForTool = function(player, tool, tooltip)
   local tools = MoreBuild.getBestTools(player, tool)
   if tools then
@@ -518,4 +546,9 @@ function getMoreBuildInstance()
   return MoreBuild
 end
 
+--- 注册OnFillWorldObjectContextMenu事件
+-- @callback1 IsoPlayer: 调用的IsoPlayer实例
+-- @callback2 ISContextMenu: Context menu
+-- @callback3 table: World objects
+-- @callback4 Boolean: 如果是测试附近对象则返回true, 否则返回false
 Events.OnFillWorldObjectContextMenu.Add(MoreBuild.doBuildMenu)
