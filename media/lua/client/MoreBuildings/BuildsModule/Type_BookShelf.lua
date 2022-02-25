@@ -16,9 +16,9 @@ MoreBuild.onBuildBookShelf = function(ignoreThisArgument, sprite, player, name)
   bookshelf.player = player
   bookshelf.name = name
 
-  bookshelf.modData['need:Base.Plank'] = '6'
-  bookshelf.modData['need:Base.Nails'] = '6'
-  bookshelf.modData['xp:Woodwork'] = '10'
+  bookshelf.modData['need:Base.Plank'] = 6
+  bookshelf.modData['need:Base.Nails'] = 6
+  bookshelf.modData['xp:Woodwork'] = 10
 
   function bookshelf:getHealth()
     --self.javaObject:getContainer():setType("vendingsnack")

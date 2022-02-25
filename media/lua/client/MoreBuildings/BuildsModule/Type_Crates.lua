@@ -179,9 +179,9 @@ MoreBuild.onBuildPassThroughContainer = function(ignoreThisArgument, sprite, pla
     _container:setSouthSprite(sprite.southSprite)
   end
 
-  _container.modData['need:Base.Plank'] = '2'
-  _container.modData['need:Base.Nails'] = '2'
-  _container.modData['xp:Woodwork'] = '5'
+  _container.modData['need:Base.Plank'] = 2
+  _container.modData['need:Base.Nails'] = 2
+  _container.modData['xp:Woodwork'] = 5
 
   function _container:getHealth()
     self.javaObject:getContainer():setType(icon)

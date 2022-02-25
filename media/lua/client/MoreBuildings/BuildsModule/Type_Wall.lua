@@ -314,9 +314,9 @@ MoreBuild.onBuildWoodenWall = function(ignoreThisArgument, sprite, player, name)
   _wall.player = player
   _wall.name = name
 
-  _wall.modData['need:Base.Plank'] = '3'
-  _wall.modData['need:Base.Nails'] = '3'
-  _wall.modData['xp:Woodwork'] = '5'
+  _wall.modData['need:Base.Plank'] = 3
+  _wall.modData['need:Base.Nails'] = 3
+  _wall.modData['xp:Woodwork'] = 5
 
   MoreBuild.equipToolPrimary(_wall, player, 'Hammer')
 
@@ -332,9 +332,9 @@ MoreBuild.onBuildStoneWall = function(ignoreThisArgument, sprite, player, name)
   _wall.player = player
   _wall.name = name
 
-  _wall.modData['need:Base.Plank'] = '6'
-  _wall.modData['need:Base.Nails'] = '3'
-  _wall.modData['xp:Woodwork'] = '5'
+  _wall.modData['need:Base.Plank'] = 6
+  _wall.modData['need:Base.Nails'] = 3
+  _wall.modData['xp:Woodwork'] = 5
 
   function _wall:getHealth()
     return MoreBuild.healthLevel.stoneWall + buildUtil.getWoodHealth(self)
@@ -351,14 +351,14 @@ MoreBuild.onBuildWindowWall = function(ignoreThisArgument, sprite, player, name)
   _window.player = player
   _window.name = name
 
-  _window.modData['need:Base.Plank'] = '4'
-  _window.modData['need:Base.Screws'] = '4'
-  _window.modData['xp:Woodwork'] = '15'
+  _window.modData['need:Base.Plank'] = 4
+  _window.modData['need:Base.Screws'] = 4
+  _window.modData['xp:Woodwork'] = 15
 
   getCell():setDrag(_window, player)
 end
 
-MoreBuild.wallStylesMenuBuilder = function(subMenu, player, context, worldobjects)
+MoreBuild.wallStylesMenuBuilder = function(subMenu, player, context)
   local _stylesOptions = {}
   local _stylesSubMenus = {}
   local _styleList = {
@@ -377,7 +377,7 @@ MoreBuild.wallStylesMenuBuilder = function(subMenu, player, context, worldobject
   }
 
   for _, _style in pairs(_styleList) do
-    _stylesOptions[_style] = subMenu:addOption(_style, worldobjects, nil)
+    _stylesOptions[_style] = subMenu:addOption(_style)
     _stylesSubMenus[_style] = subMenu:getNew(subMenu)
     context:addSubMenu(_stylesOptions[_style], _stylesSubMenus[_style])
   end

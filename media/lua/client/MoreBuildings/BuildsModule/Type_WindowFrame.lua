@@ -177,11 +177,11 @@ MoreBuild.windowFramesMenuBuilder = function(subMenu, player)
   MoreBuild.neededMaterials = {
     {
       Material = 'Base.Plank',
-      Amount = 2
+      Amount = 4
     },
     {
       Material = 'Base.Nails',
-      Amount = 3
+      Amount = 4
     }
   }
 
@@ -285,9 +285,9 @@ MoreBuild.onBuildWoodenWindowFrame = function(ignoreThisArgument, sprite, player
   _windowFrame.player = player
   _windowFrame.name = name
 
-  _windowFrame.modData['need:Base.Plank'] = '4'
-  _windowFrame.modData['need:Base.Nails'] = '4'
-  _windowFrame.modData['xp:Woodwork'] = '5'
+  _windowFrame.modData['need:Base.Plank'] = 4
+  _windowFrame.modData['need:Base.Nails'] = 4
+  _windowFrame.modData['xp:Woodwork'] = 5
 
   getCell():setDrag(_windowFrame, player)
 end
@@ -301,9 +301,9 @@ MoreBuild.onBuildStoneWindowFrame = function(ignoreThisArgument, sprite, player,
   _windowFrame.player = player
   _windowFrame.name = name
 
-  _windowFrame.modData['need:Base.Plank'] = '8'
-  _windowFrame.modData['need:Base.Nails'] = '4'
-  _windowFrame.modData['xp:Woodwork'] = '5'
+  _windowFrame.modData['need:Base.Plank'] = 4
+  _windowFrame.modData['need:Base.Nails'] = 4
+  _windowFrame.modData['xp:Woodwork'] = 5
 
   function _windowFrame:getHealth()
     return MoreBuild.healthLevel.stoneWall + buildUtil.getWoodHealth(self)

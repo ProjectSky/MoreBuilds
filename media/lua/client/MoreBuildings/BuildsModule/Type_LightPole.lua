@@ -126,14 +126,14 @@ MoreBuild.onBuildLightPole = function(ignoreThisArgument, sprite, player, name)
   _lightPole.baseItem = 'Base.LightBulb'
   _lightPole.radius = 10
 
-  _lightPole.modData['need:Base.ScrapMetal'] = '10'
-  _lightPole.modData['need:Base.Screws'] = '4'
-  _lightPole.modData['need:Base.LightBulb'] = '1'
-  _lightPole.modData['need:Radio.ElectricWire'] = '1'
-  _lightPole.modData['need:Base.ElectronicsScrap'] = '5'
-  _lightPole.modData['use:Base.BlowTorch'] = '10'
-  _lightPole.modData['xp:Woodwork'] = '5'
-  _lightPole.modData['xp:Electricity'] = '5'
+  _lightPole.modData['need:Base.ScrapMetal'] = 10
+  _lightPole.modData['need:Base.Screws'] = 4
+  _lightPole.modData['need:Base.LightBulb'] = 1
+  _lightPole.modData['need:Radio.ElectricWire'] = 1
+  _lightPole.modData['need:Base.ElectronicsScrap'] = 5
+  _lightPole.modData['use:Base.BlowTorch'] = 10
+  _lightPole.modData['xp:Woodwork'] = 5
+  _lightPole.modData['xp:Electricity'] = 5
   _lightPole.modData['IsLighting'] = true
 
   getCell():setDrag(_lightPole, player)
@@ -159,14 +159,14 @@ MoreBuild.onBuildOutdoorLight = function(ignoreThisArgument, sprite, player, nam
   _outdoorLight.baseItem = 'Base.LightBulb'
   _outdoorLight.radius = 20
 
-  _outdoorLight.modData['need:Base.ScrapMetal'] = '15'
-  _outdoorLight.modData['need:Base.Screws'] = '5'
-  _outdoorLight.modData['need:Base.LightBulb'] = '2'
-  _outdoorLight.modData['need:Radio.ElectricWire'] = '1'
-  _outdoorLight.modData['need:Base.ElectronicsScrap'] = '5'
-  _outdoorLight.modData['use:Base.BlowTorch'] = '10'
-  _outdoorLight.modData['xp:Woodwork'] = '5'
-  _outdoorLight.modData['xp:Electricity'] = '10'
+  _outdoorLight.modData['need:Base.ScrapMetal'] = 15
+  _outdoorLight.modData['need:Base.Screws'] = 5
+  _outdoorLight.modData['need:Base.LightBulb'] = 2
+  _outdoorLight.modData['need:Radio.ElectricWire'] = 1
+  _outdoorLight.modData['need:Base.ElectronicsScrap'] = 5
+  _outdoorLight.modData['use:Base.BlowTorch'] = 10
+  _outdoorLight.modData['xp:Woodwork'] = 5
+  _outdoorLight.modData['xp:Electricity'] = 10
   _outdoorLight.modData['IsLighting'] = true
 
   getCell():setDrag(_outdoorLight, player)

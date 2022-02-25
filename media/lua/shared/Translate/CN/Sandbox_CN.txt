@@ -1,0 +1,5 @@
+Sandbox_CN = {
+	Sandbox_MoreBuilds = "更多建筑",
+	Sandbox_EnableSurvivalCategory = "生存类别建筑",
+	Sandbox_EnableSurvivalCategory_tooltip = "启用/禁用更多建筑中生存类别的建筑 <LINE> 注: 调试模式下和服务器管理员忽略此项设置",
+}

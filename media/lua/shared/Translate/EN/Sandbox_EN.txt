@@ -1,0 +1,5 @@
+Sandbox_EN = {
+	Sandbox_MoreBuilds = "More Builds",
+	Sandbox_EnableSurvivalCategory = "Survival Builds",
+	Sandbox_EnableSurvivalCategory_tooltip = "enable/disable survival builds menu <LINE> note: debug mode and server admin ignored this setting",
+}

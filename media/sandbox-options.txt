@@ -1,0 +1,7 @@
+VERSION = 1,
+
+option MoreBuilds.EnableSurvivalCategory
+{
+	type = boolean, default = true,
+	page = MoreBuilds, translation = EnableSurvivalCategory,
+}

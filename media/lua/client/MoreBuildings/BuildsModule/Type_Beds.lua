@@ -71,10 +71,10 @@ MoreBuild.onBuildBed = function(ignoreThisArgument, sprite, player, name)
   _bed.player = player
   _bed.name = name
 
-  _bed.modData['need:Base.Plank'] = '6'
-  _bed.modData['need:Base.Nails'] = '4'
-  _bed.modData['need:Base.Mattress'] = '1'
-  _bed.modData['xp:Woodwork'] = '10'
+  _bed.modData['need:Base.Plank'] = 6
+  _bed.modData['need:Base.Nails'] = 4
+  _bed.modData['need:Base.Mattress'] = 1
+  _bed.modData['xp:Woodwork'] = 10
 
   getCell():setDrag(_bed, player)
 end

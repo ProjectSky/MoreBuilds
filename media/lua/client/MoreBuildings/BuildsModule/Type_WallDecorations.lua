@@ -15,9 +15,9 @@ MoreBuild.onBuildWallDecoration = function(ignoreThisArgument, sprite, player, n
   _decoration.player = player
   _decoration.name = name
 
-  _decoration.modData['need:Base.SheetPaper2'] = '1'
-  _decoration.modData['need:Base.Nails'] = '1'
-  _decoration.modData['xp:Woodwork'] = '5'
+  _decoration.modData['need:Base.SheetPaper2'] = 1
+  _decoration.modData['need:Base.Nails'] = 1
+  _decoration.modData['xp:Woodwork'] = 5
 
   function _decoration:getHealth()
     return MoreBuild.healthLevel.wallDecoration
@@ -26,7 +26,7 @@ MoreBuild.onBuildWallDecoration = function(ignoreThisArgument, sprite, player, n
   getCell():setDrag(_decoration, player)
 end
 
-MoreBuild.wallDecorationsMenuBuilder = function(subMenu, player, context, worldobjects)
+MoreBuild.wallDecorationsMenuBuilder = function(subMenu, player, context)
   local _sprite
   local _option
   local _tooltip
@@ -52,7 +52,7 @@ MoreBuild.wallDecorationsMenuBuilder = function(subMenu, player, context, worldo
   }
 
   for _subsectionName, _subsectionData in pairs(_wallDecorationData) do
-    _currentOption = subMenu:addOption(_subsectionName, worldobjects, nil)
+    _currentOption = subMenu:addOption(_subsectionName)
     _currentSubMenu = subMenu:getNew(subMenu)
     context:addSubMenu(_currentOption, _currentSubMenu)
 

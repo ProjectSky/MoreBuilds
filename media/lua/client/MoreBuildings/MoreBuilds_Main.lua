@@ -7,7 +7,6 @@
 --
 
 -- pull global functions to local
-local instanceof = instanceof
 local getSpecificPlayer = getSpecificPlayer
 local pairs = pairs
 local split = string.split
@@ -15,11 +14,8 @@ local getItemNameFromFullType = getItemNameFromFullType
 local PerkFactory = PerkFactory
 local getMoveableDisplayName = Translator.getMoveableDisplayName
 local getSprite = getSprite
-local getBestTypeEvalRecurse = getBestTypeEvalRecurse
+local getFirstTypeEval = getFirstTypeEval
 local getItemCountFromTypeRecurse = getItemCountFromTypeRecurse
-local addOption = addOption
-local addSubMenu = addSubMenu
-local getNew = getNew
 local getText = getText
 
 local MoreBuild = {}
@@ -65,8 +61,8 @@ MoreBuild.textDresserDescription = getText('Tooltip_Dresser_Description')
 MoreBuild.textBedDescription = getText('Tooltip_Bed_Description')
 MoreBuild.textFlowerBedDescription = getText('Tooltip_FlowerBed_Description')
 
--- 建筑技能需求定义
--- TODO: 优化结构
+--- 建筑技能需求定义
+--- @todo: 优化结构
 MoreBuild.skillLevel = {
   simpleObject = 1,
   waterwellObject = 7,
@@ -100,8 +96,8 @@ MoreBuild.skillLevel = {
   windowsObject = 2,
 }
 
--- 建筑耐久定义
--- TODO: 优化结构
+--- 建筑耐久定义
+--- @todo: 优化结构
 MoreBuild.healthLevel = {
   stoneWall = 300,
   metalWall = 700,
@@ -115,12 +111,12 @@ MoreBuild.healthLevel = {
 }
 
 --- OnFillWorldObjectContextMenu回调
--- @param IsoPlayer: 调用的IsoPlayer实例
--- @param ISContextMenu: Context menu
--- @param table: World objects
--- @param Boolean: 如果是测试附近对象则返回true, 否则返回false
--- TODO: 优化性能, ISContextMenu过差, 经测试, 注册300+ISContextMenu实例会导致游戏主线程冻结0.244秒左右, 这是非常严重的性能问题, 需要官方解决
-MoreBuild.doBuildMenu = function(player, context, worldobjects, test)
+--- @param player number: IsoPlayer索引
+--- @param context ISContextMenu: 上下文菜单实例
+--- @param worldobjects table: 世界对象表
+--- @param test boolean: 如果是测试附近对象则返回true, 否则返回false
+--- @todo 优化性能, ISContextMenu性能过差, 经测试, 注册300+ISContextMenu实例会导致游戏主线程冻结0.24秒左右, 这是非常严重的性能问题, 需要官方解决
+MoreBuild.OnFillWorldObjectContextMenu = function(player, context, worldobjects, test)
   if getCore():getGameMode() == 'LastStand' then
     return
   end
@@ -138,218 +134,220 @@ MoreBuild.doBuildMenu = function(player, context, worldobjects, test)
 
     MoreBuild.buildSkillsList(player)
 
-    if MoreBuild.playerSkills["Woodwork"] > 7 or ISBuildMenu.cheat then
+    if MoreBuild.playerSkills["Woodwork"] > 6 or ISBuildMenu.cheat then
       MoreBuild.playerCanPlaster = true
     else
       MoreBuild.playerCanPlaster = false
     end
 
-    local _firstTierMenu = context:addOption(getText('ContextMenu_MoreBuild'), worldobjects, nil)
+    local _firstTierMenu = context:addOption(getText('ContextMenu_MoreBuild'))
     local _secondTierMenu = ISContextMenu:getNew(context)
     context:addSubMenu(_firstTierMenu, _secondTierMenu)
 
-    local _architectureOption = _secondTierMenu:addOption(getText('ContextMenu_Builds_Menu'), worldobjects, nil)
+    local _architectureOption = _secondTierMenu:addOption(getText('ContextMenu_Builds_Menu'))
     local _architectureThirdTierMenu = _secondTierMenu:getNew(_secondTierMenu)
     context:addSubMenu(_architectureOption, _architectureThirdTierMenu)
 
-    local _wallsOption = _architectureThirdTierMenu:addOption(getText('ContextMenu_Wall_Menu'), worldobjects, nil)
+    local _wallsOption = _architectureThirdTierMenu:addOption(getText('ContextMenu_Wall_Menu'))
     local _wallsSubMenu = _architectureThirdTierMenu:getNew(_architectureThirdTierMenu)
 
     context:addSubMenu(_wallsOption, _wallsSubMenu)
-    MoreBuild.wallStylesMenuBuilder(_wallsSubMenu, player, context, worldobjects)
+    MoreBuild.wallStylesMenuBuilder(_wallsSubMenu, player, context)
 
-    local _doorsOption = _architectureThirdTierMenu:addOption(getText('ContextMenu_Door'), worldobjects, nil)
+    local _doorsOption = _architectureThirdTierMenu:addOption(getText('ContextMenu_Door'))
     local _doorsSubMenu = _architectureThirdTierMenu:getNew(_architectureThirdTierMenu)
 
     context:addSubMenu(_doorsOption, _doorsSubMenu)
-    MoreBuild.doorsMenuBuilder(_doorsSubMenu, player, context, worldobjects)
+    MoreBuild.doorsMenuBuilder(_doorsSubMenu, player, context)
 
-    local _WindowsOption = _architectureThirdTierMenu:addOption(getText('ContextMenu_Windows_Menu'), worldobjects, nil)
+    local _WindowsOption = _architectureThirdTierMenu:addOption(getText('ContextMenu_Windows_Menu'))
     local _WindowsSubMenu = _architectureThirdTierMenu:getNew(_architectureThirdTierMenu)
 
     context:addSubMenu(_WindowsOption, _WindowsSubMenu)
-    MoreBuild.WindowsMenuBuilder(_WindowsSubMenu, player, context, worldobjects)
+    MoreBuild.WindowsMenuBuilder(_WindowsSubMenu, player, context)
 
-    local _HighMetalFenceOption = _architectureThirdTierMenu:addOption(getText('ContextMenu_HighMetal_Fence'), worldobjects, nil)
+    local _HighMetalFenceOption = _architectureThirdTierMenu:addOption(getText('ContextMenu_HighMetal_Fence'))
     local _HighMetalFenceSubMenu = _architectureThirdTierMenu:getNew(_architectureThirdTierMenu)
 
     context:addSubMenu(_HighMetalFenceOption, _HighMetalFenceSubMenu)
-    MoreBuild.highMetalFenceMenuBuilder(_HighMetalFenceSubMenu, player, context, worldobjects)
+    MoreBuild.highMetalFenceMenuBuilder(_HighMetalFenceSubMenu, player, context)
 
-    local _moreFencesOption = _architectureThirdTierMenu:addOption(getText('ContextMenu_Fences_Menu'), worldobjects, nil)
+    local _moreFencesOption = _architectureThirdTierMenu:addOption(getText('ContextMenu_Fences_Menu'))
     local _moreFencesSubMenu = _architectureThirdTierMenu:getNew(_architectureThirdTierMenu)
 
     context:addSubMenu(_moreFencesOption, _moreFencesSubMenu)
     MoreBuild.moreFencesMenuBuilder(_moreFencesSubMenu, player)
 
-    local _moreFencePostsOption = _architectureThirdTierMenu:addOption(getText('ContextMenu_FencePosts_Menu'), worldobjects, nil)
+    local _moreFencePostsOption = _architectureThirdTierMenu:addOption(getText('ContextMenu_FencePosts_Menu'))
     local _moreFencePostsSubMenu = _architectureThirdTierMenu:getNew(_architectureThirdTierMenu)
 
     context:addSubMenu(_moreFencePostsOption, _moreFencePostsSubMenu)
     MoreBuild.moreFencePostsMenuBuilder(_moreFencePostsSubMenu, player)
 
-    local _stairsOption = _architectureThirdTierMenu:addOption(getText('ContextMenu_Stairs'), worldobjects, nil)
+    local _stairsOption = _architectureThirdTierMenu:addOption(getText('ContextMenu_Stairs'))
     local _stairsSubMenu = _architectureThirdTierMenu:getNew(_architectureThirdTierMenu)
 
     context:addSubMenu(_stairsOption, _stairsSubMenu)
     MoreBuild.stairsMenuBuilder(_stairsSubMenu, player)
 
-    local _floorsOption = _architectureThirdTierMenu:addOption(getText('ContextMenu_Floor'), worldobjects, nil)
+    local _floorsOption = _architectureThirdTierMenu:addOption(getText('ContextMenu_Floor'))
     local _floorsSubMenu = _architectureThirdTierMenu:getNew(_architectureThirdTierMenu)
 
     context:addSubMenu(_floorsOption, _floorsSubMenu)
-    MoreBuild.floorsMenuBuilder(_floorsSubMenu, player, context, worldobjects)
+    MoreBuild.floorsMenuBuilder(_floorsSubMenu, player, context)
 
-    local _furnitureOption = _secondTierMenu:addOption(getText('ContextMenu_Furniture'), worldobjects, nil)
+    local _furnitureOption = _secondTierMenu:addOption(getText('ContextMenu_Furniture'))
     local _furnitureThirdTierMenu = _secondTierMenu:getNew(_secondTierMenu)
     context:addSubMenu(_furnitureOption, _furnitureThirdTierMenu)
 
-    local _smallTablesOption = _furnitureThirdTierMenu:addOption(getText('ContextMenu_SmallTable_Menu'), worldobjects, nil)
+    local _smallTablesOption = _furnitureThirdTierMenu:addOption(getText('ContextMenu_SmallTable_Menu'))
     local _smallTablesSubMenu = _furnitureThirdTierMenu:getNew(_furnitureThirdTierMenu)
 
     context:addSubMenu(_smallTablesOption, _smallTablesSubMenu)
     MoreBuild.smallTablesMenuBuilder(_smallTablesSubMenu, player)
 
-    local _largeTablesOption = _furnitureThirdTierMenu:addOption(getText('ContextMenu_LargeTable_Menu'), worldobjects, nil)
+    local _largeTablesOption = _furnitureThirdTierMenu:addOption(getText('ContextMenu_LargeTable_Menu'))
     local _largeTablesSubMenu = _furnitureThirdTierMenu:getNew(_furnitureThirdTierMenu)
 
     context:addSubMenu(_largeTablesOption, _largeTablesSubMenu)
     MoreBuild.largeTablesMenuBuilder(_largeTablesSubMenu, player)
 
-    local _chairsOption = _furnitureThirdTierMenu:addOption(getText('ContextMenu_Chairs_Menu'), worldobjects, nil)
+    local _chairsOption = _furnitureThirdTierMenu:addOption(getText('ContextMenu_Chairs_Menu'))
     local _chairsSubMenu = _furnitureThirdTierMenu:getNew(_furnitureThirdTierMenu)
 
     context:addSubMenu(_chairsOption, _chairsSubMenu)
-    MoreBuild.chairsMenuBuilder(_chairsSubMenu, player, context, worldobjects)
+    MoreBuild.chairsMenuBuilder(_chairsSubMenu, player, context)
 
-    local _couchesOption = _furnitureThirdTierMenu:addOption(getText('ContextMenu_Couches_Menu'), worldobjects, nil)
+    local _couchesOption = _furnitureThirdTierMenu:addOption(getText('ContextMenu_Couches_Menu'))
     local _couchesSubMenu = _furnitureThirdTierMenu:getNew(_furnitureThirdTierMenu)
 
     context:addSubMenu(_couchesOption, _couchesSubMenu)
-    MoreBuild.couchesMenuBuilder(_couchesSubMenu, player, context, worldobjects)
+    MoreBuild.couchesMenuBuilder(_couchesSubMenu, player, context)
 
-    local _bedsOption = _furnitureThirdTierMenu:addOption(getText('ContextMenu_Bed'), worldobjects, nil)
+    local _bedsOption = _furnitureThirdTierMenu:addOption(getText('ContextMenu_Bed'))
     local _bedsSubMenu = _furnitureThirdTierMenu:getNew(_furnitureThirdTierMenu)
 
     context:addSubMenu(_bedsOption, _bedsSubMenu)
     MoreBuild.bedsMenuBuilder(_bedsSubMenu, player)
 
-    local _containersOption = _secondTierMenu:addOption(getText('ContextMenu_Container_Menu'), worldobjects, nil)
+    local _containersOption = _secondTierMenu:addOption(getText('ContextMenu_Container_Menu'))
     local _containersThirdTierMenu = _secondTierMenu:getNew(_secondTierMenu)
     context:addSubMenu(_containersOption, _containersThirdTierMenu)
 
-    local _dressersOption = _containersThirdTierMenu:addOption(getText('ContextMenu_Dressers_Menu'), worldobjects, nil)
+    local _dressersOption = _containersThirdTierMenu:addOption(getText('ContextMenu_Dressers_Menu'))
     local _dressersSubMenu = _containersThirdTierMenu:getNew(_containersThirdTierMenu)
 
     context:addSubMenu(_dressersOption, _dressersSubMenu)
     MoreBuild.dressersMenuBuilder(_dressersSubMenu, player)
 
-    local _bookshelfOption = _containersThirdTierMenu:addOption(getText('ContextMenu_BookShelf_Menu'), worldobjects, nil)
+    local _bookshelfOption = _containersThirdTierMenu:addOption(getText('ContextMenu_BookShelf_Menu'))
     local _bookshelfSubMenu = _containersThirdTierMenu:getNew(_containersThirdTierMenu)
 
     context:addSubMenu(_bookshelfOption, _bookshelfSubMenu)
     MoreBuild.BookShelfMenuBuilder(_bookshelfSubMenu, player)
 
-    local _counterElementsOption = _containersThirdTierMenu:addOption(getText 'ContextMenu_Cabinets_Menu', worldobjects, nil)
+    local _counterElementsOption = _containersThirdTierMenu:addOption(getText 'ContextMenu_Cabinets_Menu')
     local _counterElementsSubMenu = _containersThirdTierMenu:getNew(_containersThirdTierMenu)
 
     context:addSubMenu(_counterElementsOption, _counterElementsSubMenu)
-    MoreBuild.counterElementsMenuBuilder(_counterElementsSubMenu, player, context, worldobjects)
+    MoreBuild.counterElementsMenuBuilder(_counterElementsSubMenu, player, context)
 
-    local _otherFurnitureOption = _containersThirdTierMenu:addOption(getText 'ContextMenu_OtherFurniture_Menu', worldobjects, nil)
+    local _otherFurnitureOption = _containersThirdTierMenu:addOption(getText 'ContextMenu_OtherFurniture_Menu')
     local _otherFurnitureSubMenu = _containersThirdTierMenu:getNew(_containersThirdTierMenu)
 
     context:addSubMenu(_otherFurnitureOption, _otherFurnitureSubMenu)
     MoreBuild.otherFurnitureMenuBuilder(_otherFurnitureSubMenu, player)
 
-    local _metalLockersOption = _containersThirdTierMenu:addOption(getText 'ContextMenu_MetalLocker_Menu', worldobjects, nil)
+    local _metalLockersOption = _containersThirdTierMenu:addOption(getText 'ContextMenu_MetalLocker_Menu')
     local _metalLockersSubMenu = _containersThirdTierMenu:getNew(_containersThirdTierMenu)
 
     context:addSubMenu(_metalLockersOption, _metalLockersSubMenu)
     MoreBuild.metalLockersMenuBuilder(_metalLockersSubMenu, player)
 
-    local _cratesOption = _containersThirdTierMenu:addOption(getText 'ContextMenu_Crates_Menu', worldobjects, nil)
+    local _cratesOption = _containersThirdTierMenu:addOption(getText 'ContextMenu_Crates_Menu')
     local _cratesSubMenu = _containersThirdTierMenu:getNew(_containersThirdTierMenu)
 
     context:addSubMenu(_cratesOption, _cratesSubMenu)
     MoreBuild.cratesMenuBuilder(_cratesSubMenu, player)
 
-    local _improvisedOption = _containersThirdTierMenu:addOption(getText 'ContextMenu_Improvised_Menu', worldobjects, nil)
+    local _improvisedOption = _containersThirdTierMenu:addOption(getText 'ContextMenu_Improvised_Menu')
     local _improvisedSubMenu = _containersThirdTierMenu:getNew(_containersThirdTierMenu)
 
     context:addSubMenu(_improvisedOption, _improvisedSubMenu)
     MoreBuild.improvisedMenuBuilder(_improvisedSubMenu, player)
 
-    local _trashOption = _containersThirdTierMenu:addOption(getText 'ContextMenu_Recycling_Bin', worldobjects, nil)
+    local _trashOption = _containersThirdTierMenu:addOption(getText 'ContextMenu_Recycling_Bin')
     local _trashSubMenu = _containersThirdTierMenu:getNew(_containersThirdTierMenu)
 
     context:addSubMenu(_trashOption, _trashSubMenu)
     MoreBuild.trashMenuBuilder(_trashSubMenu, player)
 
-    local _decorationOption = _secondTierMenu:addOption(getText 'ContextMenu_Decoration_Menu', worldobjects, nil)
+    local _decorationOption = _secondTierMenu:addOption(getText 'ContextMenu_Decoration_Menu')
     local _decorationThirdTierMenu = _secondTierMenu:getNew(_secondTierMenu)
     context:addSubMenu(_decorationOption, _decorationThirdTierMenu)
 
-    local _roadwayOption = _decorationThirdTierMenu:addOption(getText 'ContextMenu_Roadway_Menu', worldobjects, nil)
+    local _roadwayOption = _decorationThirdTierMenu:addOption(getText 'ContextMenu_Roadway_Menu')
     local _roadwaySubMenu = _decorationThirdTierMenu:getNew(_decorationThirdTierMenu)
 
     context:addSubMenu(_roadwayOption, _roadwaySubMenu)
     MoreBuild.roadwayMenuBuilder(_roadwaySubMenu, player)
 
-    local _signsOption = _decorationThirdTierMenu:addOption(getText 'ContextMenu_Sign_Menu', worldobjects, nil)
+    local _signsOption = _decorationThirdTierMenu:addOption(getText 'ContextMenu_Sign_Menu')
     local _signsSubMenu = _decorationThirdTierMenu:getNew(_decorationThirdTierMenu)
 
     context:addSubMenu(_signsOption, _signsSubMenu)
     MoreBuild.signsMenuBuilder(_signsSubMenu, player)
 
-    local _wallHangingsInsideOption = _decorationThirdTierMenu:addOption(getText 'ContextMenu_Decoration_Menu', worldobjects, nil)
+    local _wallHangingsInsideOption = _decorationThirdTierMenu:addOption(getText 'ContextMenu_Decoration_Menu')
     local _wallHangingsInsideSubMenu = _decorationThirdTierMenu:getNew(_decorationThirdTierMenu)
 
     context:addSubMenu(_wallHangingsInsideOption, _wallHangingsInsideSubMenu)
-    MoreBuild.wallDecorationsMenuBuilder(_wallHangingsInsideSubMenu, player, context, worldobjects)
+    MoreBuild.wallDecorationsMenuBuilder(_wallHangingsInsideSubMenu, player, context)
 
-    local _otherOption = _secondTierMenu:addOption(getText 'ContextMenu_Other_Menu', worldobjects, nil)
+    local _otherOption = _secondTierMenu:addOption(getText 'ContextMenu_Other_Menu')
     local _otherThirdTierMenu = _secondTierMenu:getNew(_secondTierMenu)
     context:addSubMenu(_otherOption, _otherThirdTierMenu)
 
-    local _flowerBedsOption = _otherThirdTierMenu:addOption(getText 'ContextMenu_FlowerBed_Menu', worldobjects, nil)
+    local _flowerBedsOption = _otherThirdTierMenu:addOption(getText 'ContextMenu_FlowerBed_Menu')
     local _flowerBedsSubMenu = _otherThirdTierMenu:getNew(_otherThirdTierMenu)
 
     context:addSubMenu(_flowerBedsOption, _flowerBedsSubMenu)
-    MoreBuild.flowerBedsMenuBuilder(_flowerBedsSubMenu, player, context, worldobjects)
+    MoreBuild.flowerBedsMenuBuilder(_flowerBedsSubMenu, player, context)
 
-    local _lightPostOption = _otherThirdTierMenu:addOption(getText 'ContextMenu_LightPost_Menu', worldobjects, nil)
+    local _lightPostOption = _otherThirdTierMenu:addOption(getText 'ContextMenu_LightPost_Menu')
     local _lightPostSubMenu = _otherThirdTierMenu:getNew(_otherThirdTierMenu)
 
     context:addSubMenu(_lightPostOption, _lightPostSubMenu)
     MoreBuild.lightPostMenuBuilder(_lightPostSubMenu, player)
 
-    local _missingPostsOption = _otherThirdTierMenu:addOption(getText 'ContextMenu_Other_Menu', worldobjects, nil)
+    local _missingPostsOption = _otherThirdTierMenu:addOption(getText 'ContextMenu_Other_Menu')
     local _missingPostsSubMenu = _otherThirdTierMenu:getNew(_otherThirdTierMenu)
 
     context:addSubMenu(_missingPostsOption, _missingPostsSubMenu)
     MoreBuild.missingPostsMenuBuilder(_missingPostsSubMenu, player)
 
-    local _SurvivalOption = _secondTierMenu:addOption(getText 'ContextMenu_Survival_Menu', worldobjects, nil)
-    local _SurvivalThirdTierMenu = _secondTierMenu:getNew(_secondTierMenu)
+    if SandboxVars.MoreBuilds.EnableSurvivalCategory or isAdmin() or ISBuildMenu.cheat then
+      local _SurvivalOption = _secondTierMenu:addOption(getText 'ContextMenu_Survival_Menu')
+      local _SurvivalThirdTierMenu = _secondTierMenu:getNew(_secondTierMenu)
 
-    context:addSubMenu(_SurvivalOption, _SurvivalThirdTierMenu)
-    MoreBuild.SurvivalPostsMenuBuilder(_SurvivalThirdTierMenu, player)
+      context:addSubMenu(_SurvivalOption, _SurvivalThirdTierMenu)
+      MoreBuild.SurvivalMenuBuilder(_SurvivalThirdTierMenu, player)
+    end
 
     --MoreBuild.doWaterWellInfo(player, context, worldobjects)
   end
 end
 
 --- 检查物品是否损坏
--- @param item InventoryItem: InventoryItem实例
--- @return Boolean: 如果物品未损坏返回true, 否则返回false
+--- @param item string: 需检查的物品名称
+--- @return boolean: 如果物品未损坏返回true, 否则返回false
 local function predicateNotBroken(item)
-	return not item:isBroken()
+  return not item:isBroken()
 end
 
 --- 获取可移动家具本地化字符串
--- @param sprite IsoSprite: IsoSprite实例
--- @return String: 获取的本地化字符串
+--- @param sprite string: Sprite名称
+--- @return string: 获取的本地化字符串
 MoreBuild.getMoveableDisplayName = function(sprite)
   local props = getSprite(sprite):getProperties()
   if props:Is('CustomName') then
@@ -362,46 +360,46 @@ MoreBuild.getMoveableDisplayName = function(sprite)
 end
 
 --- 检查玩家是否拥有某些工具
--- @param player IsoPlayer: IsoPlayer实例
--- @return Boolean: 如果满足工具条件需求则返回true否则返回false
+--- @param player number: IsoPlayer索引
+--- @return boolean: 如果满足工具条件需求则返回true否则返回false
 MoreBuild.haveAToolToBuild = function(player)
-  local inv = getSpecificPlayer(player):getInventory()
-  
-  -- 多个工具在表内添加即可 [类型] {工具1，工具2，工具3}
+  -- 多个工具在表内添加即可 [类型] {工具1, 工具2, ...}
   MoreBuild.toolsList['Hammer'] = {"Base.Hammer", "Base.HammerStone", "Base.BallPeenHammer", "Base.WoodenMallet", "Base.ClubHammer"}
   MoreBuild.toolsList['Screwdriver'] = {"Base.Screwdriver"}
   MoreBuild.toolsList['HandShovel'] = {"farming.HandShovel"}
   MoreBuild.toolsList['Saw'] = {"Base.Saw"}
   MoreBuild.toolsList['Spade'] = {"Base.Shovel"}
 
-  havaTools = MoreBuild.getBestTools(player, 'Hammer')
+  local havaTools = nil
+
+  havaTools = MoreBuild.getAvailableTools(player, 'Hammer')
 
   return havaTools or ISBuildMenu.cheat
 end
 
---- 获取玩家库存内最佳工具
--- @param player IsoPlayer: IsoPlayer实例
--- @param tool String: 工具类型
--- @return InventoryItem: 获取到的最佳工具实例, 如未获取实例返回nil
-MoreBuild.getBestTools = function(player, tool)
+--- 获取玩家库存内的可用工具
+--- @param player number: IsoPlayer索引
+--- @param tool string: 工具类型
+--- @return InventoryItem: 获取的工具实例, 如空或已损坏返回nil
+MoreBuild.getAvailableTools = function(player, tool)
   local tools = nil
   local toolList = MoreBuild.toolsList[tool]
   local inv = getSpecificPlayer(player):getInventory()
   for _, type in pairs (toolList) do
-    tools = inv:getBestTypeEvalRecurse(type, predicateNotBroken)
+    tools = inv:getFirstTypeEval(type, predicateNotBroken)
     if tools then
-      return tools;
+      return tools
     end
   end
 end
 
 --- 装备主要工具
--- @param object Isoobject: Isoobject实例
--- @param player IsoPlayer: IsoPlayer实例
--- @param tool String: 工具类型
+--- @param object IsoObject: IsoObject实例
+--- @param player number: IsoPlayer索引
+--- @param tool string: 工具类型
 MoreBuild.equipToolPrimary = function(object, player, tool)
   local tools = nil
-  tools = MoreBuild.getBestTools(player, tool)
+  tools = MoreBuild.getAvailableTools(player, tool)
   if tools then
     ISInventoryPaneContextMenu.equipWeapon(tools, true, false, player)
     object.noNeedHammer = true
@@ -409,25 +407,27 @@ MoreBuild.equipToolPrimary = function(object, player, tool)
 end
 
 --- 装备次要工具
--- @param object Isoobject: Isoobject实例
--- @param player IsoPlayer: IsoPlayer实例
--- @param tool String: 工具类型
--- @info 未使用
+--- @param object Isoobject: Isoobject实例
+--- @param player number: IsoPlayer索引
+--- @param tool string: 工具类型
+--- @info 未使用
 MoreBuild.equipToolSecondary = function(object, player, tool)
   local tools = nil
-  tools = MoreBuild.getBestTools(player, tool)
+  tools = MoreBuild.getAvailableTools(player, tool)
   if tools then
     ISInventoryPaneContextMenu.equipWeapon(tools, false, false, player)
   end
 end
 
 --- 构造技能文本
--- @param player IsoPlayer: IsoPlayer实例
+--- @param player number: IsoPlayer索引
 MoreBuild.buildSkillsList = function(player)
   local perks = PerkFactory.PerkList
+  local perkID = nil
+  local perkType = nil
   for i = 0, perks:size() - 1 do
-    local perkID = perks:get(i):getId()
-    local perkType = perks:get(i):getType()
+    perkID = perks:get(i):getId()
+    perkType = perks:get(i):getType()
     MoreBuild.playerSkills[perkID] = getSpecificPlayer(player):getPerkLevel(perks:get(i))
     MoreBuild.textSkillsRed[perkID] = ' <RGB:1,0,0>' .. PerkFactory.getPerkName(perkType) .. ' ' .. MoreBuild.playerSkills[perkID] .. '/'
     MoreBuild.textSkillsGreen[perkID] = ' <RGB:1,1,1>' .. PerkFactory.getPerkName(perkType) .. ' '
@@ -435,47 +435,63 @@ MoreBuild.buildSkillsList = function(player)
 end
 
 --- 检查&构造材料提示文本
--- @param player IsoPlayer: IsoPlayer实例
--- @param material String: 材料类型
--- @param amount String: 需要的材料数量
--- @param tooltip ISToolTip: 工具提示实例
--- @return Boolean: 如果满足检查条件则返回true否则返回false
--- @info ISBuildMenu.countMaterial性能过低，如果玩家库存中物品过多会卡游戏主线程，不建议使用
+--- @param player number: IsoPlayer索引
+--- @param material string: 材料类型
+--- @param amount number: 需要的材料数量
+--- @param tooltip ISToolTip: 工具提示实例
+--- @return boolean: 如果满足检查条件则返回true否则返回false
+--- @info ISBuildMenu.countMaterial性能过低, 如果玩家库存中物品过多会卡游戏主线程, 不建议使用
 MoreBuild.tooltipCheckForMaterial = function(player, material, amount, tooltip)
   local inv = getSpecificPlayer(player):getInventory()
   local type = split(material, '\\.')[2]
-  local _thisItemCount = 0
+  local invItemCount = 0
   local groundItem = ISBuildMenu.materialOnGround
   if amount > 0 then
-    _thisItemCount = inv:getItemCountFromTypeRecurse(material) -- 统计玩家库存中指定类名的物品数量，含背包
+    invItemCount = inv:getItemCountFromTypeRecurse(material)
 
-    -- why #groundItem 0?
-    for k, v in pairs(groundItem) do
-      if k == type then
-        _thisItemCount = _thisItemCount + v
+    if material == "Base.Nails" then
+      invItemCount = invItemCount + inv:getItemCountFromTypeRecurse("Base.NailsBox") * 100
+      if groundItem["Base.NailsBox"] then
+        invItemCount = invItemCount + groundItem["Base.NailsBox"] * 100
       end
     end
 
-    if _thisItemCount < amount then
-      tooltip.description = tooltip.description .. ' <RGB:1,0,0>' .. getItemNameFromFullType(material) .. ' ' .. _thisItemCount .. '/' .. amount .. ' <LINE>'
+    -- ISBuildUtil not support boxed screws, later solve it
+    --[[
+    if material == "Base.Screws" then
+      invItemCount = invItemCount + inv:getItemCountFromTypeRecurse("Base.ScrewsBox") * 100
+      if groundItem["Base.ScrewsBox"] then
+        invItemCount = invItemCount + groundItem["Base.ScrewsBox"] * 100
+      end
+    end
+    --]]
+
+    -- why #groundItem 0?
+    for groundItemType, groundItemCount in pairs(groundItem) do
+      if groundItemType == type then
+        invItemCount = invItemCount + groundItemCount
+      end
+    end
+
+    if invItemCount < amount then
+      tooltip.description = tooltip.description .. ' <RGB:1,0,0>' .. getItemNameFromFullType(material) .. ' ' .. invItemCount .. '/' .. amount .. ' <LINE>'
       return false
     else
-      tooltip.description = tooltip.description .. ' <RGB:1,1,1>' .. getItemNameFromFullType(material) .. ' ' .. _thisItemCount .. '/' .. amount .. ' <LINE>'
+      tooltip.description = tooltip.description .. ' <RGB:1,1,1>' .. getItemNameFromFullType(material) .. ' ' .. invItemCount .. '/' .. amount .. ' <LINE>'
       return true
     end
   end
-  return true
 end
 
 --- 检查&构造工具提示文本
--- @param player IsoPlayer: IsoPlayer实例
--- @param tool String: 工具类型
--- @param tooltip ISToolTip: 工具提示实例
--- @return Boolean: 如果满足检查条件则返回true否则返回false
+--- @param player number: IsoPlayer索引
+--- @param tool string: 工具类型
+--- @param tooltip ISToolTip: 工具提示实例
+--- @return boolean: 如果满足检查条件则返回true否则返回false
 MoreBuild.tooltipCheckForTool = function(player, tool, tooltip)
-  local tools = MoreBuild.getBestTools(player, tool)
+  local tools = MoreBuild.getAvailableTools(player, tool)
   if tools then
-    tooltip.description = tooltip.description .. ' <RGB:1,1,1>' .. getItemNameFromFullType(tools:getFullType()) .. ' <LINE>'
+    tooltip.description = tooltip.description .. ' <RGB:1,1,1>' .. tools:getName() .. ' <LINE>'
     return true
   else
     for _, type in pairs (MoreBuild.toolsList[tool]) do
@@ -486,9 +502,9 @@ MoreBuild.tooltipCheckForTool = function(player, tool, tooltip)
 end
 
 --- 检查是否满足建造条件
--- @param skills table: 技能等级需求表
--- @param option ISContextMenu: ISContextMenu
--- @return Boolean: 如果满足建造条件则返回true否则返回false
+--- @param skills table: 技能等级需求表, 支持被动技能 {Woodwork = 1, Strength = 2, ...}
+--- @param option ISContextMenu: 上下文菜单实例
+--- @return ISToolTip: 返回工具提示实例
 MoreBuild.canBuildObject = function(skills, option, player)
   local _tooltip = ISToolTip:new()
   _tooltip:initialise()
@@ -522,7 +538,6 @@ MoreBuild.canBuildObject = function(skills, option, player)
     end
   end
 
-  -- 已重写旧版技能需求代码，现在可支持游戏中所有技能
   for skill, level in pairs (skills) do
     if (MoreBuild.playerSkills[skill] < level) then
       _tooltip.description = _tooltip.description .. MoreBuild.textSkillsRed[skill]
@@ -541,14 +556,14 @@ MoreBuild.canBuildObject = function(skills, option, player)
 end
 
 --- 获取MoreBuild实例
--- @return table: MoreBuild Instance
+--- @return table: MoreBuild table
 function getMoreBuildInstance()
   return MoreBuild
 end
 
 --- 注册OnFillWorldObjectContextMenu事件
--- @callback1 IsoPlayer: 调用的IsoPlayer实例
--- @callback2 ISContextMenu: Context menu
--- @callback3 table: World objects
--- @callback4 Boolean: 如果是测试附近对象则返回true, 否则返回false
-Events.OnFillWorldObjectContextMenu.Add(MoreBuild.doBuildMenu)
+-- @callback1 player number: 调用的IsoPlayer索引
+-- @callback2 context ISContextMenu: 上下文菜单实例
+-- @callback3 worldobjects table: 世界对象表
+-- @callback4 test Boolean: 如果是测试附近对象则返回true, 否则返回false
+Events.OnFillWorldObjectContextMenu.Add(MoreBuild.OnFillWorldObjectContextMenu)

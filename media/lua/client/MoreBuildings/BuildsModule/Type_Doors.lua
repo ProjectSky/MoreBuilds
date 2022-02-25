@@ -4,44 +4,44 @@ end
 
 local MoreBuild = getMoreBuildInstance()
 
-MoreBuild.doorsMenuBuilder = function(subMenu, player, context, worldobjects)
-  local _woodenDoorsOption = subMenu:addOption(getText 'ContextMenu_Wooden_Doors', worldobjects, nil)
+MoreBuild.doorsMenuBuilder = function(subMenu, player, context)
+  local _woodenDoorsOption = subMenu:addOption(getText 'ContextMenu_Wooden_Doors')
   local _woodenDoorsSubMenu = subMenu:getNew(subMenu)
 
   context:addSubMenu(_woodenDoorsOption, _woodenDoorsSubMenu)
   MoreBuild.woodenDoorsMenuBuilder(_woodenDoorsSubMenu, player)
 
-  local _panelDoorsOption = subMenu:addOption(getText 'ContextMenu_Panel_Doors', worldobjects, nil)
+  local _panelDoorsOption = subMenu:addOption(getText 'ContextMenu_Panel_Doors')
   local _panelDoorsSubMenu = subMenu:getNew(subMenu)
 
   context:addSubMenu(_panelDoorsOption, _panelDoorsSubMenu)
   MoreBuild.panelDoorsMenuBuilder(_panelDoorsSubMenu, player)
 
-  local _industrialDoorsOption = subMenu:addOption(getText 'ContextMenu_Industrial_Doors', worldobjects, nil)
+  local _industrialDoorsOption = subMenu:addOption(getText 'ContextMenu_Industrial_Doors')
   local _industrialDoorsSubMenu = subMenu:getNew(subMenu)
 
   context:addSubMenu(_industrialDoorsOption, _industrialDoorsSubMenu)
   MoreBuild.industrialDoorsMenuBuilder(_industrialDoorsSubMenu, player)
 
-  local _exteriorDoorsOption = subMenu:addOption(getText 'ContextMenu_Exterior_Doors', worldobjects, nil)
+  local _exteriorDoorsOption = subMenu:addOption(getText 'ContextMenu_Exterior_Doors')
   local _exteriorDoorsSubMenu = subMenu:getNew(subMenu)
 
   context:addSubMenu(_exteriorDoorsOption, _exteriorDoorsSubMenu)
   MoreBuild.exteriorDoorsMenuBuilder(_exteriorDoorsSubMenu, player)
 
-  local _LowDoorsOption = subMenu:addOption(getText 'ContextMenu_Low_Doors', worldobjects, nil)
+  local _LowDoorsOption = subMenu:addOption(getText 'ContextMenu_Low_Doors')
   local _LowDoorsSubMenu = subMenu:getNew(subMenu)
 
   context:addSubMenu(_LowDoorsOption, _LowDoorsSubMenu)
   MoreBuild.lowDoorsMenuBuilder(_LowDoorsSubMenu, player)
 
-  local _doubleDoorsOption = subMenu:addOption(getText 'ContextMenu_Garage_Doors', worldobjects, nil)
+  local _doubleDoorsOption = subMenu:addOption(getText 'ContextMenu_Garage_Doors')
   local _doubleDoorsSubMenu = subMenu:getNew(subMenu)
 
   context:addSubMenu(_doubleDoorsOption, _doubleDoorsSubMenu)
   MoreBuild.garageDoorMenuBuilder(_doubleDoorsSubMenu, player)
 
-  local _otherDoorsOption = subMenu:addOption(getText 'ContextMenu_Other_Doors', worldobjects, nil)
+  local _otherDoorsOption = subMenu:addOption(getText 'ContextMenu_Other_Doors')
   local _otherDoorsSubMenu = subMenu:getNew(subMenu)
 
   context:addSubMenu(_otherDoorsOption, _otherDoorsSubMenu)
@@ -766,11 +766,11 @@ MoreBuild.onBuildWoodenDoor = function(ignoreThisArgument, sprite, player, name)
   _door.player = player
   _door.name = name
 
-  _door.modData['need:Base.Plank'] = '4'
-  _door.modData['need:Base.Nails'] = '4'
-  _door.modData['need:Base.Hinge'] = '2'
-  _door.modData['need:Base.Doorknob'] = '1'
-  _door.modData['xp:Woodwork'] = '5'
+  _door.modData['need:Base.Plank'] = 4
+  _door.modData['need:Base.Nails'] = 4
+  _door.modData['need:Base.Hinge'] = 2
+  _door.modData['need:Base.Doorknob'] = 1
+  _door.modData['xp:Woodwork'] = 5
 
   getCell():setDrag(_door, player)
 end
@@ -781,11 +781,11 @@ MoreBuild.onBuildLowdoorframe = function(ignoreThisArgument, sprite, player, nam
   _lowdoorframe.player = player
   _lowdoorframe.name = name
 
-  _lowdoorframe.modData['need:Base.Wire'] = '4'
-  _lowdoorframe.modData['need:Base.Nails'] = '4'
-  _lowdoorframe.modData['need:Base.Hinge'] = '1'
-  _lowdoorframe.modData['need:Base.Doorknob'] = '2'
-  _lowdoorframe.modData['xp:Woodwork'] = '5'
+  _lowdoorframe.modData['need:Base.Wire'] = 4
+  _lowdoorframe.modData['need:Base.Nails'] = 4
+  _lowdoorframe.modData['need:Base.Hinge'] = 1
+  _lowdoorframe.modData['need:Base.Doorknob'] = 2
+  _lowdoorframe.modData['xp:Woodwork'] = 5
 
   getCell():setDrag(_lowdoorframe, player)
 end
@@ -795,13 +795,13 @@ MoreBuild.onBuildGarageDoor = function(ignoreThisArgument, sprite, spriteIndex, 
 
   _garageDoor.player = player
 
-  _garageDoor.modData['need:Base.Plank'] = '8'
-  _garageDoor.modData['need:Base.Nails'] = '8'
-  _garageDoor.modData['need:Base.Doorknob'] = '2'
-  _garageDoor.modData['need:Base.Hinge'] = '4'
-  _garageDoor.modData['need:Base.Screws'] = '8'
-  _garageDoor.modData['need:Base.SmallSheetMetal'] = '4'
-  _garageDoor.modData['xp:Woodwork'] = '15'
+  _garageDoor.modData['need:Base.Plank'] = 8
+  _garageDoor.modData['need:Base.Nails'] = 8
+  _garageDoor.modData['need:Base.Doorknob'] = 2
+  _garageDoor.modData['need:Base.Hinge'] = 4
+  _garageDoor.modData['need:Base.Screws'] = 8
+  _garageDoor.modData['need:Base.SmallSheetMetal'] = 4
+  _garageDoor.modData['xp:Woodwork'] = 15
 
   function _garageDoor:getHealth()
     return MoreBuild.healthLevel.metalDoor + buildUtil.getWoodHealth(self)

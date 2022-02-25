@@ -69,9 +69,9 @@ MoreBuild.onBuildSingleTileWoodenTable = function(ignoreThisArgument, sprite, pl
   _table.player = player
   _table.name = name
 
-  _table.modData['need:Base.Plank'] = '5'
-  _table.modData['need:Base.Nails'] = '4'
-  _table.modData['xp:Woodwork'] = '5'
+  _table.modData['need:Base.Plank'] = 5
+  _table.modData['need:Base.Nails'] = 4
+  _table.modData['xp:Woodwork'] = 5
 
   getCell():setDrag(_table, player)
 end
@@ -145,9 +145,9 @@ MoreBuild.onBuildDoubleTileWoodenTable = function(ignoreThisArgument, sprite, pl
   _table.player = player
   _table.name = name
 
-  _table.modData['need:Base.Plank'] = '6'
-  _table.modData['need:Base.Nails'] = '4'
-  _table.modData['xp:Woodwork'] = '5'
+  _table.modData['need:Base.Plank'] = 6
+  _table.modData['need:Base.Nails'] = 4
+  _table.modData['xp:Woodwork'] = 5
 
   getCell():setDrag(_table, player)
 end

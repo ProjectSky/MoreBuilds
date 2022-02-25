@@ -134,10 +134,10 @@ MoreBuild.onBuildMetalLocker = function(ignoreThisArgument, sprite, player, name
   _locker.player = player
   _locker.name = name
 
-  _locker.modData['need:Base.SheetMetal'] = '2'
-  _locker.modData['need:Base.Screws'] = '6'
-  _locker.modData['need:Base.Hinge'] = '2'
-  _locker.modData['xp:Woodwork'] = '5'
+  _locker.modData['need:Base.SheetMetal'] = 2
+  _locker.modData['need:Base.Screws'] = 6
+  _locker.modData['need:Base.Hinge'] = 2
+  _locker.modData['xp:Woodwork'] = 5
 
   function _locker:getHealth()
     self.javaObject:getContainer():setType('vendingsnack')
@@ -161,10 +161,10 @@ MoreBuild.onBuildHangingMetalLocker = function(ignoreThisArgument, sprite, playe
   _locker.player = player
   _locker.name = name
 
-  _locker.modData['need:Base.SheetMetal'] = '2'
-  _locker.modData['need:Base.Screws'] = '6'
-  _locker.modData['need:Base.Hinge'] = '2'
-  _locker.modData['xp:Woodwork'] = '5'
+  _locker.modData['need:Base.SheetMetal'] = 2
+  _locker.modData['need:Base.Screws'] = 6
+  _locker.modData['need:Base.Hinge'] = 2
+  _locker.modData['xp:Woodwork'] = 5
 
   function _locker:getHealth()
     self.javaObject:getContainer():setType('filingcabinet')

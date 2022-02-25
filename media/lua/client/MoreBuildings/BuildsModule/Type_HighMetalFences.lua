@@ -69,13 +69,13 @@ MoreBuild.onBuildHighMetalFence = function(ignoreThisArgument, sprite, player, n
 
   _metalFence.completionSound = 'BuildMetalStructureMedium'
 
-  _metalFence.modData['need:Base.Wire'] = '4'
-  _metalFence.modData['need:Base.SmallSheetMetal'] = '4'
-  _metalFence.modData['need:Base.ScrapMetal'] = '20'
-  _metalFence.modData['use:Base.WeldingRods'] = '4'
-  _metalFence.modData['use:Base.BlowTorch'] = '10'
-  _metalFence.modData['xp:Woodwork'] = '10'
-  _metalFence.modData['xp:MetalWelding'] = '20'
+  _metalFence.modData['need:Base.Wire'] = 4
+  _metalFence.modData['need:Base.SmallSheetMetal'] = 4
+  _metalFence.modData['need:Base.ScrapMetal'] = 20
+  _metalFence.modData['use:Base.WeldingRods'] = 4
+  _metalFence.modData['use:Base.BlowTorch'] = 10
+  _metalFence.modData['xp:Woodwork'] = 10
+  _metalFence.modData['xp:MetalWelding'] = 20
 
   function _metalFence:getHealth()
     return MoreBuild.healthLevel.metalWall + buildUtil.getWoodHealth(self)

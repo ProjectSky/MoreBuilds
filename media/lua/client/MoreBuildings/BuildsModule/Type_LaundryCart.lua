@@ -15,10 +15,10 @@ MoreBuild.onBuildLaundryCart = function(ignoreThisArgument, sprite, player, name
   _cart.player = player
   _cart.name = name
 
-  _cart.modData['need:Base.Sheet'] = '1'
-  _cart.modData['need:Base.Screws'] = '2'
-  _cart.modData['need:Base.SheetMetal'] = '1'
-  _cart.modData['xp:Woodwork'] = '5'
+  _cart.modData['need:Base.Sheet'] = 1
+  _cart.modData['need:Base.Screws'] = 2
+  _cart.modData['need:Base.SheetMetal'] = 1
+  _cart.modData['xp:Woodwork'] = 5
 
   function _cart:getHealth()
     self.javaObject:getContainer():setType('officedrawers')
@@ -98,10 +98,10 @@ MoreBuild.onBuildDresser = function(ignoreThisArgument, sprite, player, name)
   _dresser:setSouthSprite(sprite.southSprite)
   _dresser.player = player
 
-  _dresser.modData['need:Base.Plank'] = '4'
-  _dresser.modData['need:Base.Nails'] = '4'
-  _dresser.modData['need:Base.Drawer'] = '1'
-  _dresser.modData['xp:Woodwork'] = '5'
+  _dresser.modData['need:Base.Plank'] = 4
+  _dresser.modData['need:Base.Nails'] = 4
+  _dresser.modData['need:Base.Drawer'] = 1
+  _dresser.modData['xp:Woodwork'] = 5
 
   function _dresser:getHealth()
     self.javaObject:getContainer():setType('wardrobe')

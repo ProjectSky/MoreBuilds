@@ -10,9 +10,9 @@ MoreBuild.onBuildWindow = function(ignoreThisArgument, sprite, player, name)
   _window.player = player
   _window.name = name
 
-  _window.modData['need:Base.Plank'] = '4'
-  _window.modData['need:Base.Screws'] = '4'
-  _window.modData['xp:Woodwork'] = '15'
+  _window.modData['need:Base.Plank'] = 4
+  _window.modData['need:Base.Screws'] = 4
+  _window.modData['xp:Woodwork'] = 15
 
   getCell():setDrag(_window, player)
 end
@@ -49,7 +49,7 @@ MoreBuild.WindowsMenuBuilder = function(subMenu, player)
 
     _name = MoreBuild.getMoveableDisplayName(_currentList[1])
 
-    _option = subMenu:addOption(_name, worldobjects, MoreBuild.onBuildWindow, _sprite, player, _name, _icon)
+    _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWindow, _sprite, player, _name)
 
     _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
     _tooltip:setName(_name)

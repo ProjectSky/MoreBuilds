@@ -4,7 +4,7 @@ end
 
 local MoreBuild = getMoreBuildInstance()
 
-MoreBuild.floorsMenuBuilder = function(subMenu, player, context, worldobjects)
+MoreBuild.floorsMenuBuilder = function(subMenu, player, context)
   local _sprite
   local _option
   local _tooltip
@@ -32,7 +32,7 @@ MoreBuild.floorsMenuBuilder = function(subMenu, player, context, worldobjects)
   local _currentSubMenu
 
   for _subsectionName, _subsectionData in pairs(_floorData) do
-    _currentOption = subMenu:addOption(_subsectionName, worldobjects, nil)
+    _currentOption = subMenu:addOption(_subsectionName)
     _currentSubMenu = subMenu:getNew(subMenu)
     context:addSubMenu(_currentOption, _currentSubMenu)
 
@@ -64,9 +64,9 @@ MoreBuild.onBuildTwoSpriteFloor = function(ignoreThisArgument, sprite, player, n
   _floor.player = player
   _floor.name = name
 
-  _floor.modData['need:Base.Plank'] = '1'
-  _floor.modData['need:Base.Nails'] = '1'
-  _floor.modData['xp:Woodwork'] = '5'
+  _floor.modData['need:Base.Plank'] = 1
+  _floor.modData['need:Base.Nails'] = 1
+  _floor.modData['xp:Woodwork'] = 5
 
   getCell():setDrag(_floor, player)
 end
@@ -79,9 +79,9 @@ MoreBuild.onBuildFourSpriteFloor = function(ignoreThisArgument, sprite, player, 
   _floor.eastSprite = sprite.eastSprite
   _floor.southSprite = sprite.southSprite
 
-  _floor.modData['need:Base.Plank'] = '1'
-  _floor.modData['need:Base.Nails'] = '1'
-  _floor.modData['xp:Woodwork'] = '5'
+  _floor.modData['need:Base.Plank'] = 1
+  _floor.modData['need:Base.Nails'] = 1
+  _floor.modData['xp:Woodwork'] = 5
 
   getCell():setDrag(_floor, player)
 end

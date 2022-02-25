@@ -181,9 +181,9 @@ MoreBuild.onBuildWoodenStairs = function(ignoreThisArgument, sprite, player, nam
   _stairs.player = player
   _stairs.name = name
 
-  _stairs.modData['need:Base.Plank'] = '15'
-  _stairs.modData['need:Base.Nails'] = '15'
-  _stairs.modData['xp:Woodwork'] = '10'
+  _stairs.modData['need:Base.Plank'] = 15
+  _stairs.modData['need:Base.Nails'] = 15
+  _stairs.modData['xp:Woodwork'] = 10
 
   getCell():setDrag(_stairs, player)
 end
@@ -195,9 +195,9 @@ MoreBuild.onBuildMetalStairs = function(ignoreThisArgument, sprite, player, name
   _stairs.player = player
   _stairs.name = name
 
-  _stairs.modData['need:Base.SheetMetal'] = '10'
-  _stairs.modData['need:Base.Screws'] = '15'
-  _stairs.modData['xp:Woodwork'] = '15'
+  _stairs.modData['need:Base.SheetMetal'] = 10
+  _stairs.modData['need:Base.Screws'] = 15
+  _stairs.modData['xp:Woodwork'] = 15
 
   function _stairs:getHealth()
     return MoreBuild.healthLevel.metalStairs + buildUtil.getWoodHealth(self)

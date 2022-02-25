@@ -281,9 +281,9 @@ MoreBuild.onBuildWoodenFencePost = function(ignoreThisArgument, sprite, player, 
   _fencePost.player = player
   _fencePost.name = name
 
-  _fencePost.modData['need:Base.Plank'] = '1'
-  _fencePost.modData['need:Base.Nails'] = '2'
-  _fencePost.modData['xp:Woodwork'] = '5'
+  _fencePost.modData['need:Base.Plank'] = 1
+  _fencePost.modData['need:Base.Nails'] = 2
+  _fencePost.modData['xp:Woodwork'] = 5
   _fencePost.modData['wallType'] = 'pillar'
 
   getCell():setDrag(_fencePost, player)
@@ -298,9 +298,9 @@ MoreBuild.onBuildStoneFencePost = function(ignoreThisArgument, sprite, player, n
   _fencePost.player = player
   _fencePost.name = name
 
-  _fencePost.modData['need:Base.Plank'] = '2'
-  _fencePost.modData['need:Base.Nails'] = '2'
-  _fencePost.modData['xp:Woodwork'] = '5'
+  _fencePost.modData['need:Base.Plank'] = 2
+  _fencePost.modData['need:Base.Nails'] = 2
+  _fencePost.modData['xp:Woodwork'] = 5
   _fencePost.modData['wallType'] = 'pillar'
 
   function _fencePost:getHealth()
@@ -321,9 +321,9 @@ MoreBuild.onBuildMetalFencePost = function(ignoreThisArgument, sprite, player, n
   _fencePost.player = player
   _fencePost.name = name
 
-  _fencePost.modData['need:Base.SheetMetal'] = '1'
-  _fencePost.modData['need:Base.Screws'] = '2'
-  _fencePost.modData['xp:Woodwork'] = '5'
+  _fencePost.modData['need:Base.SheetMetal'] = 1
+  _fencePost.modData['need:Base.Screws'] = 2
+  _fencePost.modData['xp:Woodwork'] = 5
 
   function _fencePost:getHealth()
     return MoreBuild.healthLevel.metalWall + buildUtil.getWoodHealth(self)

@@ -4,7 +4,7 @@ end
 
 local MoreBuild = getMoreBuildInstance()
 
-MoreBuild.flowerBedsMenuBuilder = function(subMenu, player, context, worldobjects)
+MoreBuild.flowerBedsMenuBuilder = function(subMenu, player, context)
   local _sprite
   local _option
   local _tooltip
@@ -27,11 +27,11 @@ MoreBuild.flowerBedsMenuBuilder = function(subMenu, player, context, worldobject
   local _currentOption
   local _currentSubMenu
 
-  local _justFlowersOption = subMenu:addOption(getText 'ContextMenu_Just_Flowers', worldobjects, nil)
+  local _justFlowersOption = subMenu:addOption(getText 'ContextMenu_Just_Flowers')
   local _justFlowersSubMenu = subMenu:getNew(subMenu)
   context:addSubMenu(_justFlowersOption, _justFlowersSubMenu)
 
-  local _stoneLinedOption = subMenu:addOption(getText 'ContextMenu_Blue_Flowers', worldobjects, nil)
+  local _stoneLinedOption = subMenu:addOption(getText 'ContextMenu_Blue_Flowers')
   local _stoneLinedSubMenu = subMenu:getNew(subMenu)
   context:addSubMenu(_stoneLinedOption, _stoneLinedSubMenu)
 
@@ -103,9 +103,9 @@ MoreBuild.onBuildFlowerFloor = function(ignoreThisArgument, sprite, player, name
   _floor.player = player
   _floor.name = name
 
-  _floor.modData['need:Base.Plank'] = '1'
-  _floor.modData['need:Base.Twigs'] = '1'
-  _floor.modData['xp:Woodwork'] = '5'
+  _floor.modData['need:Base.Plank'] = 1
+  _floor.modData['need:Base.Twigs'] = 1
+  _floor.modData['xp:Woodwork'] = 5
 
   getCell():setDrag(_floor, player)
 end
@@ -118,10 +118,10 @@ MoreBuild.onBuildFourSpriteFlowerFloor = function(ignoreThisArgument, sprite, pl
   _floor.eastSprite = sprite.eastSprite
   _floor.southSprite = sprite.southSprite
 
-  _floor.modData['need:Base.Plank'] = '1'
-  _floor.modData['need:Base.Plank'] = '1'
-  _floor.modData['need:Base.Twigs'] = '1'
-  _floor.modData['xp:Woodwork'] = '5'
+  _floor.modData['need:Base.Plank'] = 1
+  _floor.modData['need:Base.Plank'] = 1
+  _floor.modData['need:Base.Twigs'] = 1
+  _floor.modData['xp:Woodwork'] = 5
 
   getCell():setDrag(_floor, player)
 end

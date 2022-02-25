@@ -197,9 +197,9 @@ MoreBuild.onBuildWoodenPillar = function(ignoreThisArgument, sprite, player, nam
   _pillar.player = player
   _pillar.name = name
 
-  _pillar.modData['need:Base.Plank'] = '2'
-  _pillar.modData['need:Base.Nails'] = '3'
-  _pillar.modData['xp:Woodwork'] = '5'
+  _pillar.modData['need:Base.Plank'] = 2
+  _pillar.modData['need:Base.Nails'] = 3
+  _pillar.modData['xp:Woodwork'] = 5
   _pillar.modData['wallType'] = 'pillar'
 
   getCell():setDrag(_pillar, player)
@@ -214,9 +214,9 @@ MoreBuild.onBuildStonePillar = function(ignoreThisArgument, sprite, player, name
   _pillar.player = player
   _pillar.name = name
 
-  _pillar.modData['need:Base.Plank'] = '2'
-  _pillar.modData['need:Base.Nails'] = '3'
-  _pillar.modData['xp:Woodwork'] = '5'
+  _pillar.modData['need:Base.Plank'] = 2
+  _pillar.modData['need:Base.Nails'] = 3
+  _pillar.modData['xp:Woodwork'] = 5
   _pillar.modData['wallType'] = 'pillar'
 
   function _pillar:getHealth()

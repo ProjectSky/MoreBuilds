@@ -293,9 +293,9 @@ MoreBuild.onBuildWoodenFence = function(ignoreThisArgument, sprite, player, name
   _fence.player = player
   _fence.name = name
 
-  _fence.modData['need:Base.Plank'] = '2'
-  _fence.modData['need:Base.Nails'] = '3'
-  _fence.modData['xp:Woodwork'] = '5'
+  _fence.modData['need:Base.Plank'] = 2
+  _fence.modData['need:Base.Nails'] = 3
+  _fence.modData['xp:Woodwork'] = 5
 
   function _fence:getHealth()
     return MoreBuild.healthLevel.woodenFence
@@ -312,9 +312,9 @@ MoreBuild.onBuildStoneFence = function(ignoreThisArgument, sprite, player, name)
   _fence.player = player
   _fence.name = name
 
-  _fence.modData['need:Base.Plank'] = '4'
-  _fence.modData['need:Base.Nails'] = '3'
-  _fence.modData['xp:Woodwork'] = '5'
+  _fence.modData['need:Base.Plank'] = 4
+  _fence.modData['need:Base.Nails'] = 3
+  _fence.modData['xp:Woodwork'] = 5
 
   function _fence:getHealth()
     return MoreBuild.healthLevel.stoneWall + buildUtil.getWoodHealth(self)
@@ -333,9 +333,9 @@ MoreBuild.onBuildMetalFence = function(ignoreThisArgument, sprite, player, name)
   _fence.player = player
   _fence.name = name
 
-  _fence.modData['need:Base.SheetMetal'] = '2'
-  _fence.modData['need:Base.Screws'] = '3'
-  _fence.modData['xp:Woodwork'] = '5'
+  _fence.modData['need:Base.SheetMetal'] = 2
+  _fence.modData['need:Base.Screws'] = 3
+  _fence.modData['xp:Woodwork'] = 5
 
   function _fence:getHealth()
     return MoreBuild.healthLevel.metalWall + buildUtil.getWoodHealth(self)

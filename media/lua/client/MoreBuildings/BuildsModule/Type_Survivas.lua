@@ -4,7 +4,7 @@ end
 
 local MoreBuild = getMoreBuildInstance()
 
-MoreBuild.SurvivalPostsMenuBuilder = function(subMenu, player)
+MoreBuild.SurvivalMenuBuilder = function(subMenu, player)
   local _sprite = nil
   local _option = nil
   local _tooltip = nil
@@ -38,13 +38,12 @@ MoreBuild.SurvivalPostsMenuBuilder = function(subMenu, player)
   MoreBuild.neededTools = {'Hammer', 'Spade', 'Saw'}
 
   local needSkills = {
-    Woodwork = MoreBuild.skillLevel.waterwellObject
+    Woodwork = MoreBuild.skillLevel.waterwellObject,
   }
 
   _sprite = {}
   _sprite.sprite = 'morebuild_01_0'
   _sprite.northSprite = 'morebuild_01_0'
-  _sprite.corner = 'morebuild_01_0'
 
   _name = getText 'ContextMenu_Water_Well'
 
@@ -80,7 +79,8 @@ MoreBuild.SurvivalPostsMenuBuilder = function(subMenu, player)
 
   local needSkills = {
     Woodwork = MoreBuild.skillLevel.advancedContainer,
-    Electricity = MoreBuild.skillLevel.fridgeObject
+    Electricity = MoreBuild.skillLevel.fridgeObject,
+    MetalWelding = 1
   }
 
   _sprite = {}
@@ -90,9 +90,8 @@ MoreBuild.SurvivalPostsMenuBuilder = function(subMenu, player)
   _sprite.southSprite = 'appliances_refrigeration_01_27'
 
   _name = MoreBuild.getMoveableDisplayName(_sprite.sprite)
-  _icon = 'fridge'
 
-  _option = subMenu:addOption(_name, nil, MoreBuild.onBuildfridge, _sprite, player, _name, _icon)
+  _option = subMenu:addOption(_name, nil, MoreBuild.onBuildfridge, _sprite, player, _name, 'fridge')
 
   _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
@@ -119,7 +118,8 @@ MoreBuild.SurvivalPostsMenuBuilder = function(subMenu, player)
   MoreBuild.neededTools = {'Hammer', 'Screwdriver'}
 
   local needSkills = {
-    Woodwork = MoreBuild.skillLevel.barbecueObject
+    Woodwork = MoreBuild.skillLevel.barbecueObject,
+    MetalWelding = 3
   }
 
   _sprite = {}
@@ -127,7 +127,7 @@ MoreBuild.SurvivalPostsMenuBuilder = function(subMenu, player)
   _sprite.northSprite = 'appliances_cooking_01_35'
 
   _name = MoreBuild.getMoveableDisplayName(_sprite.sprite)
-  _option = subMenu:addOption(_name, worldobjects, MoreBuild.onBuildBarbecue, _sprite, player, _name, _icon)
+  _option = subMenu:addOption(_name, nil, MoreBuild.onBuildBarbecue, _sprite, player, _name)
   _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText('Tooltip_Barbecue') .. _tooltip.description
@@ -162,18 +162,18 @@ MoreBuild.SurvivalPostsMenuBuilder = function(subMenu, player)
 
   local needSkills = {
     Woodwork = MoreBuild.skillLevel.barbecueObject,
-    Electricity = MoreBuild.skillLevel.generatorObject
+    Electricity = MoreBuild.skillLevel.generatorObject,
+    MetalWelding = MoreBuild.skillLevel.generatorObject
   }
 
   _sprite = {}
   _sprite.sprite = 'appliances_misc_01_0'
   _sprite.northSprite = 'appliances_misc_01_0'
-  _sprite.corner = 'appliances_misc_01_0'
 
-  local perk = getSpecificPlayer(player):getPerkLevel(Perks.Electricity)
+  local perk = MoreBuild.playerSkills['Electricity']
 
   _name = getText 'ContextMenu_Fuel_Generator'
-  _option = subMenu:addOption(_name, worldobjects, MoreBuild.onBuildGenerator, _sprite, perk, _name, player)
+  _option = subMenu:addOption(_name, nil, MoreBuild.onBuildGenerator, _sprite, perk, _name, player)
   _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText('Tooltip_Fuel_Generator') .. _tooltip.description
@@ -207,7 +207,7 @@ MoreBuild.SurvivalPostsMenuBuilder = function(subMenu, player)
   _sprite.northSprite = 'appliances_cooking_01_16'
 
   _name = MoreBuild.getMoveableDisplayName(_sprite.sprite)
-  _option = subMenu:addOption(_name, worldobjects, MoreBuild.onBuildStove, _sprite, player, _name, _icon)
+  _option = subMenu:addOption(_name, nil, MoreBuild.onBuildStove, _sprite, player, _name)
   _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText('Tooltip_Stove') .. _tooltip.description .. MoreBuild.textCanRotate
@@ -235,7 +235,7 @@ MoreBuild.SurvivalPostsMenuBuilder = function(subMenu, player)
   _sprite.northSprite = 'fixtures_fireplaces_01_3'
 
   _name = getText 'ContextMenu_Fireplace'
-  _option = subMenu:addOption(_name, worldobjects, MoreBuild.onBuildFireplace, _sprite, player, _name, _icon)
+  _option = subMenu:addOption(_name, nil, MoreBuild.onBuildFireplace, _sprite, player, _name)
   _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText('Tooltip_Stove') .. _tooltip.description .. MoreBuild.textCanRotate
@@ -247,10 +247,10 @@ MoreBuild.onBuildBarbecue = function(ignoreThisArgument, sprite, player, name)
   _Barbecue.player = player
   _Barbecue.name = name
 
-  _Barbecue.modData['need:Base.Plank'] = '2'
-  _Barbecue.modData['need:Base.SheetMetal'] = '2'
-  _Barbecue.modData['need:Base.Screws'] = '3'
-  _Barbecue.modData['xp:Woodwork'] = '5'
+  _Barbecue.modData['need:Base.Plank'] = 2
+  _Barbecue.modData['need:Base.SheetMetal'] = 2
+  _Barbecue.modData['need:Base.Screws'] = 3
+  _Barbecue.modData['xp:Woodwork'] = 5
   getCell():setDrag(_Barbecue, player)
 end
 
@@ -263,28 +263,26 @@ MoreBuild.onBuildGenerator = function(ignoreThisArgument, sprite, perk, name, pl
   _Generator.noNeedHammer = true
   _Generator.actionAnim = "BlowTorchMid"
 
-  _Generator.modData['need:Radio.ElectricWire'] = '2'
-  _Generator.modData['need:Base.Aluminum'] = '10'
-  _Generator.modData['need:Base.SheetMetal'] = '4'
-  _Generator.modData['need:Base.Screws'] = '10'
-  _Generator.modData['need:Base.ElectronicsScrap'] = '100'
-  _Generator.modData['xp:Woodwork'] = '10'
-  _Generator.modData['xp:Electricity'] = '50'
+  _Generator.modData['need:Radio.ElectricWire'] = 2
+  _Generator.modData['need:Base.Aluminum'] = 10
+  _Generator.modData['need:Base.SheetMetal'] = 4
+  _Generator.modData['need:Base.Screws'] = 10
+  _Generator.modData['need:Base.ElectronicsScrap'] = 100
+  _Generator.modData['xp:Woodwork'] = 10
+  _Generator.modData['xp:Electricity'] = 25
   getCell():setDrag(_Generator, player)
 end
 
 MoreBuild.onBuildWaterWell = function(ignoreThisArgument, player, sprite, waterMax)
   local _WaterWell = ISWaterWell:new(player, sprite, 1200) --waterMax
   _WaterWell.player = player
-  _WaterWell.name = name
 
-  _WaterWell.modData['need:Base.Plank'] = '20'
-  _WaterWell.modData['need:Base.Nails'] = '10'
-  _WaterWell.modData['need:Base.Rope'] = '5'
-  _WaterWell.modData['need:Base.Plank'] = '5'
-  _WaterWell.modData['need:Base.Gravelbag'] = '2'
-  _WaterWell.modData['need:Base.BucketEmpty'] = '1'
-  _WaterWell.modData['xp:Woodwork'] = '50'
+  _WaterWell.modData['need:Base.Nails'] = 10
+  _WaterWell.modData['need:Base.Rope'] = 5
+  _WaterWell.modData['need:Base.Plank'] = 5
+  _WaterWell.modData['need:Base.Gravelbag'] = 2
+  _WaterWell.modData['need:Base.BucketEmpty'] = 1
+  _WaterWell.modData['xp:Woodwork'] = 50
   _WaterWell.modData['IsWaterWell'] = true
   getCell():setDrag(_WaterWell, player)
 end
@@ -306,12 +304,12 @@ MoreBuild.onBuildfridge = function(ignoreThisArgument, sprite, player, name, ico
     _fridge:setSouthSprite(sprite.southSprite)
   end
 
-  _fridge.modData['need:Base.SheetMetal'] = '4'
-  _fridge.modData['need:Base.Screws'] = '5'
-  _fridge.modData['need:Radio.ElectricWire'] = '2'
-  _fridge.modData['need:Base.ElectronicsScrap'] = '10'
-  _fridge.modData['xp:Woodwork'] = '30'
-  _fridge.modData['xp:Electricity'] = '5'
+  _fridge.modData['need:Base.SheetMetal'] = 4
+  _fridge.modData['need:Base.Screws'] = 5
+  _fridge.modData['need:Radio.ElectricWire'] = 2
+  _fridge.modData['need:Base.ElectronicsScrap'] = 10
+  _fridge.modData['xp:Woodwork'] = 30
+  _fridge.modData['xp:Electricity'] = 5
 
   MoreBuild.equipToolPrimary(_fridge, player, 'Screwdriver')
 
@@ -329,10 +327,10 @@ MoreBuild.onBuildStove = function(ignoreThisArgument, sprite, player, name)
   _stove.player = player
   _stove.name = name
 
-  _stove.modData['need:Base.SheetMetal'] = '6'
-  _stove.modData['need:Base.Nails'] = '20'
-  _stove.modData['need:Base.Screws'] = '10'
-  _stove.modData['xp:Woodwork'] = '15'
+  _stove.modData['need:Base.SheetMetal'] = 6
+  _stove.modData['need:Base.Nails'] = 20
+  _stove.modData['need:Base.Screws'] = 10
+  _stove.modData['xp:Woodwork'] = 15
 
   getCell():setDrag(_stove, player)
 end
@@ -343,10 +341,10 @@ MoreBuild.onBuildFireplace = function(ignoreThisArgument, sprite, player, name)
   _fireplace.player = player
   _fireplace.name = name
 
-  _fireplace.modData['need:Base.Stone'] = '10'
-  _fireplace.modData['use:Base.Dirtbag'] = '1'
-  _fireplace.modData['use:Base.BucketWaterFull'] = '25'
-  _fireplace.modData['xp:Woodwork'] = '15'
+  _fireplace.modData['need:Base.Stone'] = 10
+  _fireplace.modData['use:Base.Dirtbag'] = 1
+  _fireplace.modData['use:Base.BucketWaterFull'] = 25
+  _fireplace.modData['xp:Woodwork'] = 15
 
   getCell():setDrag(_fireplace, player)
 end

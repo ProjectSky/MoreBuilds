@@ -298,9 +298,9 @@ MoreBuild.onBuildWoodenContainer = function(ignoreThisArgument, sprite, player, 
     _container:setSouthSprite(sprite.southSprite)
   end
 
-  _container.modData['need:Base.Plank'] = '2'
-  _container.modData['need:Base.Nails'] = '2'
-  _container.modData['xp:Woodwork'] = '5'
+  _container.modData['need:Base.Plank'] = 2
+  _container.modData['need:Base.Nails'] = 2
+  _container.modData['xp:Woodwork'] = 5
 
   function _container:getHealth()
     self.javaObject:getContainer():setType(icon)
@@ -327,9 +327,9 @@ MoreBuild.onBuildStoneContainer = function(ignoreThisArgument, sprite, player, n
     _container:setSouthSprite(sprite.southSprite)
   end
 
-  _container.modData['need:Base.Plank'] = '4'
-  _container.modData['need:Base.Nails'] = '2'
-  _container.modData['xp:Woodwork'] = '5'
+  _container.modData['need:Base.Plank'] = 4
+  _container.modData['need:Base.Nails'] = 2
+  _container.modData['xp:Woodwork'] = 5
 
   function _container:getHealth()
     self.javaObject:getContainer():setType(icon)
@@ -358,9 +358,9 @@ MoreBuild.onBuildMetalContainer = function(ignoreThisArgument, sprite, player, n
     _container:setSouthSprite(sprite.southSprite)
   end
 
-  _container.modData['need:Base.SheetMetal'] = '2'
-  _container.modData['need:Base.Screws'] = '2'
-  _container.modData['xp:Woodwork'] = '5'
+  _container.modData['need:Base.SheetMetal'] = 2
+  _container.modData['need:Base.Screws'] = 2
+  _container.modData['xp:Woodwork'] = 5
 
   MoreBuild.equipToolPrimary(_container, player, 'Screwdriver')
 

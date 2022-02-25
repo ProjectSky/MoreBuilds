@@ -4,7 +4,7 @@ end
 
 local MoreBuild = getMoreBuildInstance()
 
-MoreBuild.counterElementsMenuBuilder = function(subMenu, player, context, worldobjects)
+MoreBuild.counterElementsMenuBuilder = function(subMenu, player, context)
   local _sprite
   local _option
   local _tooltip
@@ -32,7 +32,7 @@ MoreBuild.counterElementsMenuBuilder = function(subMenu, player, context, worldo
   local _currentSubMenu
 
   for _subsectionName, _subsectionData in pairs(_counterData) do
-    _currentOption = subMenu:addOption(_subsectionName, worldobjects, nil)
+    _currentOption = subMenu:addOption(_subsectionName)
     _currentSubMenu = subMenu:getNew(subMenu)
     context:addSubMenu(_currentOption, _currentSubMenu)
 
@@ -65,9 +65,9 @@ MoreBuild.onBuildBarElement = function(ignoreThisArgument, sprite, player, name)
   _barElement.canBeLockedByPadlock = true
   _barElement.player = player
 
-  _barElement.modData['need:Base.Plank'] = '4'
-  _barElement.modData['need:Base.Nails'] = '4'
-  _barElement.modData['xp:Woodwork'] = '5'
+  _barElement.modData['need:Base.Plank'] = 4
+  _barElement.modData['need:Base.Nails'] = 4
+  _barElement.modData['xp:Woodwork'] = 5
 
   function _barElement:getHealth()
     self.javaObject:getContainer():setType('counter')

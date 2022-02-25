@@ -12,9 +12,9 @@ MoreBuild.onBuildSign = function(ignoreThisArgument, sprite, player, name)
   _sign.eastSprite = sprite.eastSprite
   _sign.southSprite = sprite.southSprite
 
-  _sign.modData['need:Base.Plank'] = '1'
-  _sign.modData['need:Base.Nails'] = '1'
-  _sign.modData['xp:Woodwork'] = '5'
+  _sign.modData['need:Base.Plank'] = 1
+  _sign.modData['need:Base.Nails'] = 1
+  _sign.modData['xp:Woodwork'] = 5
 
   getCell():setDrag(_sign, player)
 end

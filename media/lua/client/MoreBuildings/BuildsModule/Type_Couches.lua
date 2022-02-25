@@ -4,7 +4,7 @@ end
 
 local MoreBuild = getMoreBuildInstance()
 
-MoreBuild.couchesMenuBuilder = function(subMenu, player, context, worldobjects)
+MoreBuild.couchesMenuBuilder = function(subMenu, player, context)
   local _sprite
   local _option
   local _tooltip
@@ -12,11 +12,11 @@ MoreBuild.couchesMenuBuilder = function(subMenu, player, context, worldobjects)
 
   local _couchData = MoreBuild.getCouchesData()
 
-  local _frontViewOption = subMenu:addOption(getText 'ContextMenu_FrontSide_Views', worldobjects, nil)
+  local _frontViewOption = subMenu:addOption(getText 'ContextMenu_FrontSide_Views')
   local _frontViewSubMenu = subMenu:getNew(subMenu)
   context:addSubMenu(_frontViewOption, _frontViewSubMenu)
 
-  local _backViewOption = subMenu:addOption(getText 'ContextMenu_BackSide_Views', worldobjects, nil)
+  local _backViewOption = subMenu:addOption(getText 'ContextMenu_BackSide_Views')
   local _backViewSubMenu = subMenu:getNew(subMenu)
   context:addSubMenu(_backViewOption, _backViewSubMenu)
 
@@ -184,10 +184,10 @@ MoreBuild.onBuildCouch = function(ignoreThisArgument, sprite, player, name)
   _couch.player = player
   _couch.name = name
 
-  _couch.modData['need:Base.Plank'] = '6'
-  _couch.modData['need:Base.Nails'] = '4'
-  _couch.modData['need:Base.Sheet'] = '1'
-  _couch.modData['xp:Woodwork'] = '5'
+  _couch.modData['need:Base.Plank'] = 6
+  _couch.modData['need:Base.Nails'] = 4
+  _couch.modData['need:Base.Sheet'] = 1
+  _couch.modData['xp:Woodwork'] = 5
 
   getCell():setDrag(_couch, player)
 end

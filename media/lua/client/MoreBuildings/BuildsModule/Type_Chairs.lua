@@ -4,7 +4,7 @@ end
 
 local MoreBuild = getMoreBuildInstance()
 
-MoreBuild.chairsMenuBuilder = function(subMenu, player, context, worldobjects)
+MoreBuild.chairsMenuBuilder = function(subMenu, player, context)
   local _sprite
   local _option
   local _tooltip
@@ -32,7 +32,7 @@ MoreBuild.chairsMenuBuilder = function(subMenu, player, context, worldobjects)
   local _currentSubMenu
 
   for _subsectionName, _subsectionData in pairs(_chairsData) do
-    _currentOption = subMenu:addOption(_subsectionName, worldobjects, nil)
+    _currentOption = subMenu:addOption(_subsectionName)
     _currentSubMenu = subMenu:getNew(subMenu)
     context:addSubMenu(_currentOption, _currentSubMenu)
 
@@ -119,9 +119,9 @@ MoreBuild.onBuildWoodenChair = function(ignoreThisArgument, sprite, player, name
   _chair:setEastSprite(sprite.eastSprite)
   _chair:setSouthSprite(sprite.southSprite)
 
-  _chair.modData['need:Base.Plank'] = '5'
-  _chair.modData['need:Base.Nails'] = '4'
-  _chair.modData['xp:Woodwork'] = '5'
+  _chair.modData['need:Base.Plank'] = 5
+  _chair.modData['need:Base.Nails'] = 4
+  _chair.modData['xp:Woodwork'] = 5
 
   getCell():setDrag(_chair, player)
 end
