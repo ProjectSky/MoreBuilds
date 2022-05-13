@@ -46,6 +46,12 @@ MoreBuild.doorsMenuBuilder = function(subMenu, player, context)
 
   context:addSubMenu(_otherDoorsOption, _otherDoorsSubMenu)
   MoreBuild.otherDoorsMenuBuilder(_otherDoorsSubMenu, player)
+
+  local _glassDoorsOption = subMenu:addOption(getText 'ContextMenu_Glass_Doors')
+  local _glassDoorsSubMenu = subMenu:getNew(subMenu)
+
+  context:addSubMenu(_glassDoorsOption, _glassDoorsSubMenu)
+  MoreBuild.glassDoorsMenuBuilder(_glassDoorsSubMenu, player)
 end
 
 MoreBuild.garageDoorMenuBuilder = function(subMenu, player)
@@ -632,6 +638,113 @@ MoreBuild.otherDoorsMenuBuilder = function(subMenu, player)
   _tooltip:setTexture(_sprite.sprite)
 end
 
+MoreBuild.glassDoorsMenuBuilder = function(subMenu, player)
+  local _sprite
+  local _option
+  local _tooltip
+  local _name = ''
+
+  MoreBuild.neededMaterials = {
+    {
+      Material = 'Base.Plank',
+      Amount = 4
+    },
+    {
+      Material = 'Base.Nails',
+      Amount = 4
+    },
+    {
+      Material = 'Base.Doorknob',
+      Amount = 1
+    },
+    {
+      Material = 'Base.Hinge',
+      Amount = 2
+    }
+  }
+
+  MoreBuild.neededTools = {'Hammer'}
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.doorObject
+  }
+
+  local _data = {
+    Red_Frame_Glass = {
+      sprites = {
+        sprite = 'fixtures_doors_01_36',
+        northSprite = 'fixtures_doors_01_37',
+        openSprite = 'fixtures_doors_01_38',
+        openNorthSprite = 'fixtures_doors_01_39',
+      },
+      action = MoreBuild.onBuildWoodenDoor,
+    },
+    Black_Frame_Glass = {
+      sprites = {
+        sprite = 'fixtures_doors_01_40',
+        northSprite = 'fixtures_doors_01_41',
+        openSprite = 'fixtures_doors_01_42',
+        openNorthSprite = 'fixtures_doors_01_43',
+      },
+      action = MoreBuild.onBuildWoodenDoor,
+    },
+    Black_Frame_Glass2 = {
+      sprites = {
+        sprite = 'fixtures_doors_01_48',
+        northSprite = 'fixtures_doors_01_49',
+        openSprite = 'fixtures_doors_01_50',
+        openNorthSprite = 'fixtures_doors_01_51',
+      },
+      action = MoreBuild.onBuildWoodenDoor,
+    },
+    White_Frame_Glass_Window = {
+      sprites = {
+        sprite = 'fixtures_doors_01_112',
+        northSprite = 'fixtures_doors_01_113',
+        openSprite = 'fixtures_doors_01_114',
+        openNorthSprite = 'fixtures_doors_01_115',
+      },
+      action = MoreBuild.onBuildWindowWall,
+    },
+    White_Frame_Glass_Door = {
+      sprites = {
+        sprite = 'fixtures_doors_01_116',
+        northSprite = 'fixtures_doors_01_117',
+        openSprite = 'fixtures_doors_01_118',
+        openNorthSprite = 'fixtures_doors_01_119',
+      },
+      action = MoreBuild.onBuildGlassDoor,
+    },
+    Brown_Frame_Glass_Window = {
+      sprites = {
+        sprite = 'fixtures_doors_01_104',
+        northSprite = 'fixtures_doors_01_105',
+        openSprite = 'fixtures_doors_01_106',
+        openNorthSprite = 'fixtures_doors_01_107',
+      },
+      action = MoreBuild.onBuildWindowWall,
+    },
+    Brown_Frame_Glass_Door = {
+      sprites = {
+        sprite = 'fixtures_doors_01_108',
+        northSprite = 'fixtures_doors_01_109',
+        openSprite = 'fixtures_doors_01_110',
+        openNorthSprite = 'fixtures_doors_01_111',
+      },
+      action = MoreBuild.onBuildGlassDoor,
+    },
+  }
+
+  for key, data in pairs(_data) do
+    _name = getText('ContextMenu_' .. key)
+    _option = subMenu:addOption(_name, nil, data.action, data.sprites, player, _name)
+    _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
+    _tooltip:setName(_name)
+    _tooltip.description = getText('Tooltip_' .. key) .. _tooltip.description
+    _tooltip:setTexture(data.sprites.sprite)
+  end
+end
+
 MoreBuild.lowDoorsMenuBuilder = function(subMenu, player)
   local _sprite
   local _option
@@ -763,6 +876,22 @@ end
 MoreBuild.onBuildWoodenDoor = function(ignoreThisArgument, sprite, player, name)
   local _door = ISWoodenDoor:new(sprite.sprite, sprite.northSprite, sprite.openSprite, sprite.openNorthSprite)
 
+  _door.player = player
+  _door.name = name
+
+  _door.modData['need:Base.Plank'] = 4
+  _door.modData['need:Base.Nails'] = 4
+  _door.modData['need:Base.Hinge'] = 2
+  _door.modData['need:Base.Doorknob'] = 1
+  _door.modData['xp:Woodwork'] = 5
+
+  getCell():setDrag(_door, player)
+end
+
+MoreBuild.onBuildGlassDoor = function(ignoreThisArgument, sprite, player, name)
+  local _door = ISWoodenDoor:new(sprite.sprite, sprite.northSprite, sprite.openSprite, sprite.openNorthSprite)
+
+  _door.dontNeedFrame = true
   _door.player = player
   _door.name = name
 

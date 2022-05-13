@@ -175,4 +175,10 @@ Tooltip_EN = {
   Tooltip_Rolling_Garage_Door = "A large rolling door is perfect for decorating your garage.",
   Tooltip_Red_Window_Garage_Door = "A red large garage door with windows is perfect for decorating your garage.",
   Tooltip_Gray_Window_Garage_Door = "A gray large garage door with windows is perfect for decorating your garage.",
+  Tooltip_Black_Frame_Glass = "A glass door with a black frame.",
+  Tooltip_Black_Frame_Glass2 = "A glass door with a black frame and a bar in the middle.",
+  Tooltip_White_Frame_Glass_Window = "The window (left) side of the sliding glass door in white color.",
+  Tooltip_White_Frame_Glass_Door = "The door (right) side of the sliding glass door in white color.",
+  Tooltip_Brown_Frame_Glass_Window = "The window (left) side of the sliding glass door in brown (or red?) color.",
+  Tooltip_Brown_Frame_Glass_Door = "The door (right) side of the sliding glass door in brown (or red?) color.",
 }
