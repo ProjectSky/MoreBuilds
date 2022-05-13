@@ -500,4 +500,12 @@ ContextMenu_EN = {
   ContextMenu_Rolling_Garage_Door = "Rolling Garage Door",
   ContextMenu_Red_Window_Garage_Door = "Red Window Garage Door",
   ContextMenu_Gray_Window_Garage_Door = "Gray Window Garage Door",
+  ContextMenu_Glass_Doors = "Glass Doors",
+  ContextMenu_Red_Frame_Glass = "Red Frame Glass Door",
+  ContextMenu_Black_Frame_Glass = "Black Frame Glass Door",
+  ContextMenu_Black_Frame_Glass2 = "Black Frame Glass Door 2",
+  ContextMenu_White_Frame_Glass_Window = "White Frame Sliding Door (window)",
+  ContextMenu_White_Frame_Glass_Door = "White Frame Sliding Door (door)",
+  ContextMenu_Brown_Frame_Glass_Window = "Brown Frame Sliding Door (window)",
+  ContextMenu_Brown_Frame_Glass_Door = "Brown Frame Sliding Door (door)",
 }
