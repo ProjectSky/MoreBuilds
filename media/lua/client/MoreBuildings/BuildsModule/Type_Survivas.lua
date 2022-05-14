@@ -51,7 +51,7 @@ MoreBuild.SurvivalMenuBuilder = function(subMenu, player)
 
   _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
   _tooltip:setName(_name)
-  _tooltip.description = getText 'Tooltip_Water_Well' .. _tooltip.description
+  _tooltip.description = getText('Tooltip_Water_Well', SandboxVars.MoreBuilds.MaxWaterWallStorageAmount) .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
 
   -- Fridge --
@@ -274,7 +274,7 @@ MoreBuild.onBuildGenerator = function(ignoreThisArgument, sprite, perk, name, pl
 end
 
 MoreBuild.onBuildWaterWell = function(ignoreThisArgument, player, sprite, waterMax)
-  local _WaterWell = ISWaterWell:new(player, sprite, 1200) --waterMax
+  local _WaterWell = ISWaterWell:new(player, sprite, SandboxVars.MoreBuilds.MaxWaterWallStorageAmount) --waterMax
   _WaterWell.player = player
 
   _WaterWell.modData['need:Base.Nails'] = 10

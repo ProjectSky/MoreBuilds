@@ -180,7 +180,7 @@ function ISWaterWell.loadRainWaterWell(WaterWellObject)
     if square:getModData()['waterAmount'] then
       WaterWell.waterAmount = tonumber(square:getModData()['waterAmount'])
       square:getModData()['waterAmount'] = ISWaterWell.waterAmount
-      square:getModData()['waterMax'] = 1200
+      square:getModData()['waterMax'] = self.waterMax
       square:getModData()['alwaysTakeWater'] = nil
     end
     table.insert(ISWaterWell.WaterWells, WaterWell)

@@ -87,6 +87,7 @@ ContextMenu_EN = {
   ContextMenu_WhiteCinder_BlockFence = "White Cinder Block Fence",
   ContextMenu_RedBrick_Wall = "Red Brick",
   ContextMenu_RedBrick_Wall = "Red Brick Pillar",
+  ContextMenu_Glass_Wall = "Glass Wall",
   ContextMenu_RedBrick_DoorFrame = "Red Brick Door Frame",
   ContextMenu_RedBrick_WindowFrame = "Red Brick Window Frame",
   ContextMenu_RedBrick_Fence = "Red Brick Fence",

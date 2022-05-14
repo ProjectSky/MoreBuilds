@@ -501,4 +501,12 @@ ContextMenu_CN = {
   ContextMenu_Rolling_Garage_Door = "卷帘门",
   ContextMenu_Red_Window_Garage_Door = "带窗红色车库门",
   ContextMenu_Gray_Window_Garage_Door = "带窗灰色车库门",
+  ContextMenu_Glass_Doors = "玻璃门",
+  ContextMenu_Red_Frame_Glass = "红色玻璃门",
+  ContextMenu_Black_Frame_Glass = "黑色玻璃门",
+  ContextMenu_Black_Frame_Glass2 = "黑色隔断玻璃门",
+  ContextMenu_White_Frame_Glass_Window = "白色滑动玻璃窗",
+  ContextMenu_White_Frame_Glass_Door = "白色滑动玻璃门",
+  ContextMenu_Brown_Frame_Glass_Window = "棕色滑动玻璃窗",
+  ContextMenu_Brown_Frame_Glass_Door = "棕色滑动玻璃门",
 }

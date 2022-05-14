@@ -21,7 +21,7 @@ local getText = getText
 local MoreBuild = {}
 MoreBuild.NAME = 'More Builds'
 MoreBuild.AUTHOR = 'ProjectSky, SiderisAnon'
-MoreBuild.VERSION = '1.1.6'
+MoreBuild.VERSION = '1.1.7'
 
 print('Mod Loaded: ' .. MoreBuild.NAME .. ' by ' .. MoreBuild.AUTHOR .. ' (v' .. MoreBuild.VERSION .. ')')
 
@@ -110,6 +110,16 @@ MoreBuild.healthLevel = {
   metalDoor = 700
 }
 
+--- 权限等级定义
+MoreBuild.AccessLevel = {
+  None = 1,
+  Observer = 2,
+  GM = 3,
+  Overseer = 4,
+  Moderator = 5,
+  Admin = 6
+}
+
 --- OnFillWorldObjectContextMenu回调
 --- @param player number: IsoPlayer索引
 --- @param context ISContextMenu: 上下文菜单实例
@@ -129,6 +139,8 @@ MoreBuild.OnFillWorldObjectContextMenu = function(player, context, worldobjects,
   if playerObj:getVehicle() then
     return
   end
+
+  if MoreBuild.checkPermission(player) then return end
 
   if MoreBuild.haveAToolToBuild(player) then
 
@@ -326,13 +338,11 @@ MoreBuild.OnFillWorldObjectContextMenu = function(player, context, worldobjects,
     context:addSubMenu(_missingPostsOption, _missingPostsSubMenu)
     MoreBuild.missingPostsMenuBuilder(_missingPostsSubMenu, player)
 
-    if SandboxVars.MoreBuilds.EnableSurvivalCategory or isAdmin() or ISBuildMenu.cheat then
-      local _SurvivalOption = _secondTierMenu:addOption(getText 'ContextMenu_Survival_Menu')
-      local _SurvivalThirdTierMenu = _secondTierMenu:getNew(_secondTierMenu)
+    local _SurvivalOption = _secondTierMenu:addOption(getText 'ContextMenu_Survival_Menu')
+    local _SurvivalThirdTierMenu = _secondTierMenu:getNew(_secondTierMenu)
 
-      context:addSubMenu(_SurvivalOption, _SurvivalThirdTierMenu)
-      MoreBuild.SurvivalMenuBuilder(_SurvivalThirdTierMenu, player)
-    end
+    context:addSubMenu(_SurvivalOption, _SurvivalThirdTierMenu)
+    MoreBuild.SurvivalMenuBuilder(_SurvivalThirdTierMenu, player)
 
     --MoreBuild.doWaterWellInfo(player, context, worldobjects)
   end
@@ -375,6 +385,15 @@ MoreBuild.haveAToolToBuild = function(player)
   havaTools = MoreBuild.getAvailableTools(player, 'Hammer')
 
   return havaTools or ISBuildMenu.cheat
+end
+
+--- 检查玩家建筑权限, 仅在多人模式中使用
+--- @param player number: IsoPlayer索引
+--- @return boolean: 如果权限符合返回true否则返回false
+MoreBuild.checkPermission = function(player)
+  local level = getSpecificPlayer(player):getAccessLevel()
+  local permission = SandboxVars.MoreBuilds.BuildingPermission
+  return isClient() and not ISBuildMenu.cheat and MoreBuild.AccessLevel[level] < permission
 end
 
 --- 获取玩家库存内的可用工具
