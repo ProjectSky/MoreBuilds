@@ -188,6 +188,95 @@ MoreBuild.pillarsMenuBuilder = function(subMenu, player)
   _tooltip:setTexture(_sprite.sprite)
 end
 
+MoreBuild.missingPostsMenuBuilder = function(subMenu, player)
+  local _sprite
+  local _option
+  local _tooltip
+  local _name = ''
+
+  MoreBuild.neededTools = {'Hammer'}
+
+  MoreBuild.neededMaterials = {
+    {
+      Material = 'Base.Log',
+      Amount = 1
+    },
+    {
+      Material = 'Base.Rope',
+      Amount = 1
+    }
+  }
+
+  local needSkills = {
+    Woodwork = MoreBuild.skillLevel.logObject
+  }
+
+  _sprite = {}
+  _sprite.sprite = 'morebuild_01_1'
+  _sprite.northSprite = 'morebuild_01_1'
+
+  _name = getText 'ContextMenu_RopeLogWall_Pillar'
+
+  _option = subMenu:addOption(_name .. '(' .. getItemNameFromFullType('Base.Rope') .. ')', nil, MoreBuild.onBuildRopeLogPillar, _sprite, player)
+
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
+  _tooltip:setName(_name)
+  _tooltip.description = getText 'Tooltip_RopeLogWall_Pillar' .. _tooltip.description
+  _tooltip:setTexture(_sprite.sprite)
+
+  MoreBuild.neededMaterials = {
+    {
+      Material = 'Base.Log',
+      Amount = 1
+    },
+    {
+      Material = 'Base.SheetRope',
+      Amount = 2
+    }
+  }
+
+  _option = subMenu:addOption(_name .. '(' .. getItemNameFromFullType('Base.SheetRope') .. ')', nil, MoreBuild.onBuildSheetRopeLogPillar, _sprite, player)
+
+  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
+  _tooltip:setName(_name)
+  _tooltip.description = getText 'Tooltip_SheetRopeLogWall_Pillar' .. _tooltip.description
+  _tooltip:setTexture(_sprite.sprite)
+end
+
+MoreBuild.onBuildRopeLogPillar = function(ignoreThisArgument, sprite, player, name)
+  local _pillar = ISWoodenWall:new(sprite.sprite, sprite.northSprite, nil)
+
+  _pillar.canPassThrough = true
+  _pillar.isThumpable = false
+  _pillar.canBarricade = false
+  _pillar.player = player
+  _pillar.name = name
+  _pillar.completionSound = "BuildWoodenStructureSmall"
+
+  _pillar.modData['need:Base.Log'] = 1
+  _pillar.modData['need:Base.Rope'] = 1
+  _pillar.modData['xp:Woodwork'] = 5
+
+  getCell():setDrag(_pillar, player)
+end
+
+MoreBuild.onBuildSheetRopeLogPillar = function(ignoreThisArgument, sprite, player, name)
+  local _pillar = ISWoodenWall:new(sprite.sprite, sprite.northSprite, nil)
+
+  _pillar.canPassThrough = true
+  _pillar.isThumpable = false
+  _pillar.canBarricade = false
+  _pillar.player = player
+  _pillar.name = name
+  _pillar.completionSound = "BuildWoodenStructureSmall"
+
+  _pillar.modData['need:Base.Log'] = 1
+  _pillar.modData['need:Base.SheetRope'] = 2
+  _pillar.modData['xp:Woodwork'] = 5
+
+  getCell():setDrag(_pillar, player)
+end
+
 MoreBuild.onBuildWoodenPillar = function(ignoreThisArgument, sprite, player, name)
   local _pillar = ISWoodenWall:new(sprite.sprite, sprite.northSprite, nil)
 

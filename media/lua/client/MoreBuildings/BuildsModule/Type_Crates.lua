@@ -103,31 +103,29 @@ MoreBuild.cratesMenuBuilder = function(subMenu, player)
   _tooltip:setTexture(_sprite.sprite)
 
   _sprite = {}
-  _sprite.sprite = 'location_military_generic_01_0'
-  _sprite.northSprite = 'location_military_generic_01_2'
-  _sprite.eastSprite = 'location_military_generic_01_4'
+  _sprite.sprite = 'morebuild_01_3'
+  _sprite.northSprite = 'morebuild_01_3'
 
   _name = getText 'ContextMenu_ArmyGreen_MilitaryCrate'
   _icon = 'militarycrate'
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenContainer, _sprite, player, _name, _icon)
 
-  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
+  _tooltip = MoreBuild.canBuildObject({Woodwork = 6}, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_ArmyGreen_MilitaryCrate' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
 
   _sprite = {}
-  _sprite.sprite = 'location_military_generic_01_8'
-  _sprite.northSprite = 'location_military_generic_01_10'
-  _sprite.eastSprite = 'location_military_generic_01_12'
+  _sprite.sprite = 'morebuild_01_6'
+  _sprite.northSprite = 'morebuild_01_6'
 
   _name = getText 'ContextMenu_ArmyGray_MilitaryCrate'
   _icon = 'militarycrate'
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenContainer, _sprite, player, _name, _icon)
 
-  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
+  _tooltip = MoreBuild.canBuildObject({Woodwork = 6}, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_ArmyGray_MilitaryCrate' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)

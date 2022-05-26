@@ -21,7 +21,7 @@ local getText = getText
 local MoreBuild = {}
 MoreBuild.NAME = 'More Builds'
 MoreBuild.AUTHOR = 'ProjectSky, SiderisAnon'
-MoreBuild.VERSION = '1.1.7'
+MoreBuild.VERSION = '1.1.8'
 
 print('Mod Loaded: ' .. MoreBuild.NAME .. ' by ' .. MoreBuild.AUTHOR .. ' (v' .. MoreBuild.VERSION .. ')')
 
@@ -140,9 +140,11 @@ MoreBuild.OnFillWorldObjectContextMenu = function(player, context, worldobjects,
     return
   end
 
-  if MoreBuild.checkPermission(player) then return end
+  if MoreBuild.checkPermission(playerObj) then return end
 
-  if MoreBuild.haveAToolToBuild(player) then
+  local inv = playerObj:getInventory()
+
+  if MoreBuild.haveAToolToBuild(inv) then
 
     MoreBuild.buildSkillsList(player)
 
@@ -370,9 +372,9 @@ MoreBuild.getMoveableDisplayName = function(sprite)
 end
 
 --- 检查玩家是否拥有某些工具
---- @param player number: IsoPlayer索引
+--- @param inv ItemContainer: 玩家ItemContainer实例
 --- @return boolean: 如果满足工具条件需求则返回true否则返回false
-MoreBuild.haveAToolToBuild = function(player)
+MoreBuild.haveAToolToBuild = function(inv)
   -- 多个工具在表内添加即可 [类型] {工具1, 工具2, ...}
   MoreBuild.toolsList['Hammer'] = {"Base.Hammer", "Base.HammerStone", "Base.BallPeenHammer", "Base.WoodenMallet", "Base.ClubHammer"}
   MoreBuild.toolsList['Screwdriver'] = {"Base.Screwdriver"}
@@ -382,28 +384,27 @@ MoreBuild.haveAToolToBuild = function(player)
 
   local havaTools = nil
 
-  havaTools = MoreBuild.getAvailableTools(player, 'Hammer')
+  havaTools = MoreBuild.getAvailableTools(inv, 'Hammer')
 
   return havaTools or ISBuildMenu.cheat
 end
 
 --- 检查玩家建筑权限, 仅在多人模式中使用
---- @param player number: IsoPlayer索引
+--- @param player IsoPlayer: IsoPlayer实例
 --- @return boolean: 如果权限符合返回true否则返回false
 MoreBuild.checkPermission = function(player)
-  local level = getSpecificPlayer(player):getAccessLevel()
+  local level = player:getAccessLevel()
   local permission = SandboxVars.MoreBuilds.BuildingPermission
   return isClient() and not ISBuildMenu.cheat and MoreBuild.AccessLevel[level] < permission
 end
 
 --- 获取玩家库存内的可用工具
---- @param player number: IsoPlayer索引
+--- @param inv ItemContainer: 玩家ItemContainer实例
 --- @param tool string: 工具类型
 --- @return InventoryItem: 获取的工具实例, 如空或已损坏返回nil
-MoreBuild.getAvailableTools = function(player, tool)
+MoreBuild.getAvailableTools = function(inv, tool)
   local tools = nil
   local toolList = MoreBuild.toolsList[tool]
-  local inv = getSpecificPlayer(player):getInventory()
   for _, type in pairs (toolList) do
     tools = inv:getFirstTypeEval(type, predicateNotBroken)
     if tools then
@@ -418,7 +419,8 @@ end
 --- @param tool string: 工具类型
 MoreBuild.equipToolPrimary = function(object, player, tool)
   local tools = nil
-  tools = MoreBuild.getAvailableTools(player, tool)
+  local inv = getSpecificPlayer(player):getInventory()
+  tools = MoreBuild.getAvailableTools(inv, tool)
   if tools then
     ISInventoryPaneContextMenu.equipWeapon(tools, true, false, player)
     object.noNeedHammer = true
@@ -432,7 +434,8 @@ end
 --- @info 未使用
 MoreBuild.equipToolSecondary = function(object, player, tool)
   local tools = nil
-  tools = MoreBuild.getAvailableTools(player, tool)
+  local inv = getSpecificPlayer(player):getInventory()
+  tools = MoreBuild.getAvailableTools(inv, tool)
   if tools then
     ISInventoryPaneContextMenu.equipWeapon(tools, false, false, player)
   end
@@ -454,14 +457,13 @@ MoreBuild.buildSkillsList = function(player)
 end
 
 --- 检查&构造材料提示文本
---- @param player number: IsoPlayer索引
+--- @param inv ItemContainer: 玩家ItemContainer实例
 --- @param material string: 材料类型
 --- @param amount number: 需要的材料数量
 --- @param tooltip ISToolTip: 工具提示实例
 --- @return boolean: 如果满足检查条件则返回true否则返回false
 --- @info ISBuildMenu.countMaterial性能过低, 如果玩家库存中物品过多会卡游戏主线程, 不建议使用
-MoreBuild.tooltipCheckForMaterial = function(player, material, amount, tooltip)
-  local inv = getSpecificPlayer(player):getInventory()
+MoreBuild.tooltipCheckForMaterial = function(inv, material, amount, tooltip)
   local type = split(material, '\\.')[2]
   local invItemCount = 0
   local groundItem = ISBuildMenu.materialOnGround
@@ -503,12 +505,12 @@ MoreBuild.tooltipCheckForMaterial = function(player, material, amount, tooltip)
 end
 
 --- 检查&构造工具提示文本
---- @param player number: IsoPlayer索引
+--- @param inv ItemContainer: 玩家ItemContainer实例
 --- @param tool string: 工具类型
 --- @param tooltip ISToolTip: 工具提示实例
 --- @return boolean: 如果满足检查条件则返回true否则返回false
-MoreBuild.tooltipCheckForTool = function(player, tool, tooltip)
-  local tools = MoreBuild.getAvailableTools(player, tool)
+MoreBuild.tooltipCheckForTool = function(inv, tool, tooltip)
+  local tools = MoreBuild.getAvailableTools(inv, tool)
   if tools then
     tooltip.description = tooltip.description .. ' <RGB:1,1,1>' .. tools:getName() .. ' <LINE>'
     return true
@@ -530,6 +532,8 @@ MoreBuild.canBuildObject = function(skills, option, player)
   _tooltip:setVisible(false)
   option.toolTip = _tooltip
 
+  local inv = getSpecificPlayer(player):getInventory()
+
   local _canBuildResult = true
 
   _tooltip.description = MoreBuild.textTooltipHeader
@@ -538,7 +542,7 @@ MoreBuild.canBuildObject = function(skills, option, player)
 
   for _, _currentMaterial in pairs(MoreBuild.neededMaterials) do
     if _currentMaterial['Material'] and _currentMaterial['Amount'] then
-      _currentResult = MoreBuild.tooltipCheckForMaterial(player, _currentMaterial['Material'], _currentMaterial['Amount'], _tooltip)
+      _currentResult = MoreBuild.tooltipCheckForMaterial(inv, _currentMaterial['Material'], _currentMaterial['Amount'], _tooltip)
     else
       _tooltip.description = _tooltip.description .. ' <RGB:1,0,0> Error in required material definition. <LINE>'
       _canBuildResult = false
@@ -550,7 +554,7 @@ MoreBuild.canBuildObject = function(skills, option, player)
   end
 
   for _, _currentTool in pairs(MoreBuild.neededTools) do
-    _currentResult = MoreBuild.tooltipCheckForTool(player, _currentTool, _tooltip)
+    _currentResult = MoreBuild.tooltipCheckForTool(inv, _currentTool, _tooltip)
 
     if not _currentResult then
       _canBuildResult = false
