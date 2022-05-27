@@ -35,7 +35,7 @@ MoreBuild.SurvivalMenuBuilder = function(subMenu, player)
     }
   }
 
-  MoreBuild.neededTools = {'Hammer', 'Spade', 'Saw'}
+  MoreBuild.neededTools = {'Hammer', 'Shovel', 'Saw'}
 
   local needSkills = {
     Woodwork = MoreBuild.skillLevel.waterwellObject,

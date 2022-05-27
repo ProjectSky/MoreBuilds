@@ -1,7 +1,7 @@
 ContextMenu_CN = {
   -- MoreBuild Simplified Chinese translation
-  -- By：ProjectSky
-  -- Date：February 5, 2016
+  -- By: ProjectSky
+  -- Date: February 5, 2016
   ContextMenu_Blue_GasStation_Carpet = "蓝色地毯",
   ContextMenu_Blue_Zippee_Carpet = "蓝色拉链地毯",
   ContextMenu_Half_Crate = "中型箱子",

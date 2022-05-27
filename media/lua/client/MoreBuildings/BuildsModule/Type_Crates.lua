@@ -104,7 +104,7 @@ MoreBuild.cratesMenuBuilder = function(subMenu, player)
 
   _sprite = {}
   _sprite.sprite = 'morebuild_01_3'
-  _sprite.northSprite = 'morebuild_01_3'
+  _sprite.northSprite = 'morebuild_01_9'
 
   _name = getText 'ContextMenu_ArmyGreen_MilitaryCrate'
   _icon = 'militarycrate'
@@ -118,7 +118,7 @@ MoreBuild.cratesMenuBuilder = function(subMenu, player)
 
   _sprite = {}
   _sprite.sprite = 'morebuild_01_6'
-  _sprite.northSprite = 'morebuild_01_6'
+  _sprite.northSprite = 'morebuild_01_12'
 
   _name = getText 'ContextMenu_ArmyGray_MilitaryCrate'
   _icon = 'militarycrate'

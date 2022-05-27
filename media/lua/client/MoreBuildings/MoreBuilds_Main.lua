@@ -21,7 +21,7 @@ local getText = getText
 local MoreBuild = {}
 MoreBuild.NAME = 'More Builds'
 MoreBuild.AUTHOR = 'ProjectSky, SiderisAnon'
-MoreBuild.VERSION = '1.1.8'
+MoreBuild.VERSION = '1.1.8a'
 
 print('Mod Loaded: ' .. MoreBuild.NAME .. ' by ' .. MoreBuild.AUTHOR .. ' (v' .. MoreBuild.VERSION .. ')')
 
@@ -60,6 +60,15 @@ MoreBuild.textCouchRearDescription = getText('Tooltip_CouchRear_Description')
 MoreBuild.textDresserDescription = getText('Tooltip_Dresser_Description')
 MoreBuild.textBedDescription = getText('Tooltip_Bed_Description')
 MoreBuild.textFlowerBedDescription = getText('Tooltip_FlowerBed_Description')
+
+--- 工具列表定义
+--- 多个工具在表内添加即可 [类型] {工具1, 工具2, ...}
+MoreBuild.toolsList['Hammer'] = {'Base.Hammer', 'Base.HammerStone', 'Base.BallPeenHammer', 'Base.WoodenMallet', 'Base.ClubHammer'}
+MoreBuild.toolsList['Screwdriver'] = {'Base.Screwdriver'}
+MoreBuild.toolsList['HandShovel'] = {'farming.HandShovel'}
+MoreBuild.toolsList['Saw'] = {'Base.Saw'}
+MoreBuild.toolsList['Shovel'] = {'Base.Shovel', 'Base.Shovel2'}
+MoreBuild.toolsList['BlowTorch'] = {'Base.BlowTorch'}
 
 --- 建筑技能需求定义
 --- @todo: 优化结构
@@ -146,7 +155,7 @@ MoreBuild.OnFillWorldObjectContextMenu = function(player, context, worldobjects,
 
   if MoreBuild.haveAToolToBuild(inv) then
 
-    MoreBuild.buildSkillsList(player)
+    MoreBuild.buildSkillsList(playerObj)
 
     if MoreBuild.playerSkills["Woodwork"] > 6 or ISBuildMenu.cheat then
       MoreBuild.playerCanPlaster = true
@@ -375,13 +384,6 @@ end
 --- @param inv ItemContainer: 玩家ItemContainer实例
 --- @return boolean: 如果满足工具条件需求则返回true否则返回false
 MoreBuild.haveAToolToBuild = function(inv)
-  -- 多个工具在表内添加即可 [类型] {工具1, 工具2, ...}
-  MoreBuild.toolsList['Hammer'] = {"Base.Hammer", "Base.HammerStone", "Base.BallPeenHammer", "Base.WoodenMallet", "Base.ClubHammer"}
-  MoreBuild.toolsList['Screwdriver'] = {"Base.Screwdriver"}
-  MoreBuild.toolsList['HandShovel'] = {"farming.HandShovel"}
-  MoreBuild.toolsList['Saw'] = {"Base.Saw"}
-  MoreBuild.toolsList['Spade'] = {"Base.Shovel"}
-
   local havaTools = nil
 
   havaTools = MoreBuild.getAvailableTools(inv, 'Hammer')
@@ -442,7 +444,7 @@ MoreBuild.equipToolSecondary = function(object, player, tool)
 end
 
 --- 构造技能文本
---- @param player number: IsoPlayer索引
+--- @param player IsoPlayer: IsoPlayer实例
 MoreBuild.buildSkillsList = function(player)
   local perks = PerkFactory.PerkList
   local perkID = nil
@@ -450,7 +452,7 @@ MoreBuild.buildSkillsList = function(player)
   for i = 0, perks:size() - 1 do
     perkID = perks:get(i):getId()
     perkType = perks:get(i):getType()
-    MoreBuild.playerSkills[perkID] = getSpecificPlayer(player):getPerkLevel(perks:get(i))
+    MoreBuild.playerSkills[perkID] = player:getPerkLevel(perks:get(i))
     MoreBuild.textSkillsRed[perkID] = ' <RGB:1,0,0>' .. PerkFactory.getPerkName(perkType) .. ' ' .. MoreBuild.playerSkills[perkID] .. '/'
     MoreBuild.textSkillsGreen[perkID] = ' <RGB:1,1,1>' .. PerkFactory.getPerkName(perkType) .. ' '
   end

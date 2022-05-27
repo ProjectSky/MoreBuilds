@@ -1,7 +1,7 @@
 Tooltip_CN = {
   -- MoreBuild Simplified Chinese translation
-  -- By：ProjectSky
-  -- Date：February 5, 2016
+  -- By: ProjectSky
+  -- Date: February 5, 2016
   Tooltip_Half_Crate = "一个中型箱子，可以储存很多东西 <br> 可使用R键堆叠。",
   Tooltip_Grocery_Box = "两个盒子，可是没有两倍的空间。",
   Tooltip_Outhouse_Box = "至少你知道没有人会在这里寻找你的东西! ",
@@ -116,7 +116,7 @@ Tooltip_CN = {
   Tooltip_Parking_Meter = "谁会给你一张票吗？",
   Tooltip_Mailbox = "我想邮局已经停止所有交付工作。",
   Tooltip_Fire_Hydrant = "纯粹的装饰。",
-  Tooltip_Traffic_Cone = "警告：前方的道路正在施工。",
+  Tooltip_Traffic_Cone = "警告！前方的道路正在施工。",
   Tooltip_Traffic_Cone1 = "也许你可以引导僵尸行进的路径。",
   Tooltip_DriveThru_Arrow = "僵尸或许会遵循这些方向，也许它会引导你到一个汉堡店。",
   Tooltip_StopCar = "停下！",
@@ -159,7 +159,7 @@ Tooltip_CN = {
   Tooltip_Metal_LowDoor = "一个较矮的金属栅栏门，需要安装在门框中。",
   Tooltip_Low_DoorFrame = "一个较矮的门框架，用来安装较矮的门。",
   Tooltip_Fuel_Generator = "一台发电机，启动后可以给房屋设施供电。<br> <br> 虽然只有极低的电工要求，但是其状态值和人物电工等级相关。",
-  Tooltip_WaterAmount = "水量剩余：%1",
+  Tooltip_WaterAmount = "水量剩余: %1",
   Tooltip_Stove = "一个既美观又温暖的壁炉，既可取暖，也可用来烹饪食物 <br> 只能靠着墙壁建造！",
   Tooltip_BookShelf = "多层书架，用来存放书籍或杂志。",
   Tooltip_Glass_Wall = "一堵玻璃墙，你觉得它可以阻挡僵尸吗？",

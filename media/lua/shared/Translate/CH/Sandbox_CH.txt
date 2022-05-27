@@ -1,7 +1,4 @@
 Sandbox_CH = {
-  -- MoreBuild Traditional Chinese translation
-  -- By：ProjectSky
-  -- Date：May 26, 2022
   Sandbox_MoreBuilds = "更多建築",
   Sandbox_MaxWaterWallStorageAmount = "水井容量",
   Sandbox_MaxWaterWallStorageAmount_tooltip = "設置更多建築中水井的最大蓄水量 <LINE> 注: 設置為9999容量將顯示為無限",

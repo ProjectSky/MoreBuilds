@@ -1,7 +1,7 @@
 ContextMenu_EN = {
   -- MoreBuild English translation
-  -- By：ProjectSky
-  -- Date：February 5, 2016
+  -- By: ProjectSky
+  -- Date: February 5, 2016
   ContextMenu_Blue_GasStation_Carpet = "Blue Gas Station Carpet",
   ContextMenu_Blue_Zippee_Carpet = "Blue Zippee Carpet",
   ContextMenu_Half_Crate = "Half Crate",

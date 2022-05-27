@@ -4,21 +4,6 @@ end
 
 local MoreBuild = getMoreBuildInstance()
 
-MoreBuild.onBuildSign = function(ignoreThisArgument, sprite, player, name)
-  local _sign = ISSimpleFurniture:new(name, sprite.sprite, sprite.northSprite)
-
-  _sign.player = player
-  _sign.name = name
-  _sign.eastSprite = sprite.eastSprite
-  _sign.southSprite = sprite.southSprite
-
-  _sign.modData['need:Base.Plank'] = 1
-  _sign.modData['need:Base.Nails'] = 1
-  _sign.modData['xp:Woodwork'] = 5
-
-  getCell():setDrag(_sign, player)
-end
-
 MoreBuild.signsMenuBuilder = function(subMenu, player)
   local _sprite
   local _option
@@ -57,6 +42,42 @@ MoreBuild.signsMenuBuilder = function(subMenu, player)
 
     _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
     _tooltip.description = _currentList[6] .. _tooltip.description
+    _tooltip:setName(_name)
+    _tooltip:setTexture(_sprite.sprite)
+  end
+
+  MoreBuild.neededMaterials = {
+    {
+      Material = 'Base.MetalBar',
+      Amount = 2
+    },
+    {
+      Material = 'Base.WeldingRods',
+      Amount = 1
+    }
+  }
+
+  MoreBuild.neededTools = {'Hammer', 'BlowTorch'}
+
+  local needSkills = {
+    MetalWelding = MoreBuild.skillLevel.simpleObject
+  }
+
+  local metalsignData = MoreBuild.getMetalSignData()
+
+  for _, _metalsign in pairs(metalsignData) do
+    _sprite = {}
+    _sprite.sprite = _metalsign[1]
+    _sprite.northSprite = _metalsign[2]
+    _sprite.eastSprite = _metalsign[3]
+    _sprite.southSprite = _metalsign[4]
+
+    _name = _metalsign[5]
+
+    _option = subMenu:addOption(_name, nil, MoreBuild.onBuildMetalSign, _sprite, player, _name)
+
+    _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
+    _tooltip.description = _metalsign[6] .. _tooltip.description
     _tooltip:setName(_name)
     _tooltip:setTexture(_sprite.sprite)
   end
@@ -108,14 +129,6 @@ end
 MoreBuild.getRoadwayData = function()
   local _roadwayData = {
     {
-      'street_decoration_01_5',
-      'street_decoration_01_4',
-      'street_decoration_01_7',
-      'street_decoration_01_6',
-      getText 'ContextMenu_Parking_Meter',
-      getText 'Tooltip_Parking_Meter'
-    },
-    {
       'street_decoration_01_19',
       'street_decoration_01_18',
       'street_decoration_01_21',
@@ -156,16 +169,88 @@ MoreBuild.getRoadwayData = function()
       getText 'Tooltip_Construction_Horse'
     }
   }
-
   return _roadwayData
 end
 
 MoreBuild.getSignData = function()
   local _signData = {
-    {'location_restaurant_spiffos_02_58', 'location_restaurant_spiffos_02_59', 'location_restaurant_spiffos_02_57', 'location_restaurant_spiffos_02_56', getText 'ContextMenu_DriveThru_Arrow', getText 'Tooltip_DriveThru_Arrow'},
-    {'street_decoration_01_1', 'street_decoration_01_0', 'street_decoration_01_3', 'street_decoration_01_2', getText 'ContextMenu_StopCar', getText 'Tooltip_StopCar'},
-    {'location_shop_accessories_genericsigns_01_7', 'location_shop_accessories_genericsigns_01_6', 'location_shop_accessories_genericsigns_01_7', 'location_shop_accessories_genericsigns_01_6', getText 'ContextMenu_Sale_Sign', getText 'Tooltip_Sale_Sign'}
+    {
+      'location_restaurant_spiffos_02_58',
+      'location_restaurant_spiffos_02_59',
+      'location_restaurant_spiffos_02_57',
+      'location_restaurant_spiffos_02_56',
+      getText 'ContextMenu_DriveThru_Arrow',
+      getText 'Tooltip_DriveThru_Arrow'
+    },
+    {
+      'location_shop_accessories_genericsigns_01_7',
+      'location_shop_accessories_genericsigns_01_6',
+      'location_shop_accessories_genericsigns_01_7',
+      'location_shop_accessories_genericsigns_01_6',
+      getText 'ContextMenu_Sale_Sign',
+      getText 'Tooltip_Sale_Sign'
+    }
   }
-
   return _signData
+end
+
+MoreBuild.getMetalSignData = function()
+  local MetalsignData = {
+    {
+      'street_decoration_01_1',
+      'street_decoration_01_0',
+      'street_decoration_01_3',
+      'street_decoration_01_2',
+      getText 'ContextMenu_StopCar',
+      getText 'Tooltip_StopCar'
+    },
+    {
+      'street_decoration_01_5',
+      'street_decoration_01_4',
+      'street_decoration_01_7',
+      'street_decoration_01_6',
+      getText 'ContextMenu_Parking_Meter',
+      getText 'Tooltip_Parking_Meter'
+    }
+  }
+  return MetalsignData
+end
+
+MoreBuild.onBuildSign = function(ignoreThisArgument, sprite, player, name)
+  local _sign = ISSimpleFurniture:new(name, sprite.sprite, sprite.northSprite)
+
+  _sign.player = player
+  _sign.name = name
+  _sign.eastSprite = sprite.eastSprite
+  _sign.southSprite = sprite.southSprite
+
+  _sign.modData['need:Base.Plank'] = 1
+  _sign.modData['need:Base.Nails'] = 1
+  _sign.modData['xp:Woodwork'] = 5
+
+  getCell():setDrag(_sign, player)
+end
+
+MoreBuild.onBuildMetalSign = function(ignoreThisArgument, sprite, player, name)
+  local metalSign = ISWoodenWall:new(sprite.sprite, sprite.northSprite, nil)
+
+  metalSign.player = player
+  metalSign.name = name
+  metalSign.canPassThrough = true
+  metalSign.isThumpable = false
+  metalSign.eastSprite = sprite.eastSprite
+  metalSign.southSprite = sprite.southSprite
+  metalSign.craftingBank = "BlowTorch"
+  metalSign.actionAnim = "BlowTorchMid"
+
+  metalSign.completionSound = 'BuildMetalStructureSmallScrap'
+
+  metalSign.modData['need:Base.MetalBar'] = 2
+  metalSign.modData['use:Base.WeldingRods'] = 4
+  metalSign.modData['use:Base.BlowTorch'] = 10
+  metalSign.modData['xp:MetalWelding'] = 5
+
+  MoreBuild.equipToolPrimary(metalSign, player, 'BlowTorch')
+
+  getCell():setDrag(metalSign, player)
 end

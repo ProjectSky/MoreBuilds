@@ -1,7 +1,7 @@
 Tooltip_EN = {
   -- MoreBuild English translation
-  -- By：ProjectSky
-  -- Date：February 5, 2016
+  -- By: ProjectSky
+  -- Date: February 5, 2016
   Tooltip_Half_Crate = "A half-sized crate that still holds the full amount. Can even be stacked two high if you want. ",
   Tooltip_Grocery_Box = "After you empty out the grocery store, you end up with all these empty boxes to store your stuff in. ",
   Tooltip_Outhouse_Box = "At least you know that nobody will look for your stuff in there! ",
