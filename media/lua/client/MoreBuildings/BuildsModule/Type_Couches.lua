@@ -94,7 +94,7 @@ MoreBuild.getCouchesData = function()
       'furniture_seating_indoor_03_14',
       'furniture_seating_indoor_03_12',
       'furniture_seating_indoor_03_13',
-      getText 'ContextMenu_ColorType_PowderBlue'
+      getText 'ContextMenu_ColorType_White'
     },
     {
       'furniture_seating_indoor_02_49',

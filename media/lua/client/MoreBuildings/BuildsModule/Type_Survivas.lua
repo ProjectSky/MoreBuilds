@@ -349,7 +349,6 @@ MoreBuild.onBuildFireplace = function(ignoreThisArgument, sprite, player, name)
   getCell():setDrag(_fireplace, player)
 end
 
---[[
 MoreBuild.doWaterWellInfo = function(player, context, worldobjects)
   local waterwell
   local amount
@@ -368,13 +367,13 @@ MoreBuild.doWaterWellInfo = function(player, context, worldobjects)
     _option.toolTip = ISToolTip:new()
     _option.toolTip:initialise()
     _option.toolTip:setVisible(false)
-    --_option.toolTip:setName(getText('ContextMenu_Water_Well'))
+    _option.toolTip:setName(getText('ContextMenu_Water_Well'))
     _option.toolTip.description = getText('Tooltip_WaterAmount', amount)
     --_option.toolTip:setTexture('morebuild_01_0')
   end
 end
---]]
 
+--[[
 local function DoSpecialWellTooltip(tooltipUI, square)
 	local playerObj = getSpecificPlayer(0)
 	if not playerObj or playerObj:getPerkLevel(Perks.Woodwork) < 4 or playerObj:getZ() ~= square:getZ() or
@@ -396,3 +395,4 @@ local function DoSpecialWellTooltip(tooltipUI, square)
 end
 
 Events.DoSpecialTooltip.Add(DoSpecialWellTooltip)
+--]]

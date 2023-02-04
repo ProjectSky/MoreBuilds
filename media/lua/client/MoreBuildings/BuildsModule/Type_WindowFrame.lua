@@ -288,6 +288,7 @@ MoreBuild.onBuildWoodenWindowFrame = function(ignoreThisArgument, sprite, player
   _windowFrame.modData['need:Base.Plank'] = 4
   _windowFrame.modData['need:Base.Nails'] = 4
   _windowFrame.modData['xp:Woodwork'] = 5
+  _windowFrame.modData['wallType'] = 'windowsframe'
 
   getCell():setDrag(_windowFrame, player)
 end
@@ -304,6 +305,7 @@ MoreBuild.onBuildStoneWindowFrame = function(ignoreThisArgument, sprite, player,
   _windowFrame.modData['need:Base.Plank'] = 4
   _windowFrame.modData['need:Base.Nails'] = 4
   _windowFrame.modData['xp:Woodwork'] = 5
+  _windowFrame.modData['wallType'] = 'windowsframe'
 
   function _windowFrame:getHealth()
     return MoreBuild.healthLevel.stoneWall + buildUtil.getWoodHealth(self)

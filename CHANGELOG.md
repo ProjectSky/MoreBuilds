@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.9] - 2023-02-04
+- fix plaster windowed wall issue
+- fix garage door not working in some cases (need test)
+- fix double water consume
+- add PTBR translate(from Lordben-wan)
+- adjust material consume for high metafence
+
 ## [1.1.8a] - 2022-05-27
 - add a other direction military crate(use R toggle)
 - optimized some metal sign material and skill require
@@ -36,4 +43,4 @@
 
 ## [1.0.0] - 2015-09-10
 - initial release
-- I didn't write a changelog, I know it's bad
+- i didn't write changelog i know it's bad

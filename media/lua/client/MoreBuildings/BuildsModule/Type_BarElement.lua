@@ -98,8 +98,8 @@ MoreBuild.getBarElementData = function()
       {'location_hospitality_sunstarmotel_02_13', 'location_hospitality_sunstarmotel_02_14', 'location_hospitality_sunstarmotel_02_15', 'location_hospitality_sunstarmotel_02_12', getText 'ContextMenu_Motel_Cabinet', MoreBuild.textBarElementDescription},
       {'fixtures_counters_01_11', 'fixtures_counters_01_13', 'fixtures_counters_01_15', 'fixtures_counters_01_9', getText 'ContextMenu_Brown_Counter', MoreBuild.textBarElementDescription},
       {'fixtures_counters_01_10', 'fixtures_counters_01_12', 'fixtures_counters_01_14', 'fixtures_counters_01_8', getText 'ContextMenu_Brown_Corner', MoreBuild.textBarCornerDescription},
-      {'fixtures_counters_01_35', 'fixtures_counters_01_37', 'fixtures_counters_01_39', 'fixtures_counters_01_33', getText 'ContextMenu_Gray_Counter', MoreBuild.textBarElementDescription},
-      {'fixtures_counters_01_34', 'fixtures_counters_01_36', 'fixtures_counters_01_38', 'fixtures_counters_01_32', getText 'ContextMenu_Gray_Corner', MoreBuild.textBarCornerDescription}
+      {'fixtures_counters_01_35', 'fixtures_counters_01_37', 'fixtures_counters_01_39', 'fixtures_counters_01_33', getText 'ContextMenu_Metal_Counter', MoreBuild.textBarElementDescription},
+      {'fixtures_counters_01_34', 'fixtures_counters_01_36', 'fixtures_counters_01_38', 'fixtures_counters_01_32', getText 'ContextMenu_Metal_Corner', MoreBuild.textBarCornerDescription}
     },
     [getText 'ContextMenu_Business_Counters1'] = {
       {'location_restaurant_bar_01_6', 'location_restaurant_bar_01_4', 'location_restaurant_bar_01_2', 'location_restaurant_bar_01_0', getText 'ContextMenu_Bar_Counter', MoreBuild.textBarElementDescription},
@@ -110,7 +110,7 @@ MoreBuild.getBarElementData = function()
       {'location_entertainment_theatre_01_10', 'location_entertainment_theatre_01_12', 'location_entertainment_theatre_01_14', 'location_entertainment_theatre_01_8', getText 'ContextMenu_Theatre_Corner', MoreBuild.textBarCornerDescription},
       {'location_shop_fossoil_01_19', 'location_shop_fossoil_01_21', 'location_shop_fossoil_01_23', 'location_shop_fossoil_01_17', getText 'ContextMenu_Fossoil_Counter', MoreBuild.textBarElementDescription},
       {'location_shop_fossoil_01_18', 'location_shop_fossoil_01_20', 'location_shop_fossoil_01_22', 'location_shop_fossoil_01_16', getText 'ContextMenu_Fossoil_Station_Corner', MoreBuild.textBarCornerDescription},
-      {'location_shop_gas2go_01_19', 'location_shop_gas2go_01_21', 'location_shop_gas2go_01_23', 'location_shop_gas2go_01_17', getText 'ContextMenu_Gas2Go_Counter', MoreBuild.textBarElementDescription},
+      {'location_shop_gas2go_01_19', 'location_shop_gas2go_01_21', 'location_shop_gas2go_01_23', 'location_shop_gas2go_01_17', getText 'ContextMenu_Gas2Go_Corner', MoreBuild.textBarElementDescription},
       {'location_shop_gas2go_01_18', 'location_shop_gas2go_01_20', 'location_shop_gas2go_01_22', 'location_shop_gas2go_01_16', getText 'ContextMenu_Gas2Go_Cabinet', MoreBuild.textBarCornerDescription}
     },
     [getText 'ContextMenu_Business_Counters2'] = {

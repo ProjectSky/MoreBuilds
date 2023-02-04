@@ -21,7 +21,7 @@ local getText = getText
 local MoreBuild = {}
 MoreBuild.NAME = 'More Builds'
 MoreBuild.AUTHOR = 'ProjectSky, SiderisAnon'
-MoreBuild.VERSION = '1.1.8a'
+MoreBuild.VERSION = '1.1.9'
 
 print('Mod Loaded: ' .. MoreBuild.NAME .. ' by ' .. MoreBuild.AUTHOR .. ' (v' .. MoreBuild.VERSION .. ')')
 
@@ -355,7 +355,7 @@ MoreBuild.OnFillWorldObjectContextMenu = function(player, context, worldobjects,
     context:addSubMenu(_SurvivalOption, _SurvivalThirdTierMenu)
     MoreBuild.SurvivalMenuBuilder(_SurvivalThirdTierMenu, player)
 
-    --MoreBuild.doWaterWellInfo(player, context, worldobjects)
+    MoreBuild.doWaterWellInfo(player, context, worldobjects)
   end
 end
 
@@ -527,6 +527,7 @@ end
 --- 检查是否满足建造条件
 --- @param skills table: 技能等级需求表, 支持被动技能 {Woodwork = 1, Strength = 2, ...}
 --- @param option ISContextMenu: 上下文菜单实例
+--- @param player number: IsoPlayer索引
 --- @return ISToolTip: 返回工具提示实例
 MoreBuild.canBuildObject = function(skills, option, player)
   local _tooltip = ISToolTip:new()

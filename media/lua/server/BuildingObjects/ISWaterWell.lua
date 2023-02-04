@@ -22,7 +22,7 @@ function ISWaterWell:create(x, y, z, north, sprite)
   ISWaterWell.waterAmount = ZombRand(10, 50)
   self.javaObject:getModData()['waterMax'] = self.waterMax
   self.javaObject:getModData()['waterAmount'] = ISWaterWell.waterAmount
-  self.javaObject:setSpecialTooltip(true)
+  --self.javaObject:setSpecialTooltip(true)
   local WaterWell = {}
   WaterWell.x = self.sq:getX()
   WaterWell.y = self.sq:getY()
@@ -94,7 +94,7 @@ function ISWaterWell.checkRain()
   if isClient() then
     return
   end
-  local rainIntensity = Math.round(ClimateManager.getInstance():getRainIntensity() * 10) / 10 --get rain intensity
+  local rainIntensity = tonumber(string.format("%.1f", ClimateManager.getInstance():getRainIntensity())) --get rain intensity
   if rainIntensity > 0 then
     for iB, vB in ipairs(ISWaterWell.WaterWells) do
       if vB.waterAmount < vB.waterMax then
@@ -104,6 +104,7 @@ function ISWaterWell.checkRain()
         end
         if vB.exterior then
           vB.waterAmount = math.min(vB.waterMax, vB.waterAmount + rainIntensity)
+          vB.waterAmount = tonumber(string.format("%.1f", vB.waterAmount))
           local obj = ISWaterWell.findObject(square)
           if obj then
             noise('added rain to WaterWell at ' .. vB.x .. ',' .. vB.y .. ',' .. vB.z .. ' waterAmount=' .. vB.waterAmount .. ' rainIntensity=' .. rainIntensity)
@@ -209,25 +210,6 @@ ISWaterWell.OnWaterAmountChange = function(object, prevAmount)
   end
 end
 
-ISWaterWell.OnClientCommand = function(module, command, player, args)
-  if module ~= 'object' then
-    return
-  end
-
-  if command == 'takeWater' then
-    local gs = getCell():getGridSquare(args.x, args.y, args.z)
-    if gs then
-      for i = 0, gs:getObjects():size() - 1 do
-        local obj = gs:getObjects():get(i)
-        if obj:useWater(args.units) > 0 then
-          obj:transmitModData()
-          break
-        end
-      end
-    end
-  end
-end
-
 ISWaterWell.OnObjectAdded = function(object)
   if isClient() then
     return
@@ -261,6 +243,5 @@ Events.EveryTenMinutes.Add(ISWaterWell.checkRain)
 Events.EveryHours.Add(ISWaterWell.checkEveryHours)
 Events.LoadGridsquare.Add(ISWaterWell.LoadGridsquare)
 Events.OnWaterAmountChange.Add(ISWaterWell.OnWaterAmountChange)
-Events.OnClientCommand.Add(ISWaterWell.OnClientCommand)
 Events.OnObjectAdded.Add(ISWaterWell.OnObjectAdded)
 Events.OnDestroyIsoThumpable.Add(ISWaterWell.OnDestroyIsoThumpable)

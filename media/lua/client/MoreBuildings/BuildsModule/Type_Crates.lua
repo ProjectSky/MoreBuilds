@@ -76,7 +76,7 @@ MoreBuild.cratesMenuBuilder = function(subMenu, player)
   _sprite.sprite = 'location_entertainment_theatre_01_16'
   _sprite.northSprite = 'location_entertainment_theatre_01_16'
 
-  _name = getText 'ContextMenu_Theatre_Storage'
+  _name = getText 'ContextMenu_Theatre_Popcorn_Storage'
   _icon = 'counter'
 
   _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenContainer, _sprite, player, _name, _icon)

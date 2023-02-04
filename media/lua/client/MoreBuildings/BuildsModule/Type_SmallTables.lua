@@ -57,7 +57,7 @@ MoreBuild.getSmallTableData = function()
     {'furniture_tables_low_01_2', 'furniture_tables_low_01_3', getText 'ContextMenu_RedBrownEnd_Table', MoreBuild.textSmallTableDescription},
     {'furniture_tables_low_01_16', 'furniture_tables_low_01_17', getText 'ContextMenu_BeigeEnd_Table', MoreBuild.textSmallTableDescription},
     {'furniture_tables_low_01_21', 'furniture_tables_low_01_20', getText 'ContextMenu_WhiteEnd_Table', MoreBuild.textSmallTableDescription},
-    {'location_restaurant_pileocrepe_01_37', 'location_restaurant_pileocrepe_01_36', getText 'ContextMenu_SquareBeige_Table', MoreBuild.textSmallTableDescription}
+    {'location_restaurant_pileocrepe_01_37', 'location_restaurant_pileocrepe_01_36', getText 'ContextMenu_Beige_Square_Table', MoreBuild.textSmallTableDescription}
   }
 
   return _smallTableData

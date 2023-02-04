@@ -312,7 +312,7 @@ MoreBuild.onBuildStoneFence = function(ignoreThisArgument, sprite, player, name)
   _fence.player = player
   _fence.name = name
 
-  _fence.modData['need:Base.Plank'] = 4
+  _fence.modData['need:Base.Plank'] = 2
   _fence.modData['need:Base.Nails'] = 3
   _fence.modData['xp:Woodwork'] = 5
 

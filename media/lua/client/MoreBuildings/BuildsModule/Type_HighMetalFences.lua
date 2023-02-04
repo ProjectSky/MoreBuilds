@@ -21,7 +21,7 @@ MoreBuild.highMetalFenceMenuBuilder = function(subMenu, player)
     },
     {
       Material = 'Base.ScrapMetal',
-      Amount = 20
+      Amount = 10
     },
     {
       Material = 'Base.WeldingRods',
@@ -66,12 +66,13 @@ MoreBuild.onBuildHighMetalFence = function(ignoreThisArgument, sprite, player, n
   _metalFence.player = player
   _metalFence.name = name
   _metalFence.blockAllTheSquare = false
+  _metalFence.noNeedHammer = true
 
   _metalFence.completionSound = 'BuildMetalStructureMedium'
 
   _metalFence.modData['need:Base.Wire'] = 4
   _metalFence.modData['need:Base.SmallSheetMetal'] = 4
-  _metalFence.modData['need:Base.ScrapMetal'] = 20
+  _metalFence.modData['need:Base.ScrapMetal'] = 10
   _metalFence.modData['use:Base.WeldingRods'] = 4
   _metalFence.modData['use:Base.BlowTorch'] = 10
   _metalFence.modData['xp:Woodwork'] = 10

@@ -1,0 +1,18 @@
+Sandbox_PTBR = {
+  -- MoreBuild Portuguese Translation
+  -- By: Lordben-wan
+  -- Date: September , 2022
+
+  Sandbox_MoreBuilds = "More Builds",
+  Sandbox_MaxWaterWallStorageAmount = "Capacidade do Poço",
+  Sandbox_MaxWaterWallStorageAmount_tooltip = "Controla a capacidade máxima de água que existe no Poço construído pelo mod More Builds <LINE> Nota: selecionar o valor 9999 vai mostrar a capacidade máxima como infinita",
+  Sandbox_BuildingPermission = "Permissão de Construção",
+  Sandbox_BuildingPermission_tooltip = "Controla quem pode usar o menu More Builds e construir. Somente jogadores com o nível especificado podem construir. Por padrão, todos os jogadores podem usar o Mod",
+  Sandbox_MoreBuilds_BuildingPermission_option1 = "Nenhuma",
+  Sandbox_MoreBuilds_BuildingPermission_option2 = "Observador",
+  Sandbox_MoreBuilds_BuildingPermission_option3 = "Líder de Guilda",
+  Sandbox_MoreBuilds_BuildingPermission_option4 = "Supervisor",
+  Sandbox_MoreBuilds_BuildingPermission_option5 = "Moderador",
+  Sandbox_MoreBuilds_BuildingPermission_option6 = "Administrador",
+  
+}

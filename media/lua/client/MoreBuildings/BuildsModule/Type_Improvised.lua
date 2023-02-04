@@ -49,11 +49,11 @@ MoreBuild.improvisedMenuBuilder = function(subMenu, player)
   MoreBuild.neededMaterials = {
     {
       Material = 'Base.Plank',
-      Amount = 2
+      Amount = 4
     },
     {
       Material = 'Base.Nails',
-      Amount = 3
+      Amount = 4
     }
   }
 
@@ -234,11 +234,11 @@ MoreBuild.trashMenuBuilder = function(subMenu, player)
   MoreBuild.neededMaterials = {
     {
       Material = 'Base.Plank',
-      Amount = 2
+      Amount = 4
     },
     {
       Material = 'Base.Nails',
-      Amount = 3
+      Amount = 4
     }
   }
 
@@ -328,7 +328,7 @@ MoreBuild.onBuildStoneContainer = function(ignoreThisArgument, sprite, player, n
   end
 
   _container.modData['need:Base.Plank'] = 4
-  _container.modData['need:Base.Nails'] = 2
+  _container.modData['need:Base.Nails'] = 4
   _container.modData['xp:Woodwork'] = 5
 
   function _container:getHealth()

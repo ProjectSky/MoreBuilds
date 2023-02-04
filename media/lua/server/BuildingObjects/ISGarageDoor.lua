@@ -79,10 +79,6 @@ function ISGarageDoor:isValid(square)
     return false
   end
 
-  if square:getBuilding() or squareA:getBuilding() or squareB:getBuilding() then
-    return false
-  end
-
   if squareA:isSomethingTo(square) then
     return false
   end
@@ -109,10 +105,7 @@ function ISGarageDoor:render(x, y, z, square)
     local sprite = IsoSprite.new()
     sprite:LoadFramesNoDirPageSimple(spriteName)
 
-    local spriteFree = ISBuildingObject.isValid(self, square) and not square:getBuilding()
-    if buildUtil.stairIsBlockingPlacement(square, true, self.north) then
-      spriteFree = false
-    end
+    local spriteFree = self:isValid(square)
     if spriteFree then
       sprite:RenderGhostTile(x, y, z)
     else
@@ -158,10 +151,10 @@ function ISGarageDoor:render(x, y, z, square)
     spriteBFree = false
   end
 
-  if squareA and (squareA:isSomethingTo(square) or buildUtil.stairIsBlockingPlacement(squareA, true, self.north) or squareA:getBuilding()) then
+  if squareA and (squareA:isSomethingTo(square) or buildUtil.stairIsBlockingPlacement(squareA, true, self.north)) then
     spriteAFree = false
   end
-  if squareB and (squareB:isSomethingTo(squareA) or buildUtil.stairIsBlockingPlacement(squareB, true, self.north) or squareB:getBuilding()) then
+  if squareB and (squareB:isSomethingTo(squareA) or buildUtil.stairIsBlockingPlacement(squareB, true, self.north)) then
     spriteBFree = false
   end
 
@@ -231,7 +224,7 @@ function ISGarageDoor:partExists(square, index)
   local objects = square:getSpecialObjects()
   for i = 1, objects:size() do
     local object = objects:get(i - 1)
-    if IsoDoor.getGarageDoorIndex(object) == index and object:getNorth() == self.north and not object:IsOpen() and object:getSprite():getName() == spriteName then
+    if IsoDoor.getGarageDoorIndex(object) == index and object:getNorth() == self.north and object:getSprite():getName() == spriteName then
       return true
     end
   end

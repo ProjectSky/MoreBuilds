@@ -923,6 +923,8 @@ MoreBuild.onBuildGarageDoor = function(ignoreThisArgument, sprite, spriteIndex, 
   local _garageDoor = ISGarageDoor:new(sprite.sprite, spriteIndex)
 
   _garageDoor.player = player
+  --_garageDoor.noNeedHammer = true
+  _garageDoor.completionSound = 'BuildMetalStructureMedium'
 
   _garageDoor.modData['need:Base.Plank'] = 8
   _garageDoor.modData['need:Base.Nails'] = 8

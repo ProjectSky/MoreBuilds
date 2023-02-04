@@ -62,8 +62,8 @@ MoreBuild.getSeatingData = function()
       {'furniture_seating_indoor_02_16', 'furniture_seating_indoor_02_19', 'furniture_seating_indoor_02_16', 'furniture_seating_indoor_02_19', getText 'ContextMenu_Padded_Bench', getText 'Tooltip_Padded_Bench'}
     },
     [getText 'ContextMenu_Wooden_Chairs'] = {
-      {'furniture_seating_indoor_02_4', 'furniture_seating_indoor_02_5', 'furniture_seating_indoor_02_6', 'furniture_seating_indoor_02_7', getText 'ContextMenu_BeigeWooden_Chair', getText 'Tooltip_BeigeWooden_Chair'},
-      {'location_restaurant_pileocrepe_01_40', 'location_restaurant_pileocrepe_01_41', 'location_restaurant_pileocrepe_01_42', 'location_restaurant_pileocrepe_01_43', getText 'ContextMenu_BrownWooden_Chair', getText 'Tooltip_BeigeWooden_Chair'},
+      {'furniture_seating_indoor_02_4', 'furniture_seating_indoor_02_5', 'furniture_seating_indoor_02_6', 'furniture_seating_indoor_02_7', getText 'ContextMenu_Brown_Wooden_Chair', getText 'Tooltip_BeigeWooden_Chair'},
+      {'location_restaurant_pileocrepe_01_40', 'location_restaurant_pileocrepe_01_41', 'location_restaurant_pileocrepe_01_42', 'location_restaurant_pileocrepe_01_43', getText 'ContextMenu_Beige_Wooden_Chair', getText 'Tooltip_BeigeWooden_Chair'},
       {'furniture_seating_indoor_02_1', 'furniture_seating_indoor_02_0', 'furniture_seating_indoor_02_3', 'furniture_seating_indoor_02_2', getText 'ContextMenu_DarkBrown_WoodenChair', getText 'Tooltip_BeigeWooden_Chair'},
       {'furniture_seating_indoor_02_8', 'furniture_seating_indoor_02_9', 'furniture_seating_indoor_02_10', 'furniture_seating_indoor_02_11', getText 'ContextMenu_RedWooden_Chair', getText 'Tooltip_BeigeWooden_Chair'},
       {'furniture_seating_indoor_02_57', 'furniture_seating_indoor_02_56', 'furniture_seating_indoor_02_59', 'furniture_seating_indoor_02_58', getText 'ContextMenu_WhiteWooden_Chair', getText 'Tooltip_BeigeWooden_Chair'},
@@ -85,7 +85,7 @@ MoreBuild.getSeatingData = function()
     },
     [getText 'ContextMenu_Upholstered_Chairs'] = {
       {'furniture_seating_indoor_03_24', 'furniture_seating_indoor_03_25', 'furniture_seating_indoor_03_26', 'furniture_seating_indoor_03_27', getText 'ContextMenu_Blue_Armchair', getText 'Tooltip_Beige_Armchair'},
-      {'furniture_seating_indoor_03_5', 'furniture_seating_indoor_03_4', 'furniture_seating_indoor_03_6', 'furniture_seating_indoor_03_7', getText 'ContextMenu_PowderBlue_Armchair', getText 'Tooltip_Beige_Armchair'},
+      {'furniture_seating_indoor_03_5', 'furniture_seating_indoor_03_4', 'furniture_seating_indoor_03_6', 'furniture_seating_indoor_03_7', getText 'ContextMenu_White_Armchair', getText 'Tooltip_Beige_Armchair'},
       {'furniture_seating_indoor_02_45', 'furniture_seating_indoor_02_44', 'furniture_seating_indoor_02_46', 'furniture_seating_indoor_02_47', getText 'ContextMenu_Brown_Armchair', getText 'Tooltip_Beige_Armchair'},
       {'furniture_seating_indoor_02_40', 'furniture_seating_indoor_02_41', 'furniture_seating_indoor_02_42', 'furniture_seating_indoor_02_43', getText 'ContextMenu_Gray_Armchair', getText 'Tooltip_Beige_Armchair'},
       {'furniture_seating_indoor_01_8', 'furniture_seating_indoor_01_9', 'furniture_seating_indoor_01_10', 'furniture_seating_indoor_01_11', getText 'ContextMenu_OliveGreen_Armchair', getText 'Tooltip_Beige_Armchair'},

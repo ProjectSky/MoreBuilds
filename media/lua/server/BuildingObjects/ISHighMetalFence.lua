@@ -7,17 +7,15 @@ function ISHighMetalFence:create(x, y, z, north, sprite)
   local xa, ya = self:getSquare2Pos(self.sq, north)
 
   if self.north then
-    self:addPart(x - 1, y + 1, z, north, self.northSprite1)
-    self:addPart(xa - 2, ya, z, north, self.northSprite2)
+    self:addPart(x - 1, y + 1, z, north, self.northSprite1, 1)
+    self:addPart(xa - 2, ya, z, north, self.northSprite2, 2)
   else
-    self:addPart(x, y - 1, z, north, self.sprite1)
-    self:addPart(xa + 1, ya - 2, z, north, self.sprite2)
+    self:addPart(x, y - 1, z, north, self.sprite1, 1)
+    self:addPart(xa + 1, ya - 2, z, north, self.sprite2, 2)
   end
-
-  buildUtil.consumeMaterial(self)
 end
 
-function ISHighMetalFence:addPart(x, y, z, north, sprite)
+function ISHighMetalFence:addPart(x, y, z, north, sprite, index)
   local cell = getWorld():getCell()
   if not north then
     sq = cell:getGridSquare(x, y + 1, z)
@@ -26,10 +24,13 @@ function ISHighMetalFence:addPart(x, y, z, north, sprite)
   end
 
   self.javaObject = IsoThumpable.new(cell, sq, sprite, north, self)
-
   self.javaObject:setThumpSound("ZombieThumpMetal")
-
   sq:AddSpecialObject(self.javaObject)
+
+  if index == 1 then
+    buildUtil.consumeMaterial(self)
+  end
+
   self.javaObject:transmitCompleteItemToServer()
 end
 
@@ -76,7 +77,7 @@ function ISHighMetalFence:render(x, y, z, square)
 end
 
 function ISHighMetalFence:isValid(square)
-  if not ISBuildingObject.isValid(self, square) then
+  if not self:haveMaterial(square) then
     return false
   end
   if buildUtil.stairIsBlockingPlacement(square, true) then
