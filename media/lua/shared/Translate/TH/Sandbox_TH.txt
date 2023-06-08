@@ -1,0 +1,16 @@
+Sandbox_TH = {
+  -- MoreBuild Thai translation
+  -- By: OoNSHPAMoO
+  -- Date: April 13, 2023
+  Sandbox_MoreBuilds = "การก่อสร้างเพิ่มเติม",
+  Sandbox_MaxWaterWallStorageAmount = "ความจุบ่อน้ำ",
+  Sandbox_MaxWaterWallStorageAmount_tooltip = "ตั้งค่าความจุที่เก็บน้ำสำหรับบ่อน้ำในการสร้างเพิ่มเติม <LINE> หมายเหตุ: ตั้ง 9999 ความจุจะแสดงเป็นอนันท์",
+  Sandbox_BuildingPermission = "สิทธิ์ในการสร้าง"
+  Sandbox_BuildingPermission_tooltip = "ตั้งสิทธิ์เพื่อให้สามารถสร้างได้เพิ่มเติมในเซิฟเวอร์นี้ ถ้ามีการตั้งค่าผู้เล่นที่มีสิทธิ์ที่กำหนดเท่านั้นที่สามารถสร้างได้ โดยการตั้งค่าเริ่มต้นคือไม่มีการจำกัดสิทธิ์ของผู้เล่น",
+  Sandbox_MoreBuilds_BuildingPermission_option1 = "ไม่มี",
+  Sandbox_MoreBuilds_BuildingPermission_option2 = "ผู้สังเกตการณ์",
+  Sandbox_MoreBuilds_BuildingPermission_option3 = "ผู้จัดการทั่วไป",
+  Sandbox_MoreBuilds_BuildingPermission_option4 = "ผู้คุม",
+  Sandbox_MoreBuilds_BuildingPermission_option5 = "ผู้ดูแล",
+  Sandbox_MoreBuilds_BuildingPermission_option6 = "แอดมิน",
+}
