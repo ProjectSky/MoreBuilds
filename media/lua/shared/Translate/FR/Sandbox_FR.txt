@@ -1,0 +1,13 @@
+Sandbox_FR = {
+  Sandbox_MoreBuilds = "More Builds",
+  Sandbox_MaxWaterWallStorageAmount = "Capacité du puits",
+  Sandbox_MaxWaterWallStorageAmount_tooltip = "Définir la capacité maximale de stockage d'eau pour un puits <LINE> remarque: régler sur 9999 affichera une capacité illimitée.",
+  Sandbox_BuildingPermission = "Autorisation de construction"
+  Sandbox_BuildingPermission_tooltip = "Définir le niveau d'autorisation du mod 'more build' sur le serveur. Si ce paramètre est défini, seuls les joueurs disposant du niveau d'autorisation spécifié peuvent construire. Par défaut, il n'y a aucune limite d'autorisation.",
+  Sandbox_MoreBuilds_BuildingPermission_option1 = "Aucun",
+  Sandbox_MoreBuilds_BuildingPermission_option2 = "Observateur",
+  Sandbox_MoreBuilds_BuildingPermission_option3 = "Gestionnaire",
+  Sandbox_MoreBuilds_BuildingPermission_option4 = "Surveillant",
+  Sandbox_MoreBuilds_BuildingPermission_option5 = "Modérateur",
+  Sandbox_MoreBuilds_BuildingPermission_option6 = "Administrateur",
+}
