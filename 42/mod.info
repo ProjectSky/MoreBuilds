@@ -1,0 +1,9 @@
+name=More Builds (B42)
+poster=poster.png
+id=MoreBuilds
+description=Project Zomboid more builds Mod (B42) <BR> author: ProjectSky <BR> Date: September 10, 2015 <BR> Contact: me@imsky.cc
+author=ProjectSky
+modversion=42-1.0.1
+versionMin=42.0.0
+tiledef=morebuild 275
+pack=morebuild

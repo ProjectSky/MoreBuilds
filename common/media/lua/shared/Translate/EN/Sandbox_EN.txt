@@ -1,0 +1,13 @@
+Sandbox_EN = {
+  Sandbox_MoreBuilds = "More Builds",
+  Sandbox_MaxWaterWallStorageAmount = "Well Capacity",
+  Sandbox_MaxWaterWallStorageAmount_tooltip = "Set max water storage capacity for well in more builds <LINE> note: set it to 9999 will display the capacity as unlimited",
+  Sandbox_BuildingPermission = "Build Permission"
+  Sandbox_BuildingPermission_tooltip = "Set the permission level that more build can be used in the server. if setting, only players with the specified permission level can build. By default, there is no permission limit.",
+  Sandbox_MoreBuilds_BuildingPermission_option1 = "None",
+  Sandbox_MoreBuilds_BuildingPermission_option2 = "Observer",
+  Sandbox_MoreBuilds_BuildingPermission_option3 = "GM",
+  Sandbox_MoreBuilds_BuildingPermission_option4 = "Overseer",
+  Sandbox_MoreBuilds_BuildingPermission_option5 = "Moderator",
+  Sandbox_MoreBuilds_BuildingPermission_option6 = "Admin",
+}

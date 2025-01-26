@@ -1,0 +1,7 @@
+name=More Builds (B41)
+poster=poster.png
+id=MoreBuilds
+description=Project Zomboid more builds Mod (B41) <BR> author: ProjectSky <BR> Date: September 10, 2015 <BR> Contact: me@imsky.cc
+author=ProjectSky
+tiledef=morebuild 275
+pack=morebuild

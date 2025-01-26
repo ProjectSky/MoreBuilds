@@ -1,0 +1,13 @@
+Sandbox_CH = {
+  Sandbox_MoreBuilds = "更多建築",
+  Sandbox_MaxWaterWallStorageAmount = "水井容量",
+  Sandbox_MaxWaterWallStorageAmount_tooltip = "設置更多建築中水井的最大蓄水量 <LINE> 注: 設置為9999容量將顯示為無限",
+  Sandbox_BuildingPermission = "建造許可權"
+  Sandbox_BuildingPermission_tooltip = "設置使用更多建築需要的許可權等級, 設置後僅大於等於指定許可權等級的玩家可使用更多建築, 默認無限制",
+  Sandbox_MoreBuilds_BuildingPermission_option1 = "None",
+  Sandbox_MoreBuilds_BuildingPermission_option2 = "Observer",
+  Sandbox_MoreBuilds_BuildingPermission_option3 = "GM",
+  Sandbox_MoreBuilds_BuildingPermission_option4 = "Overseer",
+  Sandbox_MoreBuilds_BuildingPermission_option5 = "Moderator",
+  Sandbox_MoreBuilds_BuildingPermission_option6 = "Admin",
+}

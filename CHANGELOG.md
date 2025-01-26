@@ -1,4 +1,6 @@
 # Changelog
+## [1.2.0] - 2025-01-26
+- Compatible with B42
 
 ## [1.1.9] - 2023-02-04
 - fix plaster windowed wall issue

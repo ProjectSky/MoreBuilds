@@ -1,0 +1,13 @@
+VERSION = 1,
+
+option MoreBuilds.MaxWaterWallStorageAmount
+{
+	type = integer, min = 1, max = 10000, default = 1200,
+	page = MoreBuilds, translation = MaxWaterWallStorageAmount,
+}
+option MoreBuilds.BuildingPermission
+{
+	type = enum, numValues = 6, default = 1,
+	page = MoreBuilds, translation = BuildingPermission,
+	valueTranslation = MoreBuilds_BuildingPermission,
+}

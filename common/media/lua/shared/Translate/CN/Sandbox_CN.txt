@@ -1,0 +1,13 @@
+ContextMenu_CN = {
+  Sandbox_MoreBuilds = "更多建筑",
+  Sandbox_MaxWaterWallStorageAmount = "水井容量",
+  Sandbox_MaxWaterWallStorageAmount_tooltip = "设置更多建筑中水井的最大蓄水量 <LINE> 注: 设置为9999容量将显示为无限",
+  Sandbox_BuildingPermission = "建造权限"
+  Sandbox_BuildingPermission_tooltip = "设置使用更多建筑需要的权限等级, 设置后仅大于等于指定权限等级的玩家可使用更多建筑, 默认无限制",
+  Sandbox_MoreBuilds_BuildingPermission_option1 = "None",
+  Sandbox_MoreBuilds_BuildingPermission_option2 = "Observer",
+  Sandbox_MoreBuilds_BuildingPermission_option3 = "GM",
+  Sandbox_MoreBuilds_BuildingPermission_option4 = "Overseer",
+  Sandbox_MoreBuilds_BuildingPermission_option5 = "Moderator",
+  Sandbox_MoreBuilds_BuildingPermission_option6 = "Admin",
+}
