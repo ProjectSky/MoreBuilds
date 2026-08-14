@@ -1,0 +1,134 @@
+module MoreBuilds
+{
+    mannequin MoreBuildsFemaleWhite01
+    {
+        female = true,
+        model = FemaleBody,
+        texture = F_Mannequin_White,
+        animSet = mannequin,
+        animState = female,
+        pose = pose01,
+        outfit = none,
+    }
+
+    mannequin MoreBuildsFemaleWhite02
+    {
+        female = true,
+        model = FemaleBody,
+        texture = F_Mannequin_White,
+        animSet = mannequin,
+        animState = female,
+        pose = pose02,
+        outfit = none,
+    }
+
+    mannequin MoreBuildsFemaleWhite03
+    {
+        female = true,
+        model = FemaleBody,
+        texture = F_Mannequin_White,
+        animSet = mannequin,
+        animState = female,
+        pose = pose03,
+        outfit = none,
+    }
+
+    mannequin MoreBuildsMaleWhite01
+    {
+        female = false,
+        model = MaleBody,
+        texture = M_Mannequin_White,
+        animSet = mannequin,
+        animState = male,
+        pose = pose01,
+        outfit = none,
+    }
+
+    mannequin MoreBuildsMaleWhite02
+    {
+        female = false,
+        model = MaleBody,
+        texture = M_Mannequin_White,
+        animSet = mannequin,
+        animState = male,
+        pose = pose02,
+        outfit = none,
+    }
+
+    mannequin MoreBuildsMaleWhite03
+    {
+        female = false,
+        model = MaleBody,
+        texture = M_Mannequin_White,
+        animSet = mannequin,
+        animState = male,
+        pose = pose03,
+        outfit = none,
+    }
+
+    mannequin MoreBuildsFemaleBlack01
+    {
+        female = true,
+        model = FemaleBody,
+        texture = F_Mannequin_Black,
+        animSet = mannequin,
+        animState = female,
+        pose = pose01,
+        outfit = none,
+    }
+
+    mannequin MoreBuildsFemaleBlack02
+    {
+        female = true,
+        model = FemaleBody,
+        texture = F_Mannequin_Black,
+        animSet = mannequin,
+        animState = female,
+        pose = pose02,
+        outfit = none,
+    }
+
+    mannequin MoreBuildsFemaleBlack03
+    {
+        female = true,
+        model = FemaleBody,
+        texture = F_Mannequin_Black,
+        animSet = mannequin,
+        animState = female,
+        pose = pose03,
+        outfit = none,
+    }
+
+    mannequin MoreBuildsMaleBlack01
+    {
+        female = false,
+        model = MaleBody,
+        texture = M_Mannequin_Black,
+        animSet = mannequin,
+        animState = male,
+        pose = pose01,
+        outfit = none,
+    }
+
+    mannequin MoreBuildsMaleBlack02
+    {
+        female = false,
+        model = MaleBody,
+        texture = M_Mannequin_Black,
+        animSet = mannequin,
+        animState = male,
+        pose = pose02,
+        outfit = none,
+    }
+
+    mannequin MoreBuildsMaleBlack03
+    {
+        female = false,
+        model = MaleBody,
+        texture = M_Mannequin_Black,
+        animSet = mannequin,
+        animState = male,
+        pose = pose03,
+        outfit = none,
+    }
+}

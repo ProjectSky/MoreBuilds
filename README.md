@@ -1,12 +1,20 @@
-#### Project Zomboid MoreBuilds Mod
+# More Builds
 
-* Project: ProjectSky
-* Date: September 10, 2015
+More Builds is a Project Zomboid B42 mod that adds craftable furniture,
+storage, appliances, lights, structural pieces, and outdoor decorations using
+the game's original sprites and construction systems.
 
-#### Description
-* This mod adds more builds containers, furniture, decorations and more to the game
-* If you like this mod, don't forget to star
+## Use
 
+Open the world context menu and choose **More Builds**, or press the configurable
+**Open More Builds** key binding. The default is `Ctrl+B`; press it again or
+press `Escape` to close the window.
 
-#### External link
-* [Steam WorkShop](https://steamcommunity.com/sharedfiles/filedetails/?id=515555911)
+The build menu supports search, categories, favourites, material and skill
+requirements, and an optional multiplayer Popular Buildings category.
+
+## Documentation
+
+See [documentation](docs/API.md).
+
+[Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=515555911)

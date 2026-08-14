@@ -1,0 +1,21 @@
+{
+  "Sandbox_MoreBuilds": "更多建筑",
+  "Sandbox_WaterWellCapacity": "水井容量",
+  "Sandbox_WaterWellCapacity_tooltip": "设置更多建筑中水井的最大蓄水量。默认值：1200",
+  "Sandbox_WaterPumpCapacity": "水泵容量",
+  "Sandbox_WaterPumpCapacity_tooltip": "设置更多建筑中水泵的最大蓄水量。默认值：100",
+  "Sandbox_InitialWaterPercent": "初始水量（%）",
+  "Sandbox_InitialWaterPercent_tooltip": "设置更多建筑水源建造完成时，初始水量占容量的百分比。默认值：25",
+  "Sandbox_AutomaticWaterRefillMultiplier": "自动补水倍率",
+  "Sandbox_AutomaticWaterRefillMultiplier_tooltip": "调整更多建筑水源每小时自动恢复的水量。设为0可关闭自动补水。默认值：1.0",
+  "Sandbox_MinimumBuildRole": "最低建造角色",
+  "Sandbox_MinimumBuildRole_tooltip": "输入允许建造的最低角色准确名称。服务器角色排序中处于该角色或更高位置的角色可以建造。默认值：user。填写 banned 可允许所有能加入服务器的角色建造。",
+  "Sandbox_EnablePopularBuildings": "启用热门建筑",
+  "Sandbox_EnablePopularBuildings_tooltip": "仅多人模式：由服务器统计随时间衰减的建筑热度，并显示“热门建筑”分类。",
+  "Sandbox_PopularBuildingsMinimumScore": "热门建筑最低热度",
+  "Sandbox_PopularBuildingsMinimumScore_tooltip": "建筑热度达到该值后才会显示。每完成一次建造增加1点热度。默认值：5",
+  "Sandbox_PopularBuildingsMaximumVisible": "热门建筑最大数量",
+  "Sandbox_PopularBuildingsMaximumVisible_tooltip": "设置“热门建筑”分类最多显示多少个建筑。默认值：24",
+  "Sandbox_PopularityHalfLifeDays": "热度半衰期（天）",
+  "Sandbox_PopularityHalfLifeDays_tooltip": "每经过指定游戏天数，所有建筑热度减半。设为0可永久累计。默认值：7"
+}

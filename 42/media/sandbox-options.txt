@@ -1,0 +1,47 @@
+VERSION = 1,
+
+option MoreBuilds.WaterWellCapacity
+{
+	type = integer, min = 1, max = 10000, default = 1200,
+	page = MoreBuilds, translation = WaterWellCapacity,
+}
+option MoreBuilds.WaterPumpCapacity
+{
+	type = integer, min = 1, max = 10000, default = 100,
+	page = MoreBuilds, translation = WaterPumpCapacity,
+}
+option MoreBuilds.InitialWaterPercent
+{
+	type = integer, min = 0, max = 100, default = 25,
+	page = MoreBuilds, translation = InitialWaterPercent,
+}
+option MoreBuilds.AutomaticWaterRefillMultiplier
+{
+	type = double, min = 0.0, max = 10.0, default = 1.0,
+	page = MoreBuilds, translation = AutomaticWaterRefillMultiplier,
+}
+option MoreBuilds.MinimumBuildRole
+{
+	type = string, default = user,
+	page = MoreBuilds, translation = MinimumBuildRole,
+}
+option MoreBuilds.EnablePopularBuildings
+{
+	type = boolean, default = true,
+	page = MoreBuilds, translation = EnablePopularBuildings,
+}
+option MoreBuilds.PopularBuildingsMinimumScore
+{
+	type = integer, min = 1, max = 1000, default = 5,
+	page = MoreBuilds, translation = PopularBuildingsMinimumScore,
+}
+option MoreBuilds.PopularBuildingsMaximumVisible
+{
+	type = integer, min = 1, max = 100, default = 24,
+	page = MoreBuilds, translation = PopularBuildingsMaximumVisible,
+}
+option MoreBuilds.PopularityHalfLifeDays
+{
+	type = integer, min = 0, max = 3650, default = 7,
+	page = MoreBuilds, translation = PopularityHalfLifeDays,
+}

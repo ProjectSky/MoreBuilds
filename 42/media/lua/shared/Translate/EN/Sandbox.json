@@ -1,0 +1,21 @@
+{
+  "Sandbox_MoreBuilds": "More Builds",
+  "Sandbox_WaterWellCapacity": "Water Well Capacity",
+  "Sandbox_WaterWellCapacity_tooltip": "Set the maximum water storage capacity for More Builds wells. Default: 1200",
+  "Sandbox_WaterPumpCapacity": "Water Pump Capacity",
+  "Sandbox_WaterPumpCapacity_tooltip": "Set the maximum water storage capacity for More Builds water pumps. Default: 100",
+  "Sandbox_InitialWaterPercent": "Initial Water Level (%)",
+  "Sandbox_InitialWaterPercent_tooltip": "Set the percentage of capacity filled when a More Builds water source is constructed. Default: 25",
+  "Sandbox_AutomaticWaterRefillMultiplier": "Automatic Water Refill Multiplier",
+  "Sandbox_AutomaticWaterRefillMultiplier_tooltip": "Multiply the hourly automatic refill of More Builds water sources. Set to 0 to disable automatic refilling. Default: 1.0",
+  "Sandbox_MinimumBuildRole": "Minimum Build Role",
+  "Sandbox_MinimumBuildRole_tooltip": "Enter the exact name of the lowest role allowed to build. Roles at or above it in the server role order can build. Default: user. Use banned to allow every role that can join the server.",
+  "Sandbox_EnablePopularBuildings": "Enable Popular Buildings",
+  "Sandbox_EnablePopularBuildings_tooltip": "In multiplayer, track decaying construction popularity scores on the server and show the Popular Buildings category.",
+  "Sandbox_PopularBuildingsMinimumScore": "Popular Buildings Minimum Score",
+  "Sandbox_PopularBuildingsMinimumScore_tooltip": "Set the minimum popularity score required for a building to appear. Each completed construction adds 1 point. Default: 5",
+  "Sandbox_PopularBuildingsMaximumVisible": "Maximum Popular Buildings",
+  "Sandbox_PopularBuildingsMaximumVisible_tooltip": "Set the maximum number of buildings shown in the Popular Buildings category. Default: 24",
+  "Sandbox_PopularityHalfLifeDays": "Popularity Half-Life (Days)",
+  "Sandbox_PopularityHalfLifeDays_tooltip": "Set the number of in-game days after which all popularity scores are halved. Set to 0 to keep permanent cumulative scores. Default: 7"
+}

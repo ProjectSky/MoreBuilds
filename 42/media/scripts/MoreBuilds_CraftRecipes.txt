@@ -1,0 +1,4320 @@
+module MoreBuilds
+{
+    craftRecipe WallWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 200,
+        category = Carpentry,
+        SkillRequired = Woodwork:2,
+        xpAward = Woodwork:20,
+        inputs
+        {
+            item 2 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe WallPlasterWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 260,
+        category = Carpentry,
+        SkillRequired = Woodwork:6,
+        xpAward = Woodwork:60,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:plasterbucket] flags[DontRecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+            item 1 tags[base:plastertrowel] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe WallWallpaperGeneric
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 240,
+        category = Carpentry,
+        SkillRequired = Woodwork:4,
+        xpAward = Woodwork:40,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:wallpaper] flags[DontRecordInput],
+            item 1 tags[base:wallpaperpaste] flags[DontRecordInput],
+            item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+            item 1 tags[base:scissors] mode:keep flags[MayDegradeVeryLight],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe WallWallpaperBlueStripe
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Furniture,
+        SkillRequired = Woodwork:3,
+        xpAward = Woodwork:20,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 [Base.Wallpaper_BlueStripe] flags[DontRecordInput],
+            item 1 tags[base:wallpaperpaste] flags[DontRecordInput],
+            item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+            item 1 tags[base:scissors] mode:keep flags[MayDegradeVeryLight],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe WallWallpaperBeigeStripe
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Furniture,
+        SkillRequired = Woodwork:3,
+        xpAward = Woodwork:20,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 [Base.Wallpaper_BeigeStripe] flags[DontRecordInput],
+            item 1 tags[base:wallpaperpaste] flags[DontRecordInput],
+            item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+            item 1 tags[base:scissors] mode:keep flags[MayDegradeVeryLight],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe WallWallpaperGreenDiamond
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Furniture,
+        SkillRequired = Woodwork:3,
+        xpAward = Woodwork:20,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 [Base.Wallpaper_GreenDiamond] flags[DontRecordInput],
+            item 1 tags[base:wallpaperpaste] flags[DontRecordInput],
+            item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+            item 1 tags[base:scissors] mode:keep flags[MayDegradeVeryLight],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe WallWallpaperBlackFloral
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Furniture,
+        SkillRequired = Woodwork:3,
+        xpAward = Woodwork:20,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 [Base.Wallpaper_BlackFloral] flags[DontRecordInput],
+            item 1 tags[base:wallpaperpaste] flags[DontRecordInput],
+            item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+            item 1 tags[base:scissors] mode:keep flags[MayDegradeVeryLight],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe WallWallpaperPinkFloral
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Furniture,
+        SkillRequired = Woodwork:3,
+        xpAward = Woodwork:20,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 [Base.Wallpaper_PinkFloral] flags[DontRecordInput],
+            item 1 tags[base:wallpaperpaste] flags[DontRecordInput],
+            item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+            item 1 tags[base:scissors] mode:keep flags[MayDegradeVeryLight],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe WallPaintRed
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Furniture,
+        SkillRequired = Woodwork:3,
+        xpAward = Woodwork:20,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 [Base.PaintRed] flags[DontRecordInput],
+            item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe WallPaintYellow
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Furniture,
+        SkillRequired = Woodwork:3,
+        xpAward = Woodwork:20,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 [Base.PaintYellow] flags[DontRecordInput],
+            item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe WallPaintOrange
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Furniture,
+        SkillRequired = Woodwork:3,
+        xpAward = Woodwork:20,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 [Base.PaintOrange] flags[DontRecordInput],
+            item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe WallPaintBrown
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Furniture,
+        SkillRequired = Woodwork:3,
+        xpAward = Woodwork:20,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 [Base.PaintBrown] flags[DontRecordInput],
+            item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe WallPaintBlue
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Furniture,
+        SkillRequired = Woodwork:3,
+        xpAward = Woodwork:20,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 [Base.PaintBlue] flags[DontRecordInput],
+            item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe WallPaintLightBrown
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Furniture,
+        SkillRequired = Woodwork:3,
+        xpAward = Woodwork:20,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 [Base.PaintLightBrown] flags[DontRecordInput],
+            item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe WallPaintWhite
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Furniture,
+        SkillRequired = Woodwork:3,
+        xpAward = Woodwork:20,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 [Base.PaintWhite] flags[DontRecordInput],
+            item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe WallPaintLightBlue
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Furniture,
+        SkillRequired = Woodwork:3,
+        xpAward = Woodwork:20,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 [Base.PaintLightBlue] flags[DontRecordInput],
+            item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe WallPaintBlack
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Furniture,
+        SkillRequired = Woodwork:3,
+        xpAward = Woodwork:20,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 [Base.PaintBlack] flags[DontRecordInput],
+            item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe WallPaintPink
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Furniture,
+        SkillRequired = Woodwork:3,
+        xpAward = Woodwork:20,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 [Base.PaintPink] flags[DontRecordInput],
+            item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe WallPaintGreen
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Furniture,
+        SkillRequired = Woodwork:3,
+        xpAward = Woodwork:20,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 [Base.PaintGreen] flags[DontRecordInput],
+            item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe WallPaintTurquoise
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Furniture,
+        SkillRequired = Woodwork:3,
+        xpAward = Woodwork:20,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 [Base.PaintTurquoise] flags[DontRecordInput],
+            item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe WallPaintPurple
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Furniture,
+        SkillRequired = Woodwork:3,
+        xpAward = Woodwork:20,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 [Base.PaintPurple] flags[DontRecordInput],
+            item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe WallPaintGrey
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Furniture,
+        SkillRequired = Woodwork:3,
+        xpAward = Woodwork:20,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 [Base.PaintGrey] flags[DontRecordInput],
+            item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe WallPaintCyan
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Furniture,
+        SkillRequired = Woodwork:3,
+        xpAward = Woodwork:20,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 [Base.PaintCyan] flags[DontRecordInput],
+            item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe WallBrick
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 200,
+        category = Masonry,
+        SkillRequired = Masonry:2,
+        xpAward = Masonry:20,
+        inputs
+        {
+            item 6 [Base.ClayBrick] flags[RecordInput],
+            item 2 tags[base:concrete] flags[DontRecordInput],
+            item 1 tags[base:masonstrowel] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe WallGlass
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Carpentry,
+        SkillRequired = Woodwork:5,
+        xpAward = Woodwork:20,
+        inputs
+        {
+            item 4 [Base.GlassPanel] flags[RecordInput],
+            item 2 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe WallLog
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 200,
+        category = Carpentry,
+        SkillRequired = Woodwork:2,
+        xpAward = Woodwork:20,
+        inputs
+        {
+            item 4 [Base.Log] flags[RecordInput],
+            item 4 [Base.RippedSheets;Base.RippedSheetsDirty;Base.Twine;Base.Rope;Base.SheetRope] flags[RecordInput],
+        }
+    }
+
+    craftRecipe WallStone
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 200,
+        category = Masonry,
+        SkillRequired = Masonry:2,
+        xpAward = Masonry:20,
+        inputs
+        {
+            item 6 [Base.StoneBlock] flags[RecordInput],
+            item 2 tags[base:concrete] flags[DontRecordInput],
+            item 1 tags[base:masonstrowel] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe WallConcrete
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 220,
+        category = Masonry,
+        SkillRequired = Masonry:3,
+        xpAward = Masonry:25,
+        inputs
+        {
+            item 4 [Base.StoneBlock] flags[RecordInput],
+            item 2 tags[base:concrete] flags[DontRecordInput],
+            item 1 tags[base:masonstrowel] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe WallTile
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 200,
+        category = Masonry,
+        SkillRequired = Masonry:2,
+        xpAward = Masonry:20,
+        inputs
+        {
+            item 4 [Base.ClayTile] flags[RecordInput],
+            item 2 tags[base:concrete] flags[DontRecordInput],
+            item 1 tags[base:masonstrowel] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe FenceWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 200,
+        category = Carpentry,
+        SkillRequired = Woodwork:3,
+        xpAward = Woodwork:30,
+        inputs
+        {
+            item 2 [Base.Plank] flags[RecordInput],
+            item 2 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe FencePlasterRail
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 220,
+        category = Carpentry,
+        SkillRequired = Woodwork:4,
+        xpAward = Woodwork:35,
+        inputs
+        {
+            item 2 [Base.Plank] flags[RecordInput],
+            item 2 [Base.Nails] flags[RecordInput],
+            item 1 [Base.MetalBar] flags[RecordInput],
+            item 1 tags[base:plasterbucket] flags[DontRecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+            item 1 tags[base:plastertrowel] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe FencePostPlasterRail
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 120,
+        category = Carpentry,
+        SkillRequired = Woodwork:3,
+        xpAward = Woodwork:15,
+        inputs
+        {
+            item 1 [Base.Plank] flags[RecordInput],
+            item 1 [Base.Nails] flags[RecordInput],
+            item 1 [Base.MetalBar] flags[RecordInput],
+            item 1 tags[base:plasterbucket] flags[DontRecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+            item 1 tags[base:plastertrowel] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe PillarWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Carpentry,
+        SkillRequired = Woodwork:2,
+        xpAward = Woodwork:10,
+        inputs
+        {
+            item 2 [Base.Plank] flags[RecordInput],
+            item 2 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe FenceBrick
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 200,
+        category = Masonry,
+        SkillRequired = Masonry:2,
+        xpAward = Masonry:20,
+        inputs
+        {
+            item 2 [Base.ClayBrick] flags[RecordInput],
+            item 1 tags[base:concrete] flags[DontRecordInput],
+            item 1 tags[base:masonstrowel] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe FencePostBrick
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 150,
+        category = Masonry,
+        SkillRequired = Masonry:2,
+        xpAward = Masonry:15,
+        inputs
+        {
+            item 1 [Base.ClayBrick] flags[RecordInput],
+            item 1 tags[base:concrete] flags[DontRecordInput],
+            item 1 tags[base:masonstrowel] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe FenceStone
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 200,
+        category = Masonry,
+        SkillRequired = Masonry:2,
+        xpAward = Masonry:20,
+        inputs
+        {
+            item 6 [Base.Stone2] flags[RecordInput],
+            item 1 tags[base:concrete] flags[DontRecordInput],
+            item 1 tags[base:masonstrowel] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe DoorFrameBrick
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 200,
+        category = Masonry,
+        SkillRequired = Masonry:2,
+        xpAward = Masonry:20,
+        inputs
+        {
+            item 4 [Base.ClayBrick] flags[RecordInput],
+            item 2 tags[base:concrete] flags[DontRecordInput],
+            item 1 tags[base:masonstrowel] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe PillarBrick
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 150,
+        category = Masonry,
+        SkillRequired = Masonry:2,
+        xpAward = Masonry:15,
+        inputs
+        {
+            item 3 [Base.ClayBrick] flags[RecordInput],
+            item 1 tags[base:concrete] flags[DontRecordInput],
+            item 1 tags[base:masonstrowel] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe DoorFrameWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 200,
+        category = Carpentry,
+        SkillRequired = Woodwork:2,
+        xpAward = Woodwork:20,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe WindowFrameWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 200,
+        category = Carpentry,
+        SkillRequired = Woodwork:2,
+        xpAward = Woodwork:20,
+        inputs
+        {
+            item 2 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe WindowFrameBrick
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 200,
+        category = Masonry,
+        SkillRequired = Masonry:2,
+        xpAward = Masonry:20,
+        inputs
+        {
+            item 4 [Base.ClayBrick] flags[RecordInput],
+            item 2 tags[base:concrete] flags[DontRecordInput],
+            item 1 tags[base:masonstrowel] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe WindowFrameStone
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 200,
+        category = Masonry,
+        SkillRequired = Masonry:2,
+        xpAward = Masonry:20,
+        inputs
+        {
+            item 4 [Base.StoneBlock] flags[RecordInput],
+            item 2 tags[base:concrete] flags[DontRecordInput],
+            item 1 tags[base:masonstrowel] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe WindowFrameConcrete
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 200,
+        category = Masonry,
+        SkillRequired = Masonry:3,
+        xpAward = Masonry:20,
+        inputs
+        {
+            item 2 [Base.StoneBlock] flags[RecordInput],
+            item 2 tags[base:concrete] flags[DontRecordInput],
+            item 1 tags[base:masonstrowel] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe PalletBrick
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 150,
+        category = Furniture,
+        SkillRequired = Woodwork:1,
+        xpAward = Woodwork:10,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 8 [Base.Nails] flags[RecordInput],
+            item 20 [Base.ClayBrick] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe TrashStone
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Masonry,
+        SkillRequired = Masonry:1,
+        xpAward = Masonry:5,
+        inputs
+        {
+            item 6 [Base.Stone2] flags[RecordInput],
+            item 1 tags[base:concrete] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe TrashStonePlastic
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 120,
+        category = Masonry,
+        SkillRequired = Masonry:1,
+        xpAward = Masonry:8,
+        inputs
+        {
+            item 6 [Base.Stone2] flags[RecordInput],
+            item 2 [Base.PlasticTray] flags[RecordInput],
+            item 1 tags[base:concrete] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe FenceMetal
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 200,
+        category = Welding,
+        SkillRequired = MetalWelding:3,
+        xpAward = MetalWelding:30,
+        inputs
+        {
+            item 2 [Base.MetalPipe] flags[RecordInput],
+            item 1 [Base.SmallSheetMetal] flags[RecordInput],
+            item 2 [Base.BlowTorch] flags[DontRecordInput],
+            item 2 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe FencePostWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Carpentry,
+        SkillRequired = Woodwork:2,
+        xpAward = Woodwork:10,
+        inputs
+        {
+            item 1 [Base.Plank] flags[RecordInput],
+            item 2 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe FencePostRailWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Carpentry,
+        SkillRequired = Woodwork:1,
+        xpAward = Woodwork:10,
+        inputs
+        {
+            item 1 [Base.Plank] flags[RecordInput],
+            item 2 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe FencePostMetal
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 150,
+        category = Welding,
+        SkillRequired = MetalWelding:3,
+        xpAward = MetalWelding:20,
+        inputs
+        {
+            item 1 [Base.MetalPipe] flags[RecordInput],
+            item 1 [Base.SmallSheetMetal] flags[RecordInput],
+            item 2 [Base.BlowTorch] flags[DontRecordInput],
+            item 2 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe GarageDoorMetal
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 250,
+        category = Welding,
+        SkillRequired = MetalWelding:5,
+        xpAward = MetalWelding:50,
+        inputs
+        {
+            item 8 [Base.SheetMetal] flags[RecordInput],
+            item 4 [Base.MetalPipe] flags[RecordInput],
+            item 4 [Base.Hinge] flags[RecordInput],
+            item 6 [Base.BlowTorch] flags[DontRecordInput],
+            item 6 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe GarageDoorMetalGlass
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 250,
+        category = Welding,
+        SkillRequired = MetalWelding:5,
+        xpAward = MetalWelding:50,
+        inputs
+        {
+            item 6 [Base.SheetMetal] flags[RecordInput],
+            item 4 [Base.MetalPipe] flags[RecordInput],
+            item 2 [Base.Hinge] flags[RecordInput],
+            item 4 [Base.GlassPanel] flags[RecordInput],
+            item 6 [Base.BlowTorch] flags[DontRecordInput],
+            item 6 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe DoorWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 150,
+        category = Carpentry,
+        SkillRequired = Woodwork:3,
+        xpAward = Woodwork:30,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 2 [Base.Hinge] flags[RecordInput],
+            item 1 [Base.Doorknob] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe DoorGlassWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 150,
+        category = Carpentry,
+        SkillRequired = Woodwork:5,
+        xpAward = Woodwork:40,
+        inputs
+        {
+            item 2 [Base.Plank] flags[RecordInput],
+            item 4 [Base.GlassPanel] flags[RecordInput],
+            item 2 [Base.Hinge] flags[RecordInput],
+            item 1 [Base.Doorknob] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe DoorGlassMetal
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 200,
+        category = Welding,
+        SkillRequired = MetalWelding:3,
+        xpAward = MetalWelding:30,
+        inputs
+        {
+            item 2 [Base.SmallSheetMetal] flags[RecordInput],
+            item 2 [Base.MetalPipe] flags[RecordInput],
+            item 4 [Base.GlassPanel] flags[RecordInput],
+            item 2 [Base.Hinge] flags[RecordInput],
+            item 4 [Base.BlowTorch] flags[DontRecordInput],
+            item 4 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe DoorGlassComposite
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 200,
+        category = Welding,
+        SkillRequired = MetalWelding:3,
+        xpAward = MetalWelding:30,
+        inputs
+        {
+            item 2 [Base.SmallSheetMetal] flags[RecordInput],
+            item 2 [Base.MetalPipe] flags[RecordInput],
+            item 2 [Base.PlasticTray] flags[RecordInput],
+            item 4 [Base.GlassPanel] flags[RecordInput],
+            item 2 [Base.Hinge] flags[RecordInput],
+            item 4 [Base.BlowTorch] flags[DontRecordInput],
+            item 4 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe DoorIndustrialMetal
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 200,
+        category = Welding,
+        SkillRequired = MetalWelding:3,
+        xpAward = MetalWelding:30,
+        inputs
+        {
+            item 3 [Base.SmallSheetMetal] flags[RecordInput],
+            item 2 [Base.MetalPipe] flags[RecordInput],
+            item 2 [Base.PlasticTray] flags[RecordInput],
+            item 2 [Base.Hinge] flags[RecordInput],
+            item 1 [Base.Doorknob] flags[RecordInput],
+            item 4 [Base.BlowTorch] flags[DontRecordInput],
+            item 4 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe DoorLowWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Carpentry,
+        SkillRequired = Woodwork:2,
+        xpAward = Woodwork:15,
+        inputs
+        {
+            item 2 [Base.Plank] flags[RecordInput],
+            item 2 [Base.Nails] flags[RecordInput],
+            item 2 [Base.Hinge] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe WindowWoodGlass
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Carpentry,
+        SkillRequired = Woodwork:5,
+        xpAward = Woodwork:15,
+        inputs
+        {
+            item 4 [Base.GlassPanel] flags[RecordInput],
+            item 2 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe HighFenceMetal
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 250,
+        category = Welding,
+        SkillRequired = MetalWelding:5,
+        xpAward = MetalWelding:50,
+        inputs
+        {
+            item 4 [Base.MetalPipe] flags[RecordInput],
+            item 2 [Base.ScrapMetal] flags[RecordInput],
+            item 2 [Base.Wire] flags[RecordInput],
+            item 4 [Base.BlowTorch] flags[DontRecordInput],
+            item 4 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe WindowMetalGlass
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 200,
+        category = Welding,
+        SkillRequired = MetalWelding:3,
+        xpAward = MetalWelding:30,
+        inputs
+        {
+            item 2 [Base.SmallSheetMetal] flags[RecordInput],
+            item 2 [Base.MetalPipe] flags[RecordInput],
+            item 4 [Base.GlassPanel] flags[RecordInput],
+            item 4 [Base.BlowTorch] flags[DontRecordInput],
+            item 4 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe StairsWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 250,
+        category = Carpentry,
+        SkillRequired = Woodwork:6,
+        xpAward = Woodwork:60,
+        inputs
+        {
+            item 15 [Base.Plank] flags[RecordInput],
+            item 8 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+            item 1 tags[base:saw;base:smallsaw;base:crudesaw] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe StairsMetal
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 250,
+        category = Welding,
+        SkillRequired = MetalWelding:5,
+        xpAward = MetalWelding:50,
+        inputs
+        {
+            item 8 [Base.SheetMetal] flags[RecordInput],
+            item 6 [Base.MetalPipe] flags[RecordInput],
+            item 8 [Base.BlowTorch] flags[DontRecordInput],
+            item 8 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe FloorTile
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Masonry,
+        SkillRequired = Masonry:2,
+        xpAward = Masonry:10,
+        inputs
+        {
+            item 4 [Base.ClayTile] flags[RecordInput],
+            item 1 tags[base:concrete] flags[DontRecordInput],
+            item 1 tags[base:masonstrowel] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe FloorStone
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Masonry,
+        SkillRequired = Masonry:2,
+        xpAward = Masonry:10,
+        inputs
+        {
+            item 4 [Base.Stone2] flags[RecordInput],
+            item 1 tags[base:concrete] flags[DontRecordInput],
+            item 1 tags[base:masonstrowel] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe FloorConcrete
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 150,
+        category = Masonry,
+        SkillRequired = Masonry:3,
+        xpAward = Masonry:15,
+        inputs
+        {
+            item 2 tags[base:concrete] flags[DontRecordInput],
+            item 1 tags[base:masonstrowel] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe FloorMetal
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 150,
+        category = Welding,
+        SkillRequired = MetalWelding:3,
+        xpAward = MetalWelding:10,
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal] flags[RecordInput],
+            item 1 [Base.BlowTorch] flags[DontRecordInput],
+            item 1 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe FloorGlass
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 140,
+        category = Welding,
+        SkillRequired = MetalWelding:2,
+        xpAward = MetalWelding:15,
+        inputs
+        {
+            item 2 [Base.GlassPanel] flags[RecordInput],
+            item 1 [Base.SmallSheetMetal] flags[RecordInput],
+            item 2 [Base.Screws] flags[RecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+            item 2 [Base.BlowTorch] flags[DontRecordInput],
+            item 2 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe StreetDrain
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 120,
+        category = Welding,
+        SkillRequired = MetalWelding:2,
+        xpAward = MetalWelding:8,
+        inputs
+        {
+            item 2 [Base.MetalBar] flags[RecordInput],
+            item 1 [Base.BlowTorch] flags[DontRecordInput],
+            item 1 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe ManholeCover
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Welding,
+        SkillRequired = MetalWelding:3,
+        xpAward = MetalWelding:12,
+        inputs
+        {
+            item 2 [Base.SmallSheetMetal] flags[RecordInput],
+            item 1 [Base.BlowTorch] flags[DontRecordInput],
+            item 1 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe FloorWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Carpentry,
+        SkillRequired = Woodwork:1,
+        xpAward = Woodwork:10,
+        inputs
+        {
+            item 1 [Base.Plank] flags[RecordInput],
+            item 1 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe FloorCarpet
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 80,
+        category = Tailoring,
+        SkillRequired = Tailoring:2,
+        xpAward = Tailoring:10,
+        inputs
+        {
+            item 2 [Base.Sheet;Base.Tarp] flags[RecordInput],
+            item 1 [Base.DuctTape] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe RoofTile
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 150,
+        category = Masonry,
+        SkillRequired = Masonry:3;Woodwork:2,
+        xpAward = Masonry:15;Woodwork:10,
+        inputs
+        {
+            item 4 [Base.ClayShingle] flags[RecordInput],
+            item 1 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe RoadBarrierWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 120,
+        category = Carpentry,
+        SkillRequired = Woodwork:2,
+        xpAward = Woodwork:15,
+        inputs
+        {
+            item 3 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe MailboxWoodMetal
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Furniture,
+        SkillRequired = Woodwork:1;MetalWelding:1,
+        xpAward = Woodwork:5;MetalWelding:8,
+        inputs
+        {
+            item 1 [Base.Plank] flags[RecordInput],
+            item 1 [Base.SmallSheetMetal] flags[RecordInput],
+            item 1 [Base.Hinge] flags[RecordInput],
+            item 2 [Base.Screws] flags[RecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+            item 1 [Base.BlowTorch] flags[DontRecordInput],
+            item 1 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe FireHydrantMetal
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Welding,
+        SkillRequired = MetalWelding:4,
+        xpAward = MetalWelding:35,
+        inputs
+        {
+            item 3 [Base.MetalPipe] flags[RecordInput],
+            item 2 [Base.SheetMetal] flags[RecordInput],
+            item 1 [Base.MetalBar] flags[RecordInput],
+            item 4 [Base.BlowTorch] flags[DontRecordInput],
+            item 4 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe TrafficConePlastic
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 60,
+        category = Furniture,
+        inputs
+        {
+            item 3 [Base.PlasticTray] flags[RecordInput],
+            item 1 [Base.DuctTape] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe PlaygroundSlide
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 220,
+        category = Welding,
+        SkillRequired = MetalWelding:4,
+        xpAward = MetalWelding:40,
+        inputs
+        {
+            item 4 [Base.SheetMetal] flags[RecordInput],
+            item 6 [Base.MetalBar] flags[RecordInput],
+            item 2 [Base.MetalPipe] flags[RecordInput],
+            item 4 [Base.BlowTorch] flags[DontRecordInput],
+            item 4 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe PlayCastle
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 260,
+        category = Furniture,
+        SkillRequired = MetalWelding:2,
+        xpAward = MetalWelding:20,
+        inputs
+        {
+            item 16 [Base.PlasticTray] flags[RecordInput],
+            item 4 [Base.MetalBar] flags[RecordInput],
+            item 12 [Base.Screws] flags[RecordInput],
+            item 2 [Base.BlowTorch] flags[DontRecordInput],
+            item 2 [Base.WeldingRods] flags[DontRecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe MerryGoRound
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 300,
+        category = Welding,
+        SkillRequired = MetalWelding:5,
+        xpAward = MetalWelding:50,
+        inputs
+        {
+            item 6 [Base.SheetMetal] flags[RecordInput],
+            item 8 [Base.MetalBar] flags[RecordInput],
+            item 4 [Base.MetalPipe] flags[RecordInput],
+            item 6 [Base.BlowTorch] flags[DontRecordInput],
+            item 6 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe ConcreteBarrier
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Masonry,
+        SkillRequired = Masonry:3,
+        xpAward = Masonry:30,
+        inputs
+        {
+            item 4 [Base.StoneBlock] flags[RecordInput],
+            item 2 tags[base:concrete] flags[DontRecordInput],
+            item 1 [*],
+            -fluid 10.0 categories[Water] mode:mixture,
+            item 1 tags[base:masonstrowel] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe SignWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Carpentry,
+        SkillRequired = Woodwork:1,
+        xpAward = Woodwork:10,
+        inputs
+        {
+            item 2 [Base.Plank] flags[RecordInput],
+            item 3 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe SignElectric
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Electricity,
+        SkillRequired = Electricity:2,
+        xpAward = Electricity:15,
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal] flags[RecordInput],
+            item 1 [Base.PlasticTray] flags[RecordInput],
+            item 1 [Base.LightBulb] flags[RecordInput],
+            item 2 [Base.ElectricWire] flags[RecordInput],
+            item 2 [Base.ElectronicsScrap] flags[RecordInput],
+            item 2 [Base.Screws] flags[RecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe ChairWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 80,
+        category = Furniture,
+        SkillRequired = Woodwork:1,
+        xpAward = Woodwork:10,
+        inputs
+        {
+            item 2 [Base.Plank] flags[RecordInput],
+            item 2 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe ChairMetalPlastic
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 110,
+        category = Welding,
+        SkillRequired = MetalWelding:2,
+        xpAward = MetalWelding:15,
+        inputs
+        {
+            item 2 [Base.PlasticTray] flags[RecordInput],
+            item 2 [Base.MetalPipe] flags[RecordInput],
+            item 4 [Base.Screws] flags[RecordInput],
+            item 2 [Base.BlowTorch] flags[DontRecordInput],
+            item 2 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe ChairMetalUpholstered
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 120,
+        category = Furniture,
+        SkillRequired = MetalWelding:2;Tailoring:1,
+        xpAward = MetalWelding:15;Tailoring:8,
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal] flags[RecordInput],
+            item 2 [Base.MetalPipe] flags[RecordInput],
+            item 2 [Base.RippedSheets;Base.LeatherStrips] flags[RecordInput],
+            item 2 [Base.BlowTorch] flags[DontRecordInput],
+            item 2 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe ChairOfficePlasticUpholstered
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 120,
+        category = Furniture,
+        SkillRequired = MetalWelding:1;Tailoring:1,
+        xpAward = MetalWelding:10;Tailoring:8,
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal] flags[RecordInput],
+            item 1 [Base.MetalPipe] flags[RecordInput],
+            item 3 [Base.PlasticTray] flags[RecordInput],
+            item 2 [Base.RippedSheets;Base.LeatherStrips] flags[RecordInput],
+            item 4 [Base.Screws] flags[RecordInput],
+            item 1 [Base.BlowTorch] flags[DontRecordInput],
+            item 1 [Base.WeldingRods] flags[DontRecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe ChairUpholstered
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Furniture,
+        SkillRequired = Woodwork:2;Tailoring:2,
+        xpAward = Woodwork:15;Tailoring:10,
+        inputs
+        {
+            item 2 [Base.Plank] flags[RecordInput],
+            item 2 [Base.Nails] flags[RecordInput],
+            item 2 [Base.Sheet;Base.Tarp] flags[RecordInput],
+            item 2 [Base.RippedSheets;Base.LeatherStrips] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe BenchUpholstered
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Furniture,
+        SkillRequired = Woodwork:2;Tailoring:2,
+        xpAward = Woodwork:15;Tailoring:10,
+        inputs
+        {
+            item 2 [Base.Plank] flags[RecordInput],
+            item 2 [Base.Nails] flags[RecordInput],
+            item 2 [Base.Sheet;Base.Tarp] flags[RecordInput],
+            item 2 [Base.RippedSheets;Base.LeatherStrips] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe TableWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Furniture,
+        SkillRequired = Woodwork:3,
+        xpAward = Woodwork:20,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe TableWoodLarge
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 140,
+        category = Furniture,
+        SkillRequired = Woodwork:3,
+        xpAward = Woodwork:30,
+        inputs
+        {
+            item 5 [Base.Plank] flags[RecordInput],
+            item 6 [Base.Nails] flags[RecordInput],
+            item 2 [Base.Screws] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe TablePlasticSmall
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 70,
+        category = Furniture,
+        inputs
+        {
+            item 4 [Base.PlasticTray] flags[RecordInput],
+            item 4 [Base.Screws] flags[RecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe TablePlasticLarge
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 120,
+        category = Furniture,
+        inputs
+        {
+            item 10 [Base.PlasticTray] flags[RecordInput],
+            item 8 [Base.Screws] flags[RecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe Couch
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 150,
+        category = Furniture,
+        SkillRequired = Woodwork:3;Tailoring:3,
+        xpAward = Woodwork:20;Tailoring:20,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 2 [Base.Sheet;Base.Tarp] flags[RecordInput],
+            item 4 [Base.RippedSheets;Base.LeatherStrips] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe Bed
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 150,
+        category = Furniture,
+        SkillRequired = Woodwork:4,
+        xpAward = Woodwork:40,
+        inputs
+        {
+            item 6 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 [Base.Mattress] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe DoubleBed
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 150,
+        category = Furniture,
+        SkillRequired = Woodwork:4,
+        xpAward = Woodwork:40,
+        inputs
+        {
+            item 6 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 [Base.Mattress] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe BunkBedWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 240,
+        category = Furniture,
+        SkillRequired = Woodwork:5,
+        xpAward = Woodwork:60,
+        inputs
+        {
+            item 10 [Base.Plank] flags[RecordInput],
+            item 8 [Base.Nails] flags[RecordInput],
+            item 2 [Base.Mattress] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe BunkBedMetal
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 260,
+        category = Furniture,
+        SkillRequired = MetalWelding:4,
+        xpAward = MetalWelding:60,
+        inputs
+        {
+            item 4 [Base.MetalPipe] flags[RecordInput],
+            item 2 [Base.SmallSheetMetal] flags[RecordInput],
+            item 2 [Base.Mattress] flags[RecordInput],
+            item 4 [Base.BlowTorch] flags[DontRecordInput],
+            item 4 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe Cot
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Furniture,
+        SkillRequired = Woodwork:2;Tailoring:1,
+        xpAward = Woodwork:10;Tailoring:8,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 [Base.Sheet;Base.Tarp] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe ChairWoodUpholsteredSmall
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 80,
+        category = Furniture,
+        SkillRequired = Woodwork:1;Tailoring:1,
+        xpAward = Woodwork:8;Tailoring:5,
+        inputs
+        {
+            item 2 [Base.Plank] flags[RecordInput],
+            item 2 [Base.Nails] flags[RecordInput],
+            item 1 [Base.RippedSheets;Base.LeatherStrips] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe StorageWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 120,
+        category = Furniture,
+        SkillRequired = Woodwork:4,
+        xpAward = Woodwork:30,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 [Base.Drawer] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe StorageWoodLarge
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Furniture,
+        SkillRequired = Woodwork:4,
+        xpAward = Woodwork:45,
+        inputs
+        {
+            item 6 [Base.Plank] flags[RecordInput],
+            item 6 [Base.Nails] flags[RecordInput],
+            item 2 [Base.Drawer] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe WardrobeWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Furniture,
+        SkillRequired = Woodwork:5,
+        xpAward = Woodwork:50,
+        inputs
+        {
+            item 8 [Base.Plank] flags[RecordInput],
+            item 8 [Base.Nails] flags[RecordInput],
+            item 4 [Base.Hinge] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe ChurchPewWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 160,
+        category = Furniture,
+        SkillRequired = Woodwork:3,
+        xpAward = Woodwork:25,
+        inputs
+        {
+            item 6 [Base.Plank] flags[RecordInput],
+            item 8 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe LongWoodenBench
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 120,
+        category = Furniture,
+        SkillRequired = Woodwork:3,
+        xpAward = Woodwork:20,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 6 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe BenchWoodMetal
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 150,
+        category = Furniture,
+        SkillRequired = Woodwork:3;MetalWelding:2,
+        xpAward = Woodwork:20;MetalWelding:15,
+        inputs
+        {
+            item 3 [Base.Plank] flags[RecordInput],
+            item 2 [Base.MetalPipe] flags[RecordInput],
+            item 4 [Base.Screws] flags[RecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+            item 2 [Base.BlowTorch] flags[DontRecordInput],
+            item 2 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe BenchWoodUpholstered
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 150,
+        category = Furniture,
+        SkillRequired = Woodwork:3;Tailoring:2,
+        xpAward = Woodwork:20;Tailoring:15,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 2 [Base.Sheet;Base.Tarp] flags[RecordInput],
+            item 2 [Base.RippedSheets;Base.LeatherStrips] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe BenchMetal
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 140,
+        category = Furniture,
+        SkillRequired = MetalWelding:2,
+        xpAward = MetalWelding:20,
+        inputs
+        {
+            item 2 [Base.SmallSheetMetal] flags[RecordInput],
+            item 2 [Base.MetalPipe] flags[RecordInput],
+            item 3 [Base.BlowTorch] flags[DontRecordInput],
+            item 3 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe TableMetalSmall
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 90,
+        category = Furniture,
+        SkillRequired = MetalWelding:1,
+        xpAward = MetalWelding:10,
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal] flags[RecordInput],
+            item 1 [Base.MetalPipe] flags[RecordInput],
+            item 2 [Base.Screws] flags[RecordInput],
+            item 1 [Base.BlowTorch] flags[DontRecordInput],
+            item 1 [Base.WeldingRods] flags[DontRecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe BenchBrickUpholstered
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 150,
+        category = Furniture,
+        SkillRequired = Masonry:2;Tailoring:1,
+        xpAward = Masonry:20;Tailoring:8,
+        inputs
+        {
+            item 4 [Base.ClayBrick] flags[RecordInput],
+            item 1 tags[base:concrete] flags[DontRecordInput],
+            item 2 [Base.RippedSheets;Base.LeatherStrips] flags[RecordInput],
+            item 1 tags[base:masonstrowel] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe BeachChair
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 90,
+        category = Furniture,
+        SkillRequired = Woodwork:2;Tailoring:1,
+        xpAward = Woodwork:10;Tailoring:5,
+        inputs
+        {
+            item 2 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 [Base.Sheet;Base.Tarp] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe LongTableWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Furniture,
+        SkillRequired = Woodwork:4,
+        xpAward = Woodwork:40,
+        inputs
+        {
+            item 6 [Base.Plank] flags[RecordInput],
+            item 6 [Base.Nails] flags[RecordInput],
+            item 2 [Base.Screws] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe LongTableMetal
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 220,
+        category = Welding,
+        SkillRequired = MetalWelding:4,
+        xpAward = MetalWelding:40,
+        inputs
+        {
+            item 6 [Base.SmallSheetMetal] flags[RecordInput],
+            item 4 [Base.MetalPipe] flags[RecordInput],
+            item 6 [Base.BlowTorch] flags[DontRecordInput],
+            item 6 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe WallShelfWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 75,
+        category = Furniture,
+        SkillRequired = Woodwork:2,
+        xpAward = Woodwork:10,
+        inputs
+        {
+            item 2 [Base.Plank] flags[RecordInput],
+            item 2 [Base.Nails] flags[RecordInput],
+            item 2 [Base.Screws] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe BookshelfWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Furniture,
+        SkillRequired = Woodwork:4,
+        xpAward = Woodwork:30,
+        inputs
+        {
+            item 6 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe CounterWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 150,
+        category = Furniture,
+        SkillRequired = Woodwork:5,
+        xpAward = Woodwork:40,
+        inputs
+        {
+            item 6 [Base.Plank] flags[RecordInput],
+            item 6 [Base.Nails] flags[RecordInput],
+            item 2 [Base.Screws] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe BankCounterWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Furniture,
+        SkillRequired = Woodwork:4,
+        xpAward = Woodwork:40,
+        inputs
+        {
+            item 8 [Base.Plank] flags[RecordInput],
+            item 8 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe CounterWoodGlass
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 170,
+        category = Furniture,
+        SkillRequired = Woodwork:5,
+        xpAward = Woodwork:40,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 2 [Base.GlassPanel] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 2 [Base.Screws] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe CounterWoodGlassLarge
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 220,
+        category = Furniture,
+        SkillRequired = Woodwork:5,
+        xpAward = Woodwork:60,
+        inputs
+        {
+            item 6 [Base.Plank] flags[RecordInput],
+            item 3 [Base.GlassPanel] flags[RecordInput],
+            item 6 [Base.Nails] flags[RecordInput],
+            item 3 [Base.Screws] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe DecoratedAltarWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 140,
+        category = Furniture,
+        SkillRequired = Woodwork:3,
+        xpAward = Woodwork:30,
+        inputs
+        {
+            item 6 [Base.Plank] flags[RecordInput],
+            item 8 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe FileCabinetMetal
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 140,
+        category = Welding,
+        SkillRequired = MetalWelding:3,
+        xpAward = MetalWelding:25,
+        inputs
+        {
+            item 3 [Base.SmallSheetMetal] flags[RecordInput],
+            item 1 [Base.MetalPipe] flags[RecordInput],
+            item 2 [Base.Hinge] flags[RecordInput],
+            item 3 [Base.BlowTorch] flags[DontRecordInput],
+            item 3 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe LockerMetal
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 150,
+        category = Furniture,
+        SkillRequired = MetalWelding:5,
+        xpAward = MetalWelding:50,
+        inputs
+        {
+            item 4 [Base.SmallSheetMetal] flags[RecordInput],
+            item 3 [Base.MetalPipe] flags[RecordInput],
+            item 2 [Base.Hinge] flags[RecordInput],
+            item 4 [Base.BlowTorch] flags[DontRecordInput],
+            item 4 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe CrateWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Furniture,
+        SkillRequired = Woodwork:3,
+        xpAward = Woodwork:30,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe CratePlastic
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 60,
+        category = Furniture,
+        inputs
+        {
+            item 4 [Base.PlasticTray] flags[RecordInput],
+            item 2 [Base.DuctTape] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe CrateCardboard
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 50,
+        category = Furniture,
+        xpAward = Tailoring:5,
+        inputs
+        {
+            item 4 [Base.SheetPaper2] flags[RecordInput],
+            item 2 [Base.DuctTape] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe CrateMilitaryMetal
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Welding,
+        SkillRequired = MetalWelding:4,
+        xpAward = MetalWelding:35,
+        inputs
+        {
+            item 4 [Base.SmallSheetMetal] flags[RecordInput],
+            item 2 [Base.MetalBar] flags[RecordInput],
+            item 2 [Base.Hinge] flags[RecordInput],
+            item 4 [Base.Screws] flags[RecordInput],
+            item 4 [Base.BlowTorch] flags[DontRecordInput],
+            item 4 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe CartMetal
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 150,
+        category = Welding,
+        SkillRequired = MetalWelding:3;Tailoring:1,
+        xpAward = MetalWelding:30;Tailoring:8,
+        inputs
+        {
+            item 3 [Base.MetalPipe] flags[RecordInput],
+            item 2 [Base.Wire] flags[RecordInput],
+            item 2 [Base.SmallSheetMetal] flags[RecordInput],
+            item 2 [Base.Sheet;Base.Tarp] flags[RecordInput],
+            item 3 [Base.BlowTorch] flags[DontRecordInput],
+            item 3 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe BarrelMetal
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 150,
+        category = Welding,
+        SkillRequired = MetalWelding:4,
+        xpAward = MetalWelding:30,
+        inputs
+        {
+            item 3 [Base.SheetMetal] flags[RecordInput],
+            item 2 [Base.MetalBar] flags[RecordInput],
+            item 4 [Base.BlowTorch] flags[DontRecordInput],
+            item 4 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe MailboxMetal
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Welding,
+        SkillRequired = MetalWelding:2,
+        xpAward = MetalWelding:15,
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal] flags[RecordInput],
+            item 1 [Base.MetalPipe] flags[RecordInput],
+            item 1 [Base.Hinge] flags[RecordInput],
+            item 2 [Base.BlowTorch] flags[DontRecordInput],
+            item 2 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe TrashMetal
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 150,
+        category = Welding,
+        SkillRequired = MetalWelding:3,
+        xpAward = MetalWelding:25,
+        inputs
+        {
+            item 2 [Base.SmallSheetMetal] flags[RecordInput],
+            item 2 [Base.MetalPipe] flags[RecordInput],
+            item 3 [Base.BlowTorch] flags[DontRecordInput],
+            item 3 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe TrashPlastic
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Furniture,
+        inputs
+        {
+            item 6 [Base.PlasticTray] flags[RecordInput],
+            item 4 [Base.Screws] flags[RecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe SignMetal
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Welding,
+        SkillRequired = MetalWelding:2,
+        xpAward = MetalWelding:15,
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal] flags[RecordInput],
+            item 1 [Base.MetalPipe] flags[RecordInput],
+            item 2 [Base.BlowTorch] flags[DontRecordInput],
+            item 2 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe DecorationPaper
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 30,
+        category = Furniture,
+        inputs
+        {
+            item 1 [Base.SheetPaper2] flags[RecordInput],
+            item 1 [Base.DuctTape] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe DecorationFabric
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 40,
+        category = Tailoring,
+        SkillRequired = Tailoring:1,
+        xpAward = Tailoring:5,
+        inputs
+        {
+            item 1 [Base.Sheet;Base.Tarp] flags[RecordInput],
+            item 1 [Base.DuctTape] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe DecorationWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 50,
+        category = Furniture,
+        SkillRequired = Woodwork:1,
+        xpAward = Woodwork:5,
+        inputs
+        {
+            item 1 [Base.Plank] flags[RecordInput],
+            item 2 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe WallRackWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 70,
+        category = Furniture,
+        SkillRequired = Woodwork:2,
+        xpAward = Woodwork:10,
+        inputs
+        {
+            item 2 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe SkullTrophyBull
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Furniture,
+        SkillRequired = Woodwork:2,
+        xpAward = Woodwork:10,
+        inputs
+        {
+            item 1 [Base.Bull_Skull] flags[RecordInput],
+            item 1 [Base.Plank] flags[RecordInput],
+            item 2 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe SkullTrophyCow
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Furniture,
+        SkillRequired = Woodwork:2,
+        xpAward = Woodwork:10,
+        inputs
+        {
+            item 1 [Base.Cow_Skull] flags[RecordInput],
+            item 1 [Base.Plank] flags[RecordInput],
+            item 2 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe SkullTrophyDoe
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Furniture,
+        SkillRequired = Woodwork:2,
+        xpAward = Woodwork:10,
+        inputs
+        {
+            item 1 [Base.DeerDoe_Skull] flags[RecordInput],
+            item 1 [Base.Plank] flags[RecordInput],
+            item 2 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe SkullTrophyPig
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Furniture,
+        SkillRequired = Woodwork:2,
+        xpAward = Woodwork:10,
+        inputs
+        {
+            item 1 [Base.Pig_Skull] flags[RecordInput],
+            item 1 [Base.Plank] flags[RecordInput],
+            item 2 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe SkullTrophySheep
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Furniture,
+        SkillRequired = Woodwork:2,
+        xpAward = Woodwork:10,
+        inputs
+        {
+            item 1 [Base.Sheep_Skull] flags[RecordInput],
+            item 1 [Base.Plank] flags[RecordInput],
+            item 2 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe SkullTrophyStag
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Furniture,
+        SkillRequired = Woodwork:2,
+        xpAward = Woodwork:10,
+        inputs
+        {
+            item 1 [Base.DeerStag_Skull] flags[RecordInput],
+            item 1 [Base.Plank] flags[RecordInput],
+            item 2 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe DecorationMetal
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 50,
+        category = Furniture,
+        SkillRequired = MetalWelding:1,
+        xpAward = MetalWelding:5,
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal] flags[RecordInput],
+            item 1 [Base.BlowTorch] flags[DontRecordInput],
+            item 1 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe CashRegister
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 70,
+        category = Electricity,
+        SkillRequired = MetalWelding:1;Electricity:1,
+        xpAward = Electricity:8,
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal] flags[RecordInput],
+            item 2 [Base.ScrapMetal] flags[RecordInput],
+            item 1 [Base.ElectronicsScrap] flags[RecordInput],
+            item 1 [Base.BlowTorch] flags[DontRecordInput],
+            item 1 [Base.WeldingRods] flags[DontRecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe DecorationGlass
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 50,
+        category = Furniture,
+        SkillRequired = Woodwork:1,
+        xpAward = Woodwork:5,
+        inputs
+        {
+            item 1 [Base.GlassPanel] flags[RecordInput],
+            item 1 [Base.Plank] flags[RecordInput],
+            item 1 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe DecorationPlastic
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 40,
+        category = Furniture,
+        inputs
+        {
+            item 1 [Base.PlasticTray] flags[RecordInput],
+            item 2 [Base.Screws] flags[RecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe PalletWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 80,
+        category = Carpentry,
+        SkillRequired = Woodwork:2,
+        xpAward = Woodwork:10,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 8 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe ClothesStandMetal
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 80,
+        category = Welding,
+        SkillRequired = MetalWelding:1,
+        xpAward = MetalWelding:10,
+        inputs
+        {
+            item 2 [Base.MetalBar] flags[RecordInput],
+            item 1 [Base.ScrapMetal] flags[RecordInput],
+            item 2 [Base.BlowTorch] flags[DontRecordInput],
+            item 2 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe ElectronicDecoration
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 60,
+        category = Electricity,
+        SkillRequired = Electricity:1,
+        xpAward = Electricity:8,
+        inputs
+        {
+            item 2 [Base.PlasticTray] flags[RecordInput],
+            item 1 [Base.ElectronicsScrap] flags[RecordInput],
+            item 1 [Base.ElectricWire] flags[RecordInput],
+            item 1 [Base.ScrapMetal] flags[RecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe SatelliteDish
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 120,
+        category = Electricity,
+        SkillRequired = Electricity:2,
+        xpAward = Electricity:15,
+        inputs
+        {
+            item 2 [Base.SmallSheetMetal] flags[RecordInput],
+            item 2 [Base.ElectricWire] flags[RecordInput],
+            item 5 [Base.ElectronicsScrap] flags[RecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe CinemaProjector
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 120,
+        category = Electricity,
+        SkillRequired = Electricity:2,
+        xpAward = Electricity:15,
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal] flags[RecordInput],
+            item 2 [Base.AluminumScrap] flags[RecordInput],
+            item 2 [Base.PlasticTray] flags[RecordInput],
+            item 2 [Base.ElectronicsScrap] flags[RecordInput],
+            item 1 [Base.ElectricWire] flags[RecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe ArcadeMachine
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Electricity,
+        SkillRequired = MetalWelding:2;Electricity:2,
+        xpAward = MetalWelding:15;Electricity:20,
+        inputs
+        {
+            item 3 [Base.SmallSheetMetal] flags[RecordInput],
+            item 2 [Base.PlasticTray] flags[RecordInput],
+            item 4 [Base.ElectronicsScrap] flags[RecordInput],
+            item 2 [Base.ElectricWire] flags[RecordInput],
+            item 4 [Base.Screws] flags[RecordInput],
+            item 3 [Base.BlowTorch] flags[DontRecordInput],
+            item 3 [Base.WeldingRods] flags[DontRecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe PinballMachine
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Electricity,
+        SkillRequired = MetalWelding:2;Electricity:2,
+        xpAward = MetalWelding:15;Electricity:20,
+        inputs
+        {
+            item 3 [Base.SmallSheetMetal] flags[RecordInput],
+            item 2 [Base.GlassPanel] flags[RecordInput],
+            item 3 [Base.ElectronicsScrap] flags[RecordInput],
+            item 2 [Base.ElectricWire] flags[RecordInput],
+            item 4 [Base.Screws] flags[RecordInput],
+            item 3 [Base.BlowTorch] flags[DontRecordInput],
+            item 3 [Base.WeldingRods] flags[DontRecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe AirConditioner
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 120,
+        category = Electricity,
+        SkillRequired = Electricity:2,
+        xpAward = Electricity:15,
+        inputs
+        {
+            item 2 [Base.SmallSheetMetal] flags[RecordInput],
+            item 2 [Base.ScrapMetal] flags[RecordInput],
+            item 2 [Base.ElectricWire] flags[RecordInput],
+            item 5 [Base.ElectronicsScrap] flags[RecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe MusicEquipment
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Electricity,
+        SkillRequired = Woodwork:1;Electricity:1,
+        xpAward = Woodwork:8;Electricity:8,
+        inputs
+        {
+            item 2 [Base.Plank] flags[RecordInput],
+            item 1 [Base.ScrapMetal] flags[RecordInput],
+            item 1 [Base.ElectricWire] flags[RecordInput],
+            item 2 [Base.ElectronicsScrap] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe Jukebox
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 220,
+        category = Electricity,
+        SkillRequired = MetalWelding:3;Electricity:3,
+        xpAward = MetalWelding:20;Electricity:25,
+        inputs
+        {
+            item 4 [Base.SheetMetal] flags[RecordInput],
+            item 2 [Base.SmallSheetMetal] flags[RecordInput],
+            item 2 [Base.PlasticTray] flags[RecordInput],
+            item 4 [Base.ElectronicsScrap] flags[RecordInput],
+            item 2 [Base.ElectricWire] flags[RecordInput],
+            item 4 [Base.Screws] flags[RecordInput],
+            item 4 [Base.BlowTorch] flags[DontRecordInput],
+            item 4 [Base.WeldingRods] flags[DontRecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe BrickPlanter
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 120,
+        category = Masonry,
+        SkillRequired = Masonry:2,
+        xpAward = Masonry:15,
+        inputs
+        {
+            item 6 [Base.ClayBrick] flags[RecordInput],
+            item 1 [Base.Dirtbag] flags[DontRecordInput],
+            item 2 tags[base:concrete] flags[DontRecordInput],
+            item 1 tags[base:masonstrowel] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe FlowerBedSoil
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 80,
+        category = Outdoors,
+        inputs
+        {
+            item 1 [Base.Dirtbag] flags[DontRecordInput],
+            item 1 tags[base:isseed] flags[RecordInput],
+            item 1 tags[base:digplow] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe FlowerBedStone
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Masonry,
+        SkillRequired = Masonry:1,
+        xpAward = Masonry:10,
+        inputs
+        {
+            item 4 [Base.Stone2] flags[RecordInput],
+            item 1 [Base.Dirtbag] flags[DontRecordInput],
+            item 1 tags[base:isseed] flags[RecordInput],
+            item 1 tags[base:concrete] flags[DontRecordInput],
+            item 1 tags[base:masonstrowel] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe TableLamp
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 70,
+        category = Electricity,
+        SkillRequired = Electricity:1,
+        xpAward = Electricity:10,
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal] flags[RecordInput],
+            item 1 [Base.LightBulb] flags[RecordInput],
+            item 1 [Base.ElectricWire] flags[RecordInput],
+            item 2 [Base.ElectronicsScrap] flags[RecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe Radio
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Electricity,
+        SkillRequired = Electricity:2,
+        xpAward = Electricity:15,
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal] flags[RecordInput],
+            item 1 [Base.ElectricWire] flags[RecordInput],
+            item 4 [Base.ElectronicsScrap] flags[RecordInput],
+            item 2 [Base.Screws] flags[RecordInput],
+            item 1 [Base.Battery] mode:destroy flags[NotEmpty;RecordInput;ItemCount],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe HamRadio
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 160,
+        category = Electricity,
+        SkillRequired = Electricity:3,
+        xpAward = Electricity:25,
+        inputs
+        {
+            item 2 [Base.SmallSheetMetal] flags[RecordInput],
+            item 2 [Base.ElectricWire] flags[RecordInput],
+            item 8 [Base.ElectronicsScrap] flags[RecordInput],
+            item 4 [Base.Screws] flags[RecordInput],
+            item 1 [Base.Battery] mode:destroy flags[NotEmpty;RecordInput;ItemCount],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe Television
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 220,
+        category = Electricity,
+        SkillRequired = Electricity:3,
+        xpAward = Electricity:30,
+        inputs
+        {
+            item 2 [Base.SmallSheetMetal] flags[RecordInput],
+            item 1 [Base.GlassPanel] flags[RecordInput],
+            item 2 [Base.ElectricWire] flags[RecordInput],
+            item 10 [Base.ElectronicsScrap] flags[RecordInput],
+            item 4 [Base.Screws] flags[RecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe LaundryMachine
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 300,
+        category = Electricity,
+        SkillRequired = MetalWelding:3;Electricity:4,
+        xpAward = MetalWelding:20;Electricity:35,
+        inputs
+        {
+            item 5 [Base.SheetMetal] flags[RecordInput],
+            item 2 [Base.SmallSheetMetal] flags[RecordInput],
+            item 2 [Base.ElectricWire] flags[RecordInput],
+            item 12 [Base.ElectronicsScrap] flags[RecordInput],
+            item 6 [Base.Screws] flags[RecordInput],
+            item 5 [Base.BlowTorch] flags[DontRecordInput],
+            item 5 [Base.WeldingRods] flags[DontRecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe Dishwasher
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 260,
+        category = Electricity,
+        SkillRequired = MetalWelding:3;Electricity:4,
+        xpAward = MetalWelding:18;Electricity:30,
+        inputs
+        {
+            item 4 [Base.SheetMetal] flags[RecordInput],
+            item 2 [Base.SmallSheetMetal] flags[RecordInput],
+            item 2 [Base.ElectricWire] flags[RecordInput],
+            item 10 [Base.ElectronicsScrap] flags[RecordInput],
+            item 6 [Base.Screws] flags[RecordInput],
+            item 4 [Base.BlowTorch] flags[DontRecordInput],
+            item 4 [Base.WeldingRods] flags[DontRecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe LargeMetalTrough
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 260,
+        category = Metalworking,
+        SkillRequired = MetalWelding:3,
+        xpAward = MetalWelding:25,
+        inputs
+        {
+            item 6 [Base.SheetMetal] flags[RecordInput],
+            item 4 [Base.MetalBar] flags[RecordInput],
+            item 2 [Base.MetalPipe] flags[RecordInput],
+            item 5 [Base.BlowTorch] flags[DontRecordInput],
+            item 5 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe CeramicPlumbingFixture
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Plumbing,
+        SkillRequired = Masonry:1;MetalWelding:1,
+        xpAward = Masonry:15;MetalWelding:10,
+        inputs
+        {
+            item 3 [Base.ClayBrick] flags[RecordInput],
+            item 1 [Base.MetalPipe] flags[RecordInput],
+            item 2 [Base.Screws] flags[RecordInput],
+            item 1 [Base.PipeWrench] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe IndustrialSink
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 260,
+        category = Plumbing,
+        SkillRequired = MetalWelding:3,
+        xpAward = MetalWelding:25,
+        inputs
+        {
+            item 4 [Base.SheetMetal] flags[RecordInput],
+            item 2 [Base.MetalPipe] flags[RecordInput],
+            item 4 [Base.Screws] flags[RecordInput],
+            item 4 [Base.BlowTorch] flags[DontRecordInput],
+            item 4 [Base.WeldingRods] flags[DontRecordInput],
+            item 1 [Base.PipeWrench] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe LargeBathroomFixture
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 260,
+        category = Plumbing,
+        SkillRequired = Masonry:2;MetalWelding:1,
+        xpAward = Masonry:20;MetalWelding:10,
+        inputs
+        {
+            item 4 [Base.ClayBrick] flags[RecordInput],
+            item 2 [Base.MetalPipe] flags[RecordInput],
+            item 4 [Base.Screws] flags[RecordInput],
+            item 1 [Base.PipeWrench] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe DoubleWallLamp
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 110,
+        category = Electricity,
+        SkillRequired = Electricity:2,
+        xpAward = Electricity:20,
+        inputs
+        {
+            item 2 [Base.SmallSheetMetal] flags[RecordInput],
+            item 2 [Base.LightBulb] flags[RecordInput],
+            item 2 [Base.ElectricWire] flags[RecordInput],
+            item 4 [Base.ElectronicsScrap] flags[RecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe FloorLamp
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 120,
+        category = Electricity,
+        SkillRequired = Electricity:2,
+        xpAward = Electricity:20,
+        inputs
+        {
+            item 2 [Base.MetalPipe] flags[RecordInput],
+            item 1 [Base.SmallSheetMetal] flags[RecordInput],
+            item 1 [Base.LightBulb] flags[RecordInput],
+            item 2 [Base.ElectricWire] flags[RecordInput],
+            item 3 [Base.ElectronicsScrap] flags[RecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe LightPole
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 200,
+        category = Electricity,
+        SkillRequired = MetalWelding:3;Electricity:3,
+        xpAward = MetalWelding:20;Electricity:20,
+        inputs
+        {
+            item 3 [Base.MetalPipe] flags[RecordInput],
+            item 2 [Base.SmallSheetMetal] flags[RecordInput],
+            item 1 [Base.LightBulb] flags[RecordInput],
+            item 2 [Base.ElectricWire] flags[RecordInput],
+            item 5 [Base.ElectronicsScrap] flags[RecordInput],
+            item 3 [Base.BlowTorch] flags[DontRecordInput],
+            item 3 [Base.WeldingRods] flags[DontRecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe OutdoorLight
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 150,
+        category = Electricity,
+        SkillRequired = Electricity:2,
+        xpAward = Electricity:15,
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal] flags[RecordInput],
+            item 1 [Base.LightBulb] flags[RecordInput],
+            item 1 [Base.ElectricWire] flags[RecordInput],
+            item 3 [Base.ElectronicsScrap] flags[RecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe WaterWell
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 250,
+        category = Masonry,
+        SkillRequired = Masonry:5;Woodwork:2,
+        xpAward = Masonry:50;Woodwork:10,
+        inputs
+        {
+            item 10 [Base.StoneBlock] flags[RecordInput],
+            item 2 tags[base:concrete] flags[DontRecordInput],
+            item 4 [Base.Plank] flags[RecordInput],
+            item 2 [Base.Rope] flags[RecordInput],
+            item 1 [*],
+            -fluid 10.0 categories[Water] mode:mixture,
+            item 1 tags[base:masonstrowel] mode:keep flags[NoBrokenItems;MayDegradeLight],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe WaterPump
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 200,
+        category = Metalworking,
+        SkillRequired = MetalWelding:3;Mechanics:2,
+        xpAward = MetalWelding:30;Mechanics:10,
+        inputs
+        {
+            item 3 [Base.MetalPipe] flags[RecordInput],
+            item 2 [Base.SheetMetal] flags[RecordInput],
+            item 2 [Base.MetalBar] flags[RecordInput],
+            item 4 [Base.Screws] flags[RecordInput],
+            item 3 [Base.BlowTorch] flags[DontRecordInput],
+            item 3 [Base.WeldingRods] flags[DontRecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe MiniFridge
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 250,
+        category = Electricity,
+        SkillRequired = MetalWelding:3;Electricity:5,
+        xpAward = MetalWelding:20;Electricity:40,
+        inputs
+        {
+            item 4 [Base.SheetMetal] flags[RecordInput],
+            item 2 [Base.SmallSheetMetal] flags[RecordInput],
+            item 2 [Base.ElectricWire] flags[RecordInput],
+            item 10 [Base.ElectronicsScrap] flags[RecordInput],
+            item 4 [Base.Screws] flags[RecordInput],
+            item 4 [Base.BlowTorch] flags[DontRecordInput],
+            item 4 [Base.WeldingRods] flags[DontRecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe Refrigerator
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 300,
+        category = Electricity,
+        SkillRequired = MetalWelding:4;Electricity:5,
+        xpAward = MetalWelding:25;Electricity:45,
+        inputs
+        {
+            item 6 [Base.SheetMetal] flags[RecordInput],
+            item 3 [Base.SmallSheetMetal] flags[RecordInput],
+            item 3 [Base.ElectricWire] flags[RecordInput],
+            item 15 [Base.ElectronicsScrap] flags[RecordInput],
+            item 6 [Base.Screws] flags[RecordInput],
+            item 5 [Base.BlowTorch] flags[DontRecordInput],
+            item 5 [Base.WeldingRods] flags[DontRecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe CommercialRefrigerator
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 320,
+        category = Electricity,
+        SkillRequired = MetalWelding:4;Electricity:5,
+        xpAward = MetalWelding:25;Electricity:50,
+        inputs
+        {
+            item 6 [Base.SheetMetal] flags[RecordInput],
+            item 3 [Base.SmallSheetMetal] flags[RecordInput],
+            item 2 [Base.GlassPanel] flags[RecordInput],
+            item 3 [Base.ElectricWire] flags[RecordInput],
+            item 15 [Base.ElectronicsScrap] flags[RecordInput],
+            item 6 [Base.Screws] flags[RecordInput],
+            item 5 [Base.BlowTorch] flags[DontRecordInput],
+            item 5 [Base.WeldingRods] flags[DontRecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe LargeRefrigerator
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 400,
+        category = Electricity,
+        SkillRequired = MetalWelding:5;Electricity:6,
+        xpAward = MetalWelding:35;Electricity:60,
+        inputs
+        {
+            item 10 [Base.SheetMetal] flags[RecordInput],
+            item 5 [Base.SmallSheetMetal] flags[RecordInput],
+            item 4 [Base.GlassPanel] flags[RecordInput],
+            item 4 [Base.ElectricWire] flags[RecordInput],
+            item 25 [Base.ElectronicsScrap] flags[RecordInput],
+            item 10 [Base.Screws] flags[RecordInput],
+            item 8 [Base.BlowTorch] flags[DontRecordInput],
+            item 8 [Base.WeldingRods] flags[DontRecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe Freezer
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 320,
+        category = Electricity,
+        SkillRequired = MetalWelding:4;Electricity:5,
+        xpAward = MetalWelding:30;Electricity:50,
+        inputs
+        {
+            item 8 [Base.SheetMetal] flags[RecordInput],
+            item 4 [Base.SmallSheetMetal] flags[RecordInput],
+            item 3 [Base.ElectricWire] flags[RecordInput],
+            item 18 [Base.ElectronicsScrap] flags[RecordInput],
+            item 8 [Base.Screws] flags[RecordInput],
+            item 6 [Base.BlowTorch] flags[DontRecordInput],
+            item 6 [Base.WeldingRods] flags[DontRecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe FreezerSmall
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 240,
+        category = Electricity,
+        SkillRequired = MetalWelding:3;Electricity:4,
+        xpAward = MetalWelding:20;Electricity:35,
+        inputs
+        {
+            item 5 [Base.SheetMetal] flags[RecordInput],
+            item 2 [Base.SmallSheetMetal] flags[RecordInput],
+            item 2 [Base.ElectricWire] flags[RecordInput],
+            item 10 [Base.ElectronicsScrap] flags[RecordInput],
+            item 5 [Base.Screws] flags[RecordInput],
+            item 4 [Base.BlowTorch] flags[DontRecordInput],
+            item 4 [Base.WeldingRods] flags[DontRecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe Barbecue
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 200,
+        category = Welding,
+        SkillRequired = MetalWelding:3,
+        xpAward = MetalWelding:30,
+        inputs
+        {
+            item 2 [Base.SheetMetal] flags[RecordInput],
+            item 2 [Base.MetalPipe] flags[RecordInput],
+            item 2 [Base.MetalBar] flags[RecordInput],
+            item 4 [Base.BlowTorch] flags[DontRecordInput],
+            item 4 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe PropaneGrill
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 240,
+        category = Welding,
+        SkillRequired = MetalWelding:4,
+        xpAward = MetalWelding:40,
+        inputs
+        {
+            item 3 [Base.SheetMetal] flags[RecordInput],
+            item 3 [Base.MetalPipe] flags[RecordInput],
+            item 3 [Base.MetalBar] flags[RecordInput],
+            item 6 [Base.BlowTorch] flags[DontRecordInput],
+            item 6 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe ElectricStove
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 300,
+        category = Electricity,
+        SkillRequired = MetalWelding:4;Electricity:4,
+        xpAward = MetalWelding:30;Electricity:40,
+        inputs
+        {
+            item 6 [Base.SheetMetal] flags[RecordInput],
+            item 2 [Base.SmallSheetMetal] flags[RecordInput],
+            item 3 [Base.ElectricWire] flags[RecordInput],
+            item 12 [Base.ElectronicsScrap] flags[RecordInput],
+            item 6 [Base.Screws] flags[RecordInput],
+            item 6 [Base.BlowTorch] flags[DontRecordInput],
+            item 6 [Base.WeldingRods] flags[DontRecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe IndustrialStove
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 360,
+        category = Electricity,
+        SkillRequired = MetalWelding:5;Electricity:5,
+        xpAward = MetalWelding:45;Electricity:55,
+        inputs
+        {
+            item 10 [Base.SheetMetal] flags[RecordInput],
+            item 4 [Base.SmallSheetMetal] flags[RecordInput],
+            item 4 [Base.MetalBar] flags[RecordInput],
+            item 5 [Base.ElectricWire] flags[RecordInput],
+            item 20 [Base.ElectronicsScrap] flags[RecordInput],
+            item 8 [Base.Screws] flags[RecordInput],
+            item 8 [Base.BlowTorch] flags[DontRecordInput],
+            item 8 [Base.WeldingRods] flags[DontRecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe LargeModernStove
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 480,
+        category = Electricity,
+        SkillRequired = MetalWelding:6;Electricity:6,
+        xpAward = MetalWelding:60;Electricity:70,
+        inputs
+        {
+            item 14 [Base.SheetMetal] flags[RecordInput],
+            item 6 [Base.SmallSheetMetal] flags[RecordInput],
+            item 6 [Base.MetalBar] flags[RecordInput],
+            item 7 [Base.ElectricWire] flags[RecordInput],
+            item 28 [Base.ElectronicsScrap] flags[RecordInput],
+            item 10 [Base.Screws] flags[RecordInput],
+            item 10 [Base.BlowTorch] flags[DontRecordInput],
+            item 10 [Base.WeldingRods] flags[DontRecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe CommercialBakeOven
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 420,
+        category = Electricity,
+        SkillRequired = MetalWelding:5;Electricity:5,
+        xpAward = MetalWelding:50;Electricity:55,
+        inputs
+        {
+            item 12 [Base.SheetMetal] flags[RecordInput],
+            item 4 [Base.SmallSheetMetal] flags[RecordInput],
+            item 4 [Base.MetalBar] flags[RecordInput],
+            item 5 [Base.ElectricWire] flags[RecordInput],
+            item 18 [Base.ElectronicsScrap] flags[RecordInput],
+            item 8 [Base.Screws] flags[RecordInput],
+            item 8 [Base.BlowTorch] flags[DontRecordInput],
+            item 8 [Base.WeldingRods] flags[DontRecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe Microwave
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 120,
+        category = Electricity,
+        SkillRequired = Electricity:2,
+        xpAward = Electricity:20,
+        inputs
+        {
+            item 2 [Base.SmallSheetMetal] flags[RecordInput],
+            item 2 [Base.ElectricWire] flags[RecordInput],
+            item 4 [Base.ElectronicsScrap] flags[RecordInput],
+            item 4 [Base.Screws] flags[RecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe Toaster
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 80,
+        category = Electricity,
+        SkillRequired = Electricity:1,
+        xpAward = Electricity:10,
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal] flags[RecordInput],
+            item 1 [Base.ElectricWire] flags[RecordInput],
+            item 2 [Base.ElectronicsScrap] flags[RecordInput],
+            item 2 [Base.Screws] flags[RecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe CoffeeMaker
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Electricity,
+        SkillRequired = Electricity:1,
+        xpAward = Electricity:15,
+        inputs
+        {
+            item 2 [Base.PlasticTray] flags[RecordInput],
+            item 1 [Base.ElectricWire] flags[RecordInput],
+            item 3 [Base.ElectronicsScrap] flags[RecordInput],
+            item 2 [Base.Screws] flags[RecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe EspressoMachine
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 160,
+        category = Electricity,
+        SkillRequired = Electricity:2,
+        xpAward = Electricity:25,
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal] flags[RecordInput],
+            item 2 [Base.ElectricWire] flags[RecordInput],
+            item 5 [Base.ElectronicsScrap] flags[RecordInput],
+            item 4 [Base.Screws] flags[RecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe ExtractorHood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Electricity,
+        SkillRequired = MetalWelding:2;Electricity:2,
+        xpAward = MetalWelding:20;Electricity:20,
+        inputs
+        {
+            item 2 [Base.SheetMetal] flags[RecordInput],
+            item 2 [Base.SmallSheetMetal] flags[RecordInput],
+            item 2 [Base.ElectricWire] flags[RecordInput],
+            item 4 [Base.Screws] flags[RecordInput],
+            item 3 [Base.BlowTorch] flags[DontRecordInput],
+            item 3 [Base.WeldingRods] flags[DontRecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe Generator
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 300,
+        category = Electricity,
+        SkillRequired = MetalWelding:4;Electricity:5,
+        xpAward = MetalWelding:30;Electricity:50,
+        inputs
+        {
+            item 4 [Base.SheetMetal] flags[RecordInput],
+            item 4 [Base.MetalPipe] flags[RecordInput],
+            item 2 [Base.ElectricWire] flags[RecordInput],
+            item 20 [Base.ElectronicsScrap] flags[RecordInput],
+            item 8 [Base.Screws] flags[RecordInput],
+            item 6 [Base.BlowTorch] flags[DontRecordInput],
+            item 6 [Base.WeldingRods] flags[DontRecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe StoveMetal
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 250,
+        category = Welding,
+        SkillRequired = MetalWelding:4,
+        xpAward = MetalWelding:40,
+        inputs
+        {
+            item 6 [Base.SheetMetal] flags[RecordInput],
+            item 4 [Base.MetalBar] flags[RecordInput],
+            item 2 [Base.Hinge] flags[RecordInput],
+            item 6 [Base.BlowTorch] flags[DontRecordInput],
+            item 6 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe Fireplace
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 250,
+        category = Masonry,
+        SkillRequired = Masonry:4,
+        xpAward = Masonry:40,
+        inputs
+        {
+            item 10 [Base.Stone2] flags[RecordInput],
+            item 4 [Base.ClayBrick] flags[RecordInput],
+            item 2 tags[base:concrete] flags[DontRecordInput],
+            item 1 [*],
+            -fluid 10.0 categories[Water] mode:mixture,
+            item 1 tags[base:masonstrowel] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe FenceWireWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Carpentry,
+        SkillRequired = Woodwork:2,
+        xpAward = Woodwork:20,
+        inputs
+        {
+            item 2 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 2 [Base.Wire] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe FenceChainLink
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 240,
+        category = Welding,
+        SkillRequired = MetalWelding:3,
+        xpAward = MetalWelding:30,
+        inputs
+        {
+            item 2 [Base.MetalPipe] flags[RecordInput],
+            item 4 [Base.Wire] flags[RecordInput],
+            item 3 [Base.BlowTorch] flags[DontRecordInput],
+            item 3 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe MetalShelf
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 240,
+        category = Welding,
+        SkillRequired = MetalWelding:2,
+        xpAward = MetalWelding:25,
+        inputs
+        {
+            item 2 [Base.SheetMetal] flags[RecordInput],
+            item 4 [Base.MetalPipe] flags[RecordInput],
+            item 4 [Base.Screws] flags[RecordInput],
+            item 4 [Base.BlowTorch] flags[DontRecordInput],
+            item 4 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe CommercialMetalGlassDisplay
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Welding,
+        SkillRequired = MetalWelding:3,
+        xpAward = MetalWelding:30,
+        inputs
+        {
+            item 2 [Base.SheetMetal] flags[RecordInput],
+            item 2 [Base.MetalPipe] flags[RecordInput],
+            item 2 [Base.GlassPanel] flags[RecordInput],
+            item 4 [Base.BlowTorch] flags[DontRecordInput],
+            item 4 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe CommercialTallWoodShelves
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 240,
+        category = Furniture,
+        SkillRequired = Woodwork:5,
+        xpAward = Woodwork:55,
+        inputs
+        {
+            item 10 [Base.Plank] flags[RecordInput],
+            item 12 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe CommercialOpenWardrobe
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 210,
+        category = Furniture,
+        SkillRequired = Woodwork:5,
+        xpAward = Woodwork:50,
+        inputs
+        {
+            item 8 [Base.Plank] flags[RecordInput],
+            item 8 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe CommercialLargeGlassDisplay
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 240,
+        category = Furniture,
+        SkillRequired = Woodwork:5,
+        xpAward = Woodwork:55,
+        inputs
+        {
+            item 10 [Base.Plank] flags[RecordInput],
+            item 10 [Base.Nails] flags[RecordInput],
+            item 6 [Base.GlassPanel] flags[RecordInput],
+            item 6 [Base.Screws] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe CommercialMetalDisplay
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 120,
+        category = Welding,
+        SkillRequired = MetalWelding:2,
+        xpAward = MetalWelding:20,
+        inputs
+        {
+            item 1 [Base.SheetMetal] flags[RecordInput],
+            item 2 [Base.MetalPipe] flags[RecordInput],
+            item 2 [Base.BlowTorch] flags[DontRecordInput],
+            item 2 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe CommercialRoundedGlassDisplay
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 200,
+        category = Furniture,
+        SkillRequired = Woodwork:5,
+        xpAward = Woodwork:50,
+        inputs
+        {
+            item 8 [Base.Plank] flags[RecordInput],
+            item 8 [Base.Nails] flags[RecordInput],
+            item 4 [Base.GlassPanel] flags[RecordInput],
+            item 4 [Base.Screws] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe CommercialMetalClothesRack
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Welding,
+        SkillRequired = MetalWelding:2,
+        xpAward = MetalWelding:25,
+        inputs
+        {
+            item 4 [Base.MetalPipe] flags[RecordInput],
+            item 4 [Base.Screws] flags[RecordInput],
+            item 3 [Base.BlowTorch] flags[DontRecordInput],
+            item 3 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe CommercialLargeStoreShelves
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Furniture,
+        SkillRequired = Woodwork:5,
+        xpAward = Woodwork:45,
+        inputs
+        {
+            item 8 [Base.Plank] flags[RecordInput],
+            item 8 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe RainbowStringLights
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Electricity,
+        SkillRequired = Electricity:2,
+        xpAward = Electricity:15,
+        inputs
+        {
+            item 2 [Base.LightBulb] flags[RecordInput],
+            item 2 [Base.ElectricWire] flags[RecordInput],
+            item 4 [Base.ElectronicsScrap] flags[RecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe TableGlassWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 160,
+        category = Furniture,
+        SkillRequired = Woodwork:3,
+        xpAward = Woodwork:25,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 6 [Base.Nails] flags[RecordInput],
+            item 2 [Base.GlassPanel] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe MetalChest
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 120,
+        category = Welding,
+        SkillRequired = MetalWelding:2,
+        xpAward = MetalWelding:20,
+        inputs
+        {
+            item 2 [Base.SmallSheetMetal] flags[RecordInput],
+            item 1 [Base.Hinge] flags[RecordInput],
+            item 3 [Base.BlowTorch] flags[DontRecordInput],
+            item 3 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe ChinaCabinetWoodGlass
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 200,
+        category = Furniture,
+        SkillRequired = Woodwork:5,
+        xpAward = Woodwork:50,
+        inputs
+        {
+            item 8 [Base.Plank] flags[RecordInput],
+            item 8 [Base.Nails] flags[RecordInput],
+            item 4 [Base.GlassPanel] flags[RecordInput],
+            item 4 [Base.Screws] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe LowShelfWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Furniture,
+        SkillRequired = Woodwork:4,
+        xpAward = Woodwork:40,
+        inputs
+        {
+            item 10 [Base.Plank] flags[RecordInput],
+            item 10 [Base.Nails] flags[RecordInput],
+            item 4 [Base.Screws] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe WideLowShelfWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 140,
+        category = Furniture,
+        SkillRequired = Woodwork:4,
+        xpAward = Woodwork:30,
+        inputs
+        {
+            item 6 [Base.Plank] flags[RecordInput],
+            item 6 [Base.Nails] flags[RecordInput],
+            item 2 [Base.Screws] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe BirdBathStone
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 140,
+        category = Masonry,
+        SkillRequired = Masonry:2,
+        xpAward = Masonry:15,
+        inputs
+        {
+            item 8 [Base.Stone2] flags[RecordInput],
+            item 1 tags[base:concrete] flags[DontRecordInput],
+            item 1 tags[base:masonstrowel] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe MobileMetalToolCabinet
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Welding,
+        SkillRequired = MetalWelding:2,
+        xpAward = MetalWelding:25,
+        inputs
+        {
+            item 2 [Base.SheetMetal] flags[RecordInput],
+            item 4 [Base.Screws] flags[RecordInput],
+            item 4 [Base.BlowTorch] flags[DontRecordInput],
+            item 4 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe WallMedicineCabinet
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 90,
+        category = Furniture,
+        SkillRequired = Woodwork:2,
+        xpAward = Woodwork:15,
+        inputs
+        {
+            item 2 [Base.Plank] flags[RecordInput],
+            item 1 [Base.GlassPanel] flags[RecordInput],
+            item 2 [Base.Nails] flags[RecordInput],
+            item 2 [Base.Screws] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe DressingTableWoodGlass
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 120,
+        category = Furniture,
+        SkillRequired = Woodwork:3,
+        xpAward = Woodwork:25,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 1 [Base.GlassPanel] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 2 [Base.Screws] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe WallCabinetWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 120,
+        category = Furniture,
+        SkillRequired = Woodwork:3,
+        xpAward = Woodwork:25,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 4 [Base.Screws] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe WallCabinetMetal
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 120,
+        category = Welding,
+        SkillRequired = MetalWelding:2,
+        xpAward = MetalWelding:20,
+        inputs
+        {
+            item 2 [Base.SmallSheetMetal] flags[RecordInput],
+            item 4 [Base.Screws] flags[RecordInput],
+            item 3 [Base.BlowTorch] flags[DontRecordInput],
+            item 3 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe SculptureStone
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Masonry,
+        SkillRequired = Masonry:3,
+        xpAward = Masonry:25,
+        inputs
+        {
+            item 10 [Base.Stone2] flags[RecordInput],
+            item 1 [Base.MasonsChisel] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe SculptureLargeStone
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 300,
+        category = Masonry,
+        SkillRequired = Masonry:4,
+        xpAward = Masonry:40,
+        inputs
+        {
+            item 16 [Base.Stone2] flags[RecordInput],
+            item 1 [Base.MasonsChisel] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe GravestoneStone
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 120,
+        category = Masonry,
+        SkillRequired = Masonry:2,
+        xpAward = Masonry:15,
+        inputs
+        {
+            item 6 [Base.Stone2] flags[RecordInput],
+            item 1 [Base.MasonsChisel] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe GravestoneAngelicStone
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 240,
+        category = Masonry,
+        SkillRequired = Masonry:3,
+        xpAward = Masonry:30,
+        inputs
+        {
+            item 16 [Base.Stone2] flags[RecordInput],
+            item 1 [Base.MasonsChisel] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe LecternWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Furniture,
+        SkillRequired = Woodwork:2,
+        xpAward = Woodwork:15,
+        inputs
+        {
+            item 3 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe PottedPlant
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 80,
+        category = Farming,
+        SkillRequired = Farming:1,
+        xpAward = Farming:10,
+        inputs
+        {
+            item 1 [Base.ClayPot] flags[RecordInput],
+            item 1 [Base.Dirtbag] flags[DontRecordInput],
+            item 1 tags[base:isseed] flags[RecordInput],
+            item 1 tags[base:digplow] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe GardenFlamingo
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+      time = 80,
+      category = Welding,
+        SkillRequired = MetalWelding:1,
+        xpAward = MetalWelding:10,
+        inputs
+        {
+            item 1 [Base.Plasticbag] flags[RecordInput],
+            item 1 [Base.ScrapMetal] flags[RecordInput],
+            item 1 [Base.Wire] flags[RecordInput],
+            item 1 [Base.BlowTorch] flags[DontRecordInput],
+            item 1 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe GardenGnome
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+      time = 100,
+      category = Pottery,
+        SkillRequired = Pottery:2,
+        xpAward = Pottery:15,
+        inputs
+        {
+            item 3 [Base.Clay] flags[RecordInput],
+            item 1 tags[base:paint] flags[DontRecordInput],
+            item 1 tags[base:paintbrush] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe DrumKit
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+      time = 100,
+      category = Furniture,
+        SkillRequired = Woodwork:2;MetalWelding:1,
+        xpAward = Woodwork:10;MetalWelding:10,
+        inputs
+        {
+            item 2 [Base.Plank] flags[RecordInput],
+            item 1 [Base.SmallSheetMetal] flags[RecordInput],
+            item 2 [Base.Wire] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+            item 1 [Base.BlowTorch] flags[DontRecordInput],
+            item 1 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe StandingMicrophone
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+      time = 80,
+      category = Electricity,
+        SkillRequired = Electricity:1;MetalWelding:1,
+        xpAward = Electricity:10;MetalWelding:10,
+        inputs
+        {
+            item 1 [Base.Microphone] flags[RecordInput],
+            item 1 [Base.MetalPipe] flags[RecordInput],
+            item 1 [Base.ElectricWire] flags[RecordInput],
+            item 1 [Base.BlowTorch] flags[DontRecordInput],
+            item 1 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe FabricCanopy
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+      time = 100,
+      category = Furniture,
+        SkillRequired = Woodwork:2;Tailoring:1,
+        xpAward = Woodwork:10;Tailoring:8,
+        inputs
+        {
+            item 2 [Base.Plank] flags[RecordInput],
+            item 2 [Base.Sheet] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+            item 1 tags[base:sewingneedle] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe LaboratoryMicroscope
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 120,
+        category = Electricity,
+        SkillRequired = Electricity:2;MetalWelding:1,
+        xpAward = Electricity:15;MetalWelding:10,
+        inputs
+        {
+            item 2 [Base.SmallSheetMetal] flags[RecordInput],
+            item 1 [Base.GlassPanel] flags[RecordInput],
+            item 2 [Base.ElectronicsScrap] flags[RecordInput],
+            item 2 [Base.Screws] flags[RecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe RaisedPlanter
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 120,
+        category = Farming,
+        SkillRequired = Woodwork:2;Farming:1,
+        xpAward = Woodwork:12;Farming:8,
+        inputs
+        {
+            item 6 [Base.Plank] flags[RecordInput],
+            item 8 [Base.Nails] flags[RecordInput],
+            item 1 [Base.Dirtbag] flags[DontRecordInput],
+            item 1 tags[base:isseed] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+            item 1 tags[base:digplow] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe EmptyRaisedPlanter
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Farming,
+        SkillRequired = Woodwork:2;Farming:1,
+        xpAward = Woodwork:10;Farming:6,
+        inputs
+        {
+            item 6 [Base.Plank] flags[RecordInput],
+            item 8 [Base.Nails] flags[RecordInput],
+            item 1 [Base.Dirtbag] flags[DontRecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+            item 1 tags[base:digplow] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe PlasticFlowerArrangement
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 40,
+        category = Furniture,
+        inputs
+        {
+            item 2 [Base.PlasticTray] flags[RecordInput],
+            item 1 [Base.EmptyJar] flags[RecordInput],
+            item 1 tags[base:scissors] mode:keep flags[IsNotDull;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe Curtain
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 80,
+        category = Furniture,
+        SkillRequired = Tailoring:1,
+        xpAward = Tailoring:10,
+        inputs
+        {
+            item 2 [Base.Sheet] flags[RecordInput],
+            item 1 tags[base:thread] flags[RecordInput],
+            item 1 tags[base:scissors] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+            item 1 tags[base:sewingneedle] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe Rug
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Furniture,
+        SkillRequired = Tailoring:2,
+        xpAward = Tailoring:15,
+        inputs
+        {
+            item 3 [Base.Sheet] flags[RecordInput],
+            item 2 tags[base:thread] flags[RecordInput],
+            item 1 tags[base:scissors] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+            item 1 tags[base:sewingneedle] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe MannequinPlastic
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Furniture,
+        SkillRequired = Masonry:1;MetalWelding:1,
+        xpAward = Masonry:5;MetalWelding:10,
+        inputs
+        {
+            item 4 [Base.PlasticTray] flags[RecordInput],
+            item 2 [Base.MetalBar] flags[RecordInput],
+            item 2 [Base.Stone2] flags[RecordInput],
+            item 4 [Base.Screws] flags[RecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe DesktopComputer
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Electricity,
+        SkillRequired = Electricity:2,
+        xpAward = Electricity:12,
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal] flags[RecordInput],
+            item 2 [Base.AluminumScrap] flags[RecordInput],
+            item 2 [Base.PlasticTray] flags[RecordInput],
+            item 3 [Base.ElectronicsScrap] flags[RecordInput],
+            item 1 [Base.ElectricWire] flags[RecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe RestaurantTableMetalPlastic
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 120,
+        category = Furniture,
+        SkillRequired = MetalWelding:2,
+        xpAward = MetalWelding:15,
+        inputs
+        {
+            item 2 [Base.MetalPipe] flags[RecordInput],
+            item 6 [Base.PlasticTray] flags[RecordInput],
+            item 4 [Base.Screws] flags[RecordInput],
+            item 2 [Base.BlowTorch] flags[DontRecordInput],
+            item 2 [Base.WeldingRods] flags[DontRecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe RestaurantBenchUpholstered
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 150,
+        category = Furniture,
+        SkillRequired = Woodwork:3;Tailoring:2,
+        xpAward = Woodwork:20;Tailoring:15,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 2 [Base.Sheet;Base.Tarp] flags[RecordInput],
+            item 2 [Base.RippedSheets;Base.LeatherStrips] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe PieDisplayStand
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Furniture,
+        SkillRequired = Woodwork:3,
+        xpAward = Woodwork:20,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe RestaurantWoodGlassDisplay
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 190,
+        category = Furniture,
+        SkillRequired = Woodwork:4;MetalWelding:1,
+        xpAward = Woodwork:30;MetalWelding:8,
+        inputs
+        {
+            item 6 [Base.Plank] flags[RecordInput],
+            item 6 [Base.Nails] flags[RecordInput],
+            item 3 [Base.GlassPanel] flags[RecordInput],
+            item 2 [Base.MetalPipe] flags[RecordInput],
+            item 3 [Base.Screws] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+            item 1 [Base.BlowTorch] flags[DontRecordInput],
+            item 1 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe WaitingChairsMetal
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 150,
+        category = Furniture,
+        SkillRequired = MetalWelding:2;Tailoring:1,
+        xpAward = MetalWelding:15;Tailoring:8,
+        inputs
+        {
+            item 3 [Base.MetalPipe] flags[RecordInput],
+            item 2 [Base.Sheet;Base.Tarp] flags[RecordInput],
+            item 4 [Base.Screws] flags[RecordInput],
+            item 2 [Base.BlowTorch] flags[DontRecordInput],
+            item 2 [Base.WeldingRods] flags[DontRecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe LargeWoodTable
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 200,
+        category = Furniture,
+        SkillRequired = Woodwork:4,
+        xpAward = Woodwork:45,
+        inputs
+        {
+            item 10 [Base.Plank] flags[RecordInput],
+            item 12 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe PicnicTableMetalBraced
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 220,
+        category = Furniture,
+        SkillRequired = Woodwork:4;MetalWelding:2,
+        xpAward = Woodwork:45;MetalWelding:15,
+        inputs
+        {
+            item 10 [Base.Plank] flags[RecordInput],
+            item 2 [Base.MetalBar] flags[RecordInput],
+            item 12 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe OfficeDeskWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Furniture,
+        SkillRequired = Woodwork:4,
+        xpAward = Woodwork:40,
+        inputs
+        {
+            item 8 [Base.Plank] flags[RecordInput],
+            item 8 [Base.Nails] flags[RecordInput],
+            item 2 [Base.Drawer] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe LargeOfficeDeskWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 300,
+        category = Furniture,
+        SkillRequired = Woodwork:5,
+        xpAward = Woodwork:70,
+        inputs
+        {
+            item 16 [Base.Plank] flags[RecordInput],
+            item 16 [Base.Nails] flags[RecordInput],
+            item 4 [Base.Drawer] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe DumpsterMetal
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 240,
+        category = Welding,
+        SkillRequired = MetalWelding:3,
+        xpAward = MetalWelding:35,
+        inputs
+        {
+            item 4 [Base.SheetMetal] flags[RecordInput],
+            item 4 [Base.MetalPipe] flags[RecordInput],
+            item 4 [Base.BlowTorch] flags[DontRecordInput],
+            item 4 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe CommercialMagazineShelf
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 130,
+        category = Furniture,
+        SkillRequired = Woodwork:2;MetalWelding:1,
+        xpAward = Woodwork:15;MetalWelding:10,
+        inputs
+        {
+            item 2 [Base.Plank] flags[RecordInput],
+            item 2 [Base.PlasticTray] flags[RecordInput],
+            item 2 [Base.MetalPipe] flags[RecordInput],
+            item 4 [Base.Screws] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe GalleryPaintingWide
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Furniture,
+        SkillRequired = Woodwork:2;Tailoring:1,
+        xpAward = Woodwork:12;Tailoring:8,
+        inputs
+        {
+            item 2 [Base.Plank] flags[RecordInput],
+            item 2 [Base.Sheet] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe GalleryPaintingPanoramic
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 140,
+        category = Furniture,
+        SkillRequired = Woodwork:2;Tailoring:1,
+        xpAward = Woodwork:18;Tailoring:12,
+        inputs
+        {
+            item 3 [Base.Plank] flags[RecordInput],
+            item 3 [Base.Sheet] flags[RecordInput],
+            item 6 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe GrandPianoWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 360,
+        category = Furniture,
+        SkillRequired = Woodwork:5,
+        xpAward = Woodwork:80,
+        inputs
+        {
+            item 16 [Base.Plank] flags[RecordInput],
+            item 16 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe SportsMachine
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Electricity,
+        SkillRequired = Electricity:2;MetalWelding:1,
+        xpAward = Electricity:18;MetalWelding:10,
+        inputs
+        {
+            item 2 [Base.PlasticTray] flags[RecordInput],
+            item 2 [Base.ElectronicsScrap] flags[RecordInput],
+            item 2 [Base.ScrapMetal] flags[RecordInput],
+            item 4 [Base.Screws] flags[RecordInput],
+            item 1 [Base.ElectricWire] flags[RecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+            item 1 [Base.BlowTorch] flags[DontRecordInput],
+            item 1 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe SportsMetalFixture
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 90,
+        category = Welding,
+        SkillRequired = MetalWelding:1,
+        xpAward = MetalWelding:10,
+        inputs
+        {
+            item 2 [Base.SmallSheetMetal] flags[RecordInput],
+            item 1 [Base.MetalPipe] flags[RecordInput],
+            item 2 [Base.ScrapMetal] flags[RecordInput],
+            item 1 [Base.BlowTorch] flags[DontRecordInput],
+            item 1 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe MedicalPatientChairWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 140,
+        category = Furniture,
+        SkillRequired = Woodwork:3;Tailoring:2,
+        xpAward = Woodwork:20;Tailoring:12,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 2 [Base.RippedSheets;Base.LeatherStrips] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe MedicalPatientChairMetal
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 140,
+        category = Welding,
+        SkillRequired = MetalWelding:2,
+        xpAward = MetalWelding:18,
+        inputs
+        {
+            item 2 [Base.SmallSheetMetal] flags[RecordInput],
+            item 2 [Base.MetalPipe] flags[RecordInput],
+            item 2 [Base.Screws] flags[RecordInput],
+            item 2 [Base.BlowTorch] flags[DontRecordInput],
+            item 2 [Base.WeldingRods] flags[DontRecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe MedicalMorgueTable
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 150,
+        category = Welding,
+        SkillRequired = MetalWelding:2,
+        xpAward = MetalWelding:20,
+        inputs
+        {
+            item 2 [Base.SmallSheetMetal] flags[RecordInput],
+            item 2 [Base.MetalPipe] flags[RecordInput],
+            item 2 [Base.ScrapMetal] flags[RecordInput],
+            item 2 [Base.BlowTorch] flags[DontRecordInput],
+            item 2 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe PianoStoolWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 60,
+        category = Furniture,
+        SkillRequired = Woodwork:2,
+        xpAward = Woodwork:10,
+        inputs
+        {
+            item 2 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe ChairPlastic
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 70,
+        category = Furniture,
+        inputs
+        {
+            item 3 [Base.PlasticTray] flags[RecordInput],
+            item 4 [Base.Screws] flags[RecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe PoolTableWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 240,
+        category = Furniture,
+        SkillRequired = Woodwork:4;Tailoring:2,
+        xpAward = Woodwork:50;Tailoring:20,
+        inputs
+        {
+            item 8 [Base.Plank] flags[RecordInput],
+            item 8 [Base.Nails] flags[RecordInput],
+            item 2 [Base.Sheet;Base.Tarp] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe BarrierPostWoodMetal
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Carpentry,
+        SkillRequired = Woodwork:3,
+        xpAward = Woodwork:25,
+        inputs
+        {
+            item 6 [Base.Plank] flags[RecordInput],
+            item 2 [Base.MetalBar] flags[RecordInput],
+            item 8 [Base.Screws] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+}
