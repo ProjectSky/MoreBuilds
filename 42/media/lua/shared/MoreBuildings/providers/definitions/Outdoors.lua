@@ -947,6 +947,62 @@ local definitions = {
     },
     ["salvagePolicy"] = "recipe-inputs",
   },
+  {
+    ["id"] = "morebuilds:military:barrel_light_green",
+    ["sortKey"] = 13680,
+    ["categoryId"] = "outdoors:furnishings",
+    ["nameKey"] = "ContextMenu_MoreBuild_Name_military_barrel_light_green",
+    ["descriptionKey"] = "Tooltip_MoreBuild_BarrelMetal",
+    ["recipeId"] = "MoreBuilds.BarrelMetal",
+    ["previewSprite"] = "location_military_generic_01_6",
+    ["placement"] = {
+      ["kind"] = "morebuilds:furniture",
+      ["data"] = {
+        ["health"] = 200,
+        ["northSprite"] = "location_military_generic_01_7",
+        ["sprite"] = "location_military_generic_01_6",
+      },
+    },
+    ["salvagePolicy"] = "recipe-inputs",
+  },
+  {
+    ["id"] = "morebuilds:military:barrel_dark_green",
+    ["sortKey"] = 13690,
+    ["categoryId"] = "outdoors:furnishings",
+    ["nameKey"] = "ContextMenu_MoreBuild_Name_military_barrel_dark_green",
+    ["descriptionKey"] = "Tooltip_MoreBuild_BarrelMetal",
+    ["recipeId"] = "MoreBuilds.BarrelMetal",
+    ["previewSprite"] = "location_military_generic_01_14",
+    ["placement"] = {
+      ["kind"] = "morebuilds:furniture",
+      ["data"] = {
+        ["health"] = 200,
+        ["northSprite"] = "location_military_generic_01_15",
+        ["sprite"] = "location_military_generic_01_14",
+      },
+    },
+    ["salvagePolicy"] = "recipe-inputs",
+  },
+  {
+    ["id"] = "morebuilds:military:training_target",
+    ["sortKey"] = 13700,
+    ["categoryId"] = "outdoors:furnishings",
+    ["nameKey"] = "ContextMenu_MoreBuild_Name_military_training_target",
+    ["descriptionKey"] = "Tooltip_MoreBuild_TrainingTarget",
+    ["recipeId"] = "MoreBuilds.SportsMetalFixture",
+    ["previewSprite"] = "location_military_generic_01_64",
+    ["placement"] = {
+      ["kind"] = "morebuilds:furniture",
+      ["data"] = {
+        ["eastSprite"] = "location_military_generic_01_67",
+        ["health"] = 150,
+        ["northSprite"] = "location_military_generic_01_65",
+        ["southSprite"] = "location_military_generic_01_66",
+        ["sprite"] = "location_military_generic_01_64",
+      },
+    },
+    ["salvagePolicy"] = "recipe-inputs",
+  },
 }
 
 for _, definition in ipairs(definitions) do

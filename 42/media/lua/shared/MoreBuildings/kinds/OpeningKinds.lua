@@ -42,10 +42,10 @@ local function createWindowKind(id, requiresWall)
     return Support.isWindowValid(cursor, square)
   end
   return KindFactory.create({
-    dataFields = { 'sprite', 'northSprite', 'corner' },
+    dataFields = Support.joinFields(Support.ROTATION_FIELDS, { 'corner' }),
     id = id,
     requiredFields = { 'sprite' },
-    spriteFields = { 'sprite', 'northSprite' },
+    spriteFields = Support.ROTATION_FIELDS,
     cursorSettings = { isWallLike = requiresWall },
     isValid = valid,
     create = function(plan, context)

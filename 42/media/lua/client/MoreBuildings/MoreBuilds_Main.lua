@@ -1,17 +1,21 @@
 local Bootstrap = require('MoreBuildings/Bootstrap')
+local MoreBuilds = require('MoreBuildings/API')
 local ConstructionClient = require('MoreBuildings/ConstructionClient')
+local ConstructionService = require('MoreBuildings/internal/ConstructionService')
 local RegistryClient = require('MoreBuildings/RegistryClient')
 local UI = require('MoreBuildings/MoreBuilds_UI')
 
 require('MoreBuildings/SalvageClient')
 
 require 'keyBinding'
+require 'ISUI/ISInventoryPaneContextMenu'
 
 local KEYBIND_CATEGORY = '[MoreBuilds]'
 local KEYBIND_OPEN_UI = 'MoreBuilds_OpenBuildUI'
 
 local MoreBuild = {}
 local BuildObjectClass
+local BuildEntityClass
 
 function MoreBuild.startBuild(definitionId, playerIndex)
   local player = getSpecificPlayer(playerIndex)
@@ -23,10 +27,24 @@ function MoreBuild.startBuild(definitionId, playerIndex)
     return false
   end
 
-  if BuildObjectClass == nil then
-    BuildObjectClass = require('BuildingObjects/ISMoreBuildObject')
+  local definition = MoreBuilds.getDefinition(definitionId)
+  if definition == nil then
+    return false
   end
-  local cursor = BuildObjectClass:new(player, definitionId, 1)
+  local cursor
+  if definition.placement.kind == 'morebuilds:entity' then
+    if BuildEntityClass == nil then
+      BuildEntityClass = require('BuildingObjects/ISMoreBuildEntity')
+    end
+    local containers = ISInventoryPaneContextMenu.getContainers(player)
+    local logic = ConstructionService.createLogicWithContainers(player, definitionId, containers)
+    cursor = BuildEntityClass:new(player, definitionId, 1, containers, logic)
+  else
+    if BuildObjectClass == nil then
+      BuildObjectClass = require('BuildingObjects/ISMoreBuildObject')
+    end
+    cursor = BuildObjectClass:new(player, definitionId, 1)
+  end
   cursor.player = playerIndex
   if not ConstructionClient.canPerform(cursor.buildPanelLogic, player) then
     return false
@@ -36,7 +54,6 @@ function MoreBuild.startBuild(definitionId, playerIndex)
 end
 
 function MoreBuild.openBuildWindow(playerIndex)
-  Bootstrap.ensureSealed()
   RegistryClient.request(getSpecificPlayer(playerIndex))
   return UI.open(playerIndex, MoreBuild.startBuild)
 end

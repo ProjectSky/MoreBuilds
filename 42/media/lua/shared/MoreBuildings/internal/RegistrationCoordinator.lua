@@ -2,6 +2,7 @@ local CatalogService = require('MoreBuildings/internal/CatalogService')
 local CatalogRegistry = require('MoreBuildings/internal/CatalogRegistry')
 local DefinitionRegistry = require('MoreBuildings/internal/DefinitionRegistry')
 local DefinitionValidator = require('MoreBuildings/internal/DefinitionValidator')
+local EntityScriptRegistry = require('MoreBuildings/internal/EntityScriptRegistry')
 local PlacementKindRegistry = require('MoreBuildings/internal/PlacementKindRegistry')
 local TableUtil = require('MoreBuildings/internal/TableUtil')
 
@@ -13,6 +14,8 @@ local RegistrationCoordinator = {
   catalog = nil,
   disabledDefinitionIds = {},
   digest = nil,
+  entityScripts = {},
+  failure = nil,
   manifest = nil,
   runtimeValidated = false,
 }
@@ -36,6 +39,10 @@ local function compareCanonicalKeys(first, second)
     return firstType < secondType
   end
   return first < second
+end
+
+local function failEarlier()
+  error('MoreBuilds registry failed earlier:\n' .. tostring(RegistrationCoordinator.failure or '<unknown failure>'))
 end
 
 local function assertArray(entries, path)
@@ -110,6 +117,14 @@ local function validateRuntimeDefinitions()
       errors[#errors + 1] = definition.id .. ': ' .. tostring(message)
     end
   end
+  for _, entityScript in pairs(RegistrationCoordinator.entityScripts) do
+    local ok, message = pcall(function()
+      EntityScriptRegistry.get(entityScript.scriptName)
+    end)
+    if not ok then
+      errors[#errors + 1] = entityScript.scriptName .. ': ' .. tostring(message)
+    end
+  end
   if #errors > 0 then
     error('MoreBuilds runtime validation failed for ' .. tostring(#errors) .. ' definition(s):\n' .. table.concat(errors, '\n'))
   end
@@ -177,6 +192,10 @@ local function calculateDigest()
       output[#output + 1] = 'kind:'
       canonicalValue(placementKindManifestValue(kind), output)
     end
+    for _, entityScript in ipairs(sortedEntries(provider.entityScripts)) do
+      output[#output + 1] = 'entity-script:'
+      canonicalValue(entityScript, output)
+    end
   end
   for _, group in ipairs(CatalogRegistry.listGroupsInternal()) do
     output[#output + 1] = 'group:'
@@ -207,6 +226,7 @@ local function buildManifest()
     apiVersion = RegistrationCoordinator.API_VERSION,
     categories = {},
     definitions = {},
+    entityScripts = {},
     groups = {},
     placementKinds = {},
     providers = {},
@@ -216,6 +236,9 @@ local function buildManifest()
     manifest.providers[#manifest.providers + 1] = provider.id
     for _, kind in ipairs(sortedEntries(provider.placementKinds)) do
       manifest.placementKinds[kind.id] = digestValue('placement-kind:', placementKindManifestValue(kind))
+    end
+    for _, entityScript in ipairs(sortedEntries(provider.entityScripts)) do
+      manifest.entityScripts[entityScript.scriptName] = digestValue('entity-script:', entityScript)
     end
   end
   for _, group in ipairs(CatalogRegistry.listGroupsInternal()) do
@@ -237,6 +260,7 @@ local function releaseProviderPayloads()
     provider.groups = nil
     provider.categories = nil
     provider.definitions = nil
+    provider.entityScripts = nil
     provider.placementKinds = nil
   end
 end
@@ -259,6 +283,11 @@ local function completeSeal()
   )
   RegistrationCoordinator.digest = calculateDigest()
   RegistrationCoordinator.manifest = buildManifest()
+  for _, provider in ipairs(sortedProviders()) do
+    for _, entityScript in ipairs(provider.entityScripts) do
+      RegistrationCoordinator.entityScripts[entityScript.scriptName] = TableUtil.copy(entityScript)
+    end
+  end
   releaseProviderPayloads()
   RegistrationCoordinator.phase = 'sealed'
 end
@@ -280,7 +309,7 @@ function RegistrationCoordinator.validateProvider(provider)
   assert(RegistrationCoordinator.providers[provider.id] == nil, 'duplicate MoreBuilds provider: ' .. provider.id)
   assert(type(provider.source) == 'string' and provider.source ~= '', 'provider source is required: ' .. provider.id)
 
-  for _, field in ipairs({ 'groups', 'categories', 'definitions', 'placementKinds' }) do
+  for _, field in ipairs({ 'groups', 'categories', 'definitions', 'entityScripts', 'placementKinds' }) do
     assert(type(provider[field]) == 'table', 'provider ' .. field .. ' must be a table: ' .. provider.id)
     assertArray(provider[field], provider.id .. '.' .. field)
   end
@@ -289,11 +318,21 @@ function RegistrationCoordinator.validateProvider(provider)
   local categories = collectEntries('categories')
   local kinds = collectEntries('placementKinds')
   local definitions = collectEntries('definitions')
+  local entityScripts = collectEntries('entityScripts')
+
+  for id, kind in pairs(kinds) do
+    local fieldSet = {}
+    for _, field in ipairs(kind.dataFields) do
+      fieldSet[field] = true
+    end
+    kinds[id] = { dataFields = fieldSet, getRecipe = kind.getRecipe }
+  end
 
   local providerGroups = assertUnique(provider.groups, provider.id .. '.groups')
   local providerCategories = assertUnique(provider.categories, provider.id .. '.categories')
   local providerKinds = assertUnique(provider.placementKinds, provider.id .. '.placementKinds')
   local providerDefinitions = assertUnique(provider.definitions, provider.id .. '.definitions')
+  local providerEntityScripts = assertUnique(provider.entityScripts, provider.id .. '.entityScripts')
 
   for id, group in pairs(providerGroups) do
     assert(groups[id] == nil, 'duplicate MoreBuilds group: ' .. id)
@@ -307,7 +346,13 @@ function RegistrationCoordinator.validateProvider(provider)
     for _, field in ipairs(kind.dataFields) do
       fieldSet[field] = true
     end
-    kinds[id] = { dataFields = fieldSet }
+    kinds[id] = { dataFields = fieldSet, getRecipe = kind.getRecipe }
+  end
+  for id, entityScript in pairs(providerEntityScripts) do
+    assert(entityScripts[id] == nil, 'duplicate MoreBuilds entity script: ' .. id)
+    assert(type(entityScript.scriptName) == 'string' and entityScript.scriptName ~= '',
+      'invalid entity script name: ' .. provider.id .. '.entityScripts.' .. id)
+    entityScripts[id] = entityScript
   end
   for id, category in pairs(providerCategories) do
     assert(categories[id] == nil, 'duplicate MoreBuilds category: ' .. id)
@@ -369,7 +414,11 @@ function RegistrationCoordinator.seal()
   if RegistrationCoordinator.phase == 'sealed' then
     return true
   end
-  assert(RegistrationCoordinator.phase == 'registration', 'MoreBuilds registration phase is already sealed')
+  if RegistrationCoordinator.phase == 'failed' then
+    failEarlier()
+  end
+  assert(RegistrationCoordinator.phase == 'registration',
+    'MoreBuilds registry sealing was reentered while registration is being sealed')
   RegistrationCoordinator.phase = 'sealing'
 
   local ok, message = pcall(function()
@@ -415,12 +464,19 @@ function RegistrationCoordinator.seal()
   end)
   if not ok then
     RegistrationCoordinator.phase = 'failed'
-    error(message)
+    RegistrationCoordinator.failure = 'MoreBuilds registry sealing failed:\n' .. tostring(message)
+    error(RegistrationCoordinator.failure)
   end
   return true
 end
 
 local function assertSealed()
+  if RegistrationCoordinator.phase == 'failed' then
+    failEarlier()
+  end
+  if RegistrationCoordinator.phase == 'sealing' then
+    error('MoreBuilds registry is currently sealing')
+  end
   assert(RegistrationCoordinator.phase == 'sealed', 'MoreBuilds registry is not sealed')
 end
 
@@ -432,7 +488,8 @@ function RegistrationCoordinator.validateRuntime()
   local ok, message = pcall(validateRuntimeDefinitions)
   if not ok then
     RegistrationCoordinator.phase = 'failed'
-    error(message)
+    RegistrationCoordinator.failure = 'MoreBuilds runtime validation failed:\n' .. tostring(message)
+    error(RegistrationCoordinator.failure)
   end
   RegistrationCoordinator.runtimeValidated = true
   return true
@@ -524,6 +581,16 @@ end
 function RegistrationCoordinator.getInternalManifest()
   assertSealed()
   return RegistrationCoordinator.manifest
+end
+
+function RegistrationCoordinator.listEntityScripts()
+  assertSealed()
+  local entries = {}
+  for _, entityScript in pairs(RegistrationCoordinator.entityScripts) do
+    entries[#entries + 1] = TableUtil.copy(entityScript)
+  end
+  TableUtil.stableMergeSort(entries, compareById)
+  return entries
 end
 
 return RegistrationCoordinator

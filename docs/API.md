@@ -156,8 +156,33 @@ local returned = registry:definition({
 ```
 
 Required fields: `id`, `categoryId`, `sortKey`, `nameKey`, `descriptionKey`,
-`recipeId`, `previewSprite`, `placement`, and `salvagePolicy`. `salvagePolicy`
-is `recipe-inputs` or `none`.
+`previewSprite`, `placement`, and `salvagePolicy`. `recipeId` is required for
+ordinary placement kinds and forbidden for a placement kind that supplies its
+own native recipe. `salvagePolicy` is `recipe-inputs` or `none`.
+
+### `registry:buildableEntity(spec)`
+
+Adds a native entity script to the MoreBuilds catalog. It accepts `id`,
+`categoryId`, `sortKey`, and `entityScript`. MoreBuilds derives the placement
+kind from `entityScript`; `nameKey`, `descriptionKey`, `previewSprite`,
+`recipeId`, and `salvagePolicy` are not accepted. The entity script is added
+to the registry digest and runtime validation automatically.
+
+```lua
+local returned = registry:buildableEntity({
+  id = 'examplebuilds:display_case',
+  categoryId = 'examplebuilds:furniture',
+  sortKey = 110,
+  entityScript = 'ExampleBuilds.DisplayCase',
+})
+-- returned == registry
+```
+
+The script must supply both `SpriteConfig` and a resolved `CraftRecipe`. The
+catalog uses the native translated name, tooltip, and icon, including overrides
+from the entity `UiConfig`.
+Creation, material consumption, tools, skills, callbacks, object state, and
+native dismantling are owned by the game's `ISBuildIsoEntity` path.
 
 ### `registry:placementKind(spec)`
 
@@ -225,6 +250,30 @@ local category = MoreBuilds.getCategory('morebuilds:chairs')
 local definition = MoreBuilds.getDefinition('morebuilds:bed:light_wood')
 -- { id = 'morebuilds:bed:light_wood', categoryId = '...', recipeId = '...', placement = { kind = '...', data = { ... } }, ... }
 -- nil when the definition does not exist or has been disabled
+```
+
+### `MoreBuilds.getEntityDescriptor(scriptName)`
+
+Returns a copy of the script's resolved native capabilities after scripts are
+loaded. It throws the game's normal script-resolution error for an unknown
+script name.
+
+```lua
+local descriptor = MoreBuilds.getEntityDescriptor('ExampleBuilds.DisplayCase')
+-- {
+--   scriptName = 'ExampleBuilds.DisplayCase',
+--   componentNames = { 'CraftRecipe', 'SpriteConfig', 'UiConfig' },
+--   hasSpriteConfig = true,
+--   hasCraftRecipe = true,
+--   isBuildable = true,
+-- }
+```
+
+### `MoreBuilds.listEntityScripts()`
+
+```lua
+local scripts = MoreBuilds.listEntityScripts()
+-- { { id = 'ExampleBuilds.DisplayCase', scriptName = 'ExampleBuilds.DisplayCase' }, ... }
 ```
 
 ### `MoreBuilds.listGroups()`
@@ -309,6 +358,17 @@ tables below, `kinds` means `MoreBuilds.kinds`.
 | `kinds.furniture({ sprite = S, health = H })` | `sprite`, `health` | rotation sprites, `healthFromCarpentry`, `blockAllTheSquare`, `canPassThrough`, `isThumpable`, `needToBeAgainstWall`, `canBeAlwaysPlaced` | `morebuilds:furniture` |
 | `kinds.container({ sprite = S, health = H, containerType = 'crate' })` | `sprite`, `health`, `containerType` | furniture fields, `containerCapacity`, `canBeLockedByPadlock`, `placeBeforeCountertop` | `morebuilds:container` |
 | `kinds.tableDecoration({ sprite = S, health = H })` | `sprite`, `health` | rotation sprites, `healthFromCarpentry`, `containerType`, `containerCapacity`, `canBeLockedByPadlock` | `morebuilds:table-decoration` |
+
+### Scripted Entities
+
+`registry:buildableEntity()` requires an entity script that provides `SpriteConfig` and a
+resolved `CraftRecipe`. MoreBuilds instantiates the native `ISBuildIsoEntity`
+cursor rather than copying its rules, so rotations, multi-square/layer
+footprints, previews, `OnIsValid`, frame/wall/stage constraints, `BuildLogic`,
+manual inputs, tools, skills, item consumption, callbacks, component
+instancing, XUI, context menus, persistence, and synchronization use the game
+implementation directly. Entity definition data cannot override script health,
+collision, movement, or component behavior.
 
 ### Doors And Windows
 

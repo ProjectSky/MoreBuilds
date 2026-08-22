@@ -16,9 +16,11 @@ local REQUIRED_HANDLERS = {
 }
 
 local OPTIONAL_HANDLERS = {
+  getRecipe = true,
   isPreviewTileValid = true,
   onCreated = true,
   onDestroyed = true,
+  timedActionOnIsValid = true,
 }
 
 local SALVAGE_FIELDS = {
@@ -30,6 +32,7 @@ local KIND_FIELDS = {
   create = true,
   dataFields = true,
   footprint = true,
+  getRecipe = true,
   id = true,
   isValid = true,
   isPreviewTileValid = true,
@@ -38,6 +41,7 @@ local KIND_FIELDS = {
   onDestroyed = true,
   prepare = true,
   salvage = true,
+  timedActionOnIsValid = true,
   validate = true,
 }
 

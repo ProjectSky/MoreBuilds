@@ -1013,6 +1013,26 @@ local definitions = {
     ["salvagePolicy"] = "recipe-inputs",
   },
   {
+    ["id"] = "morebuilds:furniture:electric_chair",
+    ["sortKey"] = 8260,
+    ["categoryId"] = "furniture:seating",
+    ["nameKey"] = "ContextMenu_MoreBuild_Name_furniture_electric_chair",
+    ["descriptionKey"] = "Tooltip_MoreBuild_ElectricChair",
+    ["recipeId"] = "MoreBuilds.ElectricChair",
+    ["previewSprite"] = "location_community_police_01_44",
+    ["placement"] = {
+      ["kind"] = "morebuilds:furniture",
+      ["data"] = {
+        ["health"] = 225,
+        ["northSprite"] = "location_community_police_01_46",
+        ["eastSprite"] = "location_community_police_01_47",
+        ["southSprite"] = "location_community_police_01_45",
+        ["sprite"] = "location_community_police_01_44",
+      },
+    },
+    ["salvagePolicy"] = "recipe-inputs",
+  },
+  {
     ["id"] = "morebuilds:furniture:piano_stool",
     ["sortKey"] = 8270,
     ["categoryId"] = "furniture:seating",

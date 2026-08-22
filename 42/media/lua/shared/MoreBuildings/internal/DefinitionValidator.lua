@@ -12,6 +12,13 @@ local DEFINITION_FIELDS = {
   sortKey = true,
 }
 
+local ENTITY_DEFINITION_FIELDS = {
+  categoryId = true,
+  id = true,
+  placement = true,
+  sortKey = true,
+}
+
 local PLACEMENT_FIELDS = {
   data = true,
   kind = true,
@@ -34,6 +41,7 @@ local BOOLEAN_DATA_FIELDS = {
 
 local STRING_DATA_FIELDS = {
   containerType = true,
+  entityScript = true,
   generatorItem = true,
   mannequinScript = true,
   northMannequinScript = true,
@@ -134,17 +142,20 @@ local function validateStaticValue(value, path)
 end
 
 function DefinitionValidator.validateDefinition(definition, providerId, placementKindRegistry, catalogRegistry)
-  assertFields(definition, DEFINITION_FIELDS, providerId .. '.definition')
+  local isEntity = type(definition.placement) == 'table'
+    and definition.placement.kind == 'morebuilds:entity'
+  assertFields(definition, isEntity and ENTITY_DEFINITION_FIELDS or DEFINITION_FIELDS, providerId .. '.definition')
   assertString(definition.id, providerId .. '.definition.id')
   assert(definition.id:sub(1, #providerId + 1) == providerId .. ':', 'definition id must belong to provider: ' .. definition.id)
   assertInteger(definition.sortKey, definition.id .. '.sortKey')
   assertString(definition.categoryId, definition.id .. '.categoryId')
   assert(catalogRegistry.getCategoryInternal(definition.categoryId) ~= nil, 'unknown category: ' .. definition.id .. '.categoryId=' .. definition.categoryId)
 
-  assertString(definition.nameKey, definition.id .. '.nameKey')
-  assertString(definition.descriptionKey, definition.id .. '.descriptionKey')
-  assertString(definition.recipeId, definition.id .. '.recipeId')
-  assertString(definition.previewSprite, definition.id .. '.previewSprite')
+  if not isEntity then
+    assertString(definition.nameKey, definition.id .. '.nameKey')
+    assertString(definition.descriptionKey, definition.id .. '.descriptionKey')
+    assertString(definition.previewSprite, definition.id .. '.previewSprite')
+  end
 
   local placement = definition.placement
   assertFields(placement, PLACEMENT_FIELDS, definition.id .. '.placement')
@@ -152,25 +163,38 @@ function DefinitionValidator.validateDefinition(definition, providerId, placemen
   assert(type(placement.data) == 'table', 'expected table: ' .. definition.id .. '.placement.data')
   local kind = placementKindRegistry.getInternal(placement.kind)
   assert(kind ~= nil, 'unknown placement kind: ' .. definition.id .. '.placement.kind=' .. placement.kind)
+  if kind.getRecipe == nil then
+    assertString(definition.recipeId, definition.id .. '.recipeId')
+  else
+    assert(definition.recipeId == nil, 'recipeId is not allowed for native recipe placement: ' .. definition.id)
+  end
   for field, value in pairs(placement.data) do
     assert(kind.dataFields[field] == true, 'unsupported field: ' .. definition.id .. '.placement.data.' .. tostring(field))
     validatePlacementDataField(field, value, definition.id .. '.placement.data.' .. tostring(field))
   end
 
-  assert(definition.salvagePolicy == 'recipe-inputs' or definition.salvagePolicy == 'none', 'unsupported salvagePolicy: ' .. definition.id)
+  if not isEntity then
+    assert(definition.salvagePolicy == 'recipe-inputs' or definition.salvagePolicy == 'none', 'unsupported salvagePolicy: ' .. definition.id)
+  end
   validateStaticValue(definition, definition.id)
 end
 
 function DefinitionValidator.validateRuntime(definition, placementKindRegistry)
-  assert(getScriptManager():getCraftRecipe(definition.recipeId) ~= nil, 'missing CraftRecipe: ' .. definition.id .. '.recipeId=' .. definition.recipeId)
-  assert(getSprite(definition.previewSprite) ~= nil, 'missing preview sprite: ' .. definition.id .. '.previewSprite=' .. definition.previewSprite)
+  local kind = placementKindRegistry.getInternal(definition.placement.kind)
+  if kind.getRecipe then
+    assert(kind.getRecipe(definition) ~= nil, 'missing native CraftRecipe: ' .. definition.id)
+  else
+    assert(getScriptManager():getCraftRecipe(definition.recipeId) ~= nil, 'missing CraftRecipe: ' .. definition.id .. '.recipeId=' .. definition.recipeId)
+  end
+  if definition.placement.kind ~= 'morebuilds:entity' then
+    assert(getSprite(definition.previewSprite) ~= nil, 'missing preview sprite: ' .. definition.id .. '.previewSprite=' .. definition.previewSprite)
 
-  if not isServer() then
-    assert(getText(definition.nameKey) ~= definition.nameKey, 'missing name text: ' .. definition.id .. '.nameKey=' .. definition.nameKey)
-    assert(getText(definition.descriptionKey) ~= definition.descriptionKey, 'missing description text: ' .. definition.id .. '.descriptionKey=' .. definition.descriptionKey)
+    if not isServer() then
+      assert(getText(definition.nameKey) ~= definition.nameKey, 'missing name text: ' .. definition.id .. '.nameKey=' .. definition.nameKey)
+      assert(getText(definition.descriptionKey) ~= definition.descriptionKey, 'missing description text: ' .. definition.id .. '.descriptionKey=' .. definition.descriptionKey)
+    end
   end
 
-  local kind = placementKindRegistry.getInternal(definition.placement.kind)
   kind.validate(definition, { phase = 'runtime' })
 end
 

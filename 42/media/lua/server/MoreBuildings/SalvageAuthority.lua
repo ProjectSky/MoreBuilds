@@ -3,6 +3,7 @@ if isClient() then
 end
 
 local RegistrationCoordinator = require('MoreBuildings/internal/RegistrationCoordinator')
+local ConstructionService = require('MoreBuildings/internal/ConstructionService')
 
 local SalvageAuthority = {
   installed = false,
@@ -29,7 +30,7 @@ local function copyMaterials(materials)
 end
 
 local function fillRecipeMaterialFallback(materials, definition)
-  local recipe = getScriptManager():getCraftRecipe(definition.recipeId)
+  local recipe = ConstructionService.getRecipe(definition.id)
   for index = 0, recipe:getInputs():size() - 1 do
     local input = recipe:getInputs():get(index)
     if input:getResourceType() == ResourceType.Item and input:isRecordInput() and not input:isKeep() then
@@ -54,7 +55,7 @@ end
 
 local function getRecipeMaterialLimits(definition)
   local limits = {}
-  local recipe = getScriptManager():getCraftRecipe(definition.recipeId)
+  local recipe = ConstructionService.getRecipe(definition.id)
   for index = 0, recipe:getInputs():size() - 1 do
     local input = recipe:getInputs():get(index)
     if input:getResourceType() == ResourceType.Item and input:isRecordInput() and not input:isKeep() then
@@ -265,7 +266,7 @@ local function resolveGroupState(group)
 end
 
 local function getDismantleSkill(definition, player)
-  local recipe = getScriptManager():getCraftRecipe(definition.recipeId)
+  local recipe = ConstructionService.getRecipe(definition.id)
   local requiredSkill = recipe:getRequiredSkill(0)
   local skill = requiredSkill and requiredSkill:getPerk()
   if skill == nil then

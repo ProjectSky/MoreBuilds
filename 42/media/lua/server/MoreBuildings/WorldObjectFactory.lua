@@ -197,9 +197,14 @@ function WorldObjectFactory.createRug(cursor, square)
 end
 
 function WorldObjectFactory.createWindow(cursor, square)
-  local object = IsoWindow.new(getWorld():getCell(), square, getSprite(cursor:getSprite()), cursor.north)
-  local moveableProps = ISMoveableSpriteProps.new(getSprite(cursor:getSprite()))
-  local frame = moveableProps:getWallForFacing(square, cursor.north and 'S' or 'E', 'WindowFrame')
+  local sprite = getSprite(cursor:getSprite())
+  local moveableProps = ISMoveableSpriteProps.new(sprite)
+  local north = cursor.north
+  if moveableProps.facing ~= nil then
+    north = moveableProps.facing == 'N' or moveableProps.facing == 'S'
+  end
+  local object = IsoWindow.new(getWorld():getCell(), square, sprite, north)
+  local frame = moveableProps:getWallForFacing(square, north and 'S' or 'E', 'WindowFrame')
   local insertIndex = frame and frame:getObjectIndex() + 1 or -1
   square:AddSpecialObject(object, insertIndex)
   object:setIsLocked(false)

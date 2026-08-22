@@ -31,6 +31,7 @@ function KindFactory.create(spec)
 
   return {
     dataFields = spec.dataFields,
+    getRecipe = spec.getRecipe,
     id = spec.id,
     salvage = spec.salvage,
     validate = validate,
@@ -42,6 +43,7 @@ function KindFactory.create(spec)
     create = spec.create,
     onCreated = spec.onCreated,
     onDestroyed = spec.onDestroyed,
+    timedActionOnIsValid = spec.timedActionOnIsValid,
   }
 end
 

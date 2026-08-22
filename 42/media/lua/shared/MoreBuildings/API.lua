@@ -1,6 +1,7 @@
 local Coordinator = require('MoreBuildings/internal/RegistrationCoordinator')
 local TableUtil = require('MoreBuildings/internal/TableUtil')
 local PublicPlacementKinds = require('MoreBuildings/PublicPlacementKinds')
+local EntityScriptRegistry = require('MoreBuildings/internal/EntityScriptRegistry')
 
 local API = {
   API_VERSION = 1,
@@ -16,6 +17,13 @@ local DEFINITION_FIELDS = {
   previewSprite = true,
   recipeId = true,
   salvagePolicy = true,
+  sortKey = true,
+}
+
+local BUILDABLE_ENTITY_FIELDS = {
+  categoryId = true,
+  entityScript = true,
+  id = true,
   sortKey = true,
 }
 
@@ -88,7 +96,43 @@ function Transaction:category(category)
 end
 
 function Transaction:definition(definition)
+  if type(definition) == 'table' and type(definition.placement) == 'table'
+    and definition.placement.kind == 'morebuilds:entity' then
+    fail(self, 'invalid-value', self.provider.id .. '.definition',
+      'use buildableEntity for placement kind morebuilds:entity')
+  end
   return append(self, 'definitions', definition, DEFINITION_FIELDS)
+end
+
+function Transaction:buildableEntity(spec)
+  local path = self.provider.id .. '.buildableEntity'
+  assertFields(self, spec, BUILDABLE_ENTITY_FIELDS, path)
+  assertId(self, spec.id, path .. '.id')
+
+  local scriptName = spec.entityScript
+  assertId(self, scriptName, path .. '.entityScript')
+  if not self.ids.entityScripts[scriptName] then
+    if Coordinator.hasProviderEntry('entityScripts', scriptName) then
+      fail(self, 'duplicate-id', path .. '.entityScript', 'duplicate MoreBuilds entity script: ' .. scriptName)
+    end
+    self.ids.entityScripts[scriptName] = true
+    self.provider.entityScripts[#self.provider.entityScripts + 1] = { id = scriptName, scriptName = scriptName }
+  end
+
+  return append(self, 'definitions', {
+    categoryId = spec.categoryId,
+    id = spec.id,
+    placement = {
+      kind = 'morebuilds:entity',
+      data = { entityScript = scriptName },
+    },
+    sortKey = spec.sortKey,
+  }, {
+    categoryId = true,
+    id = true,
+    placement = true,
+    sortKey = true,
+  })
 end
 
 function Transaction:placementKind(kind)
@@ -97,6 +141,7 @@ function Transaction:placementKind(kind)
     create = true,
     dataFields = true,
     footprint = true,
+    getRecipe = true,
     id = true,
     isValid = true,
     isPreviewTileValid = true,
@@ -105,6 +150,7 @@ function Transaction:placementKind(kind)
     onDestroyed = true,
     prepare = true,
     salvage = true,
+    timedActionOnIsValid = true,
     validate = true,
   })
 end
@@ -114,12 +160,14 @@ local function createTransaction(providerId, source)
     ids = {
       categories = {},
       definitions = {},
+      entityScripts = {},
       groups = {},
       placementKinds = {},
     },
     provider = {
       categories = {},
       definitions = {},
+      entityScripts = {},
       groups = {},
       id = providerId,
       placementKinds = {},
@@ -224,6 +272,21 @@ end
 
 function API.getDefinition(definitionId)
   return Coordinator.getDefinition(definitionId)
+end
+
+function API.getEntityDescriptor(scriptName)
+  local descriptor = EntityScriptRegistry.get(scriptName)
+  return {
+    componentNames = TableUtil.copy(descriptor.componentNames),
+    hasCraftRecipe = descriptor.hasCraftRecipe,
+    hasSpriteConfig = descriptor.hasSpriteConfig,
+    isBuildable = descriptor.isBuildable,
+    scriptName = descriptor.scriptName,
+  }
+end
+
+function API.listEntityScripts()
+  return Coordinator.listEntityScripts()
 end
 
 function API.listGroups()

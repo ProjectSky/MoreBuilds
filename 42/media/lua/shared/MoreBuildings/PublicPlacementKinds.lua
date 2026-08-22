@@ -10,6 +10,7 @@ local KIND_IDS = {
   curtain = 'morebuilds:curtain',
   door = 'morebuilds:door',
   doorFrame = 'morebuilds:door-frame',
+  entity = 'morebuilds:entity',
   feedingTrough = 'morebuilds:feeding-trough',
   fence = 'morebuilds:fence',
   fencePost = 'morebuilds:fence-post',

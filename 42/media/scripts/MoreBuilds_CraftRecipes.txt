@@ -4239,6 +4239,24 @@ module MoreBuilds
         }
     }
 
+    craftRecipe ElectricChair
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 160,
+        category = Electricity,
+        SkillRequired = Woodwork:3;Electricity:2,
+        xpAward = Woodwork:20;Electricity:20,
+        inputs
+        {
+            item 4 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 2 [Base.ElectricWire] flags[RecordInput],
+            item 2 [Base.ElectronicsScrap] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
     craftRecipe MedicalMorgueTable
     {
         OnAddToMenu = ignoreFromBuildMenu,

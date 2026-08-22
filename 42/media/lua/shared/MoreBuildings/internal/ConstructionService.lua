@@ -17,11 +17,17 @@ end
 
 function ConstructionService.getRecipe(definitionId)
   local definition = getDefinition(definitionId)
-  local recipe = recipeCache[definition.recipeId]
+  local kind = getPlacementKind(definition)
+  local cacheKey = definition.id
+  local recipe = recipeCache[cacheKey]
   if recipe == nil then
-    recipe = getScriptManager():getCraftRecipe(definition.recipeId)
-    assert(recipe ~= nil, 'missing CraftRecipe: ' .. definition.id .. '.recipeId=' .. definition.recipeId)
-    recipeCache[definition.recipeId] = recipe
+    if kind.getRecipe then
+      recipe = kind.getRecipe(definition)
+    else
+      recipe = getScriptManager():getCraftRecipe(definition.recipeId)
+      assert(recipe ~= nil, 'missing CraftRecipe: ' .. definition.id .. '.recipeId=' .. definition.recipeId)
+    end
+    recipeCache[cacheKey] = recipe
   end
   return recipe
 end

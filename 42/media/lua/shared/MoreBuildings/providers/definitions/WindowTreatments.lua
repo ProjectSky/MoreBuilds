@@ -18,7 +18,7 @@ local function addCurtain(id, sortKey, nameKey, sprites, allowDoor)
     sortKey = sortKey + 140000,
     categoryId = 'decorations:wall-decor',
     nameKey = nameKey,
-    descriptionKey = 'Tooltip_MoreBuild_Curtain',
+    descriptionKey = allowDoor and 'Tooltip_MoreBuild_LongCurtain' or 'Tooltip_MoreBuild_Curtain',
     recipeId = 'MoreBuilds.Curtain',
     previewSprite = sprites.sprite,
     placement = {

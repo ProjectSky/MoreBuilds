@@ -27,6 +27,7 @@ local placementConstructors = {
   ['morebuilds:curtain'] = PublicPlacementKinds.curtain,
   ['morebuilds:door'] = PublicPlacementKinds.door,
   ['morebuilds:door-frame'] = PublicPlacementKinds.doorFrame,
+  ['morebuilds:entity'] = PublicPlacementKinds.entity,
   ['morebuilds:feeding-trough'] = PublicPlacementKinds.feedingTrough,
   ['morebuilds:fence'] = PublicPlacementKinds.fence,
   ['morebuilds:fence-post'] = PublicPlacementKinds.fencePost,
@@ -97,6 +98,12 @@ local function register(registry)
   for _, category in ipairs(CatalogData.categories) do
     registry:category(category)
   end
+  registry:buildableEntity({
+    id = 'morebuilds:entity:drying_rack_large',
+    categoryId = 'outdoors:garden',
+    sortKey = 150000,
+    entityScript = 'Base.DryingRackLarge',
+  })
   for _, definition in ipairs(definitions) do
     local registered = TableUtil.copy(definition)
     local constructor = placementConstructors[registered.placement.kind]

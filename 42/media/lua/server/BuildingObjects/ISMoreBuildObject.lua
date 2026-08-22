@@ -51,7 +51,12 @@ function ISMoreBuildObject:tryBuild(x, y, z)
   if not self:isValid(square) then
     return nil
   end
-  return ISBuildingObject.tryBuild(self, x, y, z)
+  local action = ISBuildingObject.tryBuild(self, x, y, z)
+  local kind = self.placementKind
+  if action and kind and kind.timedActionOnIsValid then
+    action.onIsValid = kind.timedActionOnIsValid(self.definition)
+  end
+  return action
 end
 
 function ISMoreBuildObject:new(character, definitionId, nSprite, mannequinPose)

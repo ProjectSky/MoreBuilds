@@ -4,6 +4,7 @@ local PopularBuildings = require('MoreBuildings/PopularBuildingsClient')
 local RegistryClient = require('MoreBuildings/RegistryClient')
 local MoreBuilds = require('MoreBuildings/API')
 local ConstructionService = require('MoreBuildings/internal/ConstructionService')
+local EntityScriptRegistry = require('MoreBuildings/internal/EntityScriptRegistry')
 local TableUtil = require('MoreBuildings/internal/TableUtil')
 
 require 'ISUI/ISCollapsableWindow'
@@ -183,7 +184,11 @@ end
 
 local function ensureEntryName(entry)
   if entry.name == nil then
-    entry.name = getText(entry.definition.nameKey)
+    if entry.definition.placement.kind == 'morebuilds:entity' then
+      entry.name = EntityScriptRegistry.requireBuildable(entry.definition).craftRecipe:getTranslationName()
+    else
+      entry.name = getText(entry.definition.nameKey)
+    end
     entry.search = string.lower(entry.name .. ' ' .. entry.searchBase)
   end
 end
@@ -193,7 +198,11 @@ local function ensureEntryPreview(entry)
     return
   end
   local textures = previewTextures(entry.definition)
-  entry.texture = getTexture(entry.definition.previewSprite)
+  if entry.definition.placement.kind == 'morebuilds:entity' then
+    entry.texture = EntityScriptRegistry.requireBuildable(entry.definition).craftRecipe:getIconTexture()
+  else
+    entry.texture = getTexture(entry.definition.previewSprite)
+  end
   entry.previewTextures = textures
   entry.listPreviewLayout = { previewLayout(textures, LIST_PREVIEW_WIDTH, LIST_PREVIEW_HEIGHT) }
   entry.detailPreviewLayout = { previewLayout(textures, DETAIL_PREVIEW_WIDTH - 6, DETAIL_PREVIEW_HEIGHT - 6) }
@@ -201,7 +210,12 @@ end
 
 local function ensureEntryDescription(entry)
   if entry.tooltip == nil then
-    entry.tooltip = getText(entry.definition.descriptionKey)
+    if entry.definition.placement.kind == 'morebuilds:entity' then
+      local tooltipKey = EntityScriptRegistry.requireBuildable(entry.definition).craftRecipe:getTooltip()
+      entry.tooltip = tooltipKey and getText(tooltipKey) or ''
+    else
+      entry.tooltip = getText(entry.definition.descriptionKey)
+    end
     entry.descriptionSearch = string.lower(entry.tooltip)
   end
 end
@@ -987,14 +1001,18 @@ function ISMoreBuildWindow:buildRecipeDetails()
     self.recipeHeader:addChild(self.recipePreview)
     self.recipeHeader.favouritesIcon:bringToTop()
   end
-  local tooltipColor = { r = 0.5, g = 0.5, b = 0.5, a = 1.0 }
-  local tooltipLabel = ISXuiSkin.build(self.recipeHeader.xuiSkin, 'S_NeedsAStyle', ISLabel, 0, 0, -1, entry.tooltip, tooltipColor.r, tooltipColor.g, tooltipColor.b, tooltipColor.a, UIFont.NewSmall, true)
-  tooltipLabel:initialise()
-  tooltipLabel:instantiate()
-  tooltipLabel.origText = entry.tooltip
-  tooltipLabel:setHeightToName(0)
-  self.recipeHeader.tooltipLabel = tooltipLabel
-  self.recipeHeader:addChild(tooltipLabel)
+  if entry.definition.placement.kind == 'morebuilds:entity' and self.recipeHeader.tooltipLabel then
+    self.recipeHeader.tooltipLabel.origText = entry.tooltip
+  else
+    local tooltipColor = { r = 0.5, g = 0.5, b = 0.5, a = 1.0 }
+    local tooltipLabel = ISXuiSkin.build(self.recipeHeader.xuiSkin, 'S_NeedsAStyle', ISLabel, 0, 0, -1, entry.tooltip, tooltipColor.r, tooltipColor.g, tooltipColor.b, tooltipColor.a, UIFont.NewSmall, true)
+    tooltipLabel:initialise()
+    tooltipLabel:instantiate()
+    tooltipLabel.origText = entry.tooltip
+    tooltipLabel:setHeightToName(0)
+    self.recipeHeader.tooltipLabel = tooltipLabel
+    self.recipeHeader:addChild(tooltipLabel)
+  end
   self.recipeDetailsElements:addChild(self.recipeHeader)
 
   for index = 0, recipe:getInputs():size() - 1 do

@@ -204,8 +204,8 @@ function Support.isWallDecorationValid(cursor, square, spriteName)
     cursor.character,
     Support.allowsDoorFrame(cursor, spriteName)
   )
-  if nativeResult ~= nil then
-    return nativeResult
+  if nativeResult == true then
+    return not Support.hasWallMountedPlacementConflict(square, spriteName)
   end
 
   return not Support.hasWallMountedPlacementConflict(square, spriteName)
@@ -358,10 +358,27 @@ function Support.isCurtainValid(cursor, square)
 end
 
 function Support.isWindowValid(cursor, square)
-  if square == nil or square:isVehicleIntersecting() or square:getWindow(cursor.north) ~= nil then
+  if square == nil or square:has(IsoFlagType.water) or square:isVehicleIntersecting() then
     return false
   end
-  return NativePlacement.canPlaceSprite(cursor:getSprite(), square, false, cursor.character) == true
+
+  local spriteName = cursor:getSprite()
+  local props = NativePlacement.getMoveableProps(spriteName)
+  if props == nil or props.type ~= 'Window' then
+    return false
+  end
+
+  local north = props.facing == 'N' or props.facing == 'S'
+  if square:getWindow(north) ~= nil then
+    return false
+  end
+
+  -- Moveable placement forbids windows outdoors, which is appropriate when
+  -- moving existing furniture but not when building a window into a frame.
+  if NativePlacement.canPlaceSprite(spriteName, square, false, cursor.character) then
+    return true
+  end
+  return props:getWallForFacing(square, north and 'S' or 'E', 'WindowFrame') ~= nil
 end
 
 function Support.keyIdFromRecordedItems(recordedItems)

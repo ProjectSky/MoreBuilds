@@ -1,4 +1,5 @@
 local ConstructionService = require('MoreBuildings/internal/ConstructionService')
+local EntityScriptRegistry = require('MoreBuildings/internal/EntityScriptRegistry')
 local RegistrationCoordinator = require('MoreBuildings/internal/RegistrationCoordinator')
 local NativePlacement = require('MoreBuildings/kinds/NativePlacement')
 local Support = require('MoreBuildings/kinds/Support')
@@ -400,14 +401,24 @@ function ConstructionClient.getPreviewParts(definition)
   )
   local footprint = kind.footprint(definition, { nSprite = 1, north = false })
   local parts = {}
-  for index, part in ipairs(footprint) do
-    parts[index] = {
-      sprite = part.sprite or definition.previewSprite,
-      x = part.x,
-      y = part.y,
-    }
+  for _, part in ipairs(footprint) do
+    local sprite = part.sprite or definition.previewSprite
+    if sprite then
+      parts[#parts + 1] = {
+        sprite = sprite,
+        x = part.x,
+        y = part.y,
+      }
+    end
   end
   return parts
+end
+
+local function getDisplayName(definition)
+  if definition.placement.kind == 'morebuilds:entity' then
+    return EntityScriptRegistry.requireBuildable(definition).craftRecipe:getTranslationName()
+  end
+  return getText(definition.nameKey)
 end
 
 function ConstructionClient.initializeCursor(cursor, definitionId, player)
@@ -415,7 +426,7 @@ function ConstructionClient.initializeCursor(cursor, definitionId, player)
     RegistrationCoordinator.getInternalDefinition(definitionId),
     'unknown MoreBuilds definition: ' .. tostring(definitionId)
   )
-  ConstructionService.configureCursor(cursor, definition, player, getText(definition.nameKey))
+  ConstructionService.configureCursor(cursor, definition, player, getDisplayName(definition))
   cursor.maxTime = ConstructionService.getRecipe(definitionId):getTime()
   cursor.buildPanelLogic = ConstructionService.createLogicWithContainers(
     player,

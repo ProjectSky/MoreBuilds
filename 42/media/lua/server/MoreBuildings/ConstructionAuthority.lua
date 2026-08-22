@@ -116,6 +116,8 @@ local function performConstruction(logic, player, definition, kind, plan, contex
   if not buildCheat then
     recordedItems = getRecordedItems(logic, player)
   end
+  context.logic = logic
+  context.recipeData = logic:getRecipeData()
   context.recordedItems = recordedItems
   local objects = kind.create(plan, context)
   SalvageAuthority.markCreated(objects, definition, recordedItems)

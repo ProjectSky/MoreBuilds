@@ -18,7 +18,7 @@ function Bootstrap.validateRuntime()
 end
 
 Bootstrap.initialize()
-Events.OnGameBoot.Add(Bootstrap.ensureSealed)
+Events.OnLoadedTileDefinitions.Add(Bootstrap.ensureSealed)
 Events.OnGameStart.Add(Bootstrap.validateRuntime)
 
 return Bootstrap

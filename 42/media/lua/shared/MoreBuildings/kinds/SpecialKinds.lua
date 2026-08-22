@@ -1,4 +1,5 @@
 local KindFactory = require('MoreBuildings/kinds/KindFactory')
+local EntityScriptRegistry = require('MoreBuildings/internal/EntityScriptRegistry')
 local NativePlacement = require('MoreBuildings/kinds/NativePlacement')
 local Support = require('MoreBuildings/kinds/Support')
 
@@ -161,6 +162,59 @@ local function createMoveableEntityKind(id, isoType, create)
     end,
     isValid = Support.isNativeMoveableValid,
     create = create,
+  })
+end
+
+local function getEntityFace(objectInfo, nSprite)
+  local current = nSprite
+  for _ = 1, 4 do
+    local faceId = current
+    if faceId == 2 then
+      faceId = 0
+    elseif faceId == 4 then
+      faceId = 2
+    end
+    local face = objectInfo:getFace(faceId)
+    if face then
+      return face
+    end
+    current = current == 4 and 1 or current + 1
+  end
+  return nil
+end
+
+local function createScriptEntityKind()
+  return KindFactory.create({
+    dataFields = { 'entityScript' },
+    id = 'morebuilds:entity',
+    requiredFields = { 'entityScript' },
+    validate = function(definition)
+      EntityScriptRegistry.requireBuildable(definition)
+    end,
+    getRecipe = function(definition)
+      return EntityScriptRegistry.requireBuildable(definition).craftRecipe
+    end,
+    footprint = function(definition, cursor)
+      local descriptor = EntityScriptRegistry.requireBuildable(definition)
+      local face = getEntityFace(descriptor.objectInfo, cursor.nSprite)
+      assert(face ~= nil, 'entity has no usable SpriteConfig face: ' .. definition.id)
+      local parts = {}
+      for x = 0, face:getWidth() - 1 do
+        for y = 0, face:getHeight() - 1 do
+          local tile = face:getTileInfo(x, y, 0)
+          if tile and (tile:getSpriteName() or tile:isBlocking()) then
+            parts[#parts + 1] = { sprite = tile:getSpriteName(), x = x, y = y }
+          end
+        end
+      end
+      return parts
+    end,
+    isValid = function()
+      error('morebuilds:entity must use ISMoreBuildEntity')
+    end,
+    create = function()
+      error('morebuilds:entity must use ISMoreBuildEntity')
+    end,
   })
 end
 
@@ -383,6 +437,7 @@ end
 
 function SpecialKinds.createAll()
   return {
+    createScriptEntityKind(),
     createMannequinKind(),
     createMoveableEntityKind('morebuilds:radio', 'IsoRadio', function(plan, context)
       return { context.worldObjectFactory.createRadio(context.cursor, plan.square) }
