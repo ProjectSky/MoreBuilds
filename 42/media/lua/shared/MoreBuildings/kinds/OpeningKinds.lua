@@ -16,6 +16,7 @@ local function createDoorKind()
     cursorSettings = { isWallLike = true },
     afterConfigureCursor = function(cursor, definition)
       cursor.isDoor = true
+      cursor.canBarricade = true
       cursor.thumpDmg = 5
       cursor.dontNeedFrame = definition.placement.data.dontNeedFrame == true
     end,

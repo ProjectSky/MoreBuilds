@@ -8,10 +8,14 @@ local EntityScriptRegistry = require('MoreBuildings/internal/EntityScriptRegistr
 local TableUtil = require('MoreBuildings/internal/TableUtil')
 
 require 'ISUI/ISCollapsableWindow'
+require 'ISUI/ISCollapsableWindowJoypad'
 require 'ISUI/ISScrollingListBox'
+require 'ISUI/MoreBuilds/ISMoreBuildVirtualList'
 require 'ISUI/ISTextEntryBox'
 require 'ISUI/ISLabel'
 require 'ISUI/ISPanel'
+require 'ISUI/ISPanelJoypad'
+require 'ISUI/ISButton'
 require 'ISUI/ISXuiSkin'
 require 'Entity/ISUI/Controls/ISWidgetTitleHeader'
 require 'Entity/ISUI/CraftRecipe/ISWidgetInput'
@@ -303,6 +307,7 @@ local function getCatalogCache()
         groupId = group.id,
         name = getText('UI_MoreBuild_AllInGroup'),
         count = 0,
+        isGroupSummary = true,
       },
     }
     for _, subcategory in ipairs(group.categories) do
@@ -375,134 +380,7 @@ local function getCatalogCache()
   return catalogCache
 end
 
-ISMoreBuildVirtualList = ISScrollingListBox:derive('ISMoreBuildVirtualList')
-
-function ISMoreBuildVirtualList:rowAt(x, y)
-  local index = math.floor(y / self.itemheight) + 1
-  if index > 0 and index <= #self.items then
-    return index
-  end
-  return -1
-end
-
-function ISMoreBuildVirtualList:topOfItem(index)
-  if index > 0 and index <= #self.items then
-    return (index - 1) * self.itemheight
-  end
-  return -1
-end
-
-function ISMoreBuildVirtualList:prevVisibleIndex(index)
-  if index > 1 then
-    return index - 1
-  end
-  return -1
-end
-
-function ISMoreBuildVirtualList:nextVisibleItem(index)
-  if index < #self.items then
-    return index + 1
-  end
-  return -1
-end
-
-ISMoreBuildVirtualList.nextVisibleIndex = ISMoreBuildVirtualList.nextVisibleItem
-
-function ISMoreBuildVirtualList:ensureVisible(index)
-  if index < 1 or index > #self.items then
-    return
-  end
-  local y = self:topOfItem(index)
-  if not self.smoothScrollTargetY then
-    self.smoothScrollY = self:getYScroll()
-  end
-  if y <= -self:getYScroll() then
-    self.smoothScrollTargetY = -y
-  elseif y + self.itemheight > -self:getYScroll() + self.height then
-    self.smoothScrollTargetY = -(y + self.itemheight - self.height)
-  end
-end
-
-function ISMoreBuildVirtualList:prerender()
-  if self.items == nil then
-    return
-  end
-
-  local listHeight = #self.items * self.itemheight
-  if self.listHeight ~= listHeight then
-    self.listHeight = listHeight
-    self:setScrollHeight(listHeight)
-  end
-
-  local stencilX = 0
-  local stencilY = 0
-  local stencilX2 = self.width
-  local stencilY2 = self.height
-  self:drawRect(0, -self:getYScroll(), self.width, self.height, self.backgroundColor.a, self.backgroundColor.r, self.backgroundColor.g, self.backgroundColor.b)
-  if self.drawBorder then
-    self:drawRectBorder(0, -self:getYScroll(), self.width, self.height, self.borderColor.a, self.borderColor.r, self.borderColor.g, self.borderColor.b)
-    stencilX = 1
-    stencilY = 1
-    stencilX2 = self.width - 1
-    stencilY2 = self.height - 1
-  end
-  if self:isVScrollBarVisible() then
-    stencilX2 = self.vscroll.x + 3
-  end
-  if self:parentsHaveScrollChildren() then
-    stencilX = self.javaObject:clampToParentX(self:getAbsoluteX() + stencilX) - self:getAbsoluteX()
-    stencilX2 = self.javaObject:clampToParentX(self:getAbsoluteX() + stencilX2) - self:getAbsoluteX()
-    stencilY = self.javaObject:clampToParentY(self:getAbsoluteY() + stencilY) - self:getAbsoluteY()
-    stencilY2 = self.javaObject:clampToParentY(self:getAbsoluteY() + stencilY2) - self:getAbsoluteY()
-  end
-  self:setStencilRect(stencilX, stencilY, stencilX2 - stencilX, stencilY2 - stencilY)
-
-  if self.selected ~= -1 and self.selected > #self.items then
-    self.selected = #self.items
-  end
-
-  local top = math.max(0, -self:getYScroll())
-  local firstIndex = math.floor(top / self.itemheight) + 1
-  local lastIndex = math.min(#self.items, math.ceil((top + self.height) / self.itemheight) + 1)
-  if self.onVisibleRangeChanged
-    and (self.visibleFirstIndex ~= firstIndex or self.visibleLastIndex ~= lastIndex) then
-    self.visibleFirstIndex = firstIndex
-    self.visibleLastIndex = lastIndex
-    self:onVisibleRangeChanged(firstIndex, lastIndex)
-  end
-  local y = (firstIndex - 1) * self.itemheight
-  for index = firstIndex, lastIndex do
-    local item = self.items[index]
-    item.index = index
-    item.height = self.itemheight
-    local alt = index % 2 == 0
-    if alt and self.altBgColor then
-      self:drawRect(0, y, self:getWidth(), self.itemheight - 1, self.altBgColor.r, self.altBgColor.g, self.altBgColor.b, self.altBgColor.a)
-    end
-    self:doDrawItem(y, item, alt)
-    y = y + self.itemheight
-  end
-
-  self:clearStencilRect()
-  if self.doRepaintStencil then
-    self:repaintStencilRect(stencilX, stencilY, stencilX2 - stencilX, stencilY2 - stencilY)
-  end
-  local mouseY = self:getMouseY()
-  self:updateSmoothScrolling()
-  if mouseY ~= self:getMouseY() and self:isMouseOver() then
-    self:onMouseMove(0, self:getMouseY() - mouseY)
-  end
-  self:updateTooltip()
-  if self.useStencilForChildren then
-    self:setStencilRect(0, 0, self.width, self.height)
-  end
-end
-
-function ISMoreBuildVirtualList:new(x, y, width, height)
-  return ISScrollingListBox.new(self, x, y, width, height)
-end
-
-ISMoreBuildWindow = ISCollapsableWindow:derive('ISMoreBuildWindow')
+ISMoreBuildWindow = ISCollapsableWindowJoypad:derive('ISMoreBuildWindow')
 
 function ISMoreBuildWindow:drawCategoryItem(list, y, item, alt)
   local row = item.item
@@ -1093,7 +971,8 @@ function ISMoreBuildWindow:rebuildCategories()
     }
     self.categoryItems[#self.categoryItems + 1] = row
     self.categoryList:addItem(category.name, row)
-    if category.key == self.selectedCategory then
+    if category.key == self.selectedCategory
+      and (category.isGroupSummary == true) == (self.selectedCategoryIsGroupSummary == true) then
       selectedIndex = #self.categoryItems
     end
   end
@@ -1116,6 +995,7 @@ function ISMoreBuildWindow:rebuildCategories()
   local selectedRow = self.categoryItems[selectedIndex]
   if selectedRow then
     self.selectedCategory = selectedRow.category.key
+    self.selectedCategoryIsGroupSummary = selectedRow.category.isGroupSummary == true
     self.selectedGroup = categoryGroupId(self.selectedCategory)
   end
   self:layoutCategoryLists()
@@ -1258,23 +1138,25 @@ end
 
 function ISMoreBuildWindow:onCategoryMouseDown(list, x, y)
   ISScrollingListBox.onMouseDown(list, x, y)
-  local row = list.items[list.selected]
-  if row == nil then
-    return true
-  end
-  self.selectedCategory = row.item.category.key
-  self.selectedGroup = categoryGroupId(self.selectedCategory)
+  return true
+end
+
+function ISMoreBuildWindow:selectCategory(categoryKey, isGroupSummary)
+  self.selectedCategory = categoryKey
+  self.selectedCategoryIsGroupSummary = isGroupSummary == true
+  self.selectedGroup = categoryGroupId(categoryKey)
   self:rebuildCategories()
   self:applyFilters()
-  return true
 end
 
 function ISMoreBuildWindow:onBuildingMouseDown(list, x, y)
   ISScrollingListBox.onMouseDown(list, x, y)
-  local row = list.items[list.selected]
-  self.selectedEntry = row and row.item or nil
-  self:updateRecipeDetails()
   return true
+end
+
+function ISMoreBuildWindow:onBuildingSelectionChanged(entry)
+  self.selectedEntry = entry
+  self:updateRecipeDetails()
 end
 
 function ISMoreBuildWindow:onBuildingDoubleClick(entry)
@@ -1283,9 +1165,194 @@ function ISMoreBuildWindow:onBuildingDoubleClick(entry)
 end
 
 function ISMoreBuildWindow:onBuild()
-  if self.selectedEntry and self.startBuild(self.selectedEntry.definitionId, self.playerIndex) then
-    self:setVisible(false)
+  if self.selectedEntry
+    and self.buildAvailable
+    and RegistryClient.isCompatible(self.playerIndex)
+    and self.startBuild(self.selectedEntry.definitionId, self.playerIndex) then
+    self:close()
   end
+end
+
+function ISMoreBuildWindow:onGainJoypadFocus(joypadData)
+  ISCollapsableWindowJoypad.onGainJoypadFocus(self, joypadData)
+  self.drawJoypadFocus = false
+  if self.joypadIndexY == 0 or self.joypadIndex == 0 then
+    self:setJoypadFocusTopLeft(joypadData)
+  else
+    self:restoreJoypadFocus(joypadData)
+  end
+  self:updateJoypadRegion(self:getJoypadFocus())
+end
+
+function ISMoreBuildWindow:onLoseJoypadFocus(joypadData)
+  ISCollapsableWindowJoypad.onLoseJoypadFocus(self, joypadData)
+  self.drawJoypadFocus = false
+  self:updateJoypadRegion(nil)
+end
+
+function ISMoreBuildWindow:onJoypadDown(button, joypadData)
+  if button == Joypad.BButton then
+    self:close()
+    return
+  end
+  ISCollapsableWindowJoypad.onJoypadDown(self, button, joypadData)
+end
+
+function ISMoreBuildWindow:onJoypadNavigateStart_Descendant(descendant, joypadData)
+  -- RB-hold navigation uses the same region model as the native build window:
+  -- D-pad selects a region while the button is held, then normal list input
+  -- resumes when it is released.
+  self.searchBox.joypadNavigate = {
+    left = self.categoryList,
+    down = self.buildList,
+    parent = self.categoryList,
+  }
+  self.categoryList.joypadNavigate = {
+    right = self.buildList,
+  }
+  self.buildList.joypadNavigate = {
+    left = self.categoryList,
+    up = self.searchBox,
+    right = self.recipeDetailsContent,
+    parent = self.categoryList,
+  }
+  self.recipeDetailsContent.joypadNavigate = {
+    left = self.buildList,
+    down = self.buildButton,
+    parent = self.buildList,
+  }
+  self.buildButton.joypadNavigate = {
+    left = self.recipeDetailsContent,
+    up = self.recipeDetailsContent,
+    parent = self.recipeDetailsContent,
+  }
+end
+
+function ISMoreBuildWindow:render()
+  ISCollapsableWindowJoypad.render(self)
+  self:renderJoypadNavigateOverlay(self.playerIndex)
+end
+
+function ISMoreBuildWindow:focusSearch(joypadData)
+  self:focusJoypadControl(self.searchBox, joypadData)
+end
+
+function ISMoreBuildWindow:openSearchKeyboard(joypadData)
+  self:focusSearch(joypadData)
+  if joypadData then
+    self.searchBox:onJoypadDown(Joypad.AButton, joypadData)
+  end
+end
+
+function ISMoreBuildWindow:focusJoypadControl(control, joypadData)
+  if not control then
+    return
+  end
+  local playerIndex = joypadData and joypadData.player or self.playerIndex
+  self:setJoypadFocus(control, joypadData)
+  setJoypadFocus(playerIndex, control)
+  if joypadData then
+    updateJoypadFocus(joypadData)
+  end
+  self:updateJoypadRegion(control)
+end
+
+function ISMoreBuildWindow:updateJoypadRegion(control)
+  local panels = { self.categoryPanel, self.catalogPanel, self.detailsPanel }
+  for _, panel in ipairs(panels) do
+    if panel then
+      panel:setJoypadFocused(false)
+    end
+  end
+  local region = nil
+  if control == self.categoryList then
+    region = self.categoryPanel
+  elseif control == self.searchBox or control == self.buildList then
+    region = self.catalogPanel
+  elseif control == self.recipeDetailsContent or control == self.buildButton then
+    region = self.detailsPanel
+  end
+  if region then
+    region:setJoypadFocused(true)
+  end
+end
+
+function ISMoreBuildWindow:configureJoypadNavigation()
+  self.categoryList.joypadParent = self
+  self.categoryList.stealJoypadFocusFromParent = false
+  self.buildList.joypadParent = self
+  self.buildList.stealJoypadFocusFromParent = false
+  self.searchBox.joypadParent = self
+  self.searchBox.stealJoypadFocusFromParent = false
+  self.recipeDetailsContent.joypadParent = self
+  self.buildButton.joypadParent = self
+
+  self.categoryList.onJoypadDirRight = function(_, joypadData)
+    self:focusJoypadControl(self.buildList, joypadData)
+  end
+  self.categoryList.onJoypadDown = function(list, button, joypadData)
+    if button == Joypad.AButton and list.items[list.selected] then
+      local category = list.items[list.selected].item.category
+      self:selectCategory(category.key, category.isGroupSummary)
+      return
+    end
+    if button == Joypad.BButton then
+      self:focusJoypadControl(self, joypadData)
+      return
+    end
+    ISScrollingListBox.onJoypadDown(list, button, joypadData)
+  end
+  self.buildList.onJoypadDirLeft = function(_, joypadData)
+    self:focusJoypadControl(self.categoryList, joypadData)
+  end
+  self.buildList.onJoypadDirRight = function(_, joypadData)
+    self:focusJoypadControl(self.recipeDetailsContent, joypadData)
+  end
+  self.recipeDetailsContent.onJoypadDirLeft = function(_, joypadData)
+    self:focusJoypadControl(self.buildList, joypadData)
+  end
+  self.recipeDetailsContent.onJoypadDirRight = function(_, joypadData)
+    self:focusJoypadControl(self.buildButton, joypadData)
+  end
+  self.recipeDetailsContent.onJoypadDown = function(_, button, joypadData)
+    if button == Joypad.BButton then
+      self:focusJoypadControl(self, joypadData)
+    end
+  end
+  self.searchBox.onJoypadDirDown = function(_, joypadData)
+    self:focusJoypadControl(self.buildList, joypadData)
+  end
+  self.searchBox.onJoypadDirUp = function(_, joypadData)
+    self:focusJoypadControl(self, joypadData)
+  end
+  local originalSearchJoypadDown = self.searchBox.onJoypadDown
+  self.searchBox.onJoypadDown = function(searchBox, button, joypadData)
+    if button == Joypad.BButton then
+      self:focusJoypadControl(self, joypadData)
+      return
+    end
+    originalSearchJoypadDown(searchBox, button, joypadData)
+  end
+  self.buildButton.onJoypadDirUp = function(_, joypadData)
+    self:focusJoypadControl(self.recipeDetailsContent, joypadData)
+  end
+  self.buildButton.onJoypadDirLeft = function(_, joypadData)
+    self:focusJoypadControl(self.recipeDetailsContent, joypadData)
+  end
+  self.buildButton.onJoypadDown = function(_, button, joypadData)
+    if button == Joypad.AButton then
+      self.buildButton:forceClick()
+      return
+    end
+    if button == Joypad.BButton then
+      self:focusJoypadControl(self, joypadData)
+    end
+  end
+
+  self:clearJoypadButtonsList()
+  self:insertNewLineOfButtons(self.searchBox)
+  self:insertNewLineOfButtons(self.categoryList, self.buildList)
+  self:insertNewLineOfButtons(self.recipeDetailsContent, self.buildButton)
 end
 
 function ISMoreBuildWindow:createChildren()
@@ -1307,6 +1374,10 @@ function ISMoreBuildWindow:createChildren()
     panel:drawRect(8, PANEL_HEADER_HEIGHT - 1, panel:getWidth() - 16, 1, 0.45, 0.23, 0.38, 0.55)
     panel:drawRect(8, PANEL_HEADER_HEIGHT + 5, panel:getWidth() - 16, 24, 0.88, 0.09, 0.12, 0.17)
     panel:drawRectBorder(8, PANEL_HEADER_HEIGHT + 5, panel:getWidth() - 16, 24, 0.82, 0.26, 0.48, 0.72)
+  end
+  self.catalogPanel.render = function(panel)
+    ISPanel.render(panel)
+    panel:renderJoypadFocus()
   end
   self:addChild(self.catalogPanel)
 
@@ -1337,6 +1408,10 @@ function ISMoreBuildWindow:createChildren()
     panel:drawText(getText('UI_MoreBuild_Categories'), 10, 7, 0.94, 0.94, 0.96, 1, UIFont.Small)
     panel:drawRect(8, PANEL_HEADER_HEIGHT - 1, panel:getWidth() - 16, 1, 0.45, 0.23, 0.38, 0.55)
   end
+  self.categoryPanel.render = function(panel)
+    ISPanel.render(panel)
+    panel:renderJoypadFocus()
+  end
   self:addChild(self.categoryPanel)
 
   self.categoryList = ISScrollingListBox:new(0, 0, 100, 100)
@@ -1352,6 +1427,10 @@ function ISMoreBuildWindow:createChildren()
   self.categoryList.onMouseDown = function(list, x, y)
     return self:onCategoryMouseDown(list, x, y)
   end
+  self.categoryList:setOnMouseDownFunction(self, function(target, category)
+    target:selectCategory(category.category.key, category.category.isGroupSummary)
+  end)
+  self.categoryList.autoAddJoypadButton = false
   self.categoryPanel:addChild(self.categoryList)
 
   self.buildList = ISMoreBuildVirtualList:new(0, 0, 100, 100)
@@ -1370,7 +1449,30 @@ function ISMoreBuildWindow:createChildren()
   self.buildList.onMouseDown = function(list, x, y)
     return self:onBuildingMouseDown(list, x, y)
   end
+  self.buildList:setOnMouseDownFunction(self, function(target, entry)
+    target:onBuildingSelectionChanged(entry)
+  end)
   self.buildList:setOnMouseDoubleClick(self, ISMoreBuildWindow.onBuildingDoubleClick)
+  local originalBuildListJoypadDown = self.buildList.onJoypadDown
+  self.buildList.onJoypadDown = function(list, button, joypadData)
+    if button == Joypad.YButton then
+      local row = list.items[list.selected]
+      if row and row.item then
+        self:toggleFavourite(row.item)
+      end
+      return
+    end
+    if button == Joypad.XButton then
+      self:openSearchKeyboard(joypadData)
+      return
+    end
+    if button == Joypad.BButton then
+      self:focusJoypadControl(self, joypadData)
+      return
+    end
+    originalBuildListJoypadDown(list, button, joypadData)
+  end
+  self.buildList.autoAddJoypadButton = false
   self.catalogPanel:addChild(self.buildList)
 
   self.detailsPanel = ISPanel:new(0, 0, 100, 100)
@@ -1381,9 +1483,13 @@ function ISMoreBuildWindow:createChildren()
     ISPanel.prerender(panel)
     self:drawDetails(panel)
   end
+  self.detailsPanel.render = function(panel)
+    ISPanel.render(panel)
+    panel:renderJoypadFocus()
+  end
   self:addChild(self.detailsPanel)
 
-  self.recipeDetailsContent = ISPanel:new(0, 0, 100, 100)
+  self.recipeDetailsContent = ISPanelJoypad:new(0, 0, 100, 100)
   self.recipeDetailsContent.prerender = function(panel)
     panel:setStencilRect(0, 0, panel:getWidth(), panel:getHeight())
     ISPanel.prerender(panel)
@@ -1399,11 +1505,35 @@ function ISMoreBuildWindow:createChildren()
     end
     return false
   end
+  self.recipeDetailsContent.onJoypadDirUp = function(panel, joypadData)
+    local current = panel:getYScroll()
+    if panel:getScrollHeight() > panel:getHeight() and current < 0 then
+      panel:setYScroll(math.min(0, current + 40))
+    else
+      self:focusJoypadControl(self.buildList, joypadData)
+    end
+  end
+  self.recipeDetailsContent.onJoypadDirDown = function(panel, joypadData)
+    local maximum = math.min(0, panel:getHeight() - panel:getScrollHeight())
+    local current = panel:getYScroll()
+    if panel:getScrollHeight() > panel:getHeight() and current > maximum then
+      panel:setYScroll(math.max(maximum, current - 40))
+    else
+      self:focusJoypadControl(self.buildButton, joypadData)
+    end
+  end
+  self.recipeDetailsContent.onJoypadDirLeft = function(panel, joypadData)
+    self:onJoypadDirLeft(joypadData)
+  end
+  self.recipeDetailsContent.onJoypadDirRight = function(panel, joypadData)
+    self:onJoypadDirRight(joypadData)
+  end
   self.recipeDetailsContent:initialise()
   self.recipeDetailsContent:instantiate()
   self.recipeDetailsContent:noBackground()
   self.recipeDetailsContent:setScrollChildren(true)
   self.recipeDetailsContent:addScrollBars()
+  self.recipeDetailsContent.autoAddJoypadButton = false
   self.detailsPanel:addChild(self.recipeDetailsContent)
 
   self.recipeDetailsElements = ISPanel:new(0, 0, 100, 100)
@@ -1422,44 +1552,43 @@ function ISMoreBuildWindow:createChildren()
   end
   self.recipeDetailsContent:addChild(self.recipeDetailsElements)
 
-  self.buildButton = ISPanel:new(0, 0, 100, 36)
+  self.buildButton = ISButton:new(0, 0, 100, 36, getText('UI_MoreBuild_Build'), self, function(target)
+    target:onBuild()
+  end)
   self.buildButton:initialise()
   self.buildButton:instantiate()
   self.buildButton:noBackground()
   self.buildButton.enabled = false
+  self.buildButton.enable = false
   self.buildButton.render = function(button)
-    ISPanel.render(button)
+    ISButton.render(button)
     local enabled = button.enabled
-    local hovered = enabled and button:isMouseOver()
-    local backgroundAlpha = 1
-    local backgroundRed = enabled and (hovered and 0.12 or 0.08) or 0.15
-    local backgroundGreen = enabled and (hovered and 0.52 or 0.38) or 0.17
-    local backgroundBlue = enabled and (hovered and 0.82 or 0.66) or 0.21
-    local textRed = enabled and 1 or 0.86
-    local textGreen = enabled and 1 or 0.88
-    local textBlue = enabled and 1 or 0.92
+    local hovered = enabled and (button:isMouseOver() or button.joypadFocused)
+    local backgroundRed = enabled and (hovered and 0.08 or 0.045) or 0.075
+    local backgroundGreen = enabled and (hovered and 0.18 or 0.12) or 0.12
+    local backgroundBlue = enabled and (hovered and 0.28 or 0.2) or 0.16
+    local borderRed = enabled and 0.36 or 0.25
+    local borderGreen = enabled and 0.58 or 0.34
+    local borderBlue = enabled and 0.78 or 0.46
+    local textRed = enabled and 0.94 or 0.55
+    local textGreen = enabled and 0.96 or 0.58
+    local textBlue = enabled and 1 or 0.62
     local textY = (button:getHeight() - FONT_MEDIUM) / 2
     local title = getText('UI_MoreBuild_Build')
-    button:drawRect(0, 0, button:getWidth(), button:getHeight(), backgroundAlpha, backgroundRed, backgroundGreen, backgroundBlue)
-    button:drawRectBorder(0, 0, button:getWidth(), button:getHeight(), 1, enabled and 0.5 or 0.38, enabled and 0.82 or 0.42, enabled and 1 or 0.5)
-    button:drawTextCentre(title, button:getWidth() / 2 - 1, textY, 0, 0, 0, 1, UIFont.Medium)
-    button:drawTextCentre(title, button:getWidth() / 2 + 1, textY, 0, 0, 0, 1, UIFont.Medium)
-    button:drawTextCentre(title, button:getWidth() / 2, textY - 1, 0, 0, 0, 1, UIFont.Medium)
-    button:drawTextCentre(title, button:getWidth() / 2, textY + 1, 0, 0, 0, 1, UIFont.Medium)
+    button:drawRect(0, 0, button:getWidth(), button:getHeight(), 0.96, 0.025, 0.035, 0.05)
+    button:drawRect(4, 4, button:getWidth() - 8, button:getHeight() - 8, 0.96, backgroundRed, backgroundGreen, backgroundBlue)
+    button:drawRectBorder(0, 0, button:getWidth(), button:getHeight(), 0.9, borderRed, borderGreen, borderBlue)
+    button:drawRectBorder(4, 4, button:getWidth() - 8, button:getHeight() - 8, 0.9, borderRed, borderGreen, borderBlue)
     button:drawTextCentre(title, button:getWidth() / 2, textY, textRed, textGreen, textBlue, 1, UIFont.Medium)
-  end
-  self.buildButton.onMouseUp = function(button, x, y)
-    if button.enabled then
-      self:onBuild()
+    if button.joypadFocused then
+      button:drawRectBorder(1, 1, button:getWidth() - 2, button:getHeight() - 2, 0.95, 0.42, 0.86, 1)
     end
-    return true
   end
-  self.buildButton.onMouseDown = function(button, x, y)
-    return true
-  end
+  self.buildButton.autoAddJoypadButton = false
   self.detailsPanel:addChild(self.buildButton)
 
   self:layoutChildren()
+  self:configureJoypadNavigation()
   self:refresh()
 end
 
@@ -1580,6 +1709,7 @@ function ISMoreBuildWindow:prerender()
   self:updateDeferredFilters()
   self:refreshAvailability(false)
   self.buildButton.enabled = self.selectedEntry ~= nil and self.buildAvailable and RegistryClient.isCompatible(self.playerIndex)
+  self.buildButton.enable = self.buildButton.enabled
 end
 
 function ISMoreBuildWindow:new(x, y, width, height, playerIndex, startBuild)
@@ -1613,6 +1743,8 @@ function ISMoreBuildWindow:new(x, y, width, height, playerIndex, startBuild)
   window.minimumHeight = 620
   window.resizable = true
   window.pin = true
+  window.joypadIndex = 0
+  window.joypadIndexY = 0
   window.backgroundColor = { r = 0.04, g = 0.04, b = 0.04, a = 0.88 }
   window.borderColor = { r = 0.4, g = 0.4, b = 0.4, a = 1 }
   return window
@@ -1627,6 +1759,21 @@ function ISMoreBuildWindow:onKeyRelease(key)
     self:close()
     return
   end
+end
+
+function ISMoreBuildWindow:close()
+  local joypadData = JoypadState.players[self.playerIndex + 1]
+  local restoreFocus = self.previousJoypadFocus
+  if joypadData and isJoypadFocusOnElementOrDescendant(self.playerIndex, self) then
+    if restoreFocus then
+      joypadData.focus = restoreFocus
+      updateJoypadFocus(joypadData)
+    else
+      setJoypadFocus(self.playerIndex, nil)
+    end
+  end
+  self.previousJoypadFocus = nil
+  ISCollapsableWindow.close(self)
 end
 
 local windows = {}
@@ -1664,15 +1811,25 @@ function UI.open(playerIndex, startBuild)
   end
   window.playerIndex = playerIndex
   window.startBuild = startBuild
+  local joypadData = JoypadState.players[playerIndex + 1]
+  if joypadData and not isJoypadFocusOnElementOrDescendant(playerIndex, window) then
+    window.previousJoypadFocus = joypadData.focus
+  end
   PopularBuildings.request()
   window:setVisible(true)
   window:bringToTop()
   if not created then
     window:refreshAvailability(true)
   end
+  if joypadData then
+    setJoypadFocus(playerIndex, window)
+    updateJoypadFocus(joypadData)
+    window:focusJoypadControl(window.categoryList, joypadData)
+  end
   return window
 end
 
+--[[
 local function clearWindows()
   for _, window in pairs(windows) do
     window:close()
@@ -1684,5 +1841,6 @@ end
 
 Events.OnGameStart.Add(clearWindows)
 Events.OnDisconnect.Add(clearWindows)
+]]
 
 return UI

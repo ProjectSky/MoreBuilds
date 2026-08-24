@@ -1,5 +1,33 @@
 # Changelog
 
+## [2.0.3] - 2026-08-25
+
+- Added native barricade support for ordinary single doors.
+- Extracted the virtual building list into a reusable UI component.
+- Implemented complete gamepad navigation and interaction for the building interface.
+- Removed obsolete and redundant code from the construction UI.
+
+## [2.0.2] - 2026-08-24
+
+- Added target-location material validation to prevent timed actions from completing when materials are no longer accessible.
+- Added construction failure feedback for unavailable materials.
+- Initialized recipe-defined construction and completion sounds before ISBuildAction starts.
+- Refactored multi-tile furniture to instantiate each sprite component according to its native properties.
+- Fixed multi-tile container creation and collision behavior.
+- Added support for colored light bulbs and synchronized per-bulb light colors.
+- Fixed missing localization for light context menus in multiplayer.
+- Added material-choice tooltips alongside tool-choice tooltips.
+- Updated door-frame behavior to avoid inappropriate thumpable handling.
+- Added entity construction validation guards for client actions.
+
+## [2.0.1] - 2026-08-22
+
+- Added native entity-script building support.
+- Extended placement validation, construction flow, previews, material handling, dismantling, and world-object creation.
+- Added military barrels, training targets, military signs, and an electric chair.
+- Changed industry_01_22 from a container to ordinary furniture.
+- Updated the API documentation.
+
 ## [2.0.0] - 2026-08-13
 
 - Completely rebuilt for Project Zomboid Build 42; Build 41 is no longer supported.
