@@ -66,7 +66,13 @@ function StructuralKinds.createAll()
     createWallLikeKind('morebuilds:fence', { isWallLike = true, hoppable = true }, NativePlacement.isWallValid),
     createWallLikeKind('morebuilds:fence-post', { isWallLike = true, isCorner = true, canPassThrough = true }, NativePlacement.isWallValid),
     createWallLikeKind('morebuilds:pillar', { isWallLike = true, canPassThrough = true }, NativePlacement.isWallValid),
-    createWallLikeKind('morebuilds:door-frame', { isWallLike = true, isDoorFrame = true, canPassThrough = true, canPlaster = true }, NativePlacement.isFrameValid),
+    createWallLikeKind('morebuilds:door-frame', {
+      isWallLike = true,
+      isDoorFrame = true,
+      canPassThrough = true,
+      canPlaster = true,
+      defaultThumpable = false,
+    }, NativePlacement.isFrameValid),
     createWallLikeKind('morebuilds:window-frame', { isWallLike = true, hoppable = true, canPlaster = true }, NativePlacement.isFrameValid),
   }
 end

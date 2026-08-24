@@ -393,6 +393,20 @@ function Support.keyIdFromRecordedItems(recordedItems)
   end
 end
 
+function Support.lightBulbsFromRecordedItems(recordedItems)
+  local bulbs = {}
+  if recordedItems == nil then
+    return bulbs
+  end
+  for index = 0, recordedItems:size() - 1 do
+    local item = recordedItems:get(index)
+    if string.sub(item:getType(), 1, 9) == 'LightBulb' then
+      bulbs[#bulbs + 1] = item
+    end
+  end
+  return bulbs
+end
+
 function Support.canPlaceOnSquare(cursor, square, blockedByCharacters)
   if square == nil or square:isVehicleIntersecting() then
     return false

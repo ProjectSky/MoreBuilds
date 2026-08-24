@@ -203,6 +203,21 @@ local function getMaterialInputCounts(recipe, containers, player)
   return counts
 end
 
+--[[
+-- BuildLogic:getInputUses() skips input allocation while the player is too dark to craft?
+local function getMaterialInputCounts(recipe, logic)
+  local counts = {}
+
+  for inputIndex = 0, recipe:getInputs():size() - 1 do
+    local input = recipe:getInputs():get(inputIndex)
+    if input:getResourceType() == ResourceType.Item then
+      counts[input] = logic:getInputUses(input)
+    end
+  end
+  return counts
+end
+]]
+
 local function invalidateAvailability(snapshot, player, materialSnapshot)
   snapshot.availability = {}
   -- CachedRecipeInfo only detects item identity changes. A fresh list logic is
@@ -321,6 +336,39 @@ function ConstructionClient.refreshLogic(logic, player, containers)
   return ConstructionClient.canPerform(logic, player)
 end
 
+function ConstructionClient.guardTimedAction(action, cursor, player)
+  if action == nil or player == nil or player:isBuildCheat() then
+    return action
+  end
+
+  local originalIsValid = action.isValid
+  local materialFailureShown = false
+  action.isValid = function(timedAction)
+    if not originalIsValid(timedAction) then
+      return false
+    end
+
+    if timedAction.started then
+      return true
+    end
+
+    local materialLogic = cursor.buildPanelLogic
+    materialLogic:setContainers(ISInventoryPaneContextMenu.getContainers(player))
+    materialLogic:updateFloorContainer()
+    materialLogic:refresh()
+    if materialLogic:canPerformCurrentRecipe() then
+      return true
+    end
+
+    if not materialFailureShown then
+      materialFailureShown = true
+      HaloTextHelper.addBadText(player, getText('UI_MoreBuild_MaterialsUnavailableAtTarget'))
+    end
+    return false
+  end
+  return action
+end
+
 function ConstructionClient.invalidateMaterialState()
   ConstructionClient.materialStateVersion = ConstructionClient.materialStateVersion + 1
 end
@@ -421,6 +469,23 @@ local function getDisplayName(definition)
   return getText(definition.nameKey)
 end
 
+local function configureActionSounds(cursor, recipe)
+  local actionScript = recipe and recipe:getTimedActionScript() or nil
+  if actionScript == nil then
+    return
+  end
+
+  local craftingSound = actionScript:getSound()
+  if craftingSound and craftingSound ~= '' then
+    cursor.craftingBank = craftingSound
+  end
+
+  local completionSound = actionScript:getCompletionSound()
+  if completionSound and completionSound ~= '' then
+    cursor.completionSound = completionSound
+  end
+end
+
 function ConstructionClient.initializeCursor(cursor, definitionId, player)
   local definition = assert(
     RegistrationCoordinator.getInternalDefinition(definitionId),
@@ -433,6 +498,7 @@ function ConstructionClient.initializeCursor(cursor, definitionId, player)
     definitionId,
     ISInventoryPaneContextMenu.getContainers(player)
   )
+  configureActionSounds(cursor, cursor.buildPanelLogic:getRecipe())
   cursor.materialState = ConstructionClient.captureCursorMaterialState()
 end
 

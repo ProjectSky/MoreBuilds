@@ -42,6 +42,8 @@
   "UI_MoreBuild_Subcategory_DecorativeObjects": "装饰摆件",
   "UI_MoreBuild_NoSelection": "请选择一个建筑查看详情",
   "UI_MoreBuild_ToolChoices": "可用工具",
+  "UI_MoreBuild_MaterialChoices": "可用材料",
   "UI_optionscreen_binding_MoreBuilds": "更多建筑",
-  "UI_optionscreen_binding_MoreBuilds_OpenBuildUI": "打开更多建筑"
+  "UI_optionscreen_binding_MoreBuilds_OpenBuildUI": "打开更多建筑",
+  "UI_MoreBuild_MaterialsUnavailableAtTarget": "目标位置附近没有可用的建造材料！"
 }

@@ -28,12 +28,10 @@ local function finalizeMoveableObject(object, cursor, square, renderYOffset)
 end
 
 local function configureContainers(object, cursor, createMissingContainer)
-  if not cursor.isContainer then
-    return
-  end
-
   if object:getContainerCount() == 0 then
-    assert(createMissingContainer, 'missing tile container: ' .. cursor.definition.id)
+    if not createMissingContainer or not cursor.isContainer then
+      return
+    end
     object:setIsContainer(true)
   end
 
@@ -140,6 +138,48 @@ local function finalizeNativeMoveable(object, cursor, square, insertIndex, rende
   return object
 end
 
+local function multiSpriteCursor(cursor)
+  local partCursor = {}
+  for key, value in pairs(cursor) do
+    partCursor[key] = value
+  end
+  setmetatable(partCursor, getmetatable(cursor))
+
+  -- Containers must come from the sprite currently being placed.  Passing the
+  -- multi-tile cursor through buildUtil would create a generic crate on every
+  -- part, including decorative end pieces without a container property.
+  partCursor.isContainer = false
+  return partCursor
+end
+
+function WorldObjectFactory.createMultiSpritePart(cursor, square, spriteName, north)
+  local sprite = getSprite(spriteName)
+  local properties = sprite:getProperties()
+  local partCursor = multiSpriteCursor(cursor)
+  local isSolid = properties:has(IsoFlagType.solid) or properties:has(IsoFlagType.solidtrans)
+
+  if not isSolid then
+    return finalizeNativeMoveable(
+      IsoObject.new(getCell(), square, spriteName),
+      partCursor,
+      square
+    )
+  end
+
+  -- Native movable placement turns only solid/solidtrans furniture parts into
+  -- thumpables.  The collision flags are therefore properties of this sprite,
+  -- not of the shared multi-tile definition.
+  partCursor.blockAllTheSquare = true
+  partCursor.canPassThrough = false
+  local object = IsoThumpable.new(getWorld():getCell(), square, spriteName, north, partCursor)
+  buildUtil.setInfo(object, partCursor)
+  object:setMaxHealth(Support.healthFor(cursor))
+  object:setHealth(object:getMaxHealth())
+  object:setIsThumpable(cursor.isThumpable)
+  object:setBreakSound(IsoThumpable.GetBreakFurnitureSound(spriteName))
+  return finalizeNativeMoveable(object, partCursor, square)
+end
+
 function WorldObjectFactory.makeTableDecoration(cursor, square)
   return finalizeNativeMoveable(
     IsoObject.new(getCell(), square, getSprite(cursor:getSprite())),
@@ -161,11 +201,9 @@ function WorldObjectFactory.createCurtain(cursor, square)
     if opening == nil and cursor.definition.placement.data.allowDoor then
       opening = square:getDoor(north)
     end
-    for index = 0, square:getObjects():size() - 1 do
-      local object = square:getObjects():get(index)
-      if object == opening then
-        insertIndex = index + 1
-      end
+    local openingIndex = opening and opening:getObjectIndex() or -1
+    if openingIndex >= 0 then
+      insertIndex = openingIndex + 1
     end
   end
 
@@ -212,16 +250,25 @@ function WorldObjectFactory.createWindow(cursor, square)
   return object
 end
 
-function WorldObjectFactory.createLight(cursor, square, offset, spriteName)
+function WorldObjectFactory.createLight(cursor, square, offset, spriteName, bulb)
   local object = IsoLightSwitch.new(getWorld():getCell(), square, getSprite(spriteName or cursor:getSprite()), square:getRoomID())
   object:setCanBeModified(true)
   object:addLightSourceFromSprite()
+  if bulb then
+    object:setBulbItemRaw(bulb:getFullType())
+    object:setPrimaryR(bulb:getColorRed())
+    object:setPrimaryG(bulb:getColorGreen())
+    object:setPrimaryB(bulb:getColorBlue())
+  end
   object:setName(cursor.name)
   if offset then
     object:setRenderYOffset(offset)
   end
   square:AddSpecialObject(object)
   object:transmitCompleteItemToClients()
+  if bulb then
+    object:syncCustomizedSettings(nil)
+  end
   return object
 end
 

@@ -6,6 +6,10 @@ end
 local EntityScriptRegistry = require('MoreBuildings/internal/EntityScriptRegistry')
 local RegistrationCoordinator = require('MoreBuildings/internal/RegistrationCoordinator')
 local ConstructionService = require('MoreBuildings/internal/ConstructionService')
+local ConstructionClient
+if not isServer() then
+  ConstructionClient = require('MoreBuildings/ConstructionClient')
+end
 
 ISMoreBuildEntity = ISBuildIsoEntity:derive('ISMoreBuildEntity')
 
@@ -29,6 +33,14 @@ function ISMoreBuildEntity:isValid(square)
     self.blockBuild = not (self.character:isBuildCheat() or self.buildPanelLogic:canPerformCurrentRecipe())
   end
   return ISBuildIsoEntity.isValid(self, square)
+end
+
+function ISMoreBuildEntity:tryBuild(x, y, z)
+  local action = ISBuildIsoEntity.tryBuild(self, x, y, z)
+  if action and ConstructionClient then
+    ConstructionClient.guardTimedAction(action, self, self.character)
+  end
+  return action
 end
 
 function ISMoreBuildEntity:create(x, y, z, north, sprite)

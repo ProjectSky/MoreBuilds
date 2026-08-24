@@ -302,7 +302,7 @@ local function createFurnitureKind(id, container, cursorSettings, placementValid
       local cursor = context.cursor
       local north = cursor.north
       return createPartObjects(plan, context, function(cursor, square, part)
-        return context.worldObjectFactory.makeThumpable(cursor, square, part.sprite, north)
+        return context.worldObjectFactory.createMultiSpritePart(cursor, square, part.sprite, north)
       end)
     end,
   })
@@ -407,8 +407,9 @@ local function createMultiLightKind()
     isValid = validLight,
     isPreviewTileValid = validLightTile,
     create = function(plan, context)
-      return createPartObjects(plan, context, function(cursor, square, part)
-        return context.worldObjectFactory.createLight(cursor, square, nil, part.sprite)
+      local bulbs = Support.lightBulbsFromRecordedItems(context.recordedItems)
+      return createPartObjects(plan, context, function(cursor, square, part, index)
+        return context.worldObjectFactory.createLight(cursor, square, nil, part.sprite, bulbs[index])
       end)
     end,
   })

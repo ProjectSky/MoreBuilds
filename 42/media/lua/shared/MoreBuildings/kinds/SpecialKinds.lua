@@ -41,7 +41,8 @@ local function createLightKind(id, tableTop)
     isValid = valid,
     create = function(plan, context)
       local offset = tableTop and Support.tableTopOffset(context.cursor, plan.square) or nil
-      return { context.worldObjectFactory.createLight(context.cursor, plan.square, offset) }
+      local bulbs = Support.lightBulbsFromRecordedItems(context.recordedItems)
+      return { context.worldObjectFactory.createLight(context.cursor, plan.square, offset, nil, bulbs[1]) }
     end,
   })
 end

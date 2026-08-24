@@ -740,8 +740,8 @@ local function wrapDetailText(font, text, width)
   return table.concat(lines, '\n')
 end
 
-local function getToolChoiceText(input)
-  if input:getResourceType() ~= ResourceType.Item or not input:isKeep() then
+local function getItemChoiceText(input)
+  if input:getResourceType() ~= ResourceType.Item then
     return nil
   end
 
@@ -758,11 +758,12 @@ local function getToolChoiceText(input)
   if #names < 2 then
     return nil
   end
-  return getText('UI_MoreBuild_ToolChoices') .. ': ' .. table.concat(names, ' / ')
+  local labelKey = input:isKeep() and 'UI_MoreBuild_ToolChoices' or 'UI_MoreBuild_MaterialChoices'
+  return getText(labelKey) .. ': ' .. table.concat(names, ' / ')
 end
 
-local function exposeToolChoices(card, input)
-  local choiceText = getToolChoiceText(input)
+local function exposeItemChoices(card, input)
+  local choiceText = getItemChoiceText(input)
   if choiceText == nil then
     return
   end
@@ -1053,7 +1054,7 @@ function ISMoreBuildWindow:buildRecipeDetails()
       card:initialise()
       card:instantiate()
       card.primary.selectInputButton:setVisible(false)
-      exposeToolChoices(card, input)
+      exposeItemChoices(card, input)
       self.recipeDetailsElements:addChild(card)
       self.recipeInputCards[#self.recipeInputCards + 1] = card
     end

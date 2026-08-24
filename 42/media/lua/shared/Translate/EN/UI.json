@@ -42,6 +42,8 @@
   "UI_MoreBuild_Subcategory_DecorativeObjects": "Decorative Objects",
   "UI_MoreBuild_NoSelection": "Select a building to view details.",
   "UI_MoreBuild_ToolChoices": "Available tools",
+  "UI_MoreBuild_MaterialChoices": "Available materials",
   "UI_optionscreen_binding_MoreBuilds": "More Builds",
-  "UI_optionscreen_binding_MoreBuilds_OpenBuildUI": "Open More Builds"
+  "UI_optionscreen_binding_MoreBuilds_OpenBuildUI": "Open More Builds",
+  "UI_MoreBuild_MaterialsUnavailableAtTarget": "No usable building materials are available near the target location."
 }

@@ -2,6 +2,7 @@ local Bootstrap = require('MoreBuildings/Bootstrap')
 local MoreBuilds = require('MoreBuildings/API')
 local ConstructionClient = require('MoreBuildings/ConstructionClient')
 local ConstructionService = require('MoreBuildings/internal/ConstructionService')
+local RegistrationCoordinator = require('MoreBuildings/internal/RegistrationCoordinator')
 local RegistryClient = require('MoreBuildings/RegistryClient')
 local UI = require('MoreBuildings/MoreBuilds_UI')
 
@@ -12,6 +13,7 @@ require 'ISUI/ISInventoryPaneContextMenu'
 
 local KEYBIND_CATEGORY = '[MoreBuilds]'
 local KEYBIND_OPEN_UI = 'MoreBuilds_OpenBuildUI'
+local DEFINITION_KEY = 'MoreBuildsDefinitionId'
 
 local MoreBuild = {}
 local BuildObjectClass
@@ -83,6 +85,24 @@ function MoreBuild.handleOpenBuildWindowKeybind(key)
   MoreBuild.openBuildWindow(0)
 end
 
+local function localizeLightSwitchOption(context)
+  local lightSwitch = ISWorldObjectContextMenu.fetchVars.lightSwitch
+  if lightSwitch == nil then
+    return
+  end
+
+  local definitionId = lightSwitch:getModData()[DEFINITION_KEY]
+  local definition = definitionId and RegistrationCoordinator.getInternalDefinition(definitionId)
+  if definition == nil or definition.placement.kind ~= 'morebuilds:light' then
+    return
+  end
+
+  local option = context:getOptionFromName(lightSwitch:getTileName())
+  if option then
+    option.name = getText(definition.nameKey)
+  end
+end
+
 function MoreBuild.handleFillWorldObjectContextMenu(playerIndex, context, worldobjects, test)
   if getCore():getGameMode() == 'LastStand' then
     return
@@ -90,6 +110,8 @@ function MoreBuild.handleFillWorldObjectContextMenu(playerIndex, context, worldo
   if test then
     return true
   end
+
+  localizeLightSwitchOption(context)
 
   local player = getSpecificPlayer(playerIndex)
   if player:getVehicle() or ConstructionClient.isBuildRestricted(player) then
