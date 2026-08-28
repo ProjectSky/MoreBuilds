@@ -10,6 +10,27 @@ local function isManagedObject(props)
   return props.object and props.object:getModData()[DEFINITION_KEY] ~= nil
 end
 
+-- Vanilla location sprites often have no Material/CanScrap properties.  Keep
+-- those shared sprites untouched and provide the native scrap capability only
+-- for MoreBuilds objects.
+local originalFromObject = ISMoveableSpriteProps.fromObject
+ISMoveableSpriteProps.fromObject = function(object)
+  local props = originalFromObject(object)
+  if props and object and object:getModData()[DEFINITION_KEY] ~= nil
+    and not props.canScrap then
+    props.material = 'Wood'
+    props.canScrap = true
+    props.scrapThumpable = true
+    local nativeCanScrapObject = props.canScrapObject
+    props.canScrapObject = function(self, player)
+      local result, chance, perkName = nativeCanScrapObject(self, player)
+      result.craftValid = true
+      return result, chance, perkName
+    end
+  end
+  return props
+end
+
 local function installScrapHook(prototype)
   local originalScrapViaCursor = prototype.scrapObjectViaCursor
   prototype.scrapObjectViaCursor = function(self, player, square, originalSpriteName, moveCursor)

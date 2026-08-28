@@ -1402,6 +1402,72 @@ module MoreBuilds
         }
     }
 
+    craftRecipe MilitaryBarrierStone
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 220,
+        category = Masonry,
+        timedAction = Make_With_Brick,
+        SkillRequired = Masonry:2,
+        xpAward = Masonry:22,
+        inputs
+        {
+            item 6 [Base.Stone2] flags[RecordInput],
+            item 2 [Base.Wire] flags[RecordInput],
+            item 1 tags[base:concrete] flags[DontRecordInput],
+            item 1 tags[base:masonstrowel] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe MilitaryBarrierEmpty
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Welding,
+        timedAction = BuildMetalStructureMedium,
+        SkillRequired = MetalWelding:2,
+        xpAward = MetalWelding:20,
+        inputs
+        {
+            item 4 [Base.Wire] flags[RecordInput],
+            item 1 [Base.MetalPipe] flags[RecordInput],
+            item 1 [Base.BlowTorch] flags[DontRecordInput],
+            item 1 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe MilitaryBarrierDirt
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 160,
+        category = Carpentry,
+        timedAction = BuildWoodenStructureMedium,
+        SkillRequired = Woodwork:2,
+        xpAward = Woodwork:16,
+        inputs
+        {
+            item 4 [Base.Dirtbag] flags[RecordInput],
+            item 2 [Base.Wire] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe MilitaryBarrierGravel
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 160,
+        category = Carpentry,
+        timedAction = BuildWoodenStructureMedium,
+        SkillRequired = Woodwork:2,
+        xpAward = Woodwork:16,
+        inputs
+        {
+            item 4 [Base.Gravelbag] flags[RecordInput],
+            item 2 [Base.Wire] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
     craftRecipe SignWood
     {
         OnAddToMenu = ignoreFromBuildMenu,
@@ -3445,6 +3511,40 @@ module MoreBuilds
             item 1 [*],
             -fluid 10.0 categories[Water] mode:mixture,
             item 1 tags[base:masonstrowel] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe MilitaryBarbedWireRoll
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Welding,
+        timedAction = BuildMetalStructureMedium,
+        SkillRequired = MetalWelding:2,
+        xpAward = MetalWelding:18,
+        inputs
+        {
+            item 4 [Base.Wire] flags[RecordInput],
+            item 1 [Base.MetalPipe] flags[RecordInput],
+            item 1 [Base.BlowTorch] flags[DontRecordInput],
+            item 1 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+
+    craftRecipe MilitaryMetalCrowdBarrier
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 220,
+        category = Welding,
+        timedAction = BuildMetalStructureMedium,
+        SkillRequired = MetalWelding:3,
+        xpAward = MetalWelding:25,
+        inputs
+        {
+            item 2 [Base.MetalPipe] flags[RecordInput],
+            item 2 [Base.Wire] flags[RecordInput],
+            item 2 [Base.BlowTorch] flags[DontRecordInput],
+            item 2 [Base.WeldingRods] flags[DontRecordInput],
         }
     }
 

@@ -349,8 +349,9 @@ tables below, `kinds` means `MoreBuilds.kinds`.
 | --- | --- | --- | --- |
 | `kinds.floor({ sprite = S })` | `sprite` | `northSprite`, `eastSprite`, `southSprite` | `morebuilds:floor` |
 | `kinds.attachedFloor({ sprite = S })` | `sprite` | rotation sprites | `morebuilds:attached-floor` |
-| `kinds.wall({ sprite = S, health = H })` | `sprite`, `health` | rotation sprites, `healthFromCarpentry`, `canPassThrough`, `corner`, `isCorner` | `morebuilds:wall` |
+| `kinds.wall({ sprite = S, health = H })` | `sprite`, `health` | rotation sprites, `healthFromCarpentry`, `canPassThrough`, `corner`, `isCorner`, `isThumpable` | `morebuilds:wall` |
 | `kinds.fence({ sprite = S, health = H })` | `sprite`, `health` | wall fields | `morebuilds:fence` |
+| `kinds.stackableFence({ sprite = S, health = H, stackGroup = G, stackOffset = O })` | `sprite`, `health`, `stackGroup`, `stackOffset` | `healthFromCarpentry` | `morebuilds:stackable-fence` |
 | `kinds.fencePost({ sprite = S, health = H })` | `sprite`, `health` | wall fields | `morebuilds:fence-post` |
 | `kinds.pillar({ sprite = S, health = H })` | `sprite`, `health` | wall fields | `morebuilds:pillar` |
 | `kinds.doorFrame({ sprite = S, health = H })` | `sprite`, `health` | wall fields | `morebuilds:door-frame` |

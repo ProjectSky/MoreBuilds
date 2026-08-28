@@ -310,6 +310,18 @@ local function renderObjectPreview(cursor, definition, footprint, x, y, z, squar
       break
     end
   end
+  if definition.placement.kind == 'morebuilds:stackable-fence'
+    and cursor.moreBuildsStackLevel == 2 then
+    local offset = definition.placement.data.stackOffset or 0
+    local r, g, b = 0.65, 0.2, 0.2
+    if primaryValid then
+      r, g, b = 1, 1, 1
+    end
+    previewSprite(spriteName):RenderGhostTileColor(
+      x, y, z, 0, offset * Core.getTileScale(), r, g, b, 0.6
+    )
+    return
+  end
   local sharedSprite = getSprite(spriteName)
   if square and sharedSprite and sharedSprite:getProperties():has('IsStackable') then
     local props = NativePlacement.getMoveableProps(spriteName)

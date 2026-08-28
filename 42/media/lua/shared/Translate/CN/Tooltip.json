@@ -229,8 +229,11 @@
   "Tooltip_MoreBuild_PianoStool": "双格木制钢琴凳，适合音乐室或客厅。",
   "Tooltip_MoreBuild_PoolTable": "双格木制台球桌，带有布质台面。",
   "Tooltip_MoreBuild_ChairPlastic": "轻便塑料椅，适合室内或室外就坐。",
+  "Tooltip_MoreBuild_MilitaryBarrier": "由填充骨料的金属网笼制成的军用路障。",
   "Tooltip_MoreBuild_BarrierPost": "四格木制路障柱，带钢制支撑，用于封锁车辆出入口。",
   "Tooltip_MoreBuild_PicnicTable": "四格木制野餐桌，带固定长凳，适合户外用餐。",
   "Tooltip_MoreBuild_MetalBracedPicnicTable": "四格木制野餐桌，带金属支撑，适合户外用餐。",
-  "Tooltip_MoreBuild_BankCounter": "双格木制柜台，适用于服务台和商业室内布置。"
+  "Tooltip_MoreBuild_BankCounter": "双格木制柜台，适用于服务台和商业室内布置。",
+  "Tooltip_MoreBuild_MilitaryBarbedWireRoll": "用于阻拦通行的盘卷铁丝网。",
+  "Tooltip_MoreBuild_MilitaryMetalCrowdBarrier": "可移动的金属隔离栅栏，用于临时封锁道路。"
 }

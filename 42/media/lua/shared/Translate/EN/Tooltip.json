@@ -229,8 +229,11 @@
   "Tooltip_MoreBuild_PianoStool": "A two-tile wooden piano stool for a music room or lounge.",
   "Tooltip_MoreBuild_PoolTable": "A two-tile wooden pool table with a cloth playing surface.",
   "Tooltip_MoreBuild_ChairPlastic": "A lightweight plastic chair for indoor or outdoor seating.",
+  "Tooltip_MoreBuild_MilitaryBarrier": "A military barrier made from a wire basket filled with aggregate.",
   "Tooltip_MoreBuild_BarrierPost": "A four-tile wooden barrier post with steel braces for blocking a vehicle entrance.",
   "Tooltip_MoreBuild_PicnicTable": "A four-tile wooden picnic table with built-in benches for outdoor dining.",
   "Tooltip_MoreBuild_MetalBracedPicnicTable": "A four-tile wooden picnic table reinforced with steel braces for outdoor dining.",
-  "Tooltip_MoreBuild_BankCounter": "A two-tile wooden counter for service desks and commercial interiors."
+  "Tooltip_MoreBuild_BankCounter": "A two-tile wooden counter for service desks and commercial interiors.",
+  "Tooltip_MoreBuild_MilitaryBarbedWireRoll": "A coiled barbed wire barrier used to block passage.",
+  "Tooltip_MoreBuild_MilitaryMetalCrowdBarrier": "A portable metal crowd barrier for temporarily blocking roads."
 }

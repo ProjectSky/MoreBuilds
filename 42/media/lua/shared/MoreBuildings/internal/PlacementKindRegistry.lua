@@ -120,7 +120,9 @@ function PlacementKindRegistry.validate(kind, providerId)
       assert(SALVAGE_FIELDS[field] == true, 'unsupported placement kind salvage field: ' .. kind.id .. '.' .. tostring(field))
     end
     assert(
-      kind.salvage.groupRemoval == 'remaining-parts' or kind.salvage.groupRemoval == 'preserve',
+      kind.salvage.groupRemoval == 'remaining-parts'
+        or kind.salvage.groupRemoval == 'preserve'
+        or kind.salvage.groupRemoval == 'stacked',
       'invalid placement kind salvage groupRemoval: ' .. kind.id
     )
   end

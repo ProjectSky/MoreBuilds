@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.4] - 2026-08-28
+
+- Added native dismantling support for structural and multi-tile objects.
+- Fixed material recovery, duplicate salvage callbacks, and floor restoration.
+- Improved placement validation by ignoring ground inventory objects.
+- Added construction definitions, recipes, translations, and API documentation updates.
+- Added stackable fence behavior and expanded outdoor/military construction support.
+
 ## [2.0.3] - 2026-08-25
 
 - Added native barricade support for ordinary single doors.

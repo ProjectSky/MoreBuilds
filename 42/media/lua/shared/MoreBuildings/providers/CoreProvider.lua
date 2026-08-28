@@ -30,6 +30,7 @@ local placementConstructors = {
   ['morebuilds:entity'] = PublicPlacementKinds.entity,
   ['morebuilds:feeding-trough'] = PublicPlacementKinds.feedingTrough,
   ['morebuilds:fence'] = PublicPlacementKinds.fence,
+  ['morebuilds:stackable-fence'] = PublicPlacementKinds.stackableFence,
   ['morebuilds:fence-post'] = PublicPlacementKinds.fencePost,
   ['morebuilds:fireplace'] = PublicPlacementKinds.fireplace,
   ['morebuilds:floor'] = PublicPlacementKinds.floor,

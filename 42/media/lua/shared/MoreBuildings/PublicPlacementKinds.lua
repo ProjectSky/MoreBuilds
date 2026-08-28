@@ -13,6 +13,7 @@ local KIND_IDS = {
   entity = 'morebuilds:entity',
   feedingTrough = 'morebuilds:feeding-trough',
   fence = 'morebuilds:fence',
+  stackableFence = 'morebuilds:stackable-fence',
   fencePost = 'morebuilds:fence-post',
   fireplace = 'morebuilds:fireplace',
   floor = 'morebuilds:floor',

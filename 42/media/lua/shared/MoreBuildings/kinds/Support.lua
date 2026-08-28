@@ -83,7 +83,8 @@ end
 function Support.hasStructuralPlacementBlocker(square)
   for index = 0, square:getObjects():size() - 1 do
     local object = square:getObjects():get(index)
-    if not object:isFloor() and not object:isWall() then
+    if not instanceof(object, 'IsoWorldInventoryObject')
+      and not object:isFloor() and not object:isWall() then
       return true
     end
   end

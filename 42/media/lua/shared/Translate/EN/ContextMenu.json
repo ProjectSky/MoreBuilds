@@ -1045,6 +1045,10 @@
   "ContextMenu_MoreBuild_Name_chair_white_square_armchair": "White Square Armchair",
   "ContextMenu_MoreBuild_Name_chair_grey_plastic": "Gray Plastic Chair",
   "ContextMenu_MoreBuild_Name_chair_plastic": "Plastic Chair",
+  "ContextMenu_MoreBuild_Name_military_barrier_stone": "Stone Military Barrier",
+  "ContextMenu_MoreBuild_Name_military_barrier_empty": "Empty Military Barrier",
+  "ContextMenu_MoreBuild_Name_military_barrier_dirt": "Dirt Military Barrier",
+  "ContextMenu_MoreBuild_Name_military_barrier_gravel": "Gravel Military Barrier",
   "ContextMenu_MoreBuild_Name_street_barrier_post": "Barrier Post",
   "ContextMenu_MoreBuild_Name_outdoor_picnic_table_brown": "Brown Picnic Table",
   "ContextMenu_MoreBuild_Name_outdoor_picnic_table_blue": "Blue Picnic Table",
@@ -1052,5 +1056,7 @@
   "ContextMenu_MoreBuild_Name_commercial_oak_employee_bank_counter": "Oak Bank Counter",
   "ContextMenu_MoreBuild_Name_commercial_employee_bank_counter": "Bank Counter",
   "ContextMenu_MoreBuild_Name_commercial_oak_bank_counter": "Oak Counter",
-  "ContextMenu_MoreBuild_Name_commercial_bank_counter_white_black_top": "White Counter with Black Top"
+  "ContextMenu_MoreBuild_Name_commercial_bank_counter_white_black_top": "White Counter with Black Top",
+  "ContextMenu_MoreBuild_Name_military_barbed_wire_roll": "Barbed Wire Roll",
+  "ContextMenu_MoreBuild_Name_military_metal_crowd_barrier": "Metal Crowd Barrier"
 }

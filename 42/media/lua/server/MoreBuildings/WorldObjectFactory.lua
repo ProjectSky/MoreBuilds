@@ -73,6 +73,9 @@ function WorldObjectFactory.makeThumpable(cursor, square, spriteName, north, ope
     local props = ISMoveableSpriteProps.new(sharedSprite)
     object:setRenderYOffset(props:getTotalTableHeight(square))
   end
+  if options and options.renderYOffset ~= nil then
+    object:setRenderYOffset(options.renderYOffset)
+  end
   if options and options.initialModData then
     local modData = object:getModData()
     for key, value in pairs(options.initialModData) do

@@ -15,7 +15,28 @@ local MATERIALS_KEY = 'MoreBuildsSalvageMaterials'
 local TRANSFER_TOKEN_KEY = 'MoreBuildsTransferToken'
 local MODULE = 'MoreBuilds'
 
+local function installManagedPropsHook()
+  local originalFromObject = ISMoveableSpriteProps.fromObject
+  ISMoveableSpriteProps.fromObject = function(object)
+    local props = originalFromObject(object)
+    if props and object and object:getModData()[DEFINITION_KEY] ~= nil
+      and not props.canScrap then
+      props.material = 'Wood'
+      props.canScrap = true
+      props.scrapThumpable = true
+      local nativeCanScrapObject = props.canScrapObject
+      props.canScrapObject = function(self, player)
+        local result, chance, perkName = nativeCanScrapObject(self, player)
+        result.craftValid = true
+        return result, chance, perkName
+      end
+    end
+    return props
+  end
+end
+
 local movingObjects = {}
+local dismantlingGroups = {}
 local activeTransfers = {}
 local pendingGroupCleanup = {}
 local pendingGroupIds = {}
@@ -29,18 +50,35 @@ local function copyMaterials(materials)
   return copy
 end
 
+local function isSalvageableInput(input)
+  return input:getResourceType() == ResourceType.Item
+    and input:isRecordInput()
+    and not input:isKeep()
+    -- Unit-count and explicit destroy inputs are consumables, not salvageable
+    -- construction material.
+    and not input:isItemCount()
+    and not input:isDestroy()
+end
+
+local function isUnitConsumedItem(input, itemType)
+  if input:isItemCount() or input:isDestroy() then
+    return true
+  end
+  local scriptItem = getScriptManager():getItem(itemType)
+  return scriptItem ~= nil and input:isUsesPartialItem(scriptItem)
+end
+
 local function fillRecipeMaterialFallback(materials, definition)
   local recipe = ConstructionService.getRecipe(definition.id)
   for index = 0, recipe:getInputs():size() - 1 do
     local input = recipe:getInputs():get(index)
-    if input:getResourceType() == ResourceType.Item and input:isRecordInput() and not input:isKeep() then
-      local items = input:getItems()
-      if items:size() == 1 then
-        local itemType = items:get(0)
-        if not string.find(itemType, '.', 1, true) then
-          itemType = 'Base.' .. itemType
+    if isSalvageableInput(input) then
+      local possibleItems = input:getPossibleInputItems()
+      if possibleItems and possibleItems:size() == 1 then
+        local itemType = possibleItems:get(0):getFullName()
+        if not isUnitConsumedItem(input, itemType) then
+          materials[itemType] = (materials[itemType] or 0) + input:getIntAmount()
         end
-        materials[itemType] = (materials[itemType] or 0) + input:getIntAmount()
       end
     end
   end
@@ -58,11 +96,13 @@ local function getRecipeMaterialLimits(definition)
   local recipe = ConstructionService.getRecipe(definition.id)
   for index = 0, recipe:getInputs():size() - 1 do
     local input = recipe:getInputs():get(index)
-    if input:getResourceType() == ResourceType.Item and input:isRecordInput() and not input:isKeep() then
+    if isSalvageableInput(input) then
       local items = input:getPossibleInputItems()
       for itemIndex = 0, items:size() - 1 do
         local itemType = items:get(itemIndex):getFullName()
-        limits[itemType] = (limits[itemType] or 0) + input:getIntAmount()
+        if not isUnitConsumedItem(input, itemType) then
+          limits[itemType] = (limits[itemType] or 0) + input:getIntAmount()
+        end
       end
     end
   end
@@ -308,6 +348,67 @@ local function claimDestroyedMaterials(group, dropSquare)
   return added
 end
 
+local function materialsForDestroyedObject(group, object, definition)
+  local level = tonumber(object:getModData().MoreBuildsStackLevel)
+  local stackMaterials = object:getModData().MoreBuildsStackMaterials
+  local source = level == 2 and stackMaterials or copyMaterials(group.materials)
+  if level ~= 2 then
+    for _, groupObject in ipairs(group.objects) do
+      local upper = groupObject:getModData().MoreBuildsStackMaterials
+      if tonumber(groupObject:getModData().MoreBuildsStackLevel) == 2 then
+        for itemType, count in pairs(upper or {}) do
+          source[itemType] = math.max(0, (source[itemType] or 0) - count)
+        end
+      end
+    end
+  end
+  local allowed = {}
+  if level == 2 then
+    local stackDefinition = RegistrationCoordinator.getInternalDefinition(
+      object:getModData().MoreBuildsStackDefinitionId
+    ) or definition
+    for itemType, count in pairs(getRecipeMaterialLimits(stackDefinition)) do
+      allowed[itemType] = count
+    end
+  else
+    for _, groupObject in ipairs(group.objects) do
+      local groupDefinition = RegistrationCoordinator.getInternalDefinition(
+        groupObject:getModData().MoreBuildsStackDefinitionId
+          or groupObject:getModData().MoreBuildsDefinitionId
+      ) or definition
+      for itemType, count in pairs(getRecipeMaterialLimits(groupDefinition)) do
+        allowed[itemType] = (allowed[itemType] or 0) + count
+      end
+    end
+  end
+  local materials = {}
+  for itemType, count in pairs(source or {}) do
+    if allowed[itemType] then
+      materials[itemType] = math.min(count, allowed[itemType])
+    end
+  end
+  return { materials = materials }
+end
+
+local function promoteStackedObject(object)
+  local data = object:getModData()
+  local definitionId = data.MoreBuildsStackDefinitionId or data.MoreBuildsDefinitionId
+  local square = object:getSquare()
+  if definitionId == nil or square == nil then
+    return
+  end
+  data.MoreBuildsStackLevel = 1
+  data.MoreBuildsStackDefinitionId = nil
+  data.MoreBuildsSalvageMaterials = data.MoreBuildsStackMaterials
+  data.MoreBuildsStackMaterials = nil
+  data.MoreBuildsDefinitionId = definitionId
+  data.MoreBuildsSalvageGroupId = 'g:' .. definitionId .. ':'
+    .. tostring(square:getX()) .. ':' .. tostring(square:getY()) .. ':' .. tostring(square:getZ())
+  object:setRenderYOffset(0)
+  object:transmitModData()
+  object:transmitCompleteItemToClients()
+end
+
 local function notifyDestroyed(group, destroyedObject, player, definition, kind)
   if kind.onDestroyed then
     kind.onDestroyed(group.objects, {
@@ -330,6 +431,21 @@ local function removeObject(object)
   if square == nil then
     return
   end
+
+  -- Match the native movable salvage behavior: removing a ground/floor tile
+  -- restores the natural floor instead of leaving the square empty.
+  local sprite = object:getSprite()
+  local isSolidFloor = sprite and sprite:getProperties():has(IsoFlagType.solidfloor)
+  if square:getZ() <= 0 and (object:isFloor() or isSolidFloor) then
+    local floor = square:getFloor()
+    if floor then
+      floor:setSpriteFromName('blends_natural_01_64')
+      floor:transmitUpdatedSpriteToClients()
+    end
+    clearManagedFields(object:getModData())
+    object:transmitModData()
+    return
+  end
   if object.dumpContentsInSquare then
     object:dumpContentsInSquare()
   end
@@ -341,6 +457,33 @@ local function removeGroupObjects(group, ignoredObject)
   for _, object in ipairs(group.objects) do
     if object ~= ignoredObject then
       removeObject(object)
+    end
+  end
+end
+
+local function removeStackedGroupObjects(group, ignoredObject)
+  local destroyedLevel = tonumber(ignoredObject:getModData().MoreBuildsStackLevel) or 1
+  if destroyedLevel == 2 then
+    local upperMaterials = ignoredObject:getModData().MoreBuildsStackMaterials or {}
+    for _, object in ipairs(group.objects) do
+      local data = object:getModData()
+      if object ~= ignoredObject and tonumber(data.MoreBuildsStackLevel) == 1 then
+        local materials = data[MATERIALS_KEY]
+        if materials then
+          for itemType, count in pairs(upperMaterials) do
+            local remaining = (materials[itemType] or 0) - count
+            materials[itemType] = remaining > 0 and remaining or nil
+          end
+          object:transmitModData()
+        end
+        break
+      end
+    end
+  end
+  for _, object in ipairs(group.objects) do
+    local level = tonumber(object:getModData().MoreBuildsStackLevel) or 1
+    if object ~= ignoredObject and destroyedLevel == 1 and level == 2 then
+      promoteStackedObject(object)
     end
   end
 end
@@ -359,9 +502,10 @@ local function queueDestroyedGroup(group, kind, ignoredObject)
   end
   pendingGroupIds[group.id] = true
   pendingGroupCleanup[#pendingGroupCleanup + 1] = {
-    group = group,
-    ignoredObject = ignoredObject,
-    removeRemaining = kind.salvage.groupRemoval == 'remaining-parts',
+      group = group,
+      ignoredObject = ignoredObject,
+      removeRemaining = kind.salvage.groupRemoval == 'remaining-parts',
+      removeStacked = kind.salvage.groupRemoval == 'stacked',
   }
 end
 
@@ -372,11 +516,14 @@ local function processPendingGroupCleanup()
   local pending = pendingGroupCleanup
   pendingGroupCleanup = {}
   for _, cleanup in ipairs(pending) do
-    if cleanup.removeRemaining then
+    if cleanup.removeStacked then
+      removeStackedGroupObjects(cleanup.group, cleanup.ignoredObject)
+    elseif cleanup.removeRemaining then
       removeGroupObjects(cleanup.group, cleanup.ignoredObject)
     else
       clearRemainingGroupMetadata(cleanup.group, cleanup.ignoredObject)
     end
+    dismantlingGroups[cleanup.group.id] = nil
     pendingGroupIds[cleanup.group.id] = nil
   end
 end
@@ -390,7 +537,7 @@ local function destroyWorldGroup(object, player)
   if definition.salvagePolicy == 'recipe-inputs' and not hasMaterials(group.materials) then
     fillRecipeMaterialFallback(group.materials, definition)
   end
-  claimDestroyedMaterials(group, object:getSquare())
+  claimDestroyedMaterials(materialsForDestroyedObject(group, object, definition), object:getSquare())
   notifyDestroyed(group, object, player, definition, kind)
   queueDestroyedGroup(group, kind, object)
   return true
@@ -408,10 +555,20 @@ local function dismantleManaged(self, player)
     return false
   end
 
+  if definition.salvagePolicy == 'recipe-inputs' and not hasMaterials(group.materials) then
+    fillRecipeMaterialFallback(group.materials, definition)
+  end
   local skill, skillChance = getDismantleSkill(definition, player)
-  local added = claimDismantleMaterials(group, object:getSquare(), skillChance)
+  local added = claimDismantleMaterials(materialsForDestroyedObject(group, object, definition), object:getSquare(), skillChance)
+  -- Suppress the destruction-material callback caused by the removals below.
+  -- This operation already granted dismantle materials and must not also run
+  -- the independent destruction return path.
+  dismantlingGroups[group.id] = true
   notifyDestroyed(group, object, player, definition, kind)
-  if kind.salvage.groupRemoval == 'preserve' then
+  if kind.salvage.groupRemoval == 'stacked' then
+    removeStackedGroupObjects(group, object)
+    removeObject(object)
+  elseif kind.salvage.groupRemoval == 'preserve' then
     local nativeObjects = nativeAdditionalObjects(object)
     if #nativeObjects > 0 then
       for _, nativeObject in ipairs(nativeObjects) do
@@ -434,6 +591,7 @@ local function dismantleManaged(self, player)
     end
     self:scrapHaloNoteCheck(player, added)
   end
+  dismantlingGroups[group.id] = nil
   return true
 end
 
@@ -783,6 +941,10 @@ local function onObjectAboutToBeRemoved(object)
   if movingObjects[object] then
     return
   end
+  local group = getGroupForObject(object)
+  if group and dismantlingGroups[group.id] then
+    return
+  end
   destroyWorldGroup(object, nil)
 end
 
@@ -827,6 +989,7 @@ function SalvageAuthority.install()
     return
   end
   assert(ISMoveableSpriteProps and ISThumpableSpriteProps, 'MoreBuilds requires the native Moveable API')
+  installManagedPropsHook()
   installPickupHook()
   installPlacementHook()
   installRotationHook()

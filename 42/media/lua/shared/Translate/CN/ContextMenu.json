@@ -1045,6 +1045,10 @@
   "ContextMenu_MoreBuild_Name_chair_white_square_armchair": "白色座椅",
   "ContextMenu_MoreBuild_Name_chair_grey_plastic": "灰色塑料椅",
   "ContextMenu_MoreBuild_Name_chair_plastic": "塑料椅",
+  "ContextMenu_MoreBuild_Name_military_barrier_stone": "石料军用路障",
+  "ContextMenu_MoreBuild_Name_military_barrier_empty": "空载军用路障",
+  "ContextMenu_MoreBuild_Name_military_barrier_dirt": "泥土军用路障",
+  "ContextMenu_MoreBuild_Name_military_barrier_gravel": "砂石军用路障",
   "ContextMenu_MoreBuild_Name_street_barrier_post": "路障柱",
   "ContextMenu_MoreBuild_Name_outdoor_picnic_table_brown": "棕色野餐桌",
   "ContextMenu_MoreBuild_Name_outdoor_picnic_table_blue": "蓝色野餐桌",
@@ -1052,5 +1056,7 @@
   "ContextMenu_MoreBuild_Name_commercial_oak_employee_bank_counter": "橡木银行柜台",
   "ContextMenu_MoreBuild_Name_commercial_employee_bank_counter": "银行柜台",
   "ContextMenu_MoreBuild_Name_commercial_oak_bank_counter": "橡木柜台",
-  "ContextMenu_MoreBuild_Name_commercial_bank_counter_white_black_top": "黑台面白色柜台"
+  "ContextMenu_MoreBuild_Name_commercial_bank_counter_white_black_top": "黑台面白色柜台",
+  "ContextMenu_MoreBuild_Name_military_barbed_wire_roll": "铁丝网卷",
+  "ContextMenu_MoreBuild_Name_military_metal_crowd_barrier": "金属隔离栅栏"
 }
