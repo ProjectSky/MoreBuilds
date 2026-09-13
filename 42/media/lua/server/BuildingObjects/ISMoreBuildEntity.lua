@@ -1,11 +1,9 @@
 require 'BuildingObjects/ISBuildIsoEntity'
-if not isServer() then
-  require 'ISUI/ISInventoryPaneContextMenu'
-end
 
 local EntityScriptRegistry = require('MoreBuildings/internal/EntityScriptRegistry')
 local RegistrationCoordinator = require('MoreBuildings/internal/RegistrationCoordinator')
 local ConstructionService = require('MoreBuildings/internal/ConstructionService')
+local MaterialSources = require('MoreBuildings/internal/MaterialSources')
 local ConstructionClient
 if not isServer() then
   ConstructionClient = require('MoreBuildings/ConstructionClient')
@@ -27,10 +25,7 @@ function ISMoreBuildEntity:isValid(square)
     return false
   end
   if not isServer() and self.buildPanelLogic then
-    self.buildPanelLogic:setContainers(ISInventoryPaneContextMenu.getContainers(self.character))
-    self.buildPanelLogic:updateFloorContainer()
-    self.buildPanelLogic:refresh()
-    self.blockBuild = not (self.character:isBuildCheat() or self.buildPanelLogic:canPerformCurrentRecipe())
+    self.blockBuild = not ConstructionClient.refreshTargetLogic(self, self.character, square)
   end
   return ISBuildIsoEntity.isValid(self, square)
 end
@@ -49,6 +44,14 @@ function ISMoreBuildEntity:create(x, y, z, north, sprite)
     if ConstructionService.isBuildRestricted(self.character) or not RegistryGuard.isCompatible(self.character) then
       return false
     end
+    if not self.character:isBuildCheat() then
+      self.buildPanelLogic:setContainers(MaterialSources.getAccessibleContainers(self.character))
+      self.buildPanelLogic:updateFloorContainer()
+      self.buildPanelLogic:refresh()
+      if not self.buildPanelLogic:canPerformCurrentRecipe() then
+        return false
+      end
+    end
   end
   return ISBuildIsoEntity.create(self, x, y, z, north, sprite)
 end
@@ -59,6 +62,9 @@ function ISMoreBuildEntity:new(character, definitionId, nSprite, containers, log
   local object = ISBuildIsoEntity.new(self, character, descriptor.objectInfo, nSprite, containers, logic)
   object.definitionId = definitionId
   object.moreBuildsEntityScript = descriptor.scriptName
+  if ConstructionClient then
+    ConstructionClient.initializeTargetMaterialLogic(object, character, object.buildPanelLogic:getRecipe())
+  end
   return object
 end
 

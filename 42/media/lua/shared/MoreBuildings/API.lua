@@ -16,6 +16,7 @@ local DEFINITION_FIELDS = {
   placement = true,
   previewSprite = true,
   recipeId = true,
+  salvageMaterial = true,
   salvagePolicy = true,
   sortKey = true,
 }

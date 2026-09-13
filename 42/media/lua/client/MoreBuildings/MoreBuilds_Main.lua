@@ -1,16 +1,16 @@
 local Bootstrap = require('MoreBuildings/Bootstrap')
 local MoreBuilds = require('MoreBuildings/API')
 local ConstructionClient = require('MoreBuildings/ConstructionClient')
+local MaterialSources = require('MoreBuildings/internal/MaterialSources')
 local ConstructionService = require('MoreBuildings/internal/ConstructionService')
 local RegistrationCoordinator = require('MoreBuildings/internal/RegistrationCoordinator')
 local RegistryClient = require('MoreBuildings/RegistryClient')
 local UI = require('MoreBuildings/MoreBuilds_UI')
 
 require('MoreBuildings/SalvageClient')
+require('MoreBuildings/DestroyActionCompatibility')
 
 require 'keyBinding'
-require 'ISUI/ISInventoryPaneContextMenu'
-
 local KEYBIND_CATEGORY = '[MoreBuilds]'
 local KEYBIND_OPEN_UI = 'MoreBuilds_OpenBuildUI'
 local DEFINITION_KEY = 'MoreBuildsDefinitionId'
@@ -38,7 +38,7 @@ function MoreBuild.startBuild(definitionId, playerIndex)
     if BuildEntityClass == nil then
       BuildEntityClass = require('BuildingObjects/ISMoreBuildEntity')
     end
-    local containers = ISInventoryPaneContextMenu.getContainers(player)
+    local containers = MaterialSources.getAccessibleContainers(player)
     local logic = ConstructionService.createLogicWithContainers(player, definitionId, containers)
     cursor = BuildEntityClass:new(player, definitionId, 1, containers, logic)
   else

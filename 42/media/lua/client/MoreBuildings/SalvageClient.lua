@@ -1,8 +1,6 @@
 require 'Moveables/ISMoveableSpriteProps'
 
-if not isClient() then
-  return {}
-end
+local RegistrationCoordinator = require('MoreBuildings/internal/RegistrationCoordinator')
 
 local DEFINITION_KEY = 'MoreBuildsDefinitionId'
 
@@ -16,16 +14,24 @@ end
 local originalFromObject = ISMoveableSpriteProps.fromObject
 ISMoveableSpriteProps.fromObject = function(object)
   local props = originalFromObject(object)
-  if props and object and object:getModData()[DEFINITION_KEY] ~= nil
-    and not props.canScrap then
-    props.material = 'Wood'
-    props.canScrap = true
-    props.scrapThumpable = true
-    local nativeCanScrapObject = props.canScrapObject
-    props.canScrapObject = function(self, player)
-      local result, chance, perkName = nativeCanScrapObject(self, player)
-      result.craftValid = true
-      return result, chance, perkName
+  if props and object then
+    local definitionId = object:getModData()[DEFINITION_KEY]
+    if definitionId ~= nil then
+      local definition = RegistrationCoordinator.getInternalDefinition(definitionId)
+      if definition then
+        props.name = getText(definition.nameKey)
+      end
+      if not props.canScrap then
+        props.material = 'Wood'
+        props.canScrap = true
+        props.scrapThumpable = true
+        local nativeCanScrapObject = props.canScrapObject
+        props.canScrapObject = function(self, player)
+          local result, chance, perkName = nativeCanScrapObject(self, player)
+          result.craftValid = true
+          return result, chance, perkName
+        end
+      end
     end
   end
   return props

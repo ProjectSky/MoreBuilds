@@ -1495,7 +1495,7 @@ module MoreBuilds
         inputs
         {
             item 1 [Base.SmallSheetMetal] flags[RecordInput],
-            item 1 [Base.PlasticTray] flags[RecordInput],
+            item 1 [Base.GlassPanel] flags[RecordInput],
             item 1 [Base.LightBulb;Base.LightBulbBlue;Base.LightBulbCyan;Base.LightBulbGreen;Base.LightBulbMagenta;Base.LightBulbOrange;Base.LightBulbPink;Base.LightBulbPurple;Base.LightBulbRed;Base.LightBulbYellow] flags[RecordInput],
             item 2 [Base.ElectricWire] flags[RecordInput],
             item 2 [Base.ElectronicsScrap] flags[RecordInput],

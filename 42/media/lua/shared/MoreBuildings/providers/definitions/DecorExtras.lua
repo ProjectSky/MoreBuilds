@@ -11,6 +11,7 @@ definitions[#definitions + 1] = {
   placement = {
     kind = 'morebuilds:multi-light',
     data = {
+      needToBeAgainstWall = true,
       northSprite = 'walls_decoration_01_76',
       sprite = 'walls_decoration_01_79',
     },

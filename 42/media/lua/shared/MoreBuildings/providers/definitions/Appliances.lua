@@ -125,13 +125,6 @@ add(
   rotation('appliances_laundry_01_12', 'appliances_laundry_01_14', 'appliances_laundry_01_13', 'appliances_laundry_01_15')
 )
 
-add(
-  'morebuilds:barbecue:hector_lopez', 5280,
-  'ContextMenu_MoreBuild_Name_barbecue_hector_lopez', 'Tooltip_MoreBuild_PropaneGrill',
-  'MoreBuilds.PropaneGrill', 'appliances_cooking_01_36', 'morebuilds:barbecue',
-  rotation('appliances_cooking_01_36', 'appliances_cooking_01_38', 'appliances_cooking_01_37', 'appliances_cooking_01_39')
-)
-
 addOutdoor(
   'morebuilds:feeding_trough:large_metal', 5290,
   'ContextMenu_MoreBuild_Name_feeding_trough_large_metal', 'Tooltip_MoreBuild_LargeMetalTrough',

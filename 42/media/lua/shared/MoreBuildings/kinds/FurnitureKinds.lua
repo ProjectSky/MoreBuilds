@@ -11,7 +11,7 @@ local function createKind(id, settings)
   local dataFields = Support.joinFields(
     Support.ROTATION_FIELDS,
     Support.THUMPABLE_FIELDS,
-    { 'blockAllTheSquare', 'canPassThrough', 'isThumpable', 'needToBeAgainstWall' },
+    { 'blockAllTheSquare', 'canPassThrough', 'isThumpable', 'needToBeAgainstWall', 'useSpriteEntity' },
     settings.isContainer
       and { 'canBeLockedByPadlock', 'containerCapacity', 'containerType', 'placeBeforeCountertop' }
       or { 'canBeAlwaysPlaced' }
@@ -27,6 +27,7 @@ local function createKind(id, settings)
       return {
         context.worldObjectFactory.makeThumpable(context.cursor, plan.square, context.cursor:getSprite(), context.cursor.north, nil, {
           placeBeforeCountertop = plan.definition.placement.data.placeBeforeCountertop == true,
+          useSpriteEntity = plan.definition.placement.data.useSpriteEntity == true,
         }),
       }
     end,

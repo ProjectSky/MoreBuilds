@@ -8,6 +8,7 @@ local DEFINITION_FIELDS = {
   placement = true,
   previewSprite = true,
   recipeId = true,
+  salvageMaterial = true,
   salvagePolicy = true,
   sortKey = true,
 }
@@ -37,6 +38,7 @@ local BOOLEAN_DATA_FIELDS = {
   isThumpable = true,
   needToBeAgainstWall = true,
   tableTop = true,
+  useSpriteEntity = true,
 }
 
 local STRING_DATA_FIELDS = {
@@ -175,6 +177,9 @@ function DefinitionValidator.validateDefinition(definition, providerId, placemen
 
   if not isEntity then
     assert(definition.salvagePolicy == 'recipe-inputs' or definition.salvagePolicy == 'none', 'unsupported salvagePolicy: ' .. definition.id)
+    if definition.salvageMaterial ~= nil then
+      assertString(definition.salvageMaterial, definition.id .. '.salvageMaterial')
+    end
   end
   validateStaticValue(definition, definition.id)
 end

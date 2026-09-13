@@ -1,5 +1,6 @@
 local ConstructionService = require('MoreBuildings/internal/ConstructionService')
 local EntityScriptRegistry = require('MoreBuildings/internal/EntityScriptRegistry')
+local MaterialSources = require('MoreBuildings/internal/MaterialSources')
 local RegistrationCoordinator = require('MoreBuildings/internal/RegistrationCoordinator')
 local NativePlacement = require('MoreBuildings/kinds/NativePlacement')
 local Support = require('MoreBuildings/kinds/Support')
@@ -13,7 +14,7 @@ local ConstructionClient = {
 
 local SELECTED_RESOURCE_POLL_MS = 1000
 local CURSOR_REFRESH_INTERVAL_MS = 250
-local CONTAINER_SOURCE_POLL_MS = 500
+local CONTAINER_SOURCE_POLL_MS = 250
 local ITEM_STATE_POLL_MS = 500
 local availabilitySnapshots = {}
 local materialSnapshots = {}
@@ -130,7 +131,7 @@ local function refreshMaterialSnapshot(player, force)
   local sourcesChanged = false
 
   if pollSources then
-    containers = ISInventoryPaneContextMenu.getContainers(player)
+    containers = MaterialSources.getAccessibleContainers(player)
     sourcesChanged = not sameContainers(snapshot.containers, containers)
     snapshot.nextSourcePoll = now + CONTAINER_SOURCE_POLL_MS
   end
@@ -341,13 +342,6 @@ local function renderObjectPreview(cursor, definition, footprint, x, y, z, squar
   end
 end
 
-function ConstructionClient.refreshLogic(logic, player, containers)
-  logic:setContainers(containers or ISInventoryPaneContextMenu.getContainers(player))
-  logic:updateFloorContainer()
-  logic:refresh()
-  return ConstructionClient.canPerform(logic, player)
-end
-
 function ConstructionClient.guardTimedAction(action, cursor, player)
   if action == nil or player == nil or player:isBuildCheat() then
     return action
@@ -360,12 +354,15 @@ function ConstructionClient.guardTimedAction(action, cursor, player)
       return false
     end
 
+    -- Material availability is a preflight check. Once ISBuildAction has
+    -- started, the server owns consumption and later state sync must not turn
+    -- a successful build into a client-side failure message.
     if timedAction.started then
       return true
     end
 
     local materialLogic = cursor.buildPanelLogic
-    materialLogic:setContainers(ISInventoryPaneContextMenu.getContainers(player))
+    materialLogic:setContainers(MaterialSources.getAccessibleContainers(player))
     materialLogic:updateFloorContainer()
     materialLogic:refresh()
     if materialLogic:canPerformCurrentRecipe() then
@@ -390,18 +387,45 @@ function ConstructionClient.invalidateCharacterState()
 end
 
 function ConstructionClient.captureCursorMaterialState()
-  return { materialRevision = -1, nextRefreshAt = 0 }
+  return {
+    targetCanPerform = false,
+    targetX = nil,
+    targetY = nil,
+    targetZ = nil,
+    nextTargetRefreshAt = 0,
+  }
 end
 
-function ConstructionClient.refreshCursorLogic(logic, player, state)
-  local materialSnapshot = refreshMaterialSnapshot(player, false)
-  local now = getTimestampMs()
-  if state.materialRevision ~= materialSnapshot.revision or now >= state.nextRefreshAt then
-    state.materialRevision = materialSnapshot.revision
-    state.nextRefreshAt = now + CURSOR_REFRESH_INTERVAL_MS
-    return ConstructionClient.refreshLogic(logic, player, materialSnapshot.containers)
+function ConstructionClient.initializeTargetMaterialLogic(cursor, player, recipe)
+  cursor.targetMaterialLogic = createBuildLogic(player)
+  cursor.targetMaterialLogic:setRecipe(recipe)
+  cursor.materialState = ConstructionClient.captureCursorMaterialState()
+end
+
+function ConstructionClient.refreshTargetLogic(cursor, player, square)
+  if ConstructionClient.isBuildCheatEnabled(player) then
+    return true
   end
-  return ConstructionClient.canPerform(logic, player)
+  if square == nil then
+    return false
+  end
+
+  local state = cursor.materialState
+  local now = getTimestampMs()
+  local targetChanged = state.targetX ~= square:getX()
+    or state.targetY ~= square:getY()
+    or state.targetZ ~= square:getZ()
+  if targetChanged or now >= state.nextTargetRefreshAt then
+    local logic = cursor.targetMaterialLogic
+    logic:setContainers(MaterialSources.getPreviewContainers(player, square))
+    logic:refresh()
+    state.targetCanPerform = logic:canPerformCurrentRecipe()
+    state.targetX = square:getX()
+    state.targetY = square:getY()
+    state.targetZ = square:getZ()
+    state.nextTargetRefreshAt = now + CURSOR_REFRESH_INTERVAL_MS
+  end
+  return state.targetCanPerform
 end
 
 function ConstructionClient.refreshAvailability(player, selectedDefinitionId, force)
@@ -431,14 +455,10 @@ function ConstructionClient.refreshAvailability(player, selectedDefinitionId, fo
     snapshot.logic:updateFloorContainer()
     snapshot.logic:refresh()
     snapshot.availability[selectedDefinitionId] = ConstructionClient.canPerform(snapshot.logic, player)
+    snapshot.materialInputCounts = getMaterialInputCounts(selectedRecipe, snapshot.logic:getContainers(), player)
+    snapshot.materialInputCountsDefinitionId = selectedDefinitionId
     snapshot.selectedDefinitionId = selectedDefinitionId
     snapshot.nextSelectedResourcePoll = now + SELECTED_RESOURCE_POLL_MS
-  end
-
-  if selectedDefinitionId and (materialChanged or snapshot.materialInputCountsDefinitionId ~= selectedDefinitionId) then
-    local selectedRecipe = ConstructionService.getRecipe(selectedDefinitionId)
-    snapshot.materialInputCounts = getMaterialInputCounts(selectedRecipe, materialSnapshot.containers, player)
-    snapshot.materialInputCountsDefinitionId = selectedDefinitionId
   end
 
   return snapshot.availability, snapshot.logic, snapshot.materialInputCounts, refreshed, snapshot.availabilityRevision, characterChanged
@@ -508,10 +528,10 @@ function ConstructionClient.initializeCursor(cursor, definitionId, player)
   cursor.buildPanelLogic = ConstructionService.createLogicWithContainers(
     player,
     definitionId,
-    ISInventoryPaneContextMenu.getContainers(player)
+    MaterialSources.getAccessibleContainers(player)
   )
+  ConstructionClient.initializeTargetMaterialLogic(cursor, player, cursor.buildPanelLogic:getRecipe())
   configureActionSounds(cursor, cursor.buildPanelLogic:getRecipe())
-  cursor.materialState = ConstructionClient.captureCursorMaterialState()
 end
 
 function ConstructionClient.isCursorValid(cursor, square, player)
@@ -519,7 +539,7 @@ function ConstructionClient.isCursorValid(cursor, square, player)
   if not ConstructionService.isCursorPlacementValid(cursor, square, player) then
     return false
   end
-  return ConstructionClient.refreshCursorLogic(cursor.buildPanelLogic, player, cursor.materialState)
+  return ConstructionClient.refreshTargetLogic(cursor, player, square)
 end
 
 function ConstructionClient.renderCursorPreview(cursor, x, y, z, square, player)
@@ -527,7 +547,8 @@ function ConstructionClient.renderCursorPreview(cursor, x, y, z, square, player)
   local kind = cursor.placementKind
   local context = ConstructionService.makeContext(definition, kind, cursor, player)
   local footprint = kind.footprint(definition, cursor)
-  local canPerform = ConstructionClient.refreshCursorLogic(cursor.buildPanelLogic, player, cursor.materialState)
+  local target = square or getCell():getGridSquare(x, y, z)
+  local canPerform = ConstructionClient.refreshTargetLogic(cursor, player, target)
   local valid, tileValidity = renderFloorGrid(cursor, definition, kind, footprint, x, y, z, square, context, canPerform)
   return renderObjectPreview(cursor, definition, footprint, x, y, z, square, valid, tileValidity)
 end

@@ -96,6 +96,10 @@ function WorldObjectFactory.makeThumpable(cursor, square, spriteName, north, ope
   end
   configureContainers(object, cursor, true)
   markContainersExplored(object)
+  if options and options.useSpriteEntity then
+    -- Preserve the thumpable base object while adding the sprite's vanilla entity behavior.
+    GameEntityFactory.CreateIsoEntityFromCellLoading(object)
+  end
   if not options or not options.deferTransmit then
     object:transmitCompleteItemToClients()
   end
@@ -105,7 +109,8 @@ end
 function WorldObjectFactory.createFloor(cursor, square)
   local object = square:addFloor(cursor:getSprite())
   square:disableErosion()
-  object:transmitCompleteItemToClients()
+  -- addFloor call transmitCompleteItemToClients already, so no need to call it again here
+  -- object:transmitCompleteItemToClients()
   return object
 end
 

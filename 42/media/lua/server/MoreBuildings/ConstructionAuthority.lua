@@ -3,6 +3,7 @@ if isClient() then
 end
 
 local ConstructionService = require('MoreBuildings/internal/ConstructionService')
+local MaterialSources = require('MoreBuildings/internal/MaterialSources')
 local RegistrationCoordinator = require('MoreBuildings/internal/RegistrationCoordinator')
 local PopularBuildings = require('MoreBuildings/PopularBuildingsAuthority')
 local RegistryGuard = require('MoreBuildings/RegistryGuard')
@@ -11,82 +12,6 @@ local WaterSourceSystem = require('MoreBuildings/WaterSourceSystem')
 local WorldObjectFactory = require('MoreBuildings/WorldObjectFactory')
 
 local ConstructionAuthority = {}
-
-local function addContainerTree(containers, seen, root)
-  local stack = { root }
-  while #stack > 0 do
-    local container = stack[#stack]
-    stack[#stack] = nil
-    if not seen[container] then
-      seen[container] = true
-      containers:add(container)
-      local items = container:getItems()
-      for index = items:size() - 1, 0, -1 do
-        local item = items:get(index)
-        if instanceof(item, 'InventoryContainer') then
-          stack[#stack + 1] = item:getItemContainer()
-        end
-      end
-    end
-  end
-end
-
-local function isAccessibleContainer(player, container)
-  local outer = container:getOutermostContainer()
-  local vehiclePart = outer:getVehiclePart()
-  if vehiclePart and not vehiclePart:getVehicle():canAccessContainer(vehiclePart:getIndex(), player) then
-    return false
-  end
-
-  local square = outer:getSquare()
-  if not vehiclePart and square and square:DistToProper(player) > 2.5 then
-    return false
-  end
-
-  local parent = outer:getParent()
-  return not (parent and instanceof(parent, 'IsoThumpable') and parent:isLockedToCharacter(player))
-end
-
-local function getAccessibleContainers(player)
-  local containers = ArrayList.new()
-  local seen = {}
-  local seenVehicles = {}
-  addContainerTree(containers, seen, player:getInventory())
-
-  local x = math.floor(player:getX())
-  local y = math.floor(player:getY())
-  local z = math.floor(player:getZ())
-  for xx = x - 2, x + 2 do
-    for yy = y - 2, y + 2 do
-      local square = getCell():getGridSquare(xx, yy, z)
-      if square and square:DistToProper(player) <= 2.5 then
-        local objects = square:getObjects()
-        for objectIndex = 0, objects:size() - 1 do
-          local object = objects:get(objectIndex)
-          for containerIndex = 0, object:getContainerCount() - 1 do
-            local container = object:getContainerByIndex(containerIndex)
-            if isAccessibleContainer(player, container) then
-              addContainerTree(containers, seen, container)
-            end
-          end
-        end
-
-        local vehicle = square:getVehicleContainer()
-        if vehicle and not seenVehicles[vehicle] then
-          seenVehicles[vehicle] = true
-          for partIndex = 0, vehicle:getPartCount() - 1 do
-            local part = vehicle:getPartByIndex(partIndex)
-            local container = part:getItemContainer()
-            if container and isAccessibleContainer(player, container) then
-              addContainerTree(containers, seen, container)
-            end
-          end
-        end
-      end
-    end
-  end
-  return containers
-end
 
 local function getRecordedItems(logic, player)
   local craftData = logic:getRecipeDataInProgress()
@@ -140,7 +65,9 @@ local function configureCursor(cursor, player, definition)
     cursor,
     definition,
     player,
-    cursor.moreBuildsDisplayName or cursor.definitionId
+    -- Never replicate a client-localized label into world-object state.  Every
+    -- client resolves the managed definition ID through its own locale.
+    definition.id
   )
   cursor:getSprite()
   return kind
@@ -196,7 +123,11 @@ function ConstructionAuthority.create(cursor, player, x, y, z)
   context.worldObjectFactory = WorldObjectFactory
   local plan = kind.prepare(cursor, square, context)
 
-  local logic = ConstructionService.createLogicWithContainers(player, definition.id, getAccessibleContainers(player))
+  local logic = ConstructionService.createLogicWithContainers(
+    player,
+    definition.id,
+    MaterialSources.getAccessibleContainers(player)
+  )
   logic:startCraftAction(nil)
   local succeeded, created, objects = pcall(
     performConstruction,

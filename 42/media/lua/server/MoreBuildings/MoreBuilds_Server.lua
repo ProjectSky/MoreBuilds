@@ -3,6 +3,7 @@ if isClient() then
 end
 
 require('MoreBuildings/Bootstrap')
+require('MoreBuildings/DestroyActionCompatibility')
 require('MoreBuildings/GeneratorAuthority').install()
 require('MoreBuildings/PopularBuildingsAuthority').install()
 require('MoreBuildings/RegistryAuthority').install()

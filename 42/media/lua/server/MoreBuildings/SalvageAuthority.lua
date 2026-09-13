@@ -335,6 +335,20 @@ local function claimDismantleMaterials(group, dropSquare, skillChance)
   return added
 end
 
+local function claimUnusableDismantleMaterials(definition, props, dropSquare)
+  if dropSquare == nil then
+    return
+  end
+  local material = definition.salvageMaterial or props.material
+  local scrapDef = material and ISMoveableDefinitions:getInstance():getScrapDefinition(material)
+  if scrapDef == nil or scrapDef.unusableItem == nil then
+    return
+  end
+  for _ = 1, ZombRand(1, 3) do
+    dropSquare:AddWorldInventoryItem(scrapDef.unusableItem, 0, 0, 0)
+  end
+end
+
 local function claimDestroyedMaterials(group, dropSquare)
   local added = 0
   for itemType, count in pairs(group.materials) do
@@ -560,6 +574,9 @@ local function dismantleManaged(self, player)
   end
   local skill, skillChance = getDismantleSkill(definition, player)
   local added = claimDismantleMaterials(materialsForDestroyedObject(group, object, definition), object:getSquare(), skillChance)
+  if added == 0 then
+    claimUnusableDismantleMaterials(definition, self, object:getSquare())
+  end
   -- Suppress the destruction-material callback caused by the removals below.
   -- This operation already granted dismantle materials and must not also run
   -- the independent destruction return path.
