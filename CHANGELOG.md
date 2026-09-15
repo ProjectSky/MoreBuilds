@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.0.6] - 2026-09-15
+
+- improve material and skill requirements
+- Added craftable drawer, electronic microphone, and painted wallpaper recipes.
+- Replaced fixed wallpaper and paint inputs with applicable item tags and expanded military barricade aggregate material options.
+- Corrected electrical and plumbing recipe categories, added missing skill and XP requirements, and aligned recipe formatting.
+
+## [2.0.5] - 2026-09-13
+
+- improve material validation and construction compatibility
+- Added target-location material checks using accessible inventory, containers, and floor sources.
+- Prevented timed construction from completing when required materials are unavailable at the target.
+- Improved dismantling salvage handling, including unusable-material recovery and localized object names.
+- Added sprite-entity support, corrected furniture/container classifications, and fixed floor transmission behavior.
+- Added neon sign definitions, translations, recipe updates, and salvage-material API fields.
+
 ## [2.0.4] - 2026-08-28
 
 - Added native dismantling support for structural and multi-tile objects.

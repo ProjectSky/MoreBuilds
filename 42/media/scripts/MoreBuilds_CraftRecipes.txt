@@ -1,5 +1,26 @@
 module MoreBuilds
 {
+    craftRecipe MakeDrawerWood
+    {
+        time = 100,
+        category = Carpentry,
+        timedAction = BuildLowHammer,
+        Tags = AnySurfaceCraft,
+        SkillRequired = Woodwork:1,
+        xpAward = Woodwork:10,
+        inputs
+        {
+            item 1 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:saw] mode:keep flags[NoBrokenItems;MayDegradeLight],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+        outputs
+        {
+            item 1 Base.Drawer,
+        }
+    }
+
     craftRecipe WallWood
     {
         OnAddToMenu = ignoreFromBuildMenu,
@@ -66,7 +87,7 @@ module MoreBuilds
         {
             item 4 [Base.Plank] flags[RecordInput],
             item 4 [Base.Nails] flags[RecordInput],
-            item 1 [Base.Wallpaper_BlueStripe] flags[DontRecordInput],
+            item 1 tags[base:wallpaper] flags[DontRecordInput],
             item 1 tags[base:wallpaperpaste] flags[DontRecordInput],
             item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
             item 1 tags[base:scissors] mode:keep flags[MayDegradeVeryLight],
@@ -86,7 +107,7 @@ module MoreBuilds
         {
             item 4 [Base.Plank] flags[RecordInput],
             item 4 [Base.Nails] flags[RecordInput],
-            item 1 [Base.Wallpaper_BeigeStripe] flags[DontRecordInput],
+            item 1 tags[base:wallpaper] flags[DontRecordInput],
             item 1 tags[base:wallpaperpaste] flags[DontRecordInput],
             item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
             item 1 tags[base:scissors] mode:keep flags[MayDegradeVeryLight],
@@ -106,7 +127,7 @@ module MoreBuilds
         {
             item 4 [Base.Plank] flags[RecordInput],
             item 4 [Base.Nails] flags[RecordInput],
-            item 1 [Base.Wallpaper_GreenDiamond] flags[DontRecordInput],
+            item 1 tags[base:wallpaper] flags[DontRecordInput],
             item 1 tags[base:wallpaperpaste] flags[DontRecordInput],
             item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
             item 1 tags[base:scissors] mode:keep flags[MayDegradeVeryLight],
@@ -126,7 +147,7 @@ module MoreBuilds
         {
             item 4 [Base.Plank] flags[RecordInput],
             item 4 [Base.Nails] flags[RecordInput],
-            item 1 [Base.Wallpaper_BlackFloral] flags[DontRecordInput],
+            item 1 tags[base:wallpaper] flags[DontRecordInput],
             item 1 tags[base:wallpaperpaste] flags[DontRecordInput],
             item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
             item 1 tags[base:scissors] mode:keep flags[MayDegradeVeryLight],
@@ -146,7 +167,7 @@ module MoreBuilds
         {
             item 4 [Base.Plank] flags[RecordInput],
             item 4 [Base.Nails] flags[RecordInput],
-            item 1 [Base.Wallpaper_PinkFloral] flags[DontRecordInput],
+            item 1 tags[base:wallpaper] flags[DontRecordInput],
             item 1 tags[base:wallpaperpaste] flags[DontRecordInput],
             item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
             item 1 tags[base:scissors] mode:keep flags[MayDegradeVeryLight],
@@ -184,7 +205,7 @@ module MoreBuilds
         {
             item 4 [Base.Plank] flags[RecordInput],
             item 4 [Base.Nails] flags[RecordInput],
-            item 1 [Base.PaintYellow] flags[DontRecordInput],
+            item 1 tags[base:paint] flags[DontRecordInput],
             item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
             item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
         }
@@ -1322,6 +1343,8 @@ module MoreBuilds
         time = 60,
         category = Furniture,
         timedAction = BuildLowHammer,
+        SkillRequired = Woodwork:1,
+        xpAward = Woodwork:5,
         inputs
         {
             item 3 [Base.PlasticTray] flags[RecordInput],
@@ -1462,7 +1485,7 @@ module MoreBuilds
         xpAward = Woodwork:16,
         inputs
         {
-            item 4 [Base.Gravelbag] flags[RecordInput],
+            item 4 [Base.Dirtbag;Base.Gravelbag;Base.Sandbag] flags[RecordInput],
             item 2 [Base.Wire] flags[RecordInput],
             item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
         }
@@ -1488,7 +1511,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 100,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = Electricity:2,
         xpAward = Electricity:15,
@@ -1653,6 +1676,8 @@ module MoreBuilds
         time = 70,
         category = Furniture,
         timedAction = BuildLowHammer,
+        SkillRequired = Woodwork:1,
+        xpAward = Woodwork:8,
         inputs
         {
             item 4 [Base.PlasticTray] flags[RecordInput],
@@ -1667,6 +1692,8 @@ module MoreBuilds
         time = 120,
         category = Furniture,
         timedAction = BuildLowHammer,
+        SkillRequired = Woodwork:2,
+        xpAward = Woodwork:15,
         inputs
         {
             item 10 [Base.PlasticTray] flags[RecordInput],
@@ -2201,6 +2228,8 @@ module MoreBuilds
         time = 60,
         category = Furniture,
         timedAction = BuildLowHammer,
+        SkillRequired = Woodwork:1,
+        xpAward = Woodwork:5,
         inputs
         {
             item 4 [Base.PlasticTray] flags[RecordInput],
@@ -2214,6 +2243,7 @@ module MoreBuilds
         time = 50,
         category = Furniture,
         timedAction = BuildLowHammer,
+        SkillRequired = Tailoring:1,
         xpAward = Tailoring:5,
         inputs
         {
@@ -2318,6 +2348,8 @@ module MoreBuilds
         time = 100,
         category = Furniture,
         timedAction = BuildLowHammer,
+        SkillRequired = Woodwork:2,
+        xpAward = Woodwork:12,
         inputs
         {
             item 6 [Base.PlasticTray] flags[RecordInput],
@@ -2349,6 +2381,8 @@ module MoreBuilds
         time = 30,
         category = Furniture,
         timedAction = BuildLowHammer,
+        SkillRequired = Tailoring:1,
+        xpAward = Tailoring:3,
         inputs
         {
             item 1 [Base.SheetPaper2] flags[RecordInput],
@@ -2525,7 +2559,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 70,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = MetalWelding:1;Electricity:1,
         xpAward = Electricity:8,
@@ -2563,6 +2597,8 @@ module MoreBuilds
         time = 40,
         category = Furniture,
         timedAction = BuildLowHammer,
+        SkillRequired = Woodwork:1,
+        xpAward = Woodwork:5,
         inputs
         {
             item 1 [Base.PlasticTray] flags[RecordInput],
@@ -2608,7 +2644,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 60,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = Electricity:1,
         xpAward = Electricity:8,
@@ -2626,7 +2662,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 120,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = Electricity:2,
         xpAward = Electricity:15,
@@ -2643,7 +2679,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 120,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = Electricity:2,
         xpAward = Electricity:15,
@@ -2662,7 +2698,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 180,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = MetalWelding:2;Electricity:2,
         xpAward = MetalWelding:15;Electricity:20,
@@ -2683,7 +2719,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 180,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = MetalWelding:2;Electricity:2,
         xpAward = MetalWelding:15;Electricity:20,
@@ -2704,7 +2740,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 120,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = Electricity:2,
         xpAward = Electricity:15,
@@ -2722,7 +2758,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 100,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = Woodwork:1;Electricity:1,
         xpAward = Woodwork:8;Electricity:8,
@@ -2741,7 +2777,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 220,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = MetalWelding:3;Electricity:3,
         xpAward = MetalWelding:20;Electricity:25,
@@ -2782,6 +2818,8 @@ module MoreBuilds
         time = 80,
         category = Outdoors,
         timedAction = BuildLowHammer,
+        SkillRequired = Farming:1,
+        xpAward = Farming:5,
         inputs
         {
             item 1 [Base.Dirtbag] flags[DontRecordInput],
@@ -2812,7 +2850,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 70,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = Electricity:1,
         xpAward = Electricity:10,
@@ -2830,7 +2868,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 100,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = Electricity:2,
         xpAward = Electricity:15,
@@ -2849,7 +2887,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 160,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = Electricity:3,
         xpAward = Electricity:25,
@@ -2868,7 +2906,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 220,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = Electricity:3,
         xpAward = Electricity:30,
@@ -2887,7 +2925,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 300,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = MetalWelding:3;Electricity:4,
         xpAward = MetalWelding:20;Electricity:35,
@@ -2908,7 +2946,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 260,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = MetalWelding:3;Electricity:4,
         xpAward = MetalWelding:18;Electricity:30,
@@ -2947,7 +2985,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 180,
-        category = Plumbing,
+        category = Furniture,
         timedAction = BuildLowHammer,
         SkillRequired = Masonry:1;MetalWelding:1,
         xpAward = Masonry:15;MetalWelding:10,
@@ -2964,7 +3002,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 260,
-        category = Plumbing,
+        category = Metalworking,
         timedAction = BuildLowHammer,
         SkillRequired = MetalWelding:3,
         xpAward = MetalWelding:25,
@@ -2983,7 +3021,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 260,
-        category = Plumbing,
+        category = Furniture,
         timedAction = BuildLowHammer,
         SkillRequired = Masonry:2;MetalWelding:1,
         xpAward = Masonry:20;MetalWelding:10,
@@ -3000,7 +3038,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 110,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = Electricity:2,
         xpAward = Electricity:20,
@@ -3018,7 +3056,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 120,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = Electricity:2,
         xpAward = Electricity:20,
@@ -3037,7 +3075,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 200,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = MetalWelding:3;Electricity:3,
         xpAward = MetalWelding:20;Electricity:20,
@@ -3058,7 +3096,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 150,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = Electricity:2,
         xpAward = Electricity:15,
@@ -3117,7 +3155,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 250,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = MetalWelding:3;Electricity:5,
         xpAward = MetalWelding:20;Electricity:40,
@@ -3138,7 +3176,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 300,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = MetalWelding:4;Electricity:5,
         xpAward = MetalWelding:25;Electricity:45,
@@ -3159,7 +3197,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 320,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = MetalWelding:4;Electricity:5,
         xpAward = MetalWelding:25;Electricity:50,
@@ -3181,7 +3219,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 400,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = MetalWelding:5;Electricity:6,
         xpAward = MetalWelding:35;Electricity:60,
@@ -3203,7 +3241,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 320,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = MetalWelding:4;Electricity:5,
         xpAward = MetalWelding:30;Electricity:50,
@@ -3224,7 +3262,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 240,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = MetalWelding:3;Electricity:4,
         xpAward = MetalWelding:20;Electricity:35,
@@ -3281,7 +3319,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 300,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = MetalWelding:4;Electricity:4,
         xpAward = MetalWelding:30;Electricity:40,
@@ -3302,7 +3340,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 360,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = MetalWelding:5;Electricity:5,
         xpAward = MetalWelding:45;Electricity:55,
@@ -3324,7 +3362,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 480,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = MetalWelding:6;Electricity:6,
         xpAward = MetalWelding:60;Electricity:70,
@@ -3346,7 +3384,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 420,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = MetalWelding:5;Electricity:5,
         xpAward = MetalWelding:50;Electricity:55,
@@ -3368,7 +3406,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 120,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = Electricity:2,
         xpAward = Electricity:20,
@@ -3386,7 +3424,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 80,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = Electricity:1,
         xpAward = Electricity:10,
@@ -3404,7 +3442,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 100,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = Electricity:1,
         xpAward = Electricity:15,
@@ -3422,7 +3460,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 160,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = Electricity:2,
         xpAward = Electricity:25,
@@ -3440,7 +3478,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 180,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = MetalWelding:2;Electricity:2,
         xpAward = MetalWelding:20;Electricity:20,
@@ -3460,7 +3498,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 300,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = MetalWelding:4;Electricity:5,
         xpAward = MetalWelding:30;Electricity:50,
@@ -3742,7 +3780,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 100,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = Electricity:2,
         xpAward = Electricity:15,
@@ -4046,9 +4084,9 @@ module MoreBuilds
     craftRecipe GardenFlamingo
     {
         OnAddToMenu = ignoreFromBuildMenu,
-      time = 80,
-      category = Welding,
-      timedAction = BuildLowMetal,
+        time = 80,
+        category = Welding,
+        timedAction = BuildLowMetal,
         SkillRequired = MetalWelding:1,
         xpAward = MetalWelding:10,
         inputs
@@ -4064,9 +4102,9 @@ module MoreBuilds
     craftRecipe GardenGnome
     {
         OnAddToMenu = ignoreFromBuildMenu,
-      time = 100,
-      category = Pottery,
-      timedAction = Make_With_Brick_Low,
+        time = 100,
+        category = Pottery,
+        timedAction = Make_With_Brick_Low,
         SkillRequired = Pottery:2,
         xpAward = Pottery:15,
         inputs
@@ -4080,9 +4118,9 @@ module MoreBuilds
     craftRecipe DrumKit
     {
         OnAddToMenu = ignoreFromBuildMenu,
-      time = 100,
-      category = Furniture,
-      timedAction = BuildLowMetal,
+        time = 100,
+        category = Furniture,
+        timedAction = BuildLowMetal,
         SkillRequired = Woodwork:2;MetalWelding:1,
         xpAward = Woodwork:10;MetalWelding:10,
         inputs
@@ -4099,9 +4137,9 @@ module MoreBuilds
     craftRecipe StandingMicrophone
     {
         OnAddToMenu = ignoreFromBuildMenu,
-      time = 80,
-      category = Electricity,
-      timedAction = MakingElectrical,
+        time = 80,
+        category = Electrical,
+        timedAction = MakingElectrical,
         SkillRequired = Electricity:1;MetalWelding:1,
         xpAward = Electricity:10;MetalWelding:10,
         inputs
@@ -4114,12 +4152,55 @@ module MoreBuilds
         }
     }
 
+    craftRecipe MakeMicrophoneElectronic
+    {
+        time = 100,
+        category = Electrical,
+        timedAction = MakingElectrical,
+        Tags = AnySurfaceCraft,
+        SkillRequired = Electricity:2,
+        xpAward = Electricity:15;MetalWelding:10,
+        inputs
+        {
+            item 1 [Base.SteelRodQuarter] flags[RecordInput],
+            item 1 [Base.Amplifier] flags[RecordInput],
+            item 2 [Base.Screws] flags[RecordInput],
+            item 2 [Base.ElectronicsScrap] flags[RecordInput],
+            item 1 [Base.ElectricWire] flags[RecordInput],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+        outputs
+        {
+            item 1 Base.Microphone,
+        }
+    }
+
+    craftRecipe MakeWallpaperPainted
+    {
+        time = 80,
+        category = Tailoring,
+        timedAction = Paint,
+        Tags = AnySurfaceCraft,
+        SkillRequired = Tailoring:1,
+        xpAward = Tailoring:8,
+        inputs
+        {
+            item 1 [Base.SheetPaper2] flags[RecordInput],
+            item 1 tags[base:paint] flags[DontRecordInput],
+            item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+        }
+        outputs
+        {
+            item 1 Base.Wallpaper_BeigeStripe,
+        }
+    }
+
     craftRecipe FabricCanopy
     {
         OnAddToMenu = ignoreFromBuildMenu,
-      time = 100,
-      category = Furniture,
-      timedAction = BuildByTyingMedium,
+        time = 100,
+        category = Furniture,
+        timedAction = BuildByTyingMedium,
         SkillRequired = Woodwork:2;Tailoring:1,
         xpAward = Woodwork:10;Tailoring:8,
         inputs
@@ -4136,7 +4217,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 120,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = Electricity:2;MetalWelding:1,
         xpAward = Electricity:15;MetalWelding:10,
@@ -4193,6 +4274,8 @@ module MoreBuilds
         time = 40,
         category = Furniture,
         timedAction = BuildLowHammer,
+        SkillRequired = Tailoring:1,
+        xpAward = Tailoring:5,
         inputs
         {
             item 2 [Base.PlasticTray] flags[RecordInput],
@@ -4257,7 +4340,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 100,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = Electricity:2,
         xpAward = Electricity:12,
@@ -4523,7 +4606,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 180,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = Electricity:2;MetalWelding:1,
         xpAward = Electricity:18;MetalWelding:10,
@@ -4598,7 +4681,7 @@ module MoreBuilds
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 160,
-        category = Electricity,
+        category = Electrical,
         timedAction = MakingElectrical,
         SkillRequired = Woodwork:3;Electricity:2,
         xpAward = Woodwork:20;Electricity:20,
@@ -4653,6 +4736,8 @@ module MoreBuilds
         time = 70,
         category = Furniture,
         timedAction = BuildLowHammer,
+        SkillRequired = Woodwork:1,
+        xpAward = Woodwork:8,
         inputs
         {
             item 3 [Base.PlasticTray] flags[RecordInput],
