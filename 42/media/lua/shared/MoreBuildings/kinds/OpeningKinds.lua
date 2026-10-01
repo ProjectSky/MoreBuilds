@@ -38,7 +38,8 @@ end
 local function createWindowKind(id, requiresWall)
   local function valid(cursor, square)
     if requiresWall then
-      return NativePlacement.isWallValid(cursor, square) and square:getWindow(cursor.north) == nil
+      return NativePlacement.isWallValid(cursor, square)
+        and Support.getWindowForFacing(square, cursor.north) == nil
     end
     return Support.isWindowValid(cursor, square)
   end

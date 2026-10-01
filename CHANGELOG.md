@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.0.7] - 2026-10-01
+
+- Fix window and door lookups issues (Caused by 42.21 API changes)
+- Map north/south orientation to `GridSquareEdgeFacingDirection`.
+- Update placement validation and curtain lookups to use the enum-based API.
+
 ## [2.0.6] - 2026-09-15
 
 - improve material and skill requirements

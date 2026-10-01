@@ -205,9 +205,9 @@ function WorldObjectFactory.createCurtain(cursor, square)
   local insertIndex = square:getObjects():size()
 
   if props.facing == 'S' or props.facing == 'E' then
-    local opening = square:getWindow(north)
+    local opening = Support.getWindowForFacing(square, north)
     if opening == nil and cursor.definition.placement.data.allowDoor then
-      opening = square:getDoor(north)
+      opening = Support.getDoorForFacing(square, north)
     end
     local openingIndex = opening and opening:getObjectIndex() or -1
     if openingIndex >= 0 then

@@ -335,6 +335,21 @@ local function hasCurtainOnOpening(square, north)
   return opposite ~= nil and opposite:getCurtain(oppositeType) ~= nil
 end
 
+local function edgeFacingDirection(north)
+  if north then
+    return GridSquareEdgeFacingDirection.NORTH_SOUTH
+  end
+  return GridSquareEdgeFacingDirection.EAST_WEST
+end
+
+function Support.getWindowForFacing(square, north)
+  return square:getWindow(edgeFacingDirection(north))
+end
+
+function Support.getDoorForFacing(square, north)
+  return square:getDoor(edgeFacingDirection(north))
+end
+
 function Support.isCurtainValid(cursor, square)
   if square == nil or square:has(IsoFlagType.water) or square:isVehicleIntersecting() then
     return false
@@ -351,9 +366,9 @@ function Support.isCurtainValid(cursor, square)
   end
 
   local north = props.facing == 'N' or props.facing == 'S'
-  local opening = openingSquare:getWindow(north)
+  local opening = Support.getWindowForFacing(openingSquare, north)
   if opening == nil and cursor.definition.placement.data.allowDoor then
-    opening = openingSquare:getDoor(north)
+    opening = Support.getDoorForFacing(openingSquare, north)
   end
   return opening ~= nil and opening:HasCurtains() == nil and not hasCurtainOnOpening(openingSquare, north)
 end
@@ -370,7 +385,7 @@ function Support.isWindowValid(cursor, square)
   end
 
   local north = props.facing == 'N' or props.facing == 'S'
-  if square:getWindow(north) ~= nil then
+  if Support.getWindowForFacing(square, north) ~= nil then
     return false
   end
 
