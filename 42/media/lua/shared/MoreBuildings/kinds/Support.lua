@@ -84,8 +84,23 @@ function Support.hasStructuralPlacementBlocker(square)
   for index = 0, square:getObjects():size() - 1 do
     local object = square:getObjects():get(index)
     if not instanceof(object, 'IsoWorldInventoryObject')
-      and not object:isFloor() and not object:isWall() then
-      return true
+      and not object:isFloor() and not object:isWall()  then
+      
+      -- Assume it's a blocker by default
+      local isCorner = false
+      local sprite = object:getSprite()
+      if sprite and sprite:getProperties() then
+          local props = sprite:getProperties()
+          -- If it has both flags, mark it as a valid corner piece to ignore
+          if props:has(IsoFlagType.WallSE) and props:has(IsoFlagType.cutW) then
+              isCorner = true
+          end
+      end
+      
+      -- If it's not our exempt corner piece, block placement
+      if not isCorner then
+          return true
+      end
     end
   end
   return false
