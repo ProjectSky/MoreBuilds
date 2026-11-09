@@ -1,4 +1,5 @@
 local NativePlacement = require('MoreBuildings/kinds/NativePlacement')
+local WindowShapes = require('MoreBuildings/kinds/ShapesWindows')
 
 local Support = {}
 
@@ -373,6 +374,15 @@ function Support.isCurtainValid(cursor, square)
   return opening ~= nil and opening:HasCurtains() == nil and not hasCurtainOnOpening(openingSquare, north)
 end
 
+function Support.isWindowCompatibleWithFrame(spriteName, frameName)
+    for _, group in pairs(WindowShapes.WindowShapeGroups) do
+        if group.windows[spriteName] and group.frames[frameName] then
+            return true -- Both match the same shape tier
+        end
+    end
+    return false -- Mismatched shape (e.g., standard window in a tall frame)
+end
+
 function Support.isWindowValid(cursor, square)
   if square == nil or square:has(IsoFlagType.water) or square:isVehicleIntersecting() then
     return false
@@ -389,12 +399,28 @@ function Support.isWindowValid(cursor, square)
     return false
   end
 
+  -- Locate the exact frame object currently on the square for this facing
+  local frameObject = props:getWallForFacing(square, north and 'S' or 'E', 'WindowFrame')
+  if frameObject == nil then
+    return false
+  end
+
   -- Moveable placement forbids windows outdoors, which is appropriate when
   -- moving existing furniture but not when building a window into a frame.
-  if NativePlacement.canPlaceSprite(spriteName, square, false, cursor.character) then
-    return true
+  if not NativePlacement.canPlaceSprite(spriteName, square, false, cursor.character) then
+    return false
   end
-  return props:getWallForFacing(square, north and 'S' or 'E', 'WindowFrame') ~= nil
+  
+  -- Extract the frame's sprite name to enforce strict shape matching
+  local frameSprite = frameObject:getSprite()
+  local frameName = frameSprite and frameSprite:getName() or ""
+
+  -- Validate that this specific window type matches this specific frame shape
+  if not Support.isWindowCompatibleWithFrame(spriteName, frameName) then
+    return false
+  end
+  
+  return true
 end
 
 function Support.keyIdFromRecordedItems(recordedItems)

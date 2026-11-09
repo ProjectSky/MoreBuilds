@@ -117,6 +117,8 @@
   "Tooltip_MoreBuild_WindowFrameBrick": "A masonry window frame that creates an opening for a compatible window.",
   "Tooltip_MoreBuild_WindowFrameWood": "A wooden window frame that creates an opening for a compatible window.",
   "Tooltip_MoreBuild_WindowWoodGlass": "A wood-framed glass window for an enclosed space.",
+  "Tooltip_MoreBuild_StainedGlassTop": "A Top to a stained glass window",
+  "Tooltip_MoreBuild_StainedGlassBottom": "A Bottom to a stained glass window",
   "Tooltip_MoreBuild_WardrobeWood": "A two-tile wooden wardrobe for clothing and personal supplies.",
   "Tooltip_MoreBuild_WallShelfWood": "A wall-mounted wooden shelf for small supplies. Must be placed against a wall.",
   "Tooltip_MoreBuild_BenchWood": "A sturdy two-tile outdoor bench.",
