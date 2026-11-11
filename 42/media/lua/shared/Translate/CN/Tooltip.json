@@ -117,6 +117,8 @@
   "Tooltip_MoreBuild_WindowFrameBrick": "砖石窗框，为兼容的窗户提供安装开口。",
   "Tooltip_MoreBuild_WindowFrameWood": "木制窗框，为兼容的窗户提供安装开口。",
   "Tooltip_MoreBuild_WindowWoodGlass": "木框玻璃窗，用于封闭空间。",
+  "Tooltip_MoreBuild_StainedGlassTop": "彩色玻璃窗的顶部",
+  "Tooltip_MoreBuild_StainedGlassBottom": "彩色玻璃窗的底部",
   "Tooltip_MoreBuild_WardrobeWood": "双格木制衣柜，可收纳衣物和个人用品。",
   "Tooltip_MoreBuild_WallShelfWood": "壁挂木搁板，可放置小型物品，需靠墙放置。",
   "Tooltip_MoreBuild_BenchWood": "结实的双格户外长椅。",

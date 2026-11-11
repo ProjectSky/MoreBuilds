@@ -1,4 +1,5 @@
 local NativePlacement = require('MoreBuildings/kinds/NativePlacement')
+local WindowShapes = require('MoreBuildings/kinds/ShapesWindows')
 
 local Support = {}
 
@@ -84,8 +85,25 @@ function Support.hasStructuralPlacementBlocker(square)
   for index = 0, square:getObjects():size() - 1 do
     local object = square:getObjects():get(index)
     if not instanceof(object, 'IsoWorldInventoryObject')
-      and not object:isFloor() and not object:isWall() then
-      return true
+      and not object:isFloor() 
+	  and not object:isWall() 
+	  and not instanceof(object, 'IsoThumpable') then
+      
+      -- Assume it's a blocker by default
+      local isCorner = false
+      local sprite = object:getSprite()
+      if sprite and sprite:getProperties() then
+          local props = sprite:getProperties()
+          -- If it has both flags, mark it as a valid corner piece to ignore
+          if props:has(IsoFlagType.WallSE) and props:has(IsoFlagType.cutW) then
+              isCorner = true
+          end
+      end
+      
+      -- If it's not our exempt corner piece, block placement
+      if not isCorner then
+          return true
+      end
     end
   end
   return false
@@ -373,14 +391,61 @@ function Support.isCurtainValid(cursor, square)
   return opening ~= nil and opening:HasCurtains() == nil and not hasCurtainOnOpening(openingSquare, north)
 end
 
+function Support.isWindowCompatibleWithFrame(spriteName, frameName)
+	if not spriteName or not frameName then
+		return false
+	end
+
+    for _, group in pairs(WindowShapes.WindowShapeGroups) do
+        if group.windows[spriteName] and group.frames[frameName] then
+            return true -- Both match the same shape tier
+        end
+    end
+    return false -- Mismatched shape (e.g., standard window in a tall frame)
+end
+
+function Support.getUncategorizedFrame(square, facing)
+	local objects = square:getObjects()
+	for i = 0, objects:size() - 1 do
+		local obj = objects:get(i)
+		if obj then
+			local objFacing = obj:getDir()
+			local resolvedFacing = nil
+			
+			-- These Facings are inverted incorrectly in the vanilla tiles
+			-- This has been a known issue
+			if objFacing == IsoDirections.S or objFacing == IsoDirections.N then
+				resolvedFacing = 'E'
+			elseif objFacing == IsoDirections.E or objFacing == IsoDirections.W then
+				resolvedFacing = 'S'
+			end
+			
+			if resolvedFacing == facing then
+				local sprite = obj:getSprite()
+				if sprite then
+					local spriteName = sprite:getName()
+					-- checcking for the three types of frames with no categories
+					if 
+					WindowShapes.WindowShapeGroups.group_arched_tall_left.frames[spriteName] or
+					WindowShapes.WindowShapeGroups.group_tall_middle.frames[spriteName] or 
+					WindowShapes.WindowShapeGroups.group_arched_tall_right.frames[spriteName] then
+						return obj
+					end
+				end
+			end
+		end
+	end
+	return nil
+end
+
 function Support.isWindowValid(cursor, square)
   if square == nil or square:has(IsoFlagType.water) or square:isVehicleIntersecting() then
     return false
   end
 
   local spriteName = cursor:getSprite()
-  local props = NativePlacement.getMoveableProps(spriteName)
-  if props == nil or props.type ~= 'Window' then
+  local props = NativePlacement.getProps(spriteName)
+  if props == nil then
     return false
   end
 
@@ -389,12 +454,23 @@ function Support.isWindowValid(cursor, square)
     return false
   end
 
-  -- Moveable placement forbids windows outdoors, which is appropriate when
-  -- moving existing furniture but not when building a window into a frame.
-  if NativePlacement.canPlaceSprite(spriteName, square, false, cursor.character) then
-    return true
+  -- Locate the exact frame object currently on the square for this facing
+  local frameObject = 
+	props:getWallForFacing(square, north and 'S' or 'E', 'WindowFrame')  or
+	props:getWallForFacing(square, north and 'S' or 'E', 'DoorFrame') or
+	props:getWallForFacing(square, north and 'S' or 'E', 'Wall') or
+	Support.getUncategorizedFrame(square, north and 'S' or 'E')
+  
+  -- Extract the frame's sprite name to enforce strict shape matching
+  local frameSprite = frameObject and frameObject:getSprite() or nil
+  local frameName = frameSprite and frameSprite:getName() or ""
+
+  -- Validate that this specific window type matches this specific frame shape
+  if not Support.isWindowCompatibleWithFrame(spriteName, frameName) then
+    return false
   end
-  return props:getWallForFacing(square, north and 'S' or 'E', 'WindowFrame') ~= nil
+  
+  return true
 end
 
 function Support.keyIdFromRecordedItems(recordedItems)

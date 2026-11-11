@@ -4617,6 +4617,10 @@ local remappedSortKeys = {
 }
 
 for _, definition in ipairs(definitions) do
+  definition.sortKey = definition.sortKey + 160000
+end
+
+for _, definition in ipairs(definitions) do
   local sortKey = remappedSortKeys[definition.id]
   if sortKey then
     definition.sortKey = sortKey

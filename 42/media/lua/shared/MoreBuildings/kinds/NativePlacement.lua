@@ -3,6 +3,7 @@ require 'Moveables/ISMoveableSpriteProps'
 local NativePlacement = {}
 local placementCharacter = {}
 local moveablePropsCache = {}
+local propsCache = {}
 
 function placementCharacter:getSquare()
   return self.square
@@ -29,6 +30,7 @@ local function validateWithoutMaterials(cursor, square, validator)
   return valid
 end
 
+-- Loads the cache with props, and moveable props
 function NativePlacement.getMoveableProps(spriteName)
   local cached = moveablePropsCache[spriteName]
   if cached ~= nil then
@@ -40,9 +42,30 @@ function NativePlacement.getMoveableProps(spriteName)
     return nil
   end
   local props = ISMoveableSpriteProps.new(sprite)
+  propsCache[spriteName] = props
   if not props.isMoveable then
     moveablePropsCache[spriteName] = false
     return nil
+  end
+  moveablePropsCache[spriteName] = props
+  return props
+end
+
+-- Loads the cache with props, and moveable props
+function NativePlacement.getProps(spriteName)
+  local cached = propsCache[spriteName]
+  if cached ~= nil then
+    return cached
+  end
+  local sprite = getSprite(spriteName)
+  if sprite == nil then
+    moveablePropsCache[spriteName] = false
+    return nil
+  end
+  local props = ISMoveableSpriteProps.new(sprite)
+  propsCache[spriteName] = props
+  if not props.isMoveable then
+    moveablePropsCache[spriteName] = false
   end
   moveablePropsCache[spriteName] = props
   return props
