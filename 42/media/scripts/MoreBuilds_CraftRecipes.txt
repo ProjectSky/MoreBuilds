@@ -1068,6 +1068,22 @@ module MoreBuilds
             item 4 [Base.WeldingRods] flags[DontRecordInput],
         }
     }
+	
+	craftRecipe HighFenceWooden
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 250,
+        category = Carpentry,
+        timedAction = BuildWoodenStructureMedium,
+        SkillRequired = Woodwork:5,
+        xpAward = Woodwork:45,
+        inputs
+        {
+            item 8 [Base.Plank] flags[RecordInput],
+            item 8 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
 
     craftRecipe WindowMetalGlass
     {

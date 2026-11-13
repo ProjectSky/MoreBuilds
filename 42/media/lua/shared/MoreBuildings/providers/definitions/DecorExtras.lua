@@ -1,6 +1,4 @@
-local definitions = {}
-
-definitions[#definitions + 1] = {
+local definitions = {
   id = 'morebuilds:light:rainbow_string_lights',
   sortKey = 6390,
   categoryId = 'utilities:lighting',

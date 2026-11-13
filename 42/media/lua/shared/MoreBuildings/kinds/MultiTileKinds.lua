@@ -454,6 +454,219 @@ local function createHighMetalFenceKind()
   })
 end
 
+local function createHighWoodenFenceKind()
+  local function sprites(definition, north)
+    local data = definition.placement.data
+    return north and { data.northSprite1, data.northSprite2 } or { data.sprite1, data.sprite2 }
+  end
+  return KindFactory.create({
+    dataFields = Support.joinFields(
+      Support.THUMPABLE_FIELDS,
+      { 'sprite1', 'sprite2', 'northSprite1', 'northSprite2' }
+    ),
+    id = 'morebuilds:high-wooden-fence',
+    requiredFields = { 'sprite1', 'sprite2', 'northSprite1', 'northSprite2', 'health' },
+    spriteFields = { 'sprite1', 'sprite2', 'northSprite1', 'northSprite2' },
+    footprint = function(definition, cursor)
+      return partsFor('high-metal-fence', cursor.north, sprites(definition, cursor.north))
+    end,
+    cursorSettings = { isWallLike = true },
+    afterConfigureCursor = function(cursor, definition)
+      local data = definition.placement.data
+      cursor:setSprite(data.sprite1)
+      cursor:setNorthSprite(data.northSprite1)
+    end,
+    isValid = validHighMetalFence,
+    isPreviewTileValid = validHighMetalFenceTile,
+    create = function(plan, context)
+      local cursor = context.cursor
+      local created = {}
+      local spriteNames = sprites(plan.definition, cursor.north)
+      for index, offset in ipairs(offsetsFor('high-metal-fence', cursor.north)) do
+        local square = context.worldObjectFactory.getOrCreateSquare(plan.square:getX() + offset.x, plan.square:getY() + offset.y, plan.square:getZ())
+        local object = context.worldObjectFactory.makeThumpable(cursor, square, spriteNames[index], cursor.north)
+        object:setThumpSound('ZombieThumpGeneric')
+        created[index] = object
+      end
+      return created
+    end,
+  })
+end
+
+local function createDoubleWoodGateKind()
+  local function sprites(definition, north)
+    local data = definition.placement.data
+    return north and { data.northSprite1, data.northSprite2 } or { data.sprite1, data.sprite2 }
+  end
+  
+  local function openSprites(definition, north)
+    local data = definition.placement.data
+    return north and { data.openNorthSprite1, data.openNorthSprite2 } or { data.openSprite1, data.openSprite2 }
+  end
+  
+  return KindFactory.create({
+    dataFields = Support.joinFields(
+      Support.THUMPABLE_FIELDS,
+      { 'sprite1', 'sprite2', 'northSprite1', 'northSprite2', 'openSprite1', 'openSprite2', 'openNorthSprite1', 'openNorthSprite2', 'dontNeedFrame' }
+    ),
+    id = 'morebuilds:wooden-double-gate',
+    requiredFields = { 'sprite1', 'sprite2', 'northSprite1', 'northSprite2', 'openSprite1', 'openSprite2', 'openNorthSprite1', 'openNorthSprite2', 'health' },
+    spriteFields = { 'sprite1', 'sprite2', 'northSprite1', 'northSprite2', 'openSprite1', 'openSprite2', 'openNorthSprite1', 'openNorthSprite2' },
+    footprint = function(definition, cursor)
+      return partsFor('high-metal-fence', cursor.north, sprites(definition, cursor.north))
+    end,
+    cursorSettings = { isWallLike = true },
+    afterConfigureCursor = function(cursor, definition)
+	  cursor.isDoor = true
+      cursor.canBarricade = false
+      cursor.thumpDmg = 5
+      cursor.dontNeedFrame = true
+      local data = definition.placement.data
+      cursor:setSprite(data.sprite1)
+      cursor:setNorthSprite(data.northSprite1)
+    end,
+    isValid = validHighMetalFence,
+    isPreviewTileValid = validHighMetalFenceTile,
+    create = function(plan, context)
+      local cursor = context.cursor
+      local created = {}
+      local spriteNames = sprites(plan.definition, cursor.north)
+      local openSpriteNames = openSprites(plan.definition, cursor.north)
+	  local keyId = Support.keyIdFromRecordedItems(context.recordedItems)
+	  
+      for index, offset in ipairs(offsetsFor('high-metal-fence', cursor.north)) do
+        local square = context.worldObjectFactory.getOrCreateSquare(plan.square:getX() + offset.x, plan.square:getY() + offset.y, plan.square:getZ())
+        -- Pass the corresponding open sprite so the engine knows how to animate opening/closing
+        local object = context.worldObjectFactory.makeThumpable(cursor, square, spriteNames[index], cursor.north, openSpriteNames[index])
+        object:setThumpSound('ZombieThumpGeneric')
+        
+        if keyId then
+          object:setKeyId(keyId)
+        end
+        
+        created[index] = object
+      end
+      return created
+    end,
+  })
+end
+
+local function createDoubleMetalGateKind()
+  local function sprites(definition, north)
+    local data = definition.placement.data
+    return north and { data.northSprite1, data.northSprite2 } or { data.sprite1, data.sprite2 }
+  end
+  
+  local function openSprites(definition, north)
+    local data = definition.placement.data
+    return north and { data.openNorthSprite1, data.openNorthSprite2 } or { data.openSprite1, data.openSprite2 }
+  end
+  
+  return KindFactory.create({
+    dataFields = Support.joinFields(
+      Support.THUMPABLE_FIELDS,
+      { 'sprite1', 'sprite2', 'northSprite1', 'northSprite2', 'openSprite1', 'openSprite2', 'openNorthSprite1', 'openNorthSprite2', 'dontNeedFrame' }
+    ),
+    id = 'morebuilds:metal-double-gate',
+    requiredFields = { 'sprite1', 'sprite2', 'northSprite1', 'northSprite2', 'openSprite1', 'openSprite2', 'openNorthSprite1', 'openNorthSprite2', 'health' },
+    spriteFields = { 'sprite1', 'sprite2', 'northSprite1', 'northSprite2', 'openSprite1', 'openSprite2', 'openNorthSprite1', 'openNorthSprite2' },
+    footprint = function(definition, cursor)
+      return partsFor('high-metal-fence', cursor.north, sprites(definition, cursor.north))
+    end,
+    cursorSettings = { isWallLike = true },
+    afterConfigureCursor = function(cursor, definition)
+	  cursor.isDoor = true
+      cursor.canBarricade = false
+      cursor.thumpDmg = 5
+      cursor.dontNeedFrame = true
+      local data = definition.placement.data
+      cursor:setSprite(data.sprite1)
+      cursor:setNorthSprite(data.northSprite1)
+    end,
+    isValid = validHighMetalFence,
+    isPreviewTileValid = validHighMetalFenceTile,
+    create = function(plan, context)
+      local cursor = context.cursor
+      local created = {}
+      local spriteNames = sprites(plan.definition, cursor.north)
+      local openSpriteNames = openSprites(plan.definition, cursor.north)
+      local keyId = Support.keyIdFromRecordedItems(context.recordedItems)
+	  
+      for index, offset in ipairs(offsetsFor('high-metal-fence', cursor.north)) do
+        local square = context.worldObjectFactory.getOrCreateSquare(plan.square:getX() + offset.x, plan.square:getY() + offset.y, plan.square:getZ())
+        -- Pass the corresponding open sprite so the engine knows how to animate opening/closing
+        local object = context.worldObjectFactory.makeThumpable(cursor, square, spriteNames[index], cursor.north, openSpriteNames[index])
+        object:setThumpSound('ZombieThumpMetal')
+        
+        if keyId then
+          object:setKeyId(keyId)
+        end
+        
+        created[index] = object
+      end
+      return created
+    end,
+  })
+end
+
+local function createDoubleChainGateKind()
+  local function sprites(definition, north)
+    local data = definition.placement.data
+    return north and { data.northSprite1, data.northSprite2 } or { data.sprite1, data.sprite2 }
+  end
+  
+  local function openSprites(definition, north)
+    local data = definition.placement.data
+    return north and { data.openNorthSprite1, data.openNorthSprite2 } or { data.openSprite1, data.openSprite2 }
+  end
+  
+  return KindFactory.create({
+    dataFields = Support.joinFields(
+      Support.THUMPABLE_FIELDS,
+      { 'sprite1', 'sprite2', 'northSprite1', 'northSprite2', 'openSprite1', 'openSprite2', 'openNorthSprite1', 'openNorthSprite2', 'dontNeedFrame' }
+    ),
+    id = 'morebuilds:chain-double-gate',
+    requiredFields = { 'sprite1', 'sprite2', 'northSprite1', 'northSprite2', 'openSprite1', 'openSprite2', 'openNorthSprite1', 'openNorthSprite2', 'health' },
+    spriteFields = { 'sprite1', 'sprite2', 'northSprite1', 'northSprite2', 'openSprite1', 'openSprite2', 'openNorthSprite1', 'openNorthSprite2' },
+    footprint = function(definition, cursor)
+      return partsFor('high-metal-fence', cursor.north, sprites(definition, cursor.north))
+    end,
+    cursorSettings = { isWallLike = true },
+    afterConfigureCursor = function(cursor, definition)
+	  cursor.isDoor = true
+      cursor.canBarricade = false
+      cursor.thumpDmg = 5
+      cursor.dontNeedFrame = true
+      local data = definition.placement.data
+      cursor:setSprite(data.sprite1)
+      cursor:setNorthSprite(data.northSprite1)
+    end,
+    isValid = validHighMetalFence,
+    isPreviewTileValid = validHighMetalFenceTile,
+    create = function(plan, context)
+      local cursor = context.cursor
+      local created = {}
+      local spriteNames = sprites(plan.definition, cursor.north)
+      local openSpriteNames = openSprites(plan.definition, cursor.north)
+      local keyId = Support.keyIdFromRecordedItems(context.recordedItems)
+	  
+      for index, offset in ipairs(offsetsFor('high-metal-fence', cursor.north)) do
+        local square = context.worldObjectFactory.getOrCreateSquare(plan.square:getX() + offset.x, plan.square:getY() + offset.y, plan.square:getZ())
+        -- Pass the corresponding open sprite so the engine knows how to animate opening/closing
+        local object = context.worldObjectFactory.makeThumpable(cursor, square, spriteNames[index], cursor.north, openSpriteNames[index])
+        object:setThumpSound('ZombieThumpChainlinkFence')
+        
+        if keyId then
+          object:setKeyId(keyId)
+        end
+        
+        created[index] = object
+      end
+      return created
+    end,
+  })
+end
+
 local function createStairsKind()
   local function sprites(definition, north)
     local data = definition.placement.data
@@ -559,6 +772,10 @@ function MultiTileKinds.createAll()
     createFeedingTroughKind(),
     createMultiLightKind(),
     createHighMetalFenceKind(),
+	createHighWoodenFenceKind(),
+	createDoubleMetalGateKind(),
+	createDoubleWoodGateKind(),
+	createDoubleChainGateKind(),
     createStairsKind(),
     createGarageDoorKind(),
   }

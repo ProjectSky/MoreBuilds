@@ -16,6 +16,7 @@ return {
     { id = 'structure:window-frames', groupId = 'structure', nameKey = 'UI_MoreBuild_Subcategory_WindowFrames', sortKey = 230 },
     { id = 'structure:floors', groupId = 'structure', nameKey = 'UI_MoreBuild_Subcategory_Floors', sortKey = 300 },
     { id = 'structure:fences', groupId = 'structure', nameKey = 'UI_MoreBuild_Subcategory_Fences', sortKey = 400 },
+    { id = 'structure:gates', groupId = 'structure', nameKey = 'UI_MoreBuild_Subcategory_Gates', sortKey = 450 },
     { id = 'structure:posts-pillars', groupId = 'structure', nameKey = 'UI_MoreBuild_Subcategory_PostsPillars', sortKey = 410 },
     { id = 'structure:stairs', groupId = 'structure', nameKey = 'UI_MoreBuild_Subcategory_Stairs', sortKey = 500 },
     { id = 'furniture:seating', groupId = 'furniture', nameKey = 'UI_MoreBuild_Subcategory_Seating', sortKey = 100 },
