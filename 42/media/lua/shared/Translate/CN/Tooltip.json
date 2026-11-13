@@ -48,6 +48,8 @@
   "Tooltip_MoreBuild_DoorIndustrialMetal": "加固金属门，适用于工业区或安全入口。",
   "Tooltip_MoreBuild_DoorWoodenGate": "全高木制大门，适合围栏或院墙入口。",
   "Tooltip_MoreBuild_DoorLowWood": "低矮木门，适合矮隔断和服务开口。",
+  "Tooltip_MoreBuild_ChainLinkGate": "一扇铁丝网围栏门。",
+  "Tooltip_MoreBuild_HighMetalGate": "一扇高高的金属栅栏门",
   "Tooltip_MoreBuild_WroughtGate": "一扇矮小的锻铁门",
   "Tooltip_MoreBuild_DoorSlatWood": "一扇板条木门",
   "Tooltip_MoreBuild_DoorWood": "木门，应安装在兼容的门框内。",

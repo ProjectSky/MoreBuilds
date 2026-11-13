@@ -835,6 +835,44 @@ module MoreBuilds
             item 2 [Base.WeldingRods] flags[DontRecordInput],
         }
     }
+	
+	craftRecipe FenceMetalGate
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 200,
+        category = Welding,
+        timedAction = BuildMetalStructureMedium,
+        SkillRequired = MetalWelding:3,
+        xpAward = MetalWelding:30,
+        inputs
+        {
+            item 2 [Base.MetalPipe] flags[RecordInput],
+            item 1 [Base.Wire] flags[RecordInput],
+            item 1 [Base.ScrapMetal] flags[RecordInput],
+			item 2 [Base.Hinge] flags[RecordInput],
+            item 2 [Base.BlowTorch] flags[DontRecordInput],
+            item 2 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+	
+	craftRecipe HighMetalGate
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 200,
+        category = Welding,
+        timedAction = BuildMetalStructureMedium,
+        SkillRequired = MetalWelding:3,
+        xpAward = MetalWelding:40,
+        inputs
+        {
+            item 2 [Base.MetalPipe] flags[RecordInput],
+            item 2 [Base.Wire] flags[RecordInput],
+            item 2 [Base.ScrapMetal] flags[RecordInput],
+			item 2 [Base.Hinge] flags[RecordInput],
+            item 3 [Base.BlowTorch] flags[DontRecordInput],
+            item 3 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
 
     craftRecipe FencePostWood
     {

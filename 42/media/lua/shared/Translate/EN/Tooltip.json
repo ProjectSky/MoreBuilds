@@ -48,6 +48,8 @@
   "Tooltip_MoreBuild_DoorIndustrialMetal": "A reinforced metal door for industrial or secure entrances.",
   "Tooltip_MoreBuild_DoorWoodenGate": "A full-height wooden gate for a fenced or walled entrance.",
   "Tooltip_MoreBuild_DoorLowWood": "A low wooden door for short partitions and service openings.",
+  "Tooltip_MoreBuild_ChainLinkGate": "A chain-link gate to a fence.",
+  "Tooltip_MoreBuild_HighMetalGate": "A high metal gate to a fence.",
   "Tooltip_MoreBuild_WroughtGate": "A low wrought iron gate.",
   "Tooltip_MoreBuild_DoorSlatWood": "A slat wood gate.",
   "Tooltip_MoreBuild_DoorWood": "A wooden door; place it in a compatible door frame.",

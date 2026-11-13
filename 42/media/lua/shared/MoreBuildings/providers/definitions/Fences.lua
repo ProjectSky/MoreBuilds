@@ -119,10 +119,10 @@ local definitions = {
     ["salvagePolicy"] = "recipe-inputs",
   },
   {
-    ["id"] = "morebuilds:fence:chain_link",
+    ["id"] = "morebuilds:fence:chain_link_2",
     ["sortKey"] = 8920,
     ["categoryId"] = "structure:fences",
-    ["nameKey"] = "ContextMenu_MoreBuild_ChainLinkFence_2",
+    ["nameKey"] = "ContextMenu_MoreBuild_ChainLinkFence",
     ["descriptionKey"] = "Tooltip_MoreBuild_FenceChainLink",
     ["recipeId"] = "MoreBuilds.FenceChainLink",
     ["previewSprite"] = "fencing_01_26",
