@@ -606,14 +606,14 @@ return {
     ["nameKey"] = "ContextMenu_MoreBuild_WhiteCeramic_Tile_DoorFrame",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorFrameTile",
     ["recipeId"] = "MoreBuilds.WallTile",
-    ["previewSprite"] = "walls_interior_bathroom_1_30",
+    ["previewSprite"] = "walls_interior_bathroom_01_30",
     ["placement"] = {
       ["kind"] = "morebuilds:door-frame",
       ["data"] = {
         ["corner"] = "walls_commercial_01_51",
         ["health"] = 300,
-        ["northSprite"] = "walls_interior_bathroom_1_31",
-        ["sprite"] = "walls_interior_bathroom_1_30",
+        ["northSprite"] = "walls_interior_bathroom_01_31",
+        ["sprite"] = "walls_interior_bathroom_01_30",
       },
     },
     ["salvagePolicy"] = "recipe-inputs",
