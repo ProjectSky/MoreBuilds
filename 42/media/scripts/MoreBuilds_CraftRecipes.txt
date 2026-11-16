@@ -103,7 +103,7 @@ module MoreBuilds
         {
             item 4 [Base.Plank] flags[RecordInput],
             item 4 [Base.Nails] flags[RecordInput],
-            item 1 tags[base:wallpaper] flags[DontRecordInput],
+            item 1 [Base.Wallpaper_BlueStripe] flags[DontRecordInput],
             item 1 tags[base:wallpaperpaste] flags[DontRecordInput],
             item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
             item 1 tags[base:scissors] mode:keep flags[MayDegradeVeryLight],
@@ -123,7 +123,7 @@ module MoreBuilds
         {
             item 4 [Base.Plank] flags[RecordInput],
             item 4 [Base.Nails] flags[RecordInput],
-            item 1 tags[base:wallpaper] flags[DontRecordInput],
+            item 1 [Base.Wallpaper_BeigeStripe] flags[DontRecordInput],
             item 1 tags[base:wallpaperpaste] flags[DontRecordInput],
             item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
             item 1 tags[base:scissors] mode:keep flags[MayDegradeVeryLight],
@@ -143,7 +143,7 @@ module MoreBuilds
         {
             item 4 [Base.Plank] flags[RecordInput],
             item 4 [Base.Nails] flags[RecordInput],
-            item 1 tags[base:wallpaper] flags[DontRecordInput],
+            item 1 [Base.Wallpaper_GreenDiamond] flags[DontRecordInput],
             item 1 tags[base:wallpaperpaste] flags[DontRecordInput],
             item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
             item 1 tags[base:scissors] mode:keep flags[MayDegradeVeryLight],
@@ -163,7 +163,7 @@ module MoreBuilds
         {
             item 4 [Base.Plank] flags[RecordInput],
             item 4 [Base.Nails] flags[RecordInput],
-            item 1 tags[base:wallpaper] flags[DontRecordInput],
+            item 1 [Base.Wallpaper_BlackFloral] flags[DontRecordInput],
             item 1 tags[base:wallpaperpaste] flags[DontRecordInput],
             item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
             item 1 tags[base:scissors] mode:keep flags[MayDegradeVeryLight],
@@ -183,7 +183,7 @@ module MoreBuilds
         {
             item 4 [Base.Plank] flags[RecordInput],
             item 4 [Base.Nails] flags[RecordInput],
-            item 1 tags[base:wallpaper] flags[DontRecordInput],
+            item 1 [Base.Wallpaper_PinkFloral] flags[DontRecordInput],
             item 1 tags[base:wallpaperpaste] flags[DontRecordInput],
             item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
             item 1 tags[base:scissors] mode:keep flags[MayDegradeVeryLight],
@@ -223,7 +223,7 @@ module MoreBuilds
         {
             item 4 [Base.Plank] flags[RecordInput],
             item 4 [Base.Nails] flags[RecordInput],
-            item 1 tags[Base.PaintYellow] flags[DontRecordInput],
+            item 1 [Base.PaintYellow] flags[DontRecordInput],
             item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
 			item 1 tags[base:plasterbucket] flags[DontRecordInput],
             item 1 tags[base:plastertrowel] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
@@ -561,8 +561,8 @@ module MoreBuilds
         time = 200,
         category = Masonry,
         timedAction = Make_With_Brick,
-        SkillRequired = Masonry:2,
-        xpAward = Masonry:20,
+        SkillRequired = Masonry:5,
+        xpAward = Masonry:35,
         inputs
         {
             item 6 [Base.StoneBlock] flags[RecordInput],
@@ -4432,7 +4432,7 @@ module MoreBuilds
         }
     }
 
-    craftRecipe MakeWallpaperPainted
+    craftRecipe MakeWallpaperBeigeStripe
     {
         time = 80,
         category = Tailoring,
@@ -4442,13 +4442,133 @@ module MoreBuilds
         xpAward = Tailoring:8,
         inputs
         {
-            item 1 [Base.SheetPaper2] flags[RecordInput],
+            item 10 [Base.SheetPaper2;Base.GraphPaper;Base.Journal;Base.Notebook;Base.Notepad] flags[RecordInput],
             item 1 tags[base:paint] flags[DontRecordInput],
             item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
         }
         outputs
         {
             item 1 Base.Wallpaper_BeigeStripe,
+        }
+    }
+	
+	craftRecipe MakeWallpaperBlackFloral
+    {
+        time = 80,
+        category = Tailoring,
+        timedAction = Paint,
+        Tags = AnySurfaceCraft,
+        SkillRequired = Tailoring:1,
+        xpAward = Tailoring:8,
+        inputs
+        {
+            item 1 [Base.SheetPaper2;Base.GraphPaper;Base.Journal;Base.Notebook;Base.Notepad] flags[RecordInput],
+            item 1 [Base.PaintBlack] flags[DontRecordInput],
+            item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+        }
+        outputs
+        {
+            item 1 Base.Wallpaper_BlackFloral,
+        }
+    }
+	
+	craftRecipe MakeWallpaperBlueStripe
+    {
+        time = 80,
+        category = Tailoring,
+        timedAction = Paint,
+        Tags = AnySurfaceCraft,
+        SkillRequired = Tailoring:1,
+        xpAward = Tailoring:8,
+        inputs
+        {
+            item 1 [Base.SheetPaper2;Base.GraphPaper;Base.Journal;Base.Notebook;Base.Notepad] flags[RecordInput],
+            item 1 [Base.PaintBlue] flags[DontRecordInput],
+            item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+        }
+        outputs
+        {
+            item 1 Base.Wallpaper_BlueStripe,
+        }
+    }
+	
+	craftRecipe MakeWallpaperGreenDiamond
+    {
+        time = 80,
+        category = Tailoring,
+        timedAction = Paint,
+        Tags = AnySurfaceCraft,
+        SkillRequired = Tailoring:1,
+        xpAward = Tailoring:8,
+        inputs
+        {
+            item 1 [Base.SheetPaper2;Base.GraphPaper;Base.Journal;Base.Notebook;Base.Notepad] flags[RecordInput],
+            item 1 [Base.PaintGreen] flags[DontRecordInput],
+            item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+        }
+        outputs
+        {
+            item 1 Base.Wallpaper_GreenDiamond,
+        }
+    }
+	
+	craftRecipe MakeWallpaperGreenFloral
+    {
+        time = 80,
+        category = Tailoring,
+        timedAction = Paint,
+        Tags = AnySurfaceCraft,
+        SkillRequired = Tailoring:1,
+        xpAward = Tailoring:8,
+        inputs
+        {
+            item 1 [Base.SheetPaper2;Base.GraphPaper;Base.Journal;Base.Notebook;Base.Notepad] flags[RecordInput],
+            item 1 [Base.PaintGreen] flags[DontRecordInput],
+            item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+        }
+        outputs
+        {
+            item 1 Base.Wallpaper_GreenFloral,
+        }
+    }
+	
+	craftRecipe MakeWallpaperPinkChevron
+    {
+        time = 80,
+        category = Tailoring,
+        timedAction = Paint,
+        Tags = AnySurfaceCraft,
+        SkillRequired = Tailoring:1,
+        xpAward = Tailoring:8,
+        inputs
+        {
+            item 1 [Base.SheetPaper2;Base.GraphPaper;Base.Journal;Base.Notebook;Base.Notepad] flags[RecordInput],
+            item 1 [Base.PaintPink] flags[DontRecordInput],
+            item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+        }
+        outputs
+        {
+            item 1 Base.Wallpaper_PinkChevron,
+        }
+    }
+	
+	craftRecipe MakeWallpaperPinkFloral
+    {
+        time = 80,
+        category = Tailoring,
+        timedAction = Paint,
+        Tags = AnySurfaceCraft,
+        SkillRequired = Tailoring:1,
+        xpAward = Tailoring:8,
+        inputs
+        {
+            item 1 [Base.SheetPaper2;Base.GraphPaper;Base.Journal;Base.Notebook;Base.Notepad] flags[RecordInput],
+            item 1 [Base.PaintPink] flags[DontRecordInput],
+            item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+        }
+        outputs
+        {
+            item 1 Base.Wallpaper_PinkFloral,
         }
     }
 

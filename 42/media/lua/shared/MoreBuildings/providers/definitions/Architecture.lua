@@ -80,28 +80,8 @@ return {
     ["salvagePolicy"] = "recipe-inputs",
   },
   {
-    ["id"] = "morebuilds:wall:wood_white_plaster",
-    ["sortKey"] = 50,
-    ["categoryId"] = "structure:walls",
-    ["nameKey"] = "ContextMenu_MoreBuild_White_Plaster",
-    ["descriptionKey"] = "Tooltip_MoreBuild_WallPlaster",
-    ["recipeId"] = "MoreBuilds.WallPlasterWood",
-    ["previewSprite"] = "location_shop_mall_01_0",
-    ["placement"] = {
-      ["kind"] = "morebuilds:wall",
-      ["data"] = {
-        ["corner"] = "location_shop_mall_01_3",
-        ["health"] = 200,
-        ["healthFromCarpentry"] = true,
-        ["northSprite"] = "location_shop_mall_01_1",
-        ["sprite"] = "location_shop_mall_01_0",
-      },
-    },
-    ["salvagePolicy"] = "recipe-inputs",
-  },
-  {
     ["id"] = "morebuilds:wall:wood_white",
-    ["sortKey"] = 60,
+    ["sortKey"] = 50,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_White_Wood",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallWood",
@@ -121,7 +101,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:stone_brown_cinder",
-    ["sortKey"] = 70,
+    ["sortKey"] = 60,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_Brown_Cinder_Block",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallBrick",
@@ -140,7 +120,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:stone_gray_cinder",
-    ["sortKey"] = 80,
+    ["sortKey"] = 70,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_Gray_Cinder_Block",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallBrick",
@@ -159,7 +139,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:stone_white_cinder",
-    ["sortKey"] = 90,
+    ["sortKey"] = 80,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_White_CinderBlock",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallBrick",
@@ -178,7 +158,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:glass_1",
-    ["sortKey"] = 100,
+    ["sortKey"] = 90,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_Glass_Wall1",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallGlass",
@@ -196,7 +176,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:glass_2",
-    ["sortKey"] = 110,
+    ["sortKey"] = 100,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_Glass_Wall2",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallGlass",
@@ -214,7 +194,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:glass_3",
-    ["sortKey"] = 120,
+    ["sortKey"] = 110,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_Glass_Wall3",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallGlass",
@@ -232,7 +212,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:glass_4",
-    ["sortKey"] = 130,
+    ["sortKey"] = 120,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_Glass_Wall4",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallGlass",
@@ -250,7 +230,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:glass_5",
-    ["sortKey"] = 140,
+    ["sortKey"] = 130,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_Glass_Wall5",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallGlass",
@@ -268,7 +248,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:glass_6",
-    ["sortKey"] = 150,
+    ["sortKey"] = 140,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_Glass_Wall6",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallGlass",
@@ -286,7 +266,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:glass_7",
-    ["sortKey"] = 160,
+    ["sortKey"] = 150,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_Glass_Wall7",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallGlass",
@@ -304,7 +284,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:glass_8",
-    ["sortKey"] = 170,
+    ["sortKey"] = 160,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_Glass_Wall8",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallGlass",
@@ -322,7 +302,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:glass_9",
-    ["sortKey"] = 180,
+    ["sortKey"] = 170,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_Glass_Wall9",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallGlass",
@@ -340,7 +320,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:glass_10",
-    ["sortKey"] = 190,
+    ["sortKey"] = 180,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_Glass_Wall10",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallGlass",
@@ -358,75 +338,75 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:glass_11",
-    ["sortKey"] = 200,
+    ["sortKey"] = 190,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_Glass_Wall11",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallGlass",
     ["recipeId"] = "MoreBuilds.WallGlass",
-    ["previewSprite"] = "walls_commercial_03_57",
+    ["previewSprite"] = "walls_commercial_02_51",
     ["placement"] = {
       ["kind"] = "morebuilds:window-wall",
       ["data"] = {
-        ["northSprite"] = "walls_commercial_03_54",
-        ["sprite"] = "walls_commercial_03_57",
+        ["northSprite"] = "walls_commercial_02_48",
+        ["sprite"] = "walls_commercial_02_51",
       },
     },
     ["salvagePolicy"] = "recipe-inputs",
   },
   {
     ["id"] = "morebuilds:wall:glass_12",
-    ["sortKey"] = 210,
+    ["sortKey"] = 200,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_Glass_Wall12",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallGlass",
     ["recipeId"] = "MoreBuilds.WallGlass",
-    ["previewSprite"] = "walls_commercial_03_58",
+    ["previewSprite"] = "walls_commercial_02_52",
     ["placement"] = {
       ["kind"] = "morebuilds:window-wall",
       ["data"] = {
-        ["northSprite"] = "walls_commercial_03_55",
-        ["sprite"] = "walls_commercial_03_58",
+        ["northSprite"] = "walls_commercial_02_49",
+        ["sprite"] = "walls_commercial_02_52",
       },
     },
     ["salvagePolicy"] = "recipe-inputs",
   },
   {
     ["id"] = "morebuilds:wall:glass_13",
-    ["sortKey"] = 220,
+    ["sortKey"] = 210,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_Glass_Wall13",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallGlass",
     ["recipeId"] = "MoreBuilds.WallGlass",
-    ["previewSprite"] = "walls_commercial_03_59",
+    ["previewSprite"] = "walls_commercial_02_53",
     ["placement"] = {
       ["kind"] = "morebuilds:window-wall",
       ["data"] = {
-        ["northSprite"] = "walls_commercial_03_56",
-        ["sprite"] = "walls_commercial_03_59",
+        ["northSprite"] = "walls_commercial_02_50",
+        ["sprite"] = "walls_commercial_02_53",
       },
     },
     ["salvagePolicy"] = "recipe-inputs",
   },
   {
     ["id"] = "morebuilds:wall:glass_14",
-    ["sortKey"] = 230,
+    ["sortKey"] = 220,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_Glass_Wall14",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallGlass",
     ["recipeId"] = "MoreBuilds.WallGlass",
-    ["previewSprite"] = "walls_commercial_03_61",
+    ["previewSprite"] = "walls_commercial_02_55",
     ["placement"] = {
       ["kind"] = "morebuilds:window-wall",
       ["data"] = {
-        ["northSprite"] = "walls_commercial_03_60",
-        ["sprite"] = "walls_commercial_03_61",
+        ["northSprite"] = "walls_commercial_02_54",
+        ["sprite"] = "walls_commercial_02_55",
       },
     },
     ["salvagePolicy"] = "recipe-inputs",
   },
   {
     ["id"] = "morebuilds:door_frame:wood_light_brown",
-    ["sortKey"] = 240,
+    ["sortKey"] = 230,
     ["categoryId"] = "structure:door-frames",
     ["nameKey"] = "ContextMenu_MoreBuild_LightBrownWood_DoorFrame",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorFrameWood",
@@ -446,7 +426,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door_frame:wood_dark_brown",
-    ["sortKey"] = 250,
+    ["sortKey"] = 240,
     ["categoryId"] = "structure:door-frames",
     ["nameKey"] = "ContextMenu_MoreBuild_DarkBrown_WoodDoorFrame",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorFrameWood",
@@ -466,7 +446,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door_frame:wood_gray_plaster",
-    ["sortKey"] = 260,
+    ["sortKey"] = 250,
     ["categoryId"] = "structure:door-frames",
     ["nameKey"] = "ContextMenu_MoreBuild_GrayPlaster_DoorFrame",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorFrameBrick",
@@ -485,7 +465,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door_frame:wood_gray",
-    ["sortKey"] = 270,
+    ["sortKey"] = 260,
     ["categoryId"] = "structure:door-frames",
     ["nameKey"] = "ContextMenu_MoreBuild_GrayWood_DoorFrame",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorFrameWood",
@@ -505,7 +485,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door_frame:wood_red_barn",
-    ["sortKey"] = 280,
+    ["sortKey"] = 270,
     ["categoryId"] = "structure:door-frames",
     ["nameKey"] = "ContextMenu_MoreBuild_RedBarnwood_DoorFrame",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorFrameWood",
@@ -525,7 +505,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door_frame:wood_white_plaster",
-    ["sortKey"] = 290,
+    ["sortKey"] = 280,
     ["categoryId"] = "structure:door-frames",
     ["nameKey"] = "ContextMenu_MoreBuild_WhitePlaster_DoorFrame",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorFrameBrick",
@@ -544,7 +524,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door_frame:wood_white",
-    ["sortKey"] = 300,
+    ["sortKey"] = 290,
     ["categoryId"] = "structure:door-frames",
     ["nameKey"] = "ContextMenu_MoreBuild_WhiteWood_DoorFrame",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorFrameWood",
@@ -564,7 +544,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door_frame:stone_brown_cinder",
-    ["sortKey"] = 310,
+    ["sortKey"] = 300,
     ["categoryId"] = "structure:door-frames",
     ["nameKey"] = "ContextMenu_MoreBuild_BrownCinder_Block_DoorFrame",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorFrameBrick",
@@ -583,7 +563,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door_frame:stone_gray_cinder",
-    ["sortKey"] = 320,
+    ["sortKey"] = 310,
     ["categoryId"] = "structure:door-frames",
     ["nameKey"] = "ContextMenu_MoreBuild_GrayCinder_Block_DoorFrame",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorFrameBrick",
@@ -602,7 +582,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door_frame:stone_white_cinder",
-    ["sortKey"] = 330,
+    ["sortKey"] = 320,
     ["categoryId"] = "structure:door-frames",
     ["nameKey"] = "ContextMenu_MoreBuild_WhiteCinder_Block_DoorFrame",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorFrameBrick",
@@ -620,8 +600,27 @@ return {
     ["salvagePolicy"] = "recipe-inputs",
   },
   {
+    ["id"] = "morebuilds:door_frame:tile_white_ceramic",
+    ["sortKey"] = 321,
+    ["categoryId"] = "structure:door-frames",
+    ["nameKey"] = "ContextMenu_MoreBuild_WhiteCeramic_Tile_DoorFrame",
+    ["descriptionKey"] = "Tooltip_MoreBuild_DoorFrameTile",
+    ["recipeId"] = "MoreBuilds.WallTile",
+    ["previewSprite"] = "walls_interior_bathroom_1_30",
+    ["placement"] = {
+      ["kind"] = "morebuilds:door-frame",
+      ["data"] = {
+        ["corner"] = "walls_commercial_01_51",
+        ["health"] = 300,
+        ["northSprite"] = "walls_interior_bathroom_1_31",
+        ["sprite"] = "walls_interior_bathroom_1_30",
+      },
+    },
+    ["salvagePolicy"] = "recipe-inputs",
+  },
+  {
     ["id"] = "morebuilds:fence_post:style_wood_light_brown",
-    ["sortKey"] = 340,
+    ["sortKey"] = 330,
     ["categoryId"] = "structure:posts-pillars",
     ["nameKey"] = "ContextMenu_MoreBuild_LightBrownWood_FencePost",
     ["descriptionKey"] = "Tooltip_MoreBuild_FencePostWood",
@@ -639,7 +638,7 @@ return {
   },
   {
     ["id"] = "morebuilds:fence_post:style_wood_gray_plaster",
-    ["sortKey"] = 350,
+    ["sortKey"] = 340,
     ["categoryId"] = "structure:posts-pillars",
     ["nameKey"] = "ContextMenu_MoreBuild_GrayPlaster_FencePost",
     ["descriptionKey"] = "Tooltip_MoreBuild_FencePostBrick",
@@ -656,7 +655,7 @@ return {
   },
   {
     ["id"] = "morebuilds:fence_post:style_wood_gray",
-    ["sortKey"] = 360,
+    ["sortKey"] = 350,
     ["categoryId"] = "structure:posts-pillars",
     ["nameKey"] = "ContextMenu_MoreBuild_GrayWood_FencePost",
     ["descriptionKey"] = "Tooltip_MoreBuild_FencePostWood",
@@ -674,7 +673,7 @@ return {
   },
   {
     ["id"] = "morebuilds:fence_post:style_stone_brown_cinder",
-    ["sortKey"] = 370,
+    ["sortKey"] = 360,
     ["categoryId"] = "structure:posts-pillars",
     ["nameKey"] = "ContextMenu_MoreBuild_BrownCinder_Block_FencePost",
     ["descriptionKey"] = "Tooltip_MoreBuild_FencePostBrick",
@@ -691,7 +690,7 @@ return {
   },
   {
     ["id"] = "morebuilds:fence_post:style_stone_gray_cinder",
-    ["sortKey"] = 380,
+    ["sortKey"] = 370,
     ["categoryId"] = "structure:posts-pillars",
     ["nameKey"] = "ContextMenu_MoreBuild_GrayCinder_Block_FencePost",
     ["descriptionKey"] = "Tooltip_MoreBuild_FencePostBrick",
@@ -708,7 +707,7 @@ return {
   },
   {
     ["id"] = "morebuilds:fence_post:style_stone_white_cinder",
-    ["sortKey"] = 390,
+    ["sortKey"] = 380,
     ["categoryId"] = "structure:posts-pillars",
     ["nameKey"] = "ContextMenu_MoreBuild_WhiteCinder_Block_FencePost",
     ["descriptionKey"] = "Tooltip_MoreBuild_FencePostBrick",
@@ -725,7 +724,7 @@ return {
   },
   {
     ["id"] = "morebuilds:fence_post:style_stone_red_brick",
-    ["sortKey"] = 400,
+    ["sortKey"] = 390,
     ["categoryId"] = "structure:posts-pillars",
     ["nameKey"] = "ContextMenu_MoreBuild_Red_BrickFence",
     ["descriptionKey"] = "Tooltip_MoreBuild_FencePostBrick",
@@ -742,7 +741,7 @@ return {
   },
   {
     ["id"] = "morebuilds:fence_post:more_white_picket",
-    ["sortKey"] = 410,
+    ["sortKey"] = 400,
     ["categoryId"] = "structure:posts-pillars",
     ["nameKey"] = "ContextMenu_MoreBuild_WhitePicket_FencePost",
     ["descriptionKey"] = "Tooltip_MoreBuild_FencePostRailWood",
@@ -760,7 +759,7 @@ return {
   },
   {
     ["id"] = "morebuilds:fence_post:more_beige_rail",
-    ["sortKey"] = 420,
+    ["sortKey"] = 410,
     ["categoryId"] = "structure:posts-pillars",
     ["nameKey"] = "ContextMenu_MoreBuild_Beige_FencePost_WithRail",
     ["descriptionKey"] = "Tooltip_MoreBuild_FencePostPlasterRail",
@@ -778,7 +777,7 @@ return {
   },
   {
     ["id"] = "morebuilds:fence_post:more_gray_rail",
-    ["sortKey"] = 430,
+    ["sortKey"] = 420,
     ["categoryId"] = "structure:posts-pillars",
     ["nameKey"] = "ContextMenu_MoreBuild_Gray_FencePost_WithRail",
     ["descriptionKey"] = "Tooltip_MoreBuild_FencePostPlasterRail",
@@ -796,7 +795,7 @@ return {
   },
   {
     ["id"] = "morebuilds:fence_post:more_green_metal",
-    ["sortKey"] = 440,
+    ["sortKey"] = 430,
     ["categoryId"] = "structure:posts-pillars",
     ["nameKey"] = "ContextMenu_MoreBuild_GreenMetal_FencePost",
     ["descriptionKey"] = "Tooltip_MoreBuild_FencePostMetal",
@@ -813,7 +812,7 @@ return {
   },
   {
     ["id"] = "morebuilds:fence_post:more_red_metal",
-    ["sortKey"] = 450,
+    ["sortKey"] = 440,
     ["categoryId"] = "structure:posts-pillars",
     ["nameKey"] = "ContextMenu_MoreBuild_RedMetal_Fence",
     ["descriptionKey"] = "Tooltip_MoreBuild_FencePostMetal",
@@ -830,7 +829,7 @@ return {
   },
   {
     ["id"] = "morebuilds:fence_post:more_rough_brick",
-    ["sortKey"] = 460,
+    ["sortKey"] = 450,
     ["categoryId"] = "structure:posts-pillars",
     ["nameKey"] = "ContextMenu_MoreBuild_RoughBrick_FencePost",
     ["descriptionKey"] = "Tooltip_MoreBuild_FencePostBrick",
@@ -847,7 +846,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:garage:white",
-    ["sortKey"] = 470,
+    ["sortKey"] = 460,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_White_Garage_Door",
     ["descriptionKey"] = "Tooltip_MoreBuild_GarageDoorMetal",
@@ -865,7 +864,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:garage:green",
-    ["sortKey"] = 480,
+    ["sortKey"] = 470,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_Green_Garage_Door",
     ["descriptionKey"] = "Tooltip_MoreBuild_GarageDoorMetal",
@@ -883,7 +882,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:garage:gray",
-    ["sortKey"] = 490,
+    ["sortKey"] = 480,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_Grey_Garage_Door",
     ["descriptionKey"] = "Tooltip_MoreBuild_GarageDoorMetal",
@@ -901,7 +900,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:garage:rolling",
-    ["sortKey"] = 500,
+    ["sortKey"] = 490,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_Rolling_Garage_Door",
     ["descriptionKey"] = "Tooltip_MoreBuild_GarageDoorMetal",
@@ -919,7 +918,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:garage:red_window",
-    ["sortKey"] = 510,
+    ["sortKey"] = 500,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_Red_Window_Garage_Door",
     ["descriptionKey"] = "Tooltip_MoreBuild_GarageDoorMetalGlass",
@@ -937,7 +936,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:garage:gray_window",
-    ["sortKey"] = 520,
+    ["sortKey"] = 510,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_Gray_Window_Garage_Door",
     ["descriptionKey"] = "Tooltip_MoreBuild_GarageDoorMetalGlass",
@@ -955,7 +954,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:wooden:blue",
-    ["sortKey"] = 530,
+    ["sortKey"] = 520,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_Blue_WoodenDoor",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorWood",
@@ -977,7 +976,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:wooden:brown",
-    ["sortKey"] = 540,
+    ["sortKey"] = 530,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_Brown_WoodenDoor",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorWood",
@@ -999,7 +998,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:wooden:dark_brown",
-    ["sortKey"] = 550,
+    ["sortKey"] = 540,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_DarkBrown_WoodenDoor",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorWood",
@@ -1021,7 +1020,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:wooden:fancy_brown",
-    ["sortKey"] = 560,
+    ["sortKey"] = 550,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_FancyBrown_Door",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorWood",
@@ -1043,7 +1042,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:wooden:white",
-    ["sortKey"] = 570,
+    ["sortKey"] = 560,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_White_WoodenDoor",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorWood",
@@ -1065,7 +1064,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:panel:brown",
-    ["sortKey"] = 580,
+    ["sortKey"] = 570,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_Brown_PanelDoor",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorWood",
@@ -1087,7 +1086,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:panel:gray",
-    ["sortKey"] = 590,
+    ["sortKey"] = 580,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_Gray_PanelDoor",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorWood",
@@ -1109,7 +1108,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:panel:white",
-    ["sortKey"] = 600,
+    ["sortKey"] = 590,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_White_PanelDoor",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorWood",
@@ -1131,7 +1130,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:industrial:black",
-    ["sortKey"] = 610,
+    ["sortKey"] = 600,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_Black_IndustrialDoor",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorIndustrialMetal",
@@ -1152,7 +1151,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:industrial:blue",
-    ["sortKey"] = 620,
+    ["sortKey"] = 610,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_Blue_IndustrialDoor",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorIndustrialMetal",
@@ -1173,7 +1172,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:industrial:green",
-    ["sortKey"] = 630,
+    ["sortKey"] = 620,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_Green_IndustrialDoor",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorIndustrialMetal",
@@ -1194,7 +1193,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:industrial:orange",
-    ["sortKey"] = 640,
+    ["sortKey"] = 630,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_Orange_IndustrialDoor",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorIndustrialMetal",
@@ -1215,7 +1214,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:industrial:red",
-    ["sortKey"] = 650,
+    ["sortKey"] = 640,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_Red_IndustrialDoor",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorIndustrialMetal",
@@ -1236,7 +1235,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:industrial:white",
-    ["sortKey"] = 660,
+    ["sortKey"] = 650,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_White_IndustrialDoor",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorIndustrialMetal",
@@ -1257,7 +1256,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:exterior:beige",
-    ["sortKey"] = 670,
+    ["sortKey"] = 660,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_Beige_ExteriorDoor",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorIndustrialMetal",
@@ -1279,7 +1278,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:exterior:orange",
-    ["sortKey"] = 680,
+    ["sortKey"] = 670,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_Orange_ExteriorDoor",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorIndustrialMetal",
@@ -1301,7 +1300,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:other:rough_wooden",
-    ["sortKey"] = 690,
+    ["sortKey"] = 680,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_Rough_WoodenDoor",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorWood",
@@ -1323,7 +1322,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:other:spiffos",
-    ["sortKey"] = 700,
+    ["sortKey"] = 690,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_Spiffos_Door",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorIndustrialMetal",
@@ -1344,7 +1343,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:other:outhouse",
-    ["sortKey"] = 710,
+    ["sortKey"] = 700,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_Outhouse_Door",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorWood",
@@ -1366,7 +1365,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:other:safety",
-    ["sortKey"] = 720,
+    ["sortKey"] = 710,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_Safety_Door",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorIndustrialMetal",
@@ -1387,7 +1386,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:glass:red_frame",
-    ["sortKey"] = 730,
+    ["sortKey"] = 720,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_Red_Frame_Glass",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorGlassWood",
@@ -1409,7 +1408,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:glass:black_frame",
-    ["sortKey"] = 740,
+    ["sortKey"] = 730,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_Black_Frame_Glass",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorGlassWood",
@@ -1431,7 +1430,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:glass:black_frame_2",
-    ["sortKey"] = 750,
+    ["sortKey"] = 740,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_Black_Frame_Glass2",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorGlassMetal",
@@ -1452,7 +1451,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:glass:white_door",
-    ["sortKey"] = 760,
+    ["sortKey"] = 750,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_White_Frame_Glass_Door",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorGlassWood",
@@ -1475,7 +1474,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:glass:brown_door",
-    ["sortKey"] = 770,
+    ["sortKey"] = 760,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_Brown_Frame_Glass_Door",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorGlassWood",
@@ -1498,7 +1497,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:low:frame",
-    ["sortKey"] = 780,
+    ["sortKey"] = 770,
     ["categoryId"] = "structure:door-frames",
     ["nameKey"] = "ContextMenu_MoreBuild_Low_DoorFrame",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorLowWood",
@@ -1517,7 +1516,7 @@ return {
   },
   {
     ["id"] = "morebuilds:stairs:wood_light_brown",
-    ["sortKey"] = 790,
+    ["sortKey"] = 780,
     ["categoryId"] = "structure:stairs",
     ["nameKey"] = "ContextMenu_MoreBuild_LightBrown_Stairs",
     ["descriptionKey"] = "Tooltip_MoreBuild_StairsWood",
@@ -1542,7 +1541,7 @@ return {
   },
   {
     ["id"] = "morebuilds:stairs:wood_brown",
-    ["sortKey"] = 800,
+    ["sortKey"] = 790,
     ["categoryId"] = "structure:stairs",
     ["nameKey"] = "ContextMenu_MoreBuild_Brown_Stairs",
     ["descriptionKey"] = "Tooltip_MoreBuild_StairsWood",
@@ -1567,7 +1566,7 @@ return {
   },
   {
     ["id"] = "morebuilds:stairs:wood_dark_brown",
-    ["sortKey"] = 810,
+    ["sortKey"] = 800,
     ["categoryId"] = "structure:stairs",
     ["nameKey"] = "ContextMenu_MoreBuild_DarkBrown_Stairs",
     ["descriptionKey"] = "Tooltip_MoreBuild_StairsWood",
@@ -1592,7 +1591,7 @@ return {
   },
   {
     ["id"] = "morebuilds:stairs:wood_white_motel",
-    ["sortKey"] = 820,
+    ["sortKey"] = 810,
     ["categoryId"] = "structure:stairs",
     ["nameKey"] = "ContextMenu_MoreBuild_WhiteMotel_Stairs",
     ["descriptionKey"] = "Tooltip_MoreBuild_StairsWood",
@@ -1617,7 +1616,7 @@ return {
   },
   {
     ["id"] = "morebuilds:stairs:wood_white_industrial",
-    ["sortKey"] = 830,
+    ["sortKey"] = 820,
     ["categoryId"] = "structure:stairs",
     ["nameKey"] = "ContextMenu_MoreBuild_WhiteIndustrial_Stairs",
     ["descriptionKey"] = "Tooltip_MoreBuild_StairsWood",
@@ -1642,7 +1641,7 @@ return {
   },
   {
     ["id"] = "morebuilds:stairs:wood_yellow",
-    ["sortKey"] = 840,
+    ["sortKey"] = 830,
     ["categoryId"] = "structure:stairs",
     ["nameKey"] = "ContextMenu_MoreBuild_Yellow_Stairs",
     ["descriptionKey"] = "Tooltip_MoreBuild_StairsWood",
@@ -1667,7 +1666,7 @@ return {
   },
   {
     ["id"] = "morebuilds:stairs:metal",
-    ["sortKey"] = 850,
+    ["sortKey"] = 840,
     ["categoryId"] = "structure:stairs",
     ["nameKey"] = "ContextMenu_MoreBuild_Metal_Stairs",
     ["descriptionKey"] = "Tooltip_MoreBuild_StairsMetal",
@@ -1691,7 +1690,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:1:1",
-    ["sortKey"] = 860,
+    ["sortKey"] = 850,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_1_1",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -1707,7 +1706,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:1:2",
-    ["sortKey"] = 870,
+    ["sortKey"] = 860,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_1_2",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -1723,7 +1722,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:1:3",
-    ["sortKey"] = 880,
+    ["sortKey"] = 870,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_1_3",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -1739,7 +1738,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:1:4",
-    ["sortKey"] = 890,
+    ["sortKey"] = 880,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_1_4",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -1755,7 +1754,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:1:5",
-    ["sortKey"] = 900,
+    ["sortKey"] = 890,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_1_5",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -1771,7 +1770,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:1:6",
-    ["sortKey"] = 910,
+    ["sortKey"] = 900,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_1_6",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -1787,7 +1786,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:1:7",
-    ["sortKey"] = 920,
+    ["sortKey"] = 910,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_1_7",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -1803,7 +1802,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:1:8",
-    ["sortKey"] = 930,
+    ["sortKey"] = 920,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_1_8",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -1819,7 +1818,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:1:9",
-    ["sortKey"] = 940,
+    ["sortKey"] = 930,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_1_9",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -1835,7 +1834,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:1:10",
-    ["sortKey"] = 950,
+    ["sortKey"] = 940,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_1_10",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -1851,7 +1850,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:2:1",
-    ["sortKey"] = 960,
+    ["sortKey"] = 950,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Concrete_Floor",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorStone",
@@ -1867,7 +1866,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:2:2",
-    ["sortKey"] = 970,
+    ["sortKey"] = 960,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_LightAsphalt_Floor",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorStone",
@@ -1883,7 +1882,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:2:3",
-    ["sortKey"] = 980,
+    ["sortKey"] = 970,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_DarkAsphalt_Floor",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorStone",
@@ -1899,7 +1898,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:3:1",
-    ["sortKey"] = 990,
+    ["sortKey"] = 980,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_3_1",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorMisc",
@@ -1915,7 +1914,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:3:2",
-    ["sortKey"] = 1000,
+    ["sortKey"] = 990,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_3_2",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorMisc",
@@ -1931,7 +1930,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:3:3",
-    ["sortKey"] = 1010,
+    ["sortKey"] = 1000,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_3_3",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorMisc",
@@ -1947,7 +1946,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:3:6",
-    ["sortKey"] = 1020,
+    ["sortKey"] = 1010,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Glass_Floor",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorMisc",
@@ -1964,7 +1963,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:4:1",
-    ["sortKey"] = 1030,
+    ["sortKey"] = 1020,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_GrayIndustrial_Flooring",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorMetal",
@@ -1980,7 +1979,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:4:2",
-    ["sortKey"] = 1040,
+    ["sortKey"] = 1030,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_GreenIndustrial_Flooring",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorMetal",
@@ -1996,7 +1995,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:4:3",
-    ["sortKey"] = 1050,
+    ["sortKey"] = 1040,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_TruckstopBlue_Floor",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorMetal",
@@ -2012,7 +2011,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:4:4",
-    ["sortKey"] = 1060,
+    ["sortKey"] = 1050,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_TruckstopGray_Floor",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorMetal",
@@ -2028,7 +2027,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:4:5",
-    ["sortKey"] = 1070,
+    ["sortKey"] = 1060,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_TruckstopGreen_Floor",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorMetal",
@@ -2044,7 +2043,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:4:6",
-    ["sortKey"] = 1080,
+    ["sortKey"] = 1070,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_TruckstopYellow_Floor",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorMetal",
@@ -2060,7 +2059,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:4:7",
-    ["sortKey"] = 1090,
+    ["sortKey"] = 1080,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_GenericWhiteShop_Floor",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -2076,7 +2075,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:4:8",
-    ["sortKey"] = 1100,
+    ["sortKey"] = 1090,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_BlueTrailer_Flooring",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorConcrete",
@@ -2092,7 +2091,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:4:9",
-    ["sortKey"] = 1110,
+    ["sortKey"] = 1100,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_TanTrailer_Flooring",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorConcrete",
@@ -2108,7 +2107,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:5:1",
-    ["sortKey"] = 1120,
+    ["sortKey"] = 1110,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_RustyMesh_Floor",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorMetal",
@@ -2125,7 +2124,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:5:2",
-    ["sortKey"] = 1130,
+    ["sortKey"] = 1120,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_RustyMesh_Grate",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorMetal",
@@ -2141,7 +2140,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:5:3",
-    ["sortKey"] = 1140,
+    ["sortKey"] = 1130,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_BrownRailroad_MetalPanel",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorMetal",
@@ -2158,7 +2157,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:5:4",
-    ["sortKey"] = 1150,
+    ["sortKey"] = 1140,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_GrayRailroad_MetalPanel",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorMetal",
@@ -2175,7 +2174,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:5:5",
-    ["sortKey"] = 1160,
+    ["sortKey"] = 1150,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_SewerGrating_Edged",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorMetal",
@@ -2192,7 +2191,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:5:6",
-    ["sortKey"] = 1170,
+    ["sortKey"] = 1160,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_SewerGrating_Mesh",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorMetal",
@@ -2208,7 +2207,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:6:1",
-    ["sortKey"] = 1180,
+    ["sortKey"] = 1170,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Plywood_Panel",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorWood",
@@ -2225,7 +2224,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:6:2",
-    ["sortKey"] = 1190,
+    ["sortKey"] = 1180,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_WidePlank_Floor",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorWood",
@@ -2242,7 +2241,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:6:3",
-    ["sortKey"] = 1200,
+    ["sortKey"] = 1190,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_6_3",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorWood",
@@ -2258,7 +2257,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:6:4",
-    ["sortKey"] = 1210,
+    ["sortKey"] = 1200,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_6_4",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorWood",
@@ -2274,7 +2273,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:6:5",
-    ["sortKey"] = 1220,
+    ["sortKey"] = 1210,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_6_5",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorWood",
@@ -2290,7 +2289,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:6:6",
-    ["sortKey"] = 1230,
+    ["sortKey"] = 1220,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_6_6",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorWood",
@@ -2306,7 +2305,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:6:7",
-    ["sortKey"] = 1240,
+    ["sortKey"] = 1230,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_6_7",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorWood",
@@ -2323,7 +2322,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:6:8",
-    ["sortKey"] = 1250,
+    ["sortKey"] = 1240,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_6_8",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorWood",
@@ -2339,7 +2338,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:7:1",
-    ["sortKey"] = 1260,
+    ["sortKey"] = 1250,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_7_1",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -2355,7 +2354,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:7:2",
-    ["sortKey"] = 1270,
+    ["sortKey"] = 1260,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_7_2",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -2371,7 +2370,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:7:3",
-    ["sortKey"] = 1280,
+    ["sortKey"] = 1270,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_7_3",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -2387,7 +2386,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:7:4",
-    ["sortKey"] = 1290,
+    ["sortKey"] = 1280,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_7_4",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -2403,7 +2402,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:7:5",
-    ["sortKey"] = 1300,
+    ["sortKey"] = 1290,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_7_5",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -2419,7 +2418,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:7:6",
-    ["sortKey"] = 1310,
+    ["sortKey"] = 1300,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_7_6",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -2435,7 +2434,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:7:7",
-    ["sortKey"] = 1320,
+    ["sortKey"] = 1310,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_7_7",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -2451,7 +2450,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:8:1",
-    ["sortKey"] = 1330,
+    ["sortKey"] = 1320,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_8_1",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -2467,7 +2466,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:8:2",
-    ["sortKey"] = 1340,
+    ["sortKey"] = 1330,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_8_2",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -2483,7 +2482,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:8:3",
-    ["sortKey"] = 1350,
+    ["sortKey"] = 1340,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_8_3",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -2499,7 +2498,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:8:4",
-    ["sortKey"] = 1360,
+    ["sortKey"] = 1350,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_8_4",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -2515,7 +2514,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:8:5",
-    ["sortKey"] = 1370,
+    ["sortKey"] = 1360,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_8_5",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -2531,7 +2530,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:9:1",
-    ["sortKey"] = 1380,
+    ["sortKey"] = 1370,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_9_1",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -2547,7 +2546,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:9:2",
-    ["sortKey"] = 1390,
+    ["sortKey"] = 1380,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_9_2",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -2563,7 +2562,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:9:3",
-    ["sortKey"] = 1400,
+    ["sortKey"] = 1390,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_9_3",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -2579,7 +2578,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:9:4",
-    ["sortKey"] = 1410,
+    ["sortKey"] = 1400,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_9_4",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -2595,7 +2594,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:9:5",
-    ["sortKey"] = 1420,
+    ["sortKey"] = 1410,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_9_5",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -2611,7 +2610,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:9:6",
-    ["sortKey"] = 1430,
+    ["sortKey"] = 1420,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_9_6",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -2627,7 +2626,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:9:7",
-    ["sortKey"] = 1440,
+    ["sortKey"] = 1430,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_9_7",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -2644,7 +2643,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:9:8",
-    ["sortKey"] = 1450,
+    ["sortKey"] = 1440,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_9_8",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -2660,7 +2659,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:9:9",
-    ["sortKey"] = 1460,
+    ["sortKey"] = 1450,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_9_9",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -2676,7 +2675,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:9:10",
-    ["sortKey"] = 1470,
+    ["sortKey"] = 1460,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_9_10",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -2692,7 +2691,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:10:1",
-    ["sortKey"] = 1480,
+    ["sortKey"] = 1470,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_10_1",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -2709,7 +2708,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:10:2",
-    ["sortKey"] = 1490,
+    ["sortKey"] = 1480,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_10_2",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -2725,7 +2724,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:10:3",
-    ["sortKey"] = 1500,
+    ["sortKey"] = 1490,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_10_3",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -2741,7 +2740,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:10:4",
-    ["sortKey"] = 1510,
+    ["sortKey"] = 1500,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_10_4",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -2757,7 +2756,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:10:5",
-    ["sortKey"] = 1520,
+    ["sortKey"] = 1510,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_10_5",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -2773,7 +2772,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:10:6",
-    ["sortKey"] = 1530,
+    ["sortKey"] = 1520,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_10_6",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -2789,7 +2788,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:10:7",
-    ["sortKey"] = 1540,
+    ["sortKey"] = 1530,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_10_7",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -2805,7 +2804,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:10:8",
-    ["sortKey"] = 1550,
+    ["sortKey"] = 1540,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_10_8",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -2821,7 +2820,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:10:9",
-    ["sortKey"] = 1560,
+    ["sortKey"] = 1550,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_10_9",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -2837,7 +2836,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:10:10",
-    ["sortKey"] = 1570,
+    ["sortKey"] = 1560,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_10_10",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -2853,7 +2852,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:11:1",
-    ["sortKey"] = 1580,
+    ["sortKey"] = 1570,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_11_1",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -2869,7 +2868,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:11:2",
-    ["sortKey"] = 1590,
+    ["sortKey"] = 1580,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_11_2",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -2885,7 +2884,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:11:3",
-    ["sortKey"] = 1600,
+    ["sortKey"] = 1590,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_11_3",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -2901,7 +2900,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:11:4",
-    ["sortKey"] = 1610,
+    ["sortKey"] = 1600,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_11_4",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -2917,7 +2916,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:11:5",
-    ["sortKey"] = 1620,
+    ["sortKey"] = 1610,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_11_5",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -2933,7 +2932,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:11:6",
-    ["sortKey"] = 1630,
+    ["sortKey"] = 1620,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_11_6",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -2949,7 +2948,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:11:7",
-    ["sortKey"] = 1640,
+    ["sortKey"] = 1630,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_11_7",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -2966,7 +2965,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:11:8",
-    ["sortKey"] = 1650,
+    ["sortKey"] = 1640,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_11_8",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -2982,7 +2981,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:11:9",
-    ["sortKey"] = 1660,
+    ["sortKey"] = 1650,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_11_9",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -2998,7 +2997,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:12:1",
-    ["sortKey"] = 1670,
+    ["sortKey"] = 1660,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_LightGray_Stone",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -3014,7 +3013,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:12:2",
-    ["sortKey"] = 1680,
+    ["sortKey"] = 1670,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Gray_Stone",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -3030,7 +3029,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:12:3",
-    ["sortKey"] = 1690,
+    ["sortKey"] = 1680,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Red_Stone",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -3046,7 +3045,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:12:4",
-    ["sortKey"] = 1700,
+    ["sortKey"] = 1690,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_White_Stone",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -3062,7 +3061,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:12:5",
-    ["sortKey"] = 1710,
+    ["sortKey"] = 1700,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_MixedGray_Tiles",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -3078,7 +3077,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:12:7",
-    ["sortKey"] = 1720,
+    ["sortKey"] = 1710,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_MixedYellow_Tiles",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -3094,7 +3093,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:12:8",
-    ["sortKey"] = 1730,
+    ["sortKey"] = 1720,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Yellow_Tiles",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -3110,7 +3109,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:13:1",
-    ["sortKey"] = 1740,
+    ["sortKey"] = 1730,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_BlackShingle_Roofing",
     ["descriptionKey"] = "Tooltip_MoreBuild_RoofTile",
@@ -3127,7 +3126,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:13:2",
-    ["sortKey"] = 1750,
+    ["sortKey"] = 1740,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_BrownWood_Roofing",
     ["descriptionKey"] = "Tooltip_MoreBuild_RoofTile",
@@ -3144,7 +3143,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:13:3",
-    ["sortKey"] = 1760,
+    ["sortKey"] = 1750,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_LightBrown_WoodRoofing",
     ["descriptionKey"] = "Tooltip_MoreBuild_RoofTile",
@@ -3161,7 +3160,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:13:4",
-    ["sortKey"] = 1770,
+    ["sortKey"] = 1760,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_GreenWood_Roofing",
     ["descriptionKey"] = "Tooltip_MoreBuild_RoofTile",
@@ -3178,7 +3177,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:13:5",
-    ["sortKey"] = 1780,
+    ["sortKey"] = 1770,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_RedWood_Roofing",
     ["descriptionKey"] = "Tooltip_MoreBuild_RoofTile",
@@ -3195,7 +3194,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:13:6",
-    ["sortKey"] = 1790,
+    ["sortKey"] = 1780,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_White_Roofing",
     ["descriptionKey"] = "Tooltip_MoreBuild_RoofTile",
@@ -3212,7 +3211,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:13:7",
-    ["sortKey"] = 1800,
+    ["sortKey"] = 1790,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Burnt_Roofing",
     ["descriptionKey"] = "Tooltip_MoreBuild_RoofTile",
@@ -3229,7 +3228,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:14:1",
-    ["sortKey"] = 1810,
+    ["sortKey"] = 1800,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_14_1",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -3245,7 +3244,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:14:2",
-    ["sortKey"] = 1820,
+    ["sortKey"] = 1810,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_14_2",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -3261,7 +3260,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:14:3",
-    ["sortKey"] = 1830,
+    ["sortKey"] = 1820,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_14_3",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -3277,7 +3276,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:14:4",
-    ["sortKey"] = 1840,
+    ["sortKey"] = 1830,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_14_4",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -3293,7 +3292,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:14:5",
-    ["sortKey"] = 1850,
+    ["sortKey"] = 1840,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_14_5",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -3309,7 +3308,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:14:6",
-    ["sortKey"] = 1860,
+    ["sortKey"] = 1850,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_14_6",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -3325,7 +3324,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:14:7",
-    ["sortKey"] = 1870,
+    ["sortKey"] = 1860,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_14_7",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -3341,7 +3340,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:yellow_security",
-    ["sortKey"] = 1880,
+    ["sortKey"] = 1870,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_YellowSecurityDoor",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorGlassMetal",
@@ -3362,7 +3361,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:black_security",
-    ["sortKey"] = 1890,
+    ["sortKey"] = 1880,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_BlackSecurityDoor",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorGlassMetal",
@@ -3383,7 +3382,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:white_paned_glass",
-    ["sortKey"] = 1900,
+    ["sortKey"] = 1890,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_WhitePanedGlassDoor",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorGlassWood",
@@ -3405,7 +3404,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:gray_smooth_tile",
-    ["sortKey"] = 1910,
+    ["sortKey"] = 1900,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_gray_smooth_tile",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -3421,7 +3420,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:dark_gray_smooth_tile",
-    ["sortKey"] = 1920,
+    ["sortKey"] = 1910,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_dark_gray_smooth_tile",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -3437,7 +3436,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:white_tile",
-    ["sortKey"] = 1930,
+    ["sortKey"] = 1920,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_white_tile",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -3453,7 +3452,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:gray_square_tile",
-    ["sortKey"] = 1940,
+    ["sortKey"] = 1930,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_gray_square_tile",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -3469,7 +3468,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:brown_diagonal_tile",
-    ["sortKey"] = 1950,
+    ["sortKey"] = 1940,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_brown_diagonal_tile",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -3485,7 +3484,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:beige_diagonal_tile",
-    ["sortKey"] = 1960,
+    ["sortKey"] = 1950,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_beige_diagonal_tile",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -3501,7 +3500,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:acacia_wood",
-    ["sortKey"] = 1970,
+    ["sortKey"] = 1960,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_acacia_wood",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorWood",
@@ -3517,7 +3516,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:pinewood",
-    ["sortKey"] = 1980,
+    ["sortKey"] = 1970,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_pinewood",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorWood",
@@ -3533,7 +3532,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:white_wood",
-    ["sortKey"] = 1990,
+    ["sortKey"] = 1980,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_white_wood",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorWood",
@@ -3550,7 +3549,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:wooden:panelled_oak",
-    ["sortKey"] = 2000,
+    ["sortKey"] = 1990,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_PanelledOakDoor",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorWood",
@@ -3571,7 +3570,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:glass:oak_paned",
-    ["sortKey"] = 2010,
+    ["sortKey"] = 2000,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_OakPanedGlassDoor",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorGlassWood",
@@ -3592,7 +3591,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door_frame:walnut",
-    ["sortKey"] = 2020,
+    ["sortKey"] = 2010,
     ["categoryId"] = "structure:door-frames",
     ["nameKey"] = "ContextMenu_MoreBuild_WalnutDoorFrame",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorFrameWood",
@@ -3611,7 +3610,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door_frame:oak",
-    ["sortKey"] = 2030,
+    ["sortKey"] = 2020,
     ["categoryId"] = "structure:door-frames",
     ["nameKey"] = "ContextMenu_MoreBuild_OakDoorFrame",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorFrameWood",
@@ -3630,7 +3629,7 @@ return {
   },
   {
     ["id"] = "morebuilds:fence_post:wrought_iron",
-    ["sortKey"] = 2040,
+    ["sortKey"] = 2030,
     ["categoryId"] = "structure:posts-pillars",
     ["nameKey"] = "ContextMenu_MoreBuild_WroughtIronFencePost",
     ["descriptionKey"] = "Tooltip_MoreBuild_FencePostMetal",
@@ -3647,7 +3646,7 @@ return {
   },
   {
     ["id"] = "morebuilds:fence_post:chain_link",
-    ["sortKey"] = 2050,
+    ["sortKey"] = 2040,
     ["categoryId"] = "structure:posts-pillars",
     ["nameKey"] = "ContextMenu_MoreBuild_ChainLinkFencePost",
     ["descriptionKey"] = "Tooltip_MoreBuild_FencePostMetal",
@@ -3664,7 +3663,7 @@ return {
   },
   {
     ["id"] = "morebuilds:fence_post:slat_wood",
-    ["sortKey"] = 2060,
+    ["sortKey"] = 2050,
     ["categoryId"] = "structure:posts-pillars",
     ["nameKey"] = "ContextMenu_MoreBuild_SlatWoodFencePost",
     ["descriptionKey"] = "Tooltip_MoreBuild_FencePostWood",
@@ -3682,7 +3681,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:white_cross_tile",
-    ["sortKey"] = 2070,
+    ["sortKey"] = 2060,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_white_cross_tile",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -3698,7 +3697,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:dark_gray_grid_tile",
-    ["sortKey"] = 2080,
+    ["sortKey"] = 2070,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_dark_gray_grid_tile",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -3714,7 +3713,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:orange_diagonal_tile",
-    ["sortKey"] = 2090,
+    ["sortKey"] = 2080,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_orange_diagonal_tile",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -3730,7 +3729,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:yellow_diagonal_tile",
-    ["sortKey"] = 2100,
+    ["sortKey"] = 2090,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_yellow_diagonal_tile",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -3746,7 +3745,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:blue_diagonal_tile",
-    ["sortKey"] = 2110,
+    ["sortKey"] = 2100,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_blue_diagonal_tile",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -3762,7 +3761,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:black_diagonal_tile",
-    ["sortKey"] = 2120,
+    ["sortKey"] = 2110,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_black_diagonal_tile",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -3778,7 +3777,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:brick_blue_gray",
-    ["sortKey"] = 2130,
+    ["sortKey"] = 2120,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_BlueGrayBrickWall",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallBrick",
@@ -3797,7 +3796,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:brick_orange",
-    ["sortKey"] = 2140,
+    ["sortKey"] = 2130,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_OrangeBrickWall",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallBrick",
@@ -3816,7 +3815,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:brick_mauve",
-    ["sortKey"] = 2150,
+    ["sortKey"] = 2140,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_MauveBrickWall",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallBrick",
@@ -3835,7 +3834,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:wood_white_siding",
-    ["sortKey"] = 2160,
+    ["sortKey"] = 2150,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_WhiteSidingWall",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallWood",
@@ -3855,7 +3854,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:wood_brown_siding",
-    ["sortKey"] = 2170,
+    ["sortKey"] = 2160,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_BrownSidingWall",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallWood",
@@ -3875,7 +3874,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_exterior_house_02_20",
-    ["sortKey"] = 2180,
+    ["sortKey"] = 2170,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_ExteriorHouse02_Wood_20",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallWood",
@@ -3895,7 +3894,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_exterior_house_02_32",
-    ["sortKey"] = 2190,
+    ["sortKey"] = 2180,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_ExteriorHouse02_Wood_32",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallWood",
@@ -3914,8 +3913,48 @@ return {
     ["salvagePolicy"] = "recipe-inputs",
   },
   {
-    ["id"] = "morebuilds:wall:wood_weathered_vertical",
+    ["id"] = "morebuilds:wall:expanded:walls_exterior_house_02_68",
+    ["sortKey"] = 2190,
+    ["categoryId"] = "structure:walls",
+    ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_ExteriorHouse02_Wood_68",
+    ["descriptionKey"] = "Tooltip_MoreBuild_WallWood",
+    ["recipeId"] = "MoreBuilds.WallWood",
+    ["previewSprite"] = "walls_exterior_house_02_68",
+    ["placement"] = {
+      ["kind"] = "morebuilds:wall",
+      ["data"] = {
+        ["corner"] = "walls_exterior_house_02_71",
+        ["health"] = 200,
+        ["healthFromCarpentry"] = true,
+        ["northSprite"] = "walls_exterior_house_02_69",
+        ["sprite"] = "walls_exterior_house_02_68",
+      },
+    },
+    ["salvagePolicy"] = "recipe-inputs",
+  },
+  {
+    ["id"] = "morebuilds:wall:expanded:walls_exterior_house_02_80",
     ["sortKey"] = 2200,
+    ["categoryId"] = "structure:walls",
+    ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_ExteriorHouse02_Wood_80",
+    ["descriptionKey"] = "Tooltip_MoreBuild_WallWood",
+    ["recipeId"] = "MoreBuilds.WallWood",
+    ["previewSprite"] = "walls_exterior_house_02_80",
+    ["placement"] = {
+      ["kind"] = "morebuilds:wall",
+      ["data"] = {
+        ["corner"] = "walls_exterior_house_02_83",
+        ["health"] = 200,
+        ["healthFromCarpentry"] = true,
+        ["northSprite"] = "walls_exterior_house_02_81",
+        ["sprite"] = "walls_exterior_house_02_80",
+      },
+    },
+    ["salvagePolicy"] = "recipe-inputs",
+  },
+  {
+    ["id"] = "morebuilds:wall:wood_weathered_vertical",
+    ["sortKey"] = 2210,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_WeatheredVerticalWall",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallWood",
@@ -3935,7 +3974,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:interior:white_vertical_panel",
-    ["sortKey"] = 2210,
+    ["sortKey"] = 2220,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_WhiteStripedWallpaperWall",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallWallpaper",
@@ -3955,7 +3994,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:interior:light_wood_panel",
-    ["sortKey"] = 2220,
+    ["sortKey"] = 2230,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_BeigeStripeWallpaperWall",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallWallpaper",
@@ -3975,7 +4014,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:interior:cream_striped_wallpaper",
-    ["sortKey"] = 2230,
+    ["sortKey"] = 2240,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_CreamStripedWallpaperWall",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallWallpaper",
@@ -3995,7 +4034,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:interior:pink_striped_wallpaper",
-    ["sortKey"] = 2240,
+    ["sortKey"] = 2250,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_PinkStripedWallpaperWall",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallWallpaper",
@@ -4015,11 +4054,11 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:interior:blue_striped_wallpaper",
-    ["sortKey"] = 2250,
+    ["sortKey"] = 2260,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_BlueStripedWallpaperWall",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallWallpaper",
-    ["recipeId"] = "MoreBuilds.WallWallpaperGeneric",
+    ["recipeId"] = "MoreBuilds.WallWallpaperBlueStripe",
     ["previewSprite"] = "walls_interior_house_01_80",
     ["placement"] = {
       ["kind"] = "morebuilds:wall",
@@ -4035,7 +4074,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:interior:gray_striped_wallpaper",
-    ["sortKey"] = 2260,
+    ["sortKey"] = 2270,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_GrayStripedWallpaperWall",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallWallpaper",
@@ -4055,7 +4094,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:interior:green_striped_wallpaper",
-    ["sortKey"] = 2270,
+    ["sortKey"] = 2280,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_GreenStripedWallpaperWall",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallWallpaper",
@@ -4075,7 +4114,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:interior:brown_striped_wallpaper",
-    ["sortKey"] = 2280,
+    ["sortKey"] = 2290,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_BrownStripedWallpaperWall",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallWallpaper",
@@ -4095,7 +4134,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_interior_house_02_96",
-    ["sortKey"] = 2290,
+    ["sortKey"] = 2300,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_DarkBlueStripedWallpaperWall",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallWallpaper",
@@ -4115,7 +4154,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_interior_house_02_100",
-    ["sortKey"] = 2300,
+    ["sortKey"] = 2310,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_DarkBrownStripedWallpaperWall",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallWallpaper",
@@ -4135,7 +4174,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_interior_house_02_112",
-    ["sortKey"] = 2310,
+    ["sortKey"] = 2320,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_RedStripedWallpaperWall",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallWallpaper",
@@ -4155,7 +4194,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_interior_house_02_116",
-    ["sortKey"] = 2320,
+    ["sortKey"] = 2330,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_DarkGreenStripedWallpaperWall",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallWallpaper",
@@ -4175,7 +4214,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:interior:floral_wallpaper",
-    ["sortKey"] = 2330,
+    ["sortKey"] = 2340,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_FloralWallpaperWall",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallWallpaper",
@@ -4194,108 +4233,8 @@ return {
     ["salvagePolicy"] = "recipe-inputs",
   },
   {
-    ["id"] = "morebuilds:wall:expanded:walls_interior_house_02_64",
-    ["sortKey"] = 2340,
-    ["categoryId"] = "structure:walls",
-    ["nameKey"] = "ContextMenu_MoreBuild_DamaskWallpaperWall",
-    ["descriptionKey"] = "Tooltip_MoreBuild_WallWallpaper",
-    ["recipeId"] = "MoreBuilds.WallWallpaperGeneric",
-    ["previewSprite"] = "walls_interior_house_02_64",
-    ["placement"] = {
-      ["kind"] = "morebuilds:wall",
-      ["data"] = {
-        ["corner"] = "walls_interior_house_02_67",
-        ["health"] = 200,
-        ["healthFromCarpentry"] = true,
-        ["northSprite"] = "walls_interior_house_02_65",
-        ["sprite"] = "walls_interior_house_02_64",
-      },
-    },
-    ["salvagePolicy"] = "recipe-inputs",
-  },
-  {
-    ["id"] = "morebuilds:wall:expanded:walls_interior_house_02_68",
-    ["sortKey"] = 2350,
-    ["categoryId"] = "structure:walls",
-    ["nameKey"] = "ContextMenu_MoreBuild_DamaskWallpaperWall",
-    ["descriptionKey"] = "Tooltip_MoreBuild_WallWallpaper",
-    ["recipeId"] = "MoreBuilds.WallWallpaperGeneric",
-    ["previewSprite"] = "walls_interior_house_02_68",
-    ["placement"] = {
-      ["kind"] = "morebuilds:wall",
-      ["data"] = {
-        ["corner"] = "walls_interior_house_02_71",
-        ["health"] = 200,
-        ["healthFromCarpentry"] = true,
-        ["northSprite"] = "walls_interior_house_02_69",
-        ["sprite"] = "walls_interior_house_02_68",
-      },
-    },
-    ["salvagePolicy"] = "recipe-inputs",
-  },
-  {
-    ["id"] = "morebuilds:wall:expanded:walls_interior_house_02_80",
-    ["sortKey"] = 2360,
-    ["categoryId"] = "structure:walls",
-    ["nameKey"] = "ContextMenu_MoreBuild_DamaskWallpaperWall",
-    ["descriptionKey"] = "Tooltip_MoreBuild_WallWallpaper",
-    ["recipeId"] = "MoreBuilds.WallWallpaperGeneric",
-    ["previewSprite"] = "walls_interior_house_02_80",
-    ["placement"] = {
-      ["kind"] = "morebuilds:wall",
-      ["data"] = {
-        ["corner"] = "walls_interior_house_02_83",
-        ["health"] = 200,
-        ["healthFromCarpentry"] = true,
-        ["northSprite"] = "walls_interior_house_02_81",
-        ["sprite"] = "walls_interior_house_02_80",
-      },
-    },
-    ["salvagePolicy"] = "recipe-inputs",
-  },
-  {
-    ["id"] = "morebuilds:wall:expanded:walls_interior_house_02_84",
-    ["sortKey"] = 2370,
-    ["categoryId"] = "structure:walls",
-    ["nameKey"] = "ContextMenu_MoreBuild_DamaskWallpaperWall",
-    ["descriptionKey"] = "Tooltip_MoreBuild_WallWallpaper",
-    ["recipeId"] = "MoreBuilds.WallWallpaperGeneric",
-    ["previewSprite"] = "walls_interior_house_02_84",
-    ["placement"] = {
-      ["kind"] = "morebuilds:wall",
-      ["data"] = {
-        ["corner"] = "walls_interior_house_02_87",
-        ["health"] = 200,
-        ["healthFromCarpentry"] = true,
-        ["northSprite"] = "walls_interior_house_02_85",
-        ["sprite"] = "walls_interior_house_02_84",
-      },
-    },
-    ["salvagePolicy"] = "recipe-inputs",
-  },
-  {
-    ["id"] = "morebuilds:wall:expanded:walls_interior_house_03_16",
-    ["sortKey"] = 2380,
-    ["categoryId"] = "structure:walls",
-    ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse03_16",
-    ["descriptionKey"] = "Tooltip_MoreBuild_WallWallpaper",
-    ["recipeId"] = "MoreBuilds.WallWallpaperGreenDiamond",
-    ["previewSprite"] = "walls_interior_house_03_16",
-    ["placement"] = {
-      ["kind"] = "morebuilds:wall",
-      ["data"] = {
-        ["corner"] = "walls_interior_house_03_19",
-        ["health"] = 200,
-        ["healthFromCarpentry"] = true,
-        ["northSprite"] = "walls_interior_house_03_17",
-        ["sprite"] = "walls_interior_house_03_16",
-      },
-    },
-    ["salvagePolicy"] = "recipe-inputs",
-  },
-  {
     ["id"] = "morebuilds:wall:expanded:walls_interior_house_03_52",
-    ["sortKey"] = 2390,
+    ["sortKey"] = 2350,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse03_52",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallWallpaper",
@@ -4315,7 +4254,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_interior_house_04_52",
-    ["sortKey"] = 2400,
+    ["sortKey"] = 2360,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse04_52",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallWallpaper",
@@ -4334,8 +4273,108 @@ return {
     ["salvagePolicy"] = "recipe-inputs",
   },
   {
-    ["id"] = "morebuilds:wall:interior:magenta_painted",
+    ["id"] = "morebuilds:wall:expanded:walls_interior_house_03_16",
+    ["sortKey"] = 2370,
+    ["categoryId"] = "structure:walls",
+    ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse03_16",
+    ["descriptionKey"] = "Tooltip_MoreBuild_WallWallpaper",
+    ["recipeId"] = "MoreBuilds.WallWallpaperGreenDiamond",
+    ["previewSprite"] = "walls_interior_house_03_16",
+    ["placement"] = {
+      ["kind"] = "morebuilds:wall",
+      ["data"] = {
+        ["corner"] = "walls_interior_house_03_19",
+        ["health"] = 200,
+        ["healthFromCarpentry"] = true,
+        ["northSprite"] = "walls_interior_house_03_17",
+        ["sprite"] = "walls_interior_house_03_16",
+      },
+    },
+    ["salvagePolicy"] = "recipe-inputs",
+  },
+  {
+    ["id"] = "morebuilds:wall:expanded:walls_interior_house_02_64",
+    ["sortKey"] = 2380,
+    ["categoryId"] = "structure:walls",
+    ["nameKey"] = "ContextMenu_MoreBuild_DamaskWallpaperWall",
+    ["descriptionKey"] = "Tooltip_MoreBuild_WallWallpaper",
+    ["recipeId"] = "MoreBuilds.WallWallpaperGeneric",
+    ["previewSprite"] = "walls_interior_house_02_64",
+    ["placement"] = {
+      ["kind"] = "morebuilds:wall",
+      ["data"] = {
+        ["corner"] = "walls_interior_house_02_67",
+        ["health"] = 200,
+        ["healthFromCarpentry"] = true,
+        ["northSprite"] = "walls_interior_house_02_65",
+        ["sprite"] = "walls_interior_house_02_64",
+      },
+    },
+    ["salvagePolicy"] = "recipe-inputs",
+  },
+  {
+    ["id"] = "morebuilds:wall:expanded:walls_interior_house_02_68",
+    ["sortKey"] = 2390,
+    ["categoryId"] = "structure:walls",
+    ["nameKey"] = "ContextMenu_MoreBuild_DamaskWallpaperWall",
+    ["descriptionKey"] = "Tooltip_MoreBuild_WallWallpaper",
+    ["recipeId"] = "MoreBuilds.WallWallpaperGeneric",
+    ["previewSprite"] = "walls_interior_house_02_68",
+    ["placement"] = {
+      ["kind"] = "morebuilds:wall",
+      ["data"] = {
+        ["corner"] = "walls_interior_house_02_71",
+        ["health"] = 200,
+        ["healthFromCarpentry"] = true,
+        ["northSprite"] = "walls_interior_house_02_69",
+        ["sprite"] = "walls_interior_house_02_68",
+      },
+    },
+    ["salvagePolicy"] = "recipe-inputs",
+  },
+  {
+    ["id"] = "morebuilds:wall:expanded:walls_interior_house_02_80",
+    ["sortKey"] = 2400,
+    ["categoryId"] = "structure:walls",
+    ["nameKey"] = "ContextMenu_MoreBuild_DamaskWallpaperWall",
+    ["descriptionKey"] = "Tooltip_MoreBuild_WallWallpaper",
+    ["recipeId"] = "MoreBuilds.WallWallpaperGeneric",
+    ["previewSprite"] = "walls_interior_house_02_80",
+    ["placement"] = {
+      ["kind"] = "morebuilds:wall",
+      ["data"] = {
+        ["corner"] = "walls_interior_house_02_83",
+        ["health"] = 200,
+        ["healthFromCarpentry"] = true,
+        ["northSprite"] = "walls_interior_house_02_81",
+        ["sprite"] = "walls_interior_house_02_80",
+      },
+    },
+    ["salvagePolicy"] = "recipe-inputs",
+  },
+  {
+    ["id"] = "morebuilds:wall:expanded:walls_interior_house_02_84",
     ["sortKey"] = 2410,
+    ["categoryId"] = "structure:walls",
+    ["nameKey"] = "ContextMenu_MoreBuild_DamaskWallpaperWall",
+    ["descriptionKey"] = "Tooltip_MoreBuild_WallWallpaper",
+    ["recipeId"] = "MoreBuilds.WallWallpaperGeneric",
+    ["previewSprite"] = "walls_interior_house_02_84",
+    ["placement"] = {
+      ["kind"] = "morebuilds:wall",
+      ["data"] = {
+        ["corner"] = "walls_interior_house_02_87",
+        ["health"] = 200,
+        ["healthFromCarpentry"] = true,
+        ["northSprite"] = "walls_interior_house_02_85",
+        ["sprite"] = "walls_interior_house_02_84",
+      },
+    },
+    ["salvagePolicy"] = "recipe-inputs",
+  },
+  {
+    ["id"] = "morebuilds:wall:interior:magenta_painted",
+    ["sortKey"] = 2420,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_MagentaPaintedWall",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallPainted",
@@ -4355,7 +4394,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:interior:gray_painted",
-    ["sortKey"] = 2420,
+    ["sortKey"] = 2430,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_GrayPaintedWall",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallPainted",
@@ -4375,7 +4414,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:interior:sage_painted",
-    ["sortKey"] = 2430,
+    ["sortKey"] = 2440,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_SagePaintedWall",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallPainted",
@@ -4395,7 +4434,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:interior:crimson_painted",
-    ["sortKey"] = 2440,
+    ["sortKey"] = 2450,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_CrimsonPaintedWall",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallPainted",
@@ -4415,7 +4454,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:interior:olive_painted",
-    ["sortKey"] = 2450,
+    ["sortKey"] = 2460,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_OlivePaintedWall",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallPainted",
@@ -4435,7 +4474,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:interior:ochre_painted",
-    ["sortKey"] = 2460,
+    ["sortKey"] = 2470,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_OchrePaintedWall",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallPainted",
@@ -4454,8 +4493,268 @@ return {
     ["salvagePolicy"] = "recipe-inputs",
   },
   {
+    ["id"] = "morebuilds:wall:expanded:walls_interior_house_02_16",
+    ["sortKey"] = 2480,
+    ["categoryId"] = "structure:walls",
+    ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse02_16",
+    ["descriptionKey"] = "Tooltip_MoreBuild_WallPainted",
+    ["recipeId"] = "MoreBuilds.WallPaintOrange",
+    ["previewSprite"] = "walls_interior_house_02_16",
+    ["placement"] = {
+      ["kind"] = "morebuilds:wall",
+      ["data"] = {
+        ["corner"] = "walls_interior_house_02_19",
+        ["health"] = 200,
+        ["healthFromCarpentry"] = true,
+        ["northSprite"] = "walls_interior_house_02_17",
+        ["sprite"] = "walls_interior_house_02_16",
+      },
+    },
+    ["salvagePolicy"] = "recipe-inputs",
+  },
+  {
+    ["id"] = "morebuilds:wall:expanded:walls_interior_house_02_20",
+    ["sortKey"] = 2490,
+    ["categoryId"] = "structure:walls",
+    ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse02_20",
+    ["descriptionKey"] = "Tooltip_MoreBuild_WallPainted",
+    ["recipeId"] = "MoreBuilds.WallPaintBrown",
+    ["previewSprite"] = "walls_interior_house_02_20",
+    ["placement"] = {
+      ["kind"] = "morebuilds:wall",
+      ["data"] = {
+        ["corner"] = "walls_interior_house_02_23",
+        ["health"] = 200,
+        ["healthFromCarpentry"] = true,
+        ["northSprite"] = "walls_interior_house_02_21",
+        ["sprite"] = "walls_interior_house_02_20",
+      },
+    },
+    ["salvagePolicy"] = "recipe-inputs",
+  },
+  {
+    ["id"] = "morebuilds:wall:expanded:walls_interior_house_02_32",
+    ["sortKey"] = 2500,
+    ["categoryId"] = "structure:walls",
+    ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse02_32",
+    ["descriptionKey"] = "Tooltip_MoreBuild_WallPainted",
+    ["recipeId"] = "MoreBuilds.WallPaintBlue",
+    ["previewSprite"] = "walls_interior_house_02_32",
+    ["placement"] = {
+      ["kind"] = "morebuilds:wall",
+      ["data"] = {
+        ["corner"] = "walls_interior_house_02_35",
+        ["health"] = 200,
+        ["healthFromCarpentry"] = true,
+        ["northSprite"] = "walls_interior_house_02_33",
+        ["sprite"] = "walls_interior_house_02_32",
+      },
+    },
+    ["salvagePolicy"] = "recipe-inputs",
+  },
+  {
+    ["id"] = "morebuilds:wall:expanded:walls_interior_house_02_36",
+    ["sortKey"] = 2510,
+    ["categoryId"] = "structure:walls",
+    ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse02_36",
+    ["descriptionKey"] = "Tooltip_MoreBuild_WallPainted",
+    ["recipeId"] = "MoreBuilds.WallPaintLightBrown",
+    ["previewSprite"] = "walls_interior_house_02_36",
+    ["placement"] = {
+      ["kind"] = "morebuilds:wall",
+      ["data"] = {
+        ["corner"] = "walls_interior_house_02_39",
+        ["health"] = 200,
+        ["healthFromCarpentry"] = true,
+        ["northSprite"] = "walls_interior_house_02_37",
+        ["sprite"] = "walls_interior_house_02_36",
+      },
+    },
+    ["salvagePolicy"] = "recipe-inputs",
+  },
+  {
+    ["id"] = "morebuilds:wall:expanded:walls_interior_house_02_48",
+    ["sortKey"] = 2520,
+    ["categoryId"] = "structure:walls",
+    ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse02_48",
+    ["descriptionKey"] = "Tooltip_MoreBuild_WallPainted",
+    ["recipeId"] = "MoreBuilds.WallPaintWhite",
+    ["previewSprite"] = "walls_interior_house_02_48",
+    ["placement"] = {
+      ["kind"] = "morebuilds:wall",
+      ["data"] = {
+        ["corner"] = "walls_interior_house_02_51",
+        ["health"] = 200,
+        ["healthFromCarpentry"] = true,
+        ["northSprite"] = "walls_interior_house_02_49",
+        ["sprite"] = "walls_interior_house_02_48",
+      },
+    },
+    ["salvagePolicy"] = "recipe-inputs",
+  },
+  {
+    ["id"] = "morebuilds:wall:expanded:walls_interior_house_02_52",
+    ["sortKey"] = 2530,
+    ["categoryId"] = "structure:walls",
+    ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse02_52",
+    ["descriptionKey"] = "Tooltip_MoreBuild_WallPainted",
+    ["recipeId"] = "MoreBuilds.WallPaintLightBlue",
+    ["previewSprite"] = "walls_interior_house_02_52",
+    ["placement"] = {
+      ["kind"] = "morebuilds:wall",
+      ["data"] = {
+        ["corner"] = "walls_interior_house_02_55",
+        ["health"] = 200,
+        ["healthFromCarpentry"] = true,
+        ["northSprite"] = "walls_interior_house_02_53",
+        ["sprite"] = "walls_interior_house_02_52",
+      },
+    },
+    ["salvagePolicy"] = "recipe-inputs",
+  },
+  {
+    ["id"] = "morebuilds:wall:expanded:walls_interior_house_03_36",
+    ["sortKey"] = 2540,
+    ["categoryId"] = "structure:walls",
+    ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse03_36",
+    ["descriptionKey"] = "Tooltip_MoreBuild_WallPainted",
+    ["recipeId"] = "MoreBuilds.WallPaintBlack",
+    ["previewSprite"] = "walls_interior_house_03_36",
+    ["placement"] = {
+      ["kind"] = "morebuilds:wall",
+      ["data"] = {
+        ["corner"] = "walls_interior_house_03_39",
+        ["health"] = 200,
+        ["healthFromCarpentry"] = true,
+        ["northSprite"] = "walls_interior_house_03_37",
+        ["sprite"] = "walls_interior_house_03_36",
+      },
+    },
+    ["salvagePolicy"] = "recipe-inputs",
+  },
+  {
+    ["id"] = "morebuilds:wall:expanded:walls_interior_house_04_4",
+    ["sortKey"] = 2550,
+    ["categoryId"] = "structure:walls",
+    ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse04_4",
+    ["descriptionKey"] = "Tooltip_MoreBuild_WallPainted",
+    ["recipeId"] = "MoreBuilds.WallPaintPink",
+    ["previewSprite"] = "walls_interior_house_04_4",
+    ["placement"] = {
+      ["kind"] = "morebuilds:wall",
+      ["data"] = {
+        ["corner"] = "walls_interior_house_04_7",
+        ["health"] = 200,
+        ["healthFromCarpentry"] = true,
+        ["northSprite"] = "walls_interior_house_04_5",
+        ["sprite"] = "walls_interior_house_04_4",
+      },
+    },
+    ["salvagePolicy"] = "recipe-inputs",
+  },
+  {
+    ["id"] = "morebuilds:wall:expanded:walls_interior_house_04_32",
+    ["sortKey"] = 2560,
+    ["categoryId"] = "structure:walls",
+    ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse04_32",
+    ["descriptionKey"] = "Tooltip_MoreBuild_WallPainted",
+    ["recipeId"] = "MoreBuilds.WallPaintGreen",
+    ["previewSprite"] = "walls_interior_house_04_32",
+    ["placement"] = {
+      ["kind"] = "morebuilds:wall",
+      ["data"] = {
+        ["corner"] = "walls_interior_house_04_35",
+        ["health"] = 200,
+        ["healthFromCarpentry"] = true,
+        ["northSprite"] = "walls_interior_house_04_33",
+        ["sprite"] = "walls_interior_house_04_32",
+      },
+    },
+    ["salvagePolicy"] = "recipe-inputs",
+  },
+  {
+    ["id"] = "morebuilds:wall:expanded:walls_interior_house_04_36",
+    ["sortKey"] = 2570,
+    ["categoryId"] = "structure:walls",
+    ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse04_36",
+    ["descriptionKey"] = "Tooltip_MoreBuild_WallPainted",
+    ["recipeId"] = "MoreBuilds.WallPaintTurquoise",
+    ["previewSprite"] = "walls_interior_house_04_36",
+    ["placement"] = {
+      ["kind"] = "morebuilds:wall",
+      ["data"] = {
+        ["corner"] = "walls_interior_house_04_39",
+        ["health"] = 200,
+        ["healthFromCarpentry"] = true,
+        ["northSprite"] = "walls_interior_house_04_37",
+        ["sprite"] = "walls_interior_house_04_36",
+      },
+    },
+    ["salvagePolicy"] = "recipe-inputs",
+  },
+  {
+    ["id"] = "morebuilds:wall:expanded:walls_interior_house_04_48",
+    ["sortKey"] = 2580,
+    ["categoryId"] = "structure:walls",
+    ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse04_48",
+    ["descriptionKey"] = "Tooltip_MoreBuild_WallPainted",
+    ["recipeId"] = "MoreBuilds.WallPaintPurple",
+    ["previewSprite"] = "walls_interior_house_04_48",
+    ["placement"] = {
+      ["kind"] = "morebuilds:wall",
+      ["data"] = {
+        ["corner"] = "walls_interior_house_04_51",
+        ["health"] = 200,
+        ["healthFromCarpentry"] = true,
+        ["northSprite"] = "walls_interior_house_04_49",
+        ["sprite"] = "walls_interior_house_04_48",
+      },
+    },
+    ["salvagePolicy"] = "recipe-inputs",
+  },
+  {
+    ["id"] = "morebuilds:wall:expanded:walls_interior_house_04_64",
+    ["sortKey"] = 2590,
+    ["categoryId"] = "structure:walls",
+    ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse04_64",
+    ["descriptionKey"] = "Tooltip_MoreBuild_WallPainted",
+    ["recipeId"] = "MoreBuilds.WallPaintGrey",
+    ["previewSprite"] = "walls_interior_house_04_64",
+    ["placement"] = {
+      ["kind"] = "morebuilds:wall",
+      ["data"] = {
+        ["corner"] = "walls_interior_house_04_67",
+        ["health"] = 200,
+        ["healthFromCarpentry"] = true,
+        ["northSprite"] = "walls_interior_house_04_65",
+        ["sprite"] = "walls_interior_house_04_64",
+      },
+    },
+    ["salvagePolicy"] = "recipe-inputs",
+  },
+  {
+    ["id"] = "morebuilds:wall:expanded:walls_interior_house_04_84",
+    ["sortKey"] = 2600,
+    ["categoryId"] = "structure:walls",
+    ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse04_84",
+    ["descriptionKey"] = "Tooltip_MoreBuild_WallPainted",
+    ["recipeId"] = "MoreBuilds.WallPaintCyan",
+    ["previewSprite"] = "walls_interior_house_04_84",
+    ["placement"] = {
+      ["kind"] = "morebuilds:wall",
+      ["data"] = {
+        ["corner"] = "walls_interior_house_04_87",
+        ["health"] = 200,
+        ["healthFromCarpentry"] = true,
+        ["northSprite"] = "walls_interior_house_04_85",
+        ["sprite"] = "walls_interior_house_04_84",
+      },
+    },
+    ["salvagePolicy"] = "recipe-inputs",
+  },
+  {
     ["id"] = "morebuilds:floor:white_panel_tile",
-    ["sortKey"] = 2470,
+    ["sortKey"] = 2610,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_white_panel_tile",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -4471,7 +4770,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:brown_mosaic_tile",
-    ["sortKey"] = 2480,
+    ["sortKey"] = 2620,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_brown_mosaic_tile",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorTile",
@@ -4487,7 +4786,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:chestnut_wood",
-    ["sortKey"] = 2490,
+    ["sortKey"] = 2630,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_chestnut_wood",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorWood",
@@ -4503,7 +4802,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:bathroom_lilac",
-    ["sortKey"] = 2500,
+    ["sortKey"] = 2640,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_LilacBathroomDoor",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorIndustrialMetal",
@@ -4524,7 +4823,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:bathroom_tan",
-    ["sortKey"] = 2510,
+    ["sortKey"] = 2650,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_TanBathroomDoor",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorIndustrialMetal",
@@ -4545,7 +4844,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:glass_dark_frame",
-    ["sortKey"] = 2520,
+    ["sortKey"] = 2660,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_DarkFramedGlassDoor",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorGlassMetal",
@@ -4566,7 +4865,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:glass_gray_frame",
-    ["sortKey"] = 2530,
+    ["sortKey"] = 2670,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_GrayFramedGlassDoor",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorGlassMetal",
@@ -4587,7 +4886,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:metal_gray",
-    ["sortKey"] = 2540,
+    ["sortKey"] = 2680,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_GrayMetalDoor",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorIndustrialMetal",
@@ -4608,7 +4907,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:metal_light_gray",
-    ["sortKey"] = 2550,
+    ["sortKey"] = 2690,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_LightGrayMetalDoor",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorIndustrialMetal",
@@ -4629,7 +4928,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:windowed_metal",
-    ["sortKey"] = 2560,
+    ["sortKey"] = 2700,
     ["categoryId"] = "structure:doors",
     ["nameKey"] = "ContextMenu_MoreBuild_WindowedMetalDoor",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorGlassMetal",
@@ -4650,7 +4949,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:carpet:light_green",
-    ["sortKey"] = 2570,
+    ["sortKey"] = 2710,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_carpet_light_green",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -4666,7 +4965,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:carpet:white_striped",
-    ["sortKey"] = 2580,
+    ["sortKey"] = 2720,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_carpet_white_striped",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -4682,7 +4981,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:carpet:sage_striped",
-    ["sortKey"] = 2590,
+    ["sortKey"] = 2730,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_carpet_sage_striped",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -4698,7 +4997,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:carpet:magenta_striped",
-    ["sortKey"] = 2600,
+    ["sortKey"] = 2740,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_carpet_magenta_striped",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -4714,7 +5013,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:carpet:orange_striped",
-    ["sortKey"] = 2610,
+    ["sortKey"] = 2750,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_carpet_orange_striped",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -4730,7 +5029,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:carpet:dark_yellow_striped",
-    ["sortKey"] = 2620,
+    ["sortKey"] = 2760,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_carpet_dark_yellow_striped",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -4746,7 +5045,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:carpet:indigo_striped",
-    ["sortKey"] = 2630,
+    ["sortKey"] = 2770,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_carpet_indigo_striped",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -4762,7 +5061,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:carpet:bordeaux_striped",
-    ["sortKey"] = 2640,
+    ["sortKey"] = 2780,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_carpet_bordeaux_striped",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -4778,7 +5077,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:carpet:violet_striped",
-    ["sortKey"] = 2650,
+    ["sortKey"] = 2790,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_carpet_violet_striped",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -4794,7 +5093,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:carpet:green_striped",
-    ["sortKey"] = 2660,
+    ["sortKey"] = 2800,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_carpet_green_striped",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -4810,7 +5109,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:carpet:dark_blue_striped",
-    ["sortKey"] = 2670,
+    ["sortKey"] = 2810,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_carpet_dark_blue_striped",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -4826,7 +5125,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:carpet:vermilion_striped",
-    ["sortKey"] = 2680,
+    ["sortKey"] = 2820,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_carpet_vermilion_striped",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -4842,7 +5141,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:carpet:dark_orange_striped",
-    ["sortKey"] = 2690,
+    ["sortKey"] = 2830,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_carpet_dark_orange_striped",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -4858,7 +5157,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:carpet:light_gray_striped",
-    ["sortKey"] = 2700,
+    ["sortKey"] = 2840,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_carpet_light_gray_striped",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -4874,7 +5173,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:carpet:light_brown_striped",
-    ["sortKey"] = 2710,
+    ["sortKey"] = 2850,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_carpet_light_brown_striped",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -4890,7 +5189,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:carpet:brown_striped",
-    ["sortKey"] = 2720,
+    ["sortKey"] = 2860,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_carpet_brown_striped",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -4906,7 +5205,7 @@ return {
   },
   {
     ["id"] = "morebuilds:floor:carpet:yellow_striped",
-    ["sortKey"] = 2730,
+    ["sortKey"] = 2870,
     ["categoryId"] = "structure:floors",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_floor_carpet_yellow_striped",
     ["descriptionKey"] = "Tooltip_MoreBuild_FloorCarpet",
@@ -4922,7 +5221,7 @@ return {
   },
   {
     ["id"] = "morebuilds:fence_post:vertical_plank",
-    ["sortKey"] = 2740,
+    ["sortKey"] = 2880,
     ["categoryId"] = "structure:posts-pillars",
     ["nameKey"] = "ContextMenu_MoreBuild_VerticalPlankFencePost",
     ["descriptionKey"] = "Tooltip_MoreBuild_FencePostRailWood",
@@ -4940,7 +5239,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_commercial_03_16",
-    ["sortKey"] = 2750,
+    ["sortKey"] = 2890,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_Commercial03_16",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallBrick",
@@ -4959,7 +5258,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_commercial_03_48",
-    ["sortKey"] = 2760,
+    ["sortKey"] = 2900,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_Commercial03_48",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallBrick",
@@ -4978,7 +5277,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_exterior_house_02_0",
-    ["sortKey"] = 2770,
+    ["sortKey"] = 2910,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_ExteriorHouse02_Stone_0",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallStone",
@@ -4997,7 +5296,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_exterior_house_02_4",
-    ["sortKey"] = 2780,
+    ["sortKey"] = 2920,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_ExteriorHouse02_Stone_4",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallStone",
@@ -5016,7 +5315,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_exterior_house_02_16",
-    ["sortKey"] = 2790,
+    ["sortKey"] = 2930,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_ExteriorHouse02_Brick_16",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallBrick",
@@ -5035,7 +5334,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_exterior_house_02_48",
-    ["sortKey"] = 2800,
+    ["sortKey"] = 2940,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_ExteriorHouse02_Brick_48",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallBrick",
@@ -5054,7 +5353,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_exterior_house_02_52",
-    ["sortKey"] = 2810,
+    ["sortKey"] = 2950,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_ExteriorHouse02_Brick_52",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallBrick",
@@ -5073,7 +5372,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_exterior_house_02_64",
-    ["sortKey"] = 2820,
+    ["sortKey"] = 2960,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_ExteriorHouse02_Brick_64",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallBrick",
@@ -5092,7 +5391,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_exterior_house_02_84",
-    ["sortKey"] = 2830,
+    ["sortKey"] = 2970,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_ExteriorHouse02_Brick_84",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallBrick",
@@ -5111,7 +5410,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_exterior_house_02_96",
-    ["sortKey"] = 2840,
+    ["sortKey"] = 2980,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_ExteriorHouse02_Brick_96",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallBrick",
@@ -5130,7 +5429,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_exterior_house_02_36",
-    ["sortKey"] = 2850,
+    ["sortKey"] = 2990,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_ExteriorHouse02_Brick_36",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallBrick",
@@ -5148,48 +5447,8 @@ return {
     ["salvagePolicy"] = "recipe-inputs",
   },
   {
-    ["id"] = "morebuilds:wall:expanded:walls_exterior_house_02_68",
-    ["sortKey"] = 2860,
-    ["categoryId"] = "structure:walls",
-    ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_ExteriorHouse02_Wood_68",
-    ["descriptionKey"] = "Tooltip_MoreBuild_WallWood",
-    ["recipeId"] = "MoreBuilds.WallWood",
-    ["previewSprite"] = "walls_exterior_house_02_68",
-    ["placement"] = {
-      ["kind"] = "morebuilds:wall",
-      ["data"] = {
-        ["corner"] = "walls_exterior_house_02_71",
-        ["health"] = 200,
-        ["healthFromCarpentry"] = true,
-        ["northSprite"] = "walls_exterior_house_02_69",
-        ["sprite"] = "walls_exterior_house_02_68",
-      },
-    },
-    ["salvagePolicy"] = "recipe-inputs",
-  },
-  {
-    ["id"] = "morebuilds:wall:expanded:walls_exterior_house_02_80",
-    ["sortKey"] = 2870,
-    ["categoryId"] = "structure:walls",
-    ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_ExteriorHouse02_Wood_80",
-    ["descriptionKey"] = "Tooltip_MoreBuild_WallWood",
-    ["recipeId"] = "MoreBuilds.WallWood",
-    ["previewSprite"] = "walls_exterior_house_02_80",
-    ["placement"] = {
-      ["kind"] = "morebuilds:wall",
-      ["data"] = {
-        ["corner"] = "walls_exterior_house_02_83",
-        ["health"] = 200,
-        ["healthFromCarpentry"] = true,
-        ["northSprite"] = "walls_exterior_house_02_81",
-        ["sprite"] = "walls_exterior_house_02_80",
-      },
-    },
-    ["salvagePolicy"] = "recipe-inputs",
-  },
-  {
     ["id"] = "morebuilds:wall:cement_gray",
-    ["sortKey"] = 2880,
+    ["sortKey"] = 3000,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_Gray_Cement_Wall",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallCement",
@@ -5208,7 +5467,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_garage_01_32",
-    ["sortKey"] = 2890,
+    ["sortKey"] = 3010,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_Garage01_32",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallBrick",
@@ -5227,7 +5486,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_garage_01_36",
-    ["sortKey"] = 2900,
+    ["sortKey"] = 3020,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_Garage01_36",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallBrick",
@@ -5246,7 +5505,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_interior_bathroom_01_0",
-    ["sortKey"] = 2910,
+    ["sortKey"] = 3030,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_Bathroom01_Ceramic_0",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallTile",
@@ -5265,7 +5524,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_interior_bathroom_01_4",
-    ["sortKey"] = 2920,
+    ["sortKey"] = 3040,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_Bathroom01_Ceramic_4",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallBrick",
@@ -5284,7 +5543,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_interior_bathroom_01_16",
-    ["sortKey"] = 2930,
+    ["sortKey"] = 3050,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_Bathroom01_Ceramic_16",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallBrick",
@@ -5303,7 +5562,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_interior_bathroom_01_20",
-    ["sortKey"] = 2940,
+    ["sortKey"] = 3060,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_Bathroom01_Ceramic_20",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallBrick",
@@ -5322,7 +5581,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_interior_bathroom_01_32",
-    ["sortKey"] = 2950,
+    ["sortKey"] = 3070,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_Bathroom01_Ceramic_32",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallBrick",
@@ -5341,7 +5600,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_interior_bathroom_01_36",
-    ["sortKey"] = 2960,
+    ["sortKey"] = 3080,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_Bathroom01_Ceramic_36",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallBrick",
@@ -5360,7 +5619,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_interior_bathroom_01_48",
-    ["sortKey"] = 2970,
+    ["sortKey"] = 3090,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_Bathroom01_Ceramic_48",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallBrick",
@@ -5379,7 +5638,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_interior_bathroom_01_52",
-    ["sortKey"] = 2980,
+    ["sortKey"] = 3100,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_Bathroom01_Ceramic_52",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallBrick",
@@ -5398,7 +5657,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_interior_bathroom_01_64",
-    ["sortKey"] = 2990,
+    ["sortKey"] = 3110,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_Bathroom01_Ceramic_64",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallBrick",
@@ -5417,7 +5676,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_interior_bathroom_01_68",
-    ["sortKey"] = 3000,
+    ["sortKey"] = 3120,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_Bathroom01_Ceramic_68",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallBrick",
@@ -5436,7 +5695,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_interior_bathroom_01_80",
-    ["sortKey"] = 3010,
+    ["sortKey"] = 3130,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_Bathroom01_Ceramic_80",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallBrick",
@@ -5455,7 +5714,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_interior_bathroom_01_84",
-    ["sortKey"] = 3020,
+    ["sortKey"] = 3140,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_Bathroom01_Ceramic_84",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallBrick",
@@ -5474,7 +5733,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_interior_bathroom_01_96",
-    ["sortKey"] = 3030,
+    ["sortKey"] = 3150,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_Bathroom01_Ceramic_96",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallBrick",
@@ -5492,8 +5751,28 @@ return {
     ["salvagePolicy"] = "recipe-inputs",
   },
   {
+    ["id"] = "morebuilds:wall:wood_white_plaster",
+    ["sortKey"] = 3160,
+    ["categoryId"] = "structure:walls",
+    ["nameKey"] = "ContextMenu_MoreBuild_White_Plaster",
+    ["descriptionKey"] = "Tooltip_MoreBuild_WallPlaster",
+    ["recipeId"] = "MoreBuilds.WallPlasterWood",
+    ["previewSprite"] = "location_shop_mall_01_0",
+    ["placement"] = {
+      ["kind"] = "morebuilds:wall",
+      ["data"] = {
+        ["corner"] = "location_shop_mall_01_3",
+        ["health"] = 200,
+        ["healthFromCarpentry"] = true,
+        ["northSprite"] = "location_shop_mall_01_1",
+        ["sprite"] = "location_shop_mall_01_0",
+      },
+    },
+    ["salvagePolicy"] = "recipe-inputs",
+  },
+  {
     ["id"] = "morebuilds:wall:expanded:walls_interior_house_02_0",
-    ["sortKey"] = 3040,
+    ["sortKey"] = 3170,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse02_0",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallPlaster",
@@ -5513,7 +5792,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_interior_house_02_4",
-    ["sortKey"] = 3050,
+    ["sortKey"] = 3180,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse02_4",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallPlaster",
@@ -5533,7 +5812,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_interior_house_03_0",
-    ["sortKey"] = 3060,
+    ["sortKey"] = 3190,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse03_0",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallPlaster",
@@ -5553,7 +5832,7 @@ return {
   },
     {
     ["id"] = "morebuilds:wall:expanded:walls_interior_house_03_4",
-    ["sortKey"] = 3070,
+    ["sortKey"] = 3200,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse03_4",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallPlaster",
@@ -5573,7 +5852,7 @@ return {
   },
     {
     ["id"] = "morebuilds:wall:expanded:walls_interior_house_03_20",
-    ["sortKey"] = 3080,
+    ["sortKey"] = 3210,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse03_20",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallPlaster",
@@ -5593,7 +5872,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_interior_house_03_32",
-    ["sortKey"] = 3090,
+    ["sortKey"] = 3220,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse03_32",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallPlaster",
@@ -5613,7 +5892,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_interior_house_03_48",
-    ["sortKey"] = 3100,
+    ["sortKey"] = 3230,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse03_48",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallPlaster",
@@ -5633,7 +5912,7 @@ return {
   },
     {
     ["id"] = "morebuilds:wall:expanded:walls_interior_house_04_0",
-    ["sortKey"] = 3110,
+    ["sortKey"] = 3240,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse04_0",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallPlaster",
@@ -5653,7 +5932,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_interior_house_04_16",
-    ["sortKey"] = 3120,
+    ["sortKey"] = 3250,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse04_16",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallPlaster",
@@ -5673,7 +5952,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_interior_house_04_20",
-    ["sortKey"] = 3130,
+    ["sortKey"] = 3260,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse04_20",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallPlaster",
@@ -5693,7 +5972,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_interior_house_04_68",
-    ["sortKey"] = 3140,
+    ["sortKey"] = 3270,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse04_68",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallPlaster",
@@ -5713,7 +5992,7 @@ return {
   },
   {
     ["id"] = "morebuilds:wall:expanded:walls_interior_house_04_80",
-    ["sortKey"] = 3150,
+    ["sortKey"] = 3280,
     ["categoryId"] = "structure:walls",
     ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse04_80",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallPlaster",
@@ -5727,266 +6006,6 @@ return {
         ["healthFromCarpentry"] = true,
         ["northSprite"] = "walls_interior_house_04_81",
         ["sprite"] = "walls_interior_house_04_80",
-      },
-    },
-    ["salvagePolicy"] = "recipe-inputs",
-  },
-  {
-    ["id"] = "morebuilds:wall:expanded:walls_interior_house_02_16",
-    ["sortKey"] = 3160,
-    ["categoryId"] = "structure:walls",
-    ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse02_16",
-    ["descriptionKey"] = "Tooltip_MoreBuild_WallPainted",
-    ["recipeId"] = "MoreBuilds.WallPaintOrange",
-    ["previewSprite"] = "walls_interior_house_02_16",
-    ["placement"] = {
-      ["kind"] = "morebuilds:wall",
-      ["data"] = {
-        ["corner"] = "walls_interior_house_02_19",
-        ["health"] = 200,
-        ["healthFromCarpentry"] = true,
-        ["northSprite"] = "walls_interior_house_02_17",
-        ["sprite"] = "walls_interior_house_02_16",
-      },
-    },
-    ["salvagePolicy"] = "recipe-inputs",
-  },
-  {
-    ["id"] = "morebuilds:wall:expanded:walls_interior_house_02_20",
-    ["sortKey"] = 3170,
-    ["categoryId"] = "structure:walls",
-    ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse02_20",
-    ["descriptionKey"] = "Tooltip_MoreBuild_WallPainted",
-    ["recipeId"] = "MoreBuilds.WallPaintBrown",
-    ["previewSprite"] = "walls_interior_house_02_20",
-    ["placement"] = {
-      ["kind"] = "morebuilds:wall",
-      ["data"] = {
-        ["corner"] = "walls_interior_house_02_23",
-        ["health"] = 200,
-        ["healthFromCarpentry"] = true,
-        ["northSprite"] = "walls_interior_house_02_21",
-        ["sprite"] = "walls_interior_house_02_20",
-      },
-    },
-    ["salvagePolicy"] = "recipe-inputs",
-  },
-  {
-    ["id"] = "morebuilds:wall:expanded:walls_interior_house_02_32",
-    ["sortKey"] = 3180,
-    ["categoryId"] = "structure:walls",
-    ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse02_32",
-    ["descriptionKey"] = "Tooltip_MoreBuild_WallPainted",
-    ["recipeId"] = "MoreBuilds.WallPaintBlue",
-    ["previewSprite"] = "walls_interior_house_02_32",
-    ["placement"] = {
-      ["kind"] = "morebuilds:wall",
-      ["data"] = {
-        ["corner"] = "walls_interior_house_02_35",
-        ["health"] = 200,
-        ["healthFromCarpentry"] = true,
-        ["northSprite"] = "walls_interior_house_02_33",
-        ["sprite"] = "walls_interior_house_02_32",
-      },
-    },
-    ["salvagePolicy"] = "recipe-inputs",
-  },
-  {
-    ["id"] = "morebuilds:wall:expanded:walls_interior_house_02_36",
-    ["sortKey"] = 3190,
-    ["categoryId"] = "structure:walls",
-    ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse02_36",
-    ["descriptionKey"] = "Tooltip_MoreBuild_WallPainted",
-    ["recipeId"] = "MoreBuilds.WallPaintLightBrown",
-    ["previewSprite"] = "walls_interior_house_02_36",
-    ["placement"] = {
-      ["kind"] = "morebuilds:wall",
-      ["data"] = {
-        ["corner"] = "walls_interior_house_02_39",
-        ["health"] = 200,
-        ["healthFromCarpentry"] = true,
-        ["northSprite"] = "walls_interior_house_02_37",
-        ["sprite"] = "walls_interior_house_02_36",
-      },
-    },
-    ["salvagePolicy"] = "recipe-inputs",
-  },
-  {
-    ["id"] = "morebuilds:wall:expanded:walls_interior_house_02_48",
-    ["sortKey"] = 3200,
-    ["categoryId"] = "structure:walls",
-    ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse02_48",
-    ["descriptionKey"] = "Tooltip_MoreBuild_WallPainted",
-    ["recipeId"] = "MoreBuilds.WallPaintWhite",
-    ["previewSprite"] = "walls_interior_house_02_48",
-    ["placement"] = {
-      ["kind"] = "morebuilds:wall",
-      ["data"] = {
-        ["corner"] = "walls_interior_house_02_51",
-        ["health"] = 200,
-        ["healthFromCarpentry"] = true,
-        ["northSprite"] = "walls_interior_house_02_49",
-        ["sprite"] = "walls_interior_house_02_48",
-      },
-    },
-    ["salvagePolicy"] = "recipe-inputs",
-  },
-  {
-    ["id"] = "morebuilds:wall:expanded:walls_interior_house_02_52",
-    ["sortKey"] = 3210,
-    ["categoryId"] = "structure:walls",
-    ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse02_52",
-    ["descriptionKey"] = "Tooltip_MoreBuild_WallPainted",
-    ["recipeId"] = "MoreBuilds.WallPaintLightBlue",
-    ["previewSprite"] = "walls_interior_house_02_52",
-    ["placement"] = {
-      ["kind"] = "morebuilds:wall",
-      ["data"] = {
-        ["corner"] = "walls_interior_house_02_55",
-        ["health"] = 200,
-        ["healthFromCarpentry"] = true,
-        ["northSprite"] = "walls_interior_house_02_53",
-        ["sprite"] = "walls_interior_house_02_52",
-      },
-    },
-    ["salvagePolicy"] = "recipe-inputs",
-  },
-  {
-    ["id"] = "morebuilds:wall:expanded:walls_interior_house_03_36",
-    ["sortKey"] = 3220,
-    ["categoryId"] = "structure:walls",
-    ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse03_36",
-    ["descriptionKey"] = "Tooltip_MoreBuild_WallPainted",
-    ["recipeId"] = "MoreBuilds.WallPaintBlack",
-    ["previewSprite"] = "walls_interior_house_03_36",
-    ["placement"] = {
-      ["kind"] = "morebuilds:wall",
-      ["data"] = {
-        ["corner"] = "walls_interior_house_03_39",
-        ["health"] = 200,
-        ["healthFromCarpentry"] = true,
-        ["northSprite"] = "walls_interior_house_03_37",
-        ["sprite"] = "walls_interior_house_03_36",
-      },
-    },
-    ["salvagePolicy"] = "recipe-inputs",
-  },
-  {
-    ["id"] = "morebuilds:wall:expanded:walls_interior_house_04_4",
-    ["sortKey"] = 3230,
-    ["categoryId"] = "structure:walls",
-    ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse04_4",
-    ["descriptionKey"] = "Tooltip_MoreBuild_WallPainted",
-    ["recipeId"] = "MoreBuilds.WallPaintPink",
-    ["previewSprite"] = "walls_interior_house_04_4",
-    ["placement"] = {
-      ["kind"] = "morebuilds:wall",
-      ["data"] = {
-        ["corner"] = "walls_interior_house_04_7",
-        ["health"] = 200,
-        ["healthFromCarpentry"] = true,
-        ["northSprite"] = "walls_interior_house_04_5",
-        ["sprite"] = "walls_interior_house_04_4",
-      },
-    },
-    ["salvagePolicy"] = "recipe-inputs",
-  },
-  {
-    ["id"] = "morebuilds:wall:expanded:walls_interior_house_04_32",
-    ["sortKey"] = 3240,
-    ["categoryId"] = "structure:walls",
-    ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse04_32",
-    ["descriptionKey"] = "Tooltip_MoreBuild_WallPainted",
-    ["recipeId"] = "MoreBuilds.WallPaintGreen",
-    ["previewSprite"] = "walls_interior_house_04_32",
-    ["placement"] = {
-      ["kind"] = "morebuilds:wall",
-      ["data"] = {
-        ["corner"] = "walls_interior_house_04_35",
-        ["health"] = 200,
-        ["healthFromCarpentry"] = true,
-        ["northSprite"] = "walls_interior_house_04_33",
-        ["sprite"] = "walls_interior_house_04_32",
-      },
-    },
-    ["salvagePolicy"] = "recipe-inputs",
-  },
-  {
-    ["id"] = "morebuilds:wall:expanded:walls_interior_house_04_36",
-    ["sortKey"] = 3250,
-    ["categoryId"] = "structure:walls",
-    ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse04_36",
-    ["descriptionKey"] = "Tooltip_MoreBuild_WallPainted",
-    ["recipeId"] = "MoreBuilds.WallPaintTurquoise",
-    ["previewSprite"] = "walls_interior_house_04_36",
-    ["placement"] = {
-      ["kind"] = "morebuilds:wall",
-      ["data"] = {
-        ["corner"] = "walls_interior_house_04_39",
-        ["health"] = 200,
-        ["healthFromCarpentry"] = true,
-        ["northSprite"] = "walls_interior_house_04_37",
-        ["sprite"] = "walls_interior_house_04_36",
-      },
-    },
-    ["salvagePolicy"] = "recipe-inputs",
-  },
-  {
-    ["id"] = "morebuilds:wall:expanded:walls_interior_house_04_48",
-    ["sortKey"] = 3260,
-    ["categoryId"] = "structure:walls",
-    ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse04_48",
-    ["descriptionKey"] = "Tooltip_MoreBuild_WallPainted",
-    ["recipeId"] = "MoreBuilds.WallPaintPurple",
-    ["previewSprite"] = "walls_interior_house_04_48",
-    ["placement"] = {
-      ["kind"] = "morebuilds:wall",
-      ["data"] = {
-        ["corner"] = "walls_interior_house_04_51",
-        ["health"] = 200,
-        ["healthFromCarpentry"] = true,
-        ["northSprite"] = "walls_interior_house_04_49",
-        ["sprite"] = "walls_interior_house_04_48",
-      },
-    },
-    ["salvagePolicy"] = "recipe-inputs",
-  },
-  {
-    ["id"] = "morebuilds:wall:expanded:walls_interior_house_04_64",
-    ["sortKey"] = 3270,
-    ["categoryId"] = "structure:walls",
-    ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse04_64",
-    ["descriptionKey"] = "Tooltip_MoreBuild_WallPainted",
-    ["recipeId"] = "MoreBuilds.WallPaintGrey",
-    ["previewSprite"] = "walls_interior_house_04_64",
-    ["placement"] = {
-      ["kind"] = "morebuilds:wall",
-      ["data"] = {
-        ["corner"] = "walls_interior_house_04_67",
-        ["health"] = 200,
-        ["healthFromCarpentry"] = true,
-        ["northSprite"] = "walls_interior_house_04_65",
-        ["sprite"] = "walls_interior_house_04_64",
-      },
-    },
-    ["salvagePolicy"] = "recipe-inputs",
-  },
-  {
-    ["id"] = "morebuilds:wall:expanded:walls_interior_house_04_84",
-    ["sortKey"] = 3280,
-    ["categoryId"] = "structure:walls",
-    ["nameKey"] = "ContextMenu_MoreBuild_ExpandedWall_InteriorHouse04_84",
-    ["descriptionKey"] = "Tooltip_MoreBuild_WallPainted",
-    ["recipeId"] = "MoreBuilds.WallPaintCyan",
-    ["previewSprite"] = "walls_interior_house_04_84",
-    ["placement"] = {
-      ["kind"] = "morebuilds:wall",
-      ["data"] = {
-        ["corner"] = "walls_interior_house_04_87",
-        ["health"] = 200,
-        ["healthFromCarpentry"] = true,
-        ["northSprite"] = "walls_interior_house_04_85",
-        ["sprite"] = "walls_interior_house_04_84",
       },
     },
     ["salvagePolicy"] = "recipe-inputs",
