@@ -1,7 +1,7 @@
 local definitions = {
   {
     ["id"] = "morebuilds:pillar:wood_light_brown",
-    ["sortKey"] = 8750,
+    ["sortKey"] = 8790,
     ["categoryId"] = "structure:posts-pillars",
     ["nameKey"] = "ContextMenu_MoreBuild_Light_Brown_WoodPillar",
     ["descriptionKey"] = "Tooltip_MoreBuild_PillarWood",
@@ -20,7 +20,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:pillar:wood_dark_brown",
-    ["sortKey"] = 8760,
+    ["sortKey"] = 8800,
     ["categoryId"] = "structure:posts-pillars",
     ["nameKey"] = "ContextMenu_MoreBuild_DarkBrownWood_Wall",
     ["descriptionKey"] = "Tooltip_MoreBuild_PillarWood",
@@ -39,7 +39,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:pillar:wood_gray_plaster",
-    ["sortKey"] = 8770,
+    ["sortKey"] = 8810,
     ["categoryId"] = "structure:posts-pillars",
     ["nameKey"] = "ContextMenu_MoreBuild_Gray_Plaster_Pillar",
     ["descriptionKey"] = "Tooltip_MoreBuild_PillarBrick",
@@ -57,7 +57,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:pillar:wood_gray",
-    ["sortKey"] = 8780,
+    ["sortKey"] = 8820,
     ["categoryId"] = "structure:posts-pillars",
     ["nameKey"] = "ContextMenu_MoreBuild_Gray_Wood_Pillar",
     ["descriptionKey"] = "Tooltip_MoreBuild_PillarWood",
@@ -76,7 +76,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:pillar:wood_red_barn",
-    ["sortKey"] = 8790,
+    ["sortKey"] = 8830,
     ["categoryId"] = "structure:posts-pillars",
     ["nameKey"] = "ContextMenu_MoreBuild_Red_Barnwood_Pillar",
     ["descriptionKey"] = "Tooltip_MoreBuild_PillarWood",
@@ -95,7 +95,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:pillar:wood_white_plaster",
-    ["sortKey"] = 8800,
+    ["sortKey"] = 8840,
     ["categoryId"] = "structure:posts-pillars",
     ["nameKey"] = "ContextMenu_MoreBuild_White_Plaster_Pillar",
     ["descriptionKey"] = "Tooltip_MoreBuild_PillarBrick",
@@ -113,7 +113,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:pillar:wood_white",
-    ["sortKey"] = 8810,
+    ["sortKey"] = 8850,
     ["categoryId"] = "structure:posts-pillars",
     ["nameKey"] = "ContextMenu_MoreBuild_White_Wood_Pillar",
     ["descriptionKey"] = "Tooltip_MoreBuild_PillarWood",
@@ -132,7 +132,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:pillar:stone_brown_cinder",
-    ["sortKey"] = 8820,
+    ["sortKey"] = 8860,
     ["categoryId"] = "structure:posts-pillars",
     ["nameKey"] = "ContextMenu_MoreBuild_BrownCinder_Block_Pillar",
     ["descriptionKey"] = "Tooltip_MoreBuild_PillarBrick",
@@ -150,7 +150,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:pillar:stone_gray_cinder",
-    ["sortKey"] = 8830,
+    ["sortKey"] = 8870,
     ["categoryId"] = "structure:posts-pillars",
     ["nameKey"] = "ContextMenu_MoreBuild_GrayCinder_Block_Pillar",
     ["descriptionKey"] = "Tooltip_MoreBuild_PillarBrick",
@@ -168,7 +168,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:pillar:stone_white_cinder",
-    ["sortKey"] = 8840,
+    ["sortKey"] = 8880,
     ["categoryId"] = "structure:posts-pillars",
     ["nameKey"] = "ContextMenu_MoreBuild_WhiteCinder_Block_Pillar",
     ["descriptionKey"] = "Tooltip_MoreBuild_PillarBrick",
@@ -186,7 +186,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:pillar:stone_red_brick",
-    ["sortKey"] = 8850,
+    ["sortKey"] = 8890,
     ["categoryId"] = "structure:posts-pillars",
     ["nameKey"] = "ContextMenu_MoreBuild_RedBrick_Wall",
     ["descriptionKey"] = "Tooltip_MoreBuild_PillarBrick",
@@ -204,7 +204,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:pillar:stone_fancy_wood",
-    ["sortKey"] = 8860,
+    ["sortKey"] = 8900,
     ["categoryId"] = "structure:posts-pillars",
     ["nameKey"] = "ContextMenu_MoreBuild_Fancy_Wood_Post",
     ["descriptionKey"] = "Tooltip_MoreBuild_PillarWood",
@@ -223,7 +223,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:fence:wrought_iron",
-    ["sortKey"] = 8870,
+    ["sortKey"] = 8910,
     ["categoryId"] = "structure:fences",
     ["nameKey"] = "ContextMenu_MoreBuild_WroughtIronFence",
     ["descriptionKey"] = "Tooltip_MoreBuild_FenceMetal",
@@ -242,7 +242,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:fence:wood_wire",
-    ["sortKey"] = 8880,
+    ["sortKey"] = 8920,
     ["categoryId"] = "structure:fences",
     ["nameKey"] = "ContextMenu_MoreBuild_WoodWireFence",
     ["descriptionKey"] = "Tooltip_MoreBuild_FenceWireWood",
@@ -262,7 +262,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:fence:wood_wire_2",
-    ["sortKey"] = 8890,
+    ["sortKey"] = 8930,
     ["categoryId"] = "structure:fences",
     ["nameKey"] = "ContextMenu_MoreBuild_WoodWireFence",
     ["descriptionKey"] = "Tooltip_MoreBuild_FenceWireWood",
@@ -282,7 +282,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:fence:vertical_plank",
-    ["sortKey"] = 8900,
+    ["sortKey"] = 8940,
     ["categoryId"] = "structure:fences",
     ["nameKey"] = "ContextMenu_MoreBuild_VerticalPlankFence",
     ["descriptionKey"] = "Tooltip_MoreBuild_FenceWood",
@@ -302,7 +302,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:fence:slat_wood_2",
-    ["sortKey"] = 8910,
+    ["sortKey"] = 8950,
     ["categoryId"] = "structure:fences",
     ["nameKey"] = "ContextMenu_MoreBuild_SlatWoodFence",
     ["descriptionKey"] = "Tooltip_MoreBuild_FenceWood",
@@ -322,7 +322,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:fence:slat_wood",
-    ["sortKey"] = 8920,
+    ["sortKey"] = 8960,
     ["categoryId"] = "structure:fences",
     ["nameKey"] = "ContextMenu_MoreBuild_SlatWoodFence",
     ["descriptionKey"] = "Tooltip_MoreBuild_FenceWood",
@@ -342,7 +342,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:fence:chain_link_2",
-    ["sortKey"] = 8930,
+    ["sortKey"] = 8970,
     ["categoryId"] = "structure:fences",
     ["nameKey"] = "ContextMenu_MoreBuild_ChainLinkFence",
     ["descriptionKey"] = "Tooltip_MoreBuild_FenceChainLink",
@@ -361,7 +361,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:fence:chain_link",
-    ["sortKey"] = 8940,
+    ["sortKey"] = 8980,
     ["categoryId"] = "structure:fences",
     ["nameKey"] = "ContextMenu_MoreBuild_ChainLinkFence",
     ["descriptionKey"] = "Tooltip_MoreBuild_FenceChainLink",
@@ -380,7 +380,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:fence:style_wood_light_brown",
-    ["sortKey"] = 8950,
+    ["sortKey"] = 8990,
     ["categoryId"] = "structure:fences",
     ["nameKey"] = "ContextMenu_MoreBuild_Light_BrownWood_Fence",
     ["descriptionKey"] = "Tooltip_MoreBuild_FenceWood",
@@ -400,7 +400,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:fence:style_wood_gray_plaster",
-    ["sortKey"] = 8960,
+    ["sortKey"] = 9000,
     ["categoryId"] = "structure:fences",
     ["nameKey"] = "ContextMenu_MoreBuild_GrayFence_WithRail",
     ["descriptionKey"] = "Tooltip_MoreBuild_FenceBrick",
@@ -419,7 +419,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:fence:style_wood_gray",
-    ["sortKey"] = 8970,
+    ["sortKey"] = 9010,
     ["categoryId"] = "structure:fences",
     ["nameKey"] = "ContextMenu_MoreBuild_Gray_WoodFence",
     ["descriptionKey"] = "Tooltip_MoreBuild_FenceWood",
@@ -439,7 +439,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:fence:style_stone_brown_cinder",
-    ["sortKey"] = 8980,
+    ["sortKey"] = 9020,
     ["categoryId"] = "structure:fences",
     ["nameKey"] = "ContextMenu_MoreBuild_BrownCinder_BlockFence",
     ["descriptionKey"] = "Tooltip_MoreBuild_FenceBrick",
@@ -458,7 +458,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:fence:style_stone_gray_cinder",
-    ["sortKey"] = 8990,
+    ["sortKey"] = 9030,
     ["categoryId"] = "structure:fences",
     ["nameKey"] = "ContextMenu_MoreBuild_GrayCinder_BlockFence",
     ["descriptionKey"] = "Tooltip_MoreBuild_FenceBrick",
@@ -477,7 +477,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:fence:style_stone_white_cinder",
-    ["sortKey"] = 9000,
+    ["sortKey"] = 9040,
     ["categoryId"] = "structure:fences",
     ["nameKey"] = "ContextMenu_MoreBuild_WhiteCinder_BlockFence",
     ["descriptionKey"] = "Tooltip_MoreBuild_FenceBrick",
@@ -496,7 +496,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:fence:more_white_picket",
-    ["sortKey"] = 9010,
+    ["sortKey"] = 9050,
     ["categoryId"] = "structure:fences",
     ["nameKey"] = "ContextMenu_MoreBuild_WhitePicket_FencePost",
     ["descriptionKey"] = "Tooltip_MoreBuild_FenceWood",
@@ -516,7 +516,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:fence:more_beige_rail",
-    ["sortKey"] = 9020,
+    ["sortKey"] = 9060,
     ["categoryId"] = "structure:fences",
     ["nameKey"] = "ContextMenu_MoreBuild_BeigeFence_WithRail",
     ["descriptionKey"] = "Tooltip_MoreBuild_FencePlasterRail",
@@ -536,7 +536,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:fence:more_gray_rail",
-    ["sortKey"] = 9030,
+    ["sortKey"] = 9070,
     ["categoryId"] = "structure:fences",
     ["nameKey"] = "ContextMenu_MoreBuild_GrayFence_WithRail",
     ["descriptionKey"] = "Tooltip_MoreBuild_FencePlasterRail",
@@ -556,7 +556,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:fence:more_green_metal",
-    ["sortKey"] = 9040,
+    ["sortKey"] = 9080,
     ["categoryId"] = "structure:fences",
     ["nameKey"] = "ContextMenu_MoreBuild_GreenMetal_Fence",
     ["descriptionKey"] = "Tooltip_MoreBuild_FenceMetal",
@@ -575,7 +575,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:fence:more_red_metal",
-    ["sortKey"] = 9050,
+    ["sortKey"] = 9090,
     ["categoryId"] = "structure:fences",
     ["nameKey"] = "ContextMenu_MoreBuild_RedMetal_Fence",
     ["descriptionKey"] = "Tooltip_MoreBuild_FenceMetal",
@@ -594,7 +594,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:fence:more_rough_brick",
-    ["sortKey"] = 9060,
+    ["sortKey"] = 9100,
     ["categoryId"] = "structure:fences",
     ["nameKey"] = "ContextMenu_MoreBuild_RoughBrick_Fence",
     ["descriptionKey"] = "Tooltip_MoreBuild_FenceBrick",
@@ -613,7 +613,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:fence:stone_garden",
-    ["sortKey"] = 9070,
+    ["sortKey"] = 9110,
     ["categoryId"] = "structure:fences",
     ["nameKey"] = "ContextMenu_MoreBuild_StoneGardenFence",
     ["descriptionKey"] = "Tooltip_MoreBuild_FenceStone",
@@ -632,7 +632,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:fancy_wood_fence",
-    ["sortKey"] = 9080,
+    ["sortKey"] = 9120,
     ["categoryId"] = "structure:fences",
     ["nameKey"] = "ContextMenu_MoreBuild_Fancy_Fence",
     ["descriptionKey"] = "Tooltip_MoreBuild_FancyFence",
@@ -653,7 +653,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:fence:high_metal_fence:1",
-    ["sortKey"] = 9090,
+    ["sortKey"] = 9130,
     ["categoryId"] = "structure:fences",
     ["nameKey"] = "ContextMenu_MoreBuild_HighMetal_Fence1",
     ["descriptionKey"] = "Tooltip_MoreBuild_HighFenceMetal",
@@ -675,7 +675,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:high_metal_fence:2",
-    ["sortKey"] = 9100,
+    ["sortKey"] = 9140,
     ["categoryId"] = "structure:fences",
     ["nameKey"] = "ContextMenu_MoreBuild_HighMetal_Fence2",
     ["descriptionKey"] = "Tooltip_MoreBuild_HighFenceMetal",
@@ -696,7 +696,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:high_metal_fence:3",
-    ["sortKey"] = 9110,
+    ["sortKey"] = 9150,
     ["categoryId"] = "structure:fences",
     ["nameKey"] = "ContextMenu_MoreBuild_HighMetal_Fence3",
     ["descriptionKey"] = "Tooltip_MoreBuild_HighFenceMetal",
@@ -717,7 +717,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:high_metal_fence:4",
-    ["sortKey"] = 9120,
+    ["sortKey"] = 9160,
     ["categoryId"] = "structure:fences",
     ["nameKey"] = "ContextMenu_MoreBuild_HighMetal_Fence4",
     ["descriptionKey"] = "Tooltip_MoreBuild_HighFenceMetal",
@@ -738,7 +738,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:high_metal_fence:5",
-    ["sortKey"] = 9130,
+    ["sortKey"] = 9170,
     ["categoryId"] = "structure:fences",
     ["nameKey"] = "ContextMenu_MoreBuild_HighMetal_Fence5",
     ["descriptionKey"] = "Tooltip_MoreBuild_HighFenceMetal",
@@ -759,7 +759,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:fence:pedestrian_barricade",
-    ["sortKey"] = 9140,
+    ["sortKey"] = 9180,
     ["categoryId"] = "structure:fences",
     ["nameKey"] = "ContextMenu_MoreBuild_Pedestrian_Barricade",
     ["descriptionKey"] = "Tooltip_MoreBuild_PedestrianBarricade",

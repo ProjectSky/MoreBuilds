@@ -1,7 +1,7 @@
 local definitions = {
   {
     ["id"] = "morebuilds:gate:low:wrought_iron",
-    ["sortKey"] = 9150,
+    ["sortKey"] = 9190,
     ["categoryId"] = "structure:gates",
     ["nameKey"] = "ContextMenu_MoreBuild_Wrought_IronDoor",
     ["descriptionKey"] = "Tooltip_MoreBuild_WroughtGate",
@@ -22,7 +22,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:gate:low:slat_wooden",
-    ["sortKey"] = 9160,
+    ["sortKey"] = 9200,
     ["categoryId"] = "structure:gates",
     ["nameKey"] = "ContextMenu_MoreBuild_Slat_Low_WoodenDoor",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorSlatWood",
@@ -44,7 +44,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:gate:low:white_wooden",
-    ["sortKey"] = 9170,
+    ["sortKey"] = 9210,
     ["categoryId"] = "structure:gates",
     ["nameKey"] = "ContextMenu_MoreBuild_White_Low_WoodenDoor",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorLowWood",
@@ -66,7 +66,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:gate:other:wooden_gate",
-    ["sortKey"] = 9180,
+    ["sortKey"] = 9220,
     ["categoryId"] = "structure:gates",
     ["nameKey"] = "ContextMenu_MoreBuild_WoodenGate",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoorWoodenGate",
@@ -88,7 +88,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:gate:low:chain_link",
-    ["sortKey"] = 9190,
+    ["sortKey"] = 9230,
     ["categoryId"] = "structure:gates",
     ["nameKey"] = "ContextMenu_MoreBuild_Chain_Link_Gate",
     ["descriptionKey"] = "Tooltip_MoreBuild_ChainLinkGate",
@@ -109,7 +109,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:gate:high:metal",
-    ["sortKey"] = 9200,
+    ["sortKey"] = 9240,
     ["categoryId"] = "structure:gates",
     ["nameKey"] = "ContextMenu_MoreBuild_High_Metal_Gate",
     ["descriptionKey"] = "Tooltip_MoreBuild_HighMetalGate",
@@ -131,7 +131,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:gate:double:metalgate1",
-    ["sortKey"] = 9210,
+    ["sortKey"] = 9250,
     ["categoryId"] = "structure:gates",
     ["nameKey"] = "ContextMenu_MoreBuild_Double_Metal_Gate",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoubleMetalGate",
@@ -158,7 +158,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:gate:double:metalgate2",
-    ["sortKey"] = 9220,
+    ["sortKey"] = 9260,
     ["categoryId"] = "structure:gates",
     ["nameKey"] = "ContextMenu_MoreBuild_Double_Metal_Gate",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoubleMetalGate",
@@ -185,7 +185,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:gate:double:woodgate1",
-    ["sortKey"] = 9230,
+    ["sortKey"] = 9270,
     ["categoryId"] = "structure:gates",
     ["nameKey"] = "ContextMenu_MoreBuild_Double_Wood_Gate",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoubleWoodGate",
@@ -213,7 +213,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:gate:double:woodgate2",
-    ["sortKey"] = 9240,
+    ["sortKey"] = 9280,
     ["categoryId"] = "structure:gates",
     ["nameKey"] = "ContextMenu_MoreBuild_Double_Wood_Gate",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoubleWoodGate",
@@ -241,7 +241,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:gate:double:chainlink1",
-    ["sortKey"] = 9250,
+    ["sortKey"] = 9290,
     ["categoryId"] = "structure:gates",
     ["nameKey"] = "ContextMenu_MoreBuild_Double_Chainlink_Gate",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoubleChainlinkGate",
@@ -268,7 +268,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:gate:double:chainlink2",
-    ["sortKey"] = 9260,
+    ["sortKey"] = 9300,
     ["categoryId"] = "structure:gates",
     ["nameKey"] = "ContextMenu_MoreBuild_Double_Chainlink_Gate",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoubleChainlinkGate",
@@ -295,7 +295,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:gate:double:tallwood1",
-    ["sortKey"] = 9270,
+    ["sortKey"] = 9310,
     ["categoryId"] = "structure:gates",
     ["nameKey"] = "ContextMenu_MoreBuild_Double_Wood_Gate",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoubleWoodGate",
@@ -323,7 +323,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:gate:double:tallwood2",
-    ["sortKey"] = 9280,
+    ["sortKey"] = 9320,
     ["categoryId"] = "structure:gates",
     ["nameKey"] = "ContextMenu_MoreBuild_Double_Wood_Gate",
     ["descriptionKey"] = "Tooltip_MoreBuild_DoubleWoodGate",
@@ -351,7 +351,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:gate:double:woodwire1",
-    ["sortKey"] = 9290,
+    ["sortKey"] = 9330,
     ["categoryId"] = "structure:gates",
     ["nameKey"] = "ContextMenu_MoreBuild_WoodWire_Gate",
     ["descriptionKey"] = "Tooltip_MoreBuild_WoodWireGate",
@@ -378,7 +378,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:gate:double:woodwire2",
-    ["sortKey"] = 9300,
+    ["sortKey"] = 9340,
     ["categoryId"] = "structure:gates",
     ["nameKey"] = "ContextMenu_MoreBuild_WoodWire_Gate",
     ["descriptionKey"] = "Tooltip_MoreBuild_WoodWireGate",
@@ -405,7 +405,7 @@ local definitions = {
   },
   {
     ["id"] = "morebuilds:gate:high:chain_link",
-    ["sortKey"] = 9310,
+    ["sortKey"] = 9350,
     ["categoryId"] = "structure:gates",
     ["nameKey"] = "ContextMenu_MoreBuild_Chain_Link_Gate",
     ["descriptionKey"] = "Tooltip_MoreBuild_ChainLinkGate",

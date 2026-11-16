@@ -1,7 +1,7 @@
 return {
   {
     ["id"] = "morebuilds:door:glass:white_window",
-    ["sortKey"] = 7920,
+    ["sortKey"] = 7960,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_White_Frame_Glass_Window",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallGlass",
@@ -18,7 +18,7 @@ return {
   },
   {
     ["id"] = "morebuilds:door:glass:brown_window",
-    ["sortKey"] = 7930,
+    ["sortKey"] = 7970,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Brown_Frame_Glass_Window",
     ["descriptionKey"] = "Tooltip_MoreBuild_WallGlass",
@@ -35,7 +35,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:1",
-    ["sortKey"] = 7940,
+    ["sortKey"] = 7980,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_1",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -52,7 +52,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:2",
-    ["sortKey"] = 7950,
+    ["sortKey"] = 7990,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_2",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -69,7 +69,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:3",
-    ["sortKey"] = 7960,
+    ["sortKey"] = 8000,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_3",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -86,7 +86,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:4",
-    ["sortKey"] = 7970,
+    ["sortKey"] = 8010,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_4",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -103,7 +103,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:5",
-    ["sortKey"] = 7980,
+    ["sortKey"] = 8020,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_5",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -120,7 +120,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:6",
-    ["sortKey"] = 7990,
+    ["sortKey"] = 8030,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_6",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -137,7 +137,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:gothic_tall",
-    ["sortKey"] = 8000,
+    ["sortKey"] = 8040,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_gothic_tall",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -154,7 +154,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:church:gothic_arched_left",
-    ["sortKey"] = 8010,
+    ["sortKey"] = 8050,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_stained_glass_gothic",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -171,7 +171,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:church:gothic_arched_right",
-    ["sortKey"] = 8020,
+    ["sortKey"] = 8060,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_stained_glass_gothic",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -188,7 +188,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:church:lattice_left",
-    ["sortKey"] = 8030,
+    ["sortKey"] = 8070,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_stained_glass_lattice",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -205,7 +205,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:church:lattice_middle",
-    ["sortKey"] = 8040,
+    ["sortKey"] = 8080,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_stained_glass_lattice",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -222,7 +222,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:church:lattice_right",
-    ["sortKey"] = 8050,
+    ["sortKey"] = 8090,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_stained_glass_lattice",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -239,7 +239,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:church:tall_pane_arched_left",
-    ["sortKey"] = 8060,
+    ["sortKey"] = 8100,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_stained_glass_tall_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -256,7 +256,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:church:tall_pane_middle",
-    ["sortKey"] = 8070,
+    ["sortKey"] = 8110,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_stained_glass_tall_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -273,7 +273,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:church:tall_pane_arched_right",
-    ["sortKey"] = 8080,
+    ["sortKey"] = 8120,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_stained_glass_tall_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -290,7 +290,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:church:wide_pane_left",
-    ["sortKey"] = 8090,
+    ["sortKey"] = 8130,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_stained_glass_wide_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -307,7 +307,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:church:wide_pane_middle",
-    ["sortKey"] = 8100,
+    ["sortKey"] = 8140,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_stained_glass_wide_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -324,7 +324,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:church:wide_pane_right",
-    ["sortKey"] = 8110,
+    ["sortKey"] = 8150,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_stained_glass_wide_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -341,7 +341,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:church:round",
-    ["sortKey"] = 8120,
+    ["sortKey"] = 8160,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_stained_glass_round",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -358,7 +358,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:church:gothic",
-    ["sortKey"] = 8130,
+    ["sortKey"] = 8170,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_stained_glass_round",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -375,7 +375,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:church:lattice",
-    ["sortKey"] = 8140,
+    ["sortKey"] = 8180,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_stained_glass_lattice",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -392,7 +392,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:church:tall_left",
-    ["sortKey"] = 8150,
+    ["sortKey"] = 8190,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_stained_glass_lattice",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -409,7 +409,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:church:tall_right",
-    ["sortKey"] = 8160,
+    ["sortKey"] = 8200,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_stained_glass_lattice",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -426,7 +426,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:arched_metal_left",
-    ["sortKey"] = 8170,
+    ["sortKey"] = 8210,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_arched_metal",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowMetalGlass",
@@ -443,7 +443,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:arched_metal_right",
-    ["sortKey"] = 8180,
+    ["sortKey"] = 8220,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_pointed_arch_metal",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowMetalGlass",
@@ -460,7 +460,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:metal:double_pane_left",
-    ["sortKey"] = 8190,
+    ["sortKey"] = 8230,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_metal_double_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowMetalGlass",
@@ -477,7 +477,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:metal:double_pane_middle",
-    ["sortKey"] = 8200,
+    ["sortKey"] = 8240,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_metal_double_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowMetalGlass",
@@ -494,7 +494,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:metal:double_pane_right",
-    ["sortKey"] = 8210,
+    ["sortKey"] = 8250,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_metal_double_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowMetalGlass",
@@ -511,7 +511,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:metal:tall_arched_pane_left",
-    ["sortKey"] = 8220,
+    ["sortKey"] = 8260,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_metal_four_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowMetalGlass",
@@ -528,7 +528,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:metal:tall_pane_middle",
-    ["sortKey"] = 8230,
+    ["sortKey"] = 8270,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_metal_four_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowMetalGlass",
@@ -545,7 +545,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:metal:tall_arched_pane_right",
-    ["sortKey"] = 8240,
+    ["sortKey"] = 8280,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_metal_four_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowMetalGlass",
@@ -562,7 +562,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:metal:tall_pane_left",
-    ["sortKey"] = 8250,
+    ["sortKey"] = 8290,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_metal_tall_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowMetalGlass",
@@ -579,7 +579,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:metal:tall_pane_right",
-    ["sortKey"] = 8260,
+    ["sortKey"] = 8300,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_metal_tall_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowMetalGlass",
@@ -596,7 +596,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:metal:slatted",
-    ["sortKey"] = 8270,
+    ["sortKey"] = 8310,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_metal_slatted",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowMetalGlass",
@@ -613,7 +613,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:metal:six_pane_left",
-    ["sortKey"] = 8280,
+    ["sortKey"] = 8320,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_metal_six_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowMetalGlass",
@@ -630,7 +630,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:metal:six_pane_middle",
-    ["sortKey"] = 8290,
+    ["sortKey"] = 8330,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_metal_six_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowMetalGlass",
@@ -647,7 +647,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:metal:six_pane_right",
-    ["sortKey"] = 8300,
+    ["sortKey"] = 8340,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_metal_six_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowMetalGlass",
@@ -664,7 +664,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:metal:round",
-    ["sortKey"] = 8310,
+    ["sortKey"] = 8350,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_metal_round",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowMetalGlass",
@@ -681,7 +681,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:metal:arched",
-    ["sortKey"] = 8320,
+    ["sortKey"] = 8360,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_metal_round",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowMetalGlass",
@@ -698,7 +698,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:white:arched_left",
-    ["sortKey"] = 8330,
+    ["sortKey"] = 8370,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_white_arched",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -715,7 +715,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:white:arched_right",
-    ["sortKey"] = 8340,
+    ["sortKey"] = 8380,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_white_arched",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -732,7 +732,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:white:two_pane_left",
-    ["sortKey"] = 8350,
+    ["sortKey"] = 8390,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_white_two_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -749,7 +749,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:white:two_pane_middle",
-    ["sortKey"] = 8360,
+    ["sortKey"] = 8400,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_white_two_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -766,7 +766,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:white:two_pane_right",
-    ["sortKey"] = 8370,
+    ["sortKey"] = 8410,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_white_two_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -783,7 +783,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:white:six_pane_arched_left",
-    ["sortKey"] = 8380,
+    ["sortKey"] = 8420,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_white_six_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -800,7 +800,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:white:six_pane_middle",
-    ["sortKey"] = 8390,
+    ["sortKey"] = 8430,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_white_six_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -817,7 +817,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:white:six_pane_arched_right",
-    ["sortKey"] = 8400,
+    ["sortKey"] = 8440,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_white_six_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -834,7 +834,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:white:twelve_pane_left",
-    ["sortKey"] = 8410,
+    ["sortKey"] = 8450,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_white_twelve_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -851,7 +851,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:white:twelve_pane_middle",
-    ["sortKey"] = 8420,
+    ["sortKey"] = 8460,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_white_twelve_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -868,7 +868,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:white:twelve_pane_right",
-    ["sortKey"] = 8430,
+    ["sortKey"] = 8470,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_white_twelve_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -885,7 +885,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:white:round",
-    ["sortKey"] = 8440,
+    ["sortKey"] = 8480,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_white_round",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -902,7 +902,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:white:arched",
-    ["sortKey"] = 8450,
+    ["sortKey"] = 8490,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_white_round",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -919,7 +919,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:white:two_pane",
-    ["sortKey"] = 8460,
+    ["sortKey"] = 8500,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_white_two_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -936,7 +936,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:white:tall_left",
-    ["sortKey"] = 8470,
+    ["sortKey"] = 8510,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_white_two_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -953,7 +953,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:white:tall_right",
-    ["sortKey"] = 8480,
+    ["sortKey"] = 8520,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_white_two_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -970,7 +970,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:wood:arched_left",
-    ["sortKey"] = 8490,
+    ["sortKey"] = 8530,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_wood_arched",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -987,7 +987,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:wood:arched_right",
-    ["sortKey"] = 8500,
+    ["sortKey"] = 8540,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_wood_arched",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -1004,7 +1004,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:wood:two_pane_left",
-    ["sortKey"] = 8510,
+    ["sortKey"] = 8550,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_wood_two_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -1021,7 +1021,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:wood:two_pane_middle",
-    ["sortKey"] = 8520,
+    ["sortKey"] = 8560,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_wood_two_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -1038,7 +1038,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:wood:two_pane_right",
-    ["sortKey"] = 8530,
+    ["sortKey"] = 8570,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_wood_two_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -1055,7 +1055,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:wood:six_pane_arched_left",
-    ["sortKey"] = 8540,
+    ["sortKey"] = 8580,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_wood_six_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -1072,7 +1072,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:wood:six_pane_middle",
-    ["sortKey"] = 8550,
+    ["sortKey"] = 8590,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_wood_six_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -1089,7 +1089,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:wood:six_pane_arched_right",
-    ["sortKey"] = 8560,
+    ["sortKey"] = 8600,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_wood_six_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -1106,7 +1106,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:wood:twelve_pane_left",
-    ["sortKey"] = 8570,
+    ["sortKey"] = 8610,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_wood_twelve_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -1123,7 +1123,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:wood:twelve_pane_middle",
-    ["sortKey"] = 8580,
+    ["sortKey"] = 8620,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_wood_twelve_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -1140,7 +1140,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:wood:twelve_pane_right",
-    ["sortKey"] = 8590,
+    ["sortKey"] = 8630,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_wood_twelve_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -1157,7 +1157,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:wood:round",
-    ["sortKey"] = 8600,
+    ["sortKey"] = 8640,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_wood_round",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -1174,7 +1174,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:wood:arched",
-    ["sortKey"] = 8610,
+    ["sortKey"] = 8650,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_wood_round",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -1191,7 +1191,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:wood:two_pane",
-    ["sortKey"] = 8620,
+    ["sortKey"] = 8660,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_wood_two_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -1208,7 +1208,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:wood:tall_left",
-    ["sortKey"] = 8630,
+    ["sortKey"] = 8670,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_wood_two_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -1225,7 +1225,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:wood:tall_right",
-    ["sortKey"] = 8640,
+    ["sortKey"] = 8680,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_wood_two_pane",
     ["descriptionKey"] = "Tooltip_MoreBuild_WindowWoodGlass",
@@ -1242,7 +1242,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:stained_glass:top_1",
-    ["sortKey"] = 8650,
+    ["sortKey"] = 8690,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_stained_glass_top_1",
     ["descriptionKey"] = "Tooltip_MoreBuild_StainedGlassTop",
@@ -1259,7 +1259,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:stained_glass:top_2",
-    ["sortKey"] = 8660,
+    ["sortKey"] = 8700,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_stained_glass_top_1",
     ["descriptionKey"] = "Tooltip_MoreBuild_StainedGlassTop",
@@ -1276,7 +1276,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:stained_glass:top_3",
-    ["sortKey"] = 8670,
+    ["sortKey"] = 8710,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_stained_glass_top_1",
     ["descriptionKey"] = "Tooltip_MoreBuild_StainedGlassTop",
@@ -1293,7 +1293,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:stained_glass:top_4",
-    ["sortKey"] = 8680,
+    ["sortKey"] = 8720,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_stained_glass_top_1",
     ["descriptionKey"] = "Tooltip_MoreBuild_StainedGlassTop",
@@ -1310,7 +1310,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:stained_glass:top_5",
-    ["sortKey"] = 8690,
+    ["sortKey"] = 8730,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_stained_glass_top_1",
     ["descriptionKey"] = "Tooltip_MoreBuild_StainedGlassTop",
@@ -1327,7 +1327,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:stained_glass:bottom_1",
-    ["sortKey"] = 8700,
+    ["sortKey"] = 8740,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_stained_glass_bottom_1",
     ["descriptionKey"] = "Tooltip_MoreBuild_StainedGlassBottom",
@@ -1344,7 +1344,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:stained_glass:bottom_2",
-    ["sortKey"] = 8710,
+    ["sortKey"] = 8750,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_stained_glass_bottom_1",
     ["descriptionKey"] = "Tooltip_MoreBuild_StainedGlassBottom",
@@ -1361,7 +1361,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:stained_glass:bottom_3",
-    ["sortKey"] = 8720,
+    ["sortKey"] = 8760,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_stained_glass_bottom_1",
     ["descriptionKey"] = "Tooltip_MoreBuild_StainedGlassBottom",
@@ -1378,7 +1378,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:stained_glass:bottom_4",
-    ["sortKey"] = 8730,
+    ["sortKey"] = 8770,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_stained_glass_bottom_1",
     ["descriptionKey"] = "Tooltip_MoreBuild_StainedGlassBottom",
@@ -1395,7 +1395,7 @@ return {
   },
   {
     ["id"] = "morebuilds:window:stained_glass:bottom_5",
-    ["sortKey"] = 8740,
+    ["sortKey"] = 8780,
     ["categoryId"] = "structure:windows",
     ["nameKey"] = "ContextMenu_MoreBuild_Name_window_stained_glass_bottom_1",
     ["descriptionKey"] = "Tooltip_MoreBuild_StainedGlassBottom",
