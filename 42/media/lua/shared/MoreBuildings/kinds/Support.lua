@@ -513,12 +513,23 @@ function Support.isMultiTileSquareValid(cursor, square, allowWater, spriteName)
     or square:has(IsoFlagType.canBeCut)
     or square:has('tree')
     or (not allowWater and square:has(IsoFlagType.water))
-    or square:has(IsoFlagType.HoppableN)
-    or square:has(IsoFlagType.HoppableW)
-    or square:has(IsoFlagType.TallHoppableN)
-    or square:has(IsoFlagType.TallHoppableW)
     or buildUtil.stairIsBlockingPlacement(square, true) then
     return false
+  end
+
+  -- Determine the orientation of the object being placed
+  local isNewNorth = cursor and cursor.north
+
+  -- Check existing hoppable flags on the square
+  local hasNorthHoppable = square:has(IsoFlagType.HoppableN) or square:has(IsoFlagType.TallHoppableN)
+  local hasWestHoppable  = square:has(IsoFlagType.HoppableW) or square:has(IsoFlagType.TallHoppableW)
+
+  if hasNorthHoppable or hasWestHoppable then
+      -- If both are North/South or both are West/East, they run parallel and collide
+      if (hasNorthHoppable and isNewNorth) or (hasWestHoppable and not isNewNorth) then
+          return false
+      end
+      -- Otherwise, they are perpendicular (meeting at a corner vertex), so allow it!
   end
 
   local nativeResult = NativePlacement.canPlaceSprite(spriteName or cursor:getSprite(), square, true, cursor.character)
