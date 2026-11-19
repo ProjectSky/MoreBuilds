@@ -197,9 +197,28 @@ function NativePlacement.hasWallBetweenParts(square, parts)
         local second = parts[secondIndex]
         if math.abs(first.x - second.x) + math.abs(first.y - second.y) == 1 then
           local secondSquare = getCell():getGridSquare(square:getX() + second.x, square:getY() + second.y, square:getZ())
+          -- 1. Check native engine method
           if secondSquare and firstSquare:isSomethingTo(secondSquare) then
             return true
           end
+          -- 2. Check solid walls and adjacent fence / hoppable flags between parts
+            if first.x < second.x then
+              if firstSquare:isWallTo(secondSquare) or secondSquare:has(IsoFlagType.HoppableW) or secondSquare:has(IsoFlagType.TallHoppableW) then
+                return true
+              end
+            elseif first.x > second.x then
+              if secondSquare:isWallTo(firstSquare) or firstSquare:has(IsoFlagType.HoppableW) or firstSquare:has(IsoFlagType.TallHoppableW) then
+                return true
+              end
+            elseif first.y < second.y then
+              if firstSquare:isWallTo(secondSquare) or secondSquare:has(IsoFlagType.HoppableN) or secondSquare:has(IsoFlagType.TallHoppableN) then
+                return true
+              end
+            elseif first.y > second.y then
+              if secondSquare:isWallTo(firstSquare) or firstSquare:has(IsoFlagType.HoppableN) or firstSquare:has(IsoFlagType.TallHoppableN) then
+                return true
+              end
+            end
         end
       end
     end

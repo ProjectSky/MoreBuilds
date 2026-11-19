@@ -5,6 +5,8 @@ local CatalogData = require('MoreBuildings/providers/CatalogData')
 local Architecture = require('MoreBuildings/providers/definitions/Architecture')
 local ArchitectureFrames = require('MoreBuildings/providers/definitions/ArchitectureFrames')
 local ArchitectureWindows = require('MoreBuildings/providers/definitions/ArchitectureWindows')
+local Fences = require('MoreBuildings/providers/definitions/Fences')
+local Gates = require('MoreBuildings/providers/definitions/Gates')
 local Appliances = require('MoreBuildings/providers/definitions/Appliances')
 local Bathroom = require('MoreBuildings/providers/definitions/Bathroom')
 local Bedroom = require('MoreBuildings/providers/definitions/Bedroom')
@@ -39,7 +41,8 @@ local placementConstructors = {
   ['morebuilds:furniture'] = PublicPlacementKinds.furniture,
   ['morebuilds:garage-door'] = PublicPlacementKinds.garageDoor,
   ['morebuilds:generator'] = PublicPlacementKinds.generator,
-  ['morebuilds:high-metal-fence'] = PublicPlacementKinds.highMetalFence,
+  ['morebuilds:multi-fence'] = PublicPlacementKinds.multiFence,
+  ['morebuilds:double-gate'] = PublicPlacementKinds.doubleGate,
   ['morebuilds:jukebox'] = PublicPlacementKinds.jukebox,
   ['morebuilds:laundry-combo'] = PublicPlacementKinds.laundryCombo,
   ['morebuilds:laundry-dryer'] = PublicPlacementKinds.laundryDryer,
@@ -78,6 +81,8 @@ end
 appendDefinitions(Architecture)
 appendDefinitions(ArchitectureFrames)
 appendDefinitions(ArchitectureWindows)
+appendDefinitions(Fences)
+appendDefinitions(Gates)
 appendDefinitions(Appliances)
 appendDefinitions(Bathroom)
 appendDefinitions(Bedroom)

@@ -8,7 +8,7 @@ local function createDoorKind()
   return KindFactory.create({
     dataFields = Support.joinFields(
       Support.THUMPABLE_FIELDS,
-      { 'sprite', 'northSprite', 'openSprite', 'openNorthSprite', 'dontNeedFrame' }
+      { 'sprite', 'northSprite', 'openSprite', 'openNorthSprite', 'dontNeedFrame', 'canBarricade' }
     ),
     id = 'morebuilds:door',
     requiredFields = { 'sprite', 'northSprite', 'openSprite', 'openNorthSprite', 'health' },
@@ -16,9 +16,10 @@ local function createDoorKind()
     cursorSettings = { isWallLike = true },
     afterConfigureCursor = function(cursor, definition)
       cursor.isDoor = true
-      cursor.canBarricade = true
       cursor.thumpDmg = 5
-      cursor.dontNeedFrame = definition.placement.data.dontNeedFrame == true
+      local data = definition.placement.data
+      cursor.canBarricade = data.canBarricade == true
+      cursor.dontNeedFrame = data.dontNeedFrame == true
     end,
     isValid = NativePlacement.isDoorValid,
     create = function(plan, context)

@@ -35,6 +35,7 @@ local function installManagedPropsHook()
   end
 end
 
+local destroyingGroups = {}
 local movingObjects = {}
 local dismantlingGroups = {}
 local activeTransfers = {}
@@ -253,6 +254,7 @@ local function getGroupForObject(object)
   local modData = object:getModData()
   local definitionId = modData[DEFINITION_KEY]
   local groupId = modData[GROUP_KEY]
+  
   if definitionId == nil or groupId == nil then
     return nil
   end
@@ -954,14 +956,68 @@ local function installScrapHooks()
   hookViaCursor(ISThumpableSpriteProps)
 end
 
+local function installDestroyActionHook()
+  local originalNew = ISDestroyStuffAction.new
+  if originalNew then
+    ISDestroyStuffAction.new = function(self, character, item, ...)
+      local action = originalNew(self, character, item, ...)
+      if action and action.item then
+        local group = getGroupForObject(action.item)
+        if group then
+          destroyingGroups[group.id] = true
+        end
+      end
+      return action
+    end
+  end
+
+  local function clearDestroying(self)
+    if self.item then
+      local group = getGroupForObject(self.item)
+      if group then
+        destroyingGroups[group.id] = nil
+      end
+    end
+  end
+
+  if ISDestroyStuffAction.complete then
+    local originalComplete = ISDestroyStuffAction.complete
+    ISDestroyStuffAction.complete = function(self, ...)
+      local result = originalComplete(self, ...)
+      clearDestroying(self)
+      return result
+    end
+  end
+
+  if ISDestroyStuffAction.stop then
+    local originalStop = ISDestroyStuffAction.stop
+    ISDestroyStuffAction.stop = function(self, ...)
+      local result = originalStop(self, ...)
+      clearDestroying(self)
+      return result
+    end
+  end
+end
+
 local function onObjectAboutToBeRemoved(object)
   if movingObjects[object] then
     return
   end
+  
   local group = getGroupForObject(object)
   if group and dismantlingGroups[group.id] then
     return
   end
+  
+  local definition, kind = resolveGroupState(group)
+  if definition and (definition.id:find('gate') or definition.id:find('door')) then
+    if group and destroyingGroups[group.id] then
+     -- let destroyWorldGroup happen
+    else
+      return -- Ignore routine toggle sprite swaps
+    end
+  end
+  
   destroyWorldGroup(object, nil)
 end
 
@@ -1011,6 +1067,7 @@ function SalvageAuthority.install()
   installPlacementHook()
   installRotationHook()
   installScrapHooks()
+  installDestroyActionHook()
   Events.OnClientCommand.Add(onClientCommand)
   Events.OnDestroyIsoThumpable.Add(onDestroyIsoThumpable)
   Events.OnObjectAboutToBeRemoved.Add(onObjectAboutToBeRemoved)

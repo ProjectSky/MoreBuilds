@@ -107,7 +107,7 @@ local function validateFurnitureParts(definition)
 end
 
 local function offsetsFor(kind, north)
-  if kind == 'high-metal-fence' then
+  if kind == 'multi-fence' then
     return north and { { x = 0, y = 0 }, { x = -1, y = 0 } } or { { x = 0, y = 0 }, { x = 0, y = -1 } }
   end
   if kind == 'stairs' then
@@ -200,8 +200,31 @@ local function validHighMetalFenceTile(cursor, square, offset)
   return Support.isMultiTileSquareValid(cursor, candidate)
 end
 
+local function doubleGateSprites(definition, north)
+  local data = definition.placement.data
+  return north and { data.northSprite1, data.northSprite2 } or { data.sprite1, data.sprite2 }
+end
+
+local function validDoubleGateTile(cursor, square, offset)
+  local candidate = candidateSquare(square, offset)
+  if not Support.isMultiTileSquareValid(cursor, candidate) then
+    return false
+  end
+  
+  -- Check for walls or fences between gate tiles during preview
+  local definition = cursor and cursor.definition
+  if definition then
+    local parts = partsFor('multi-fence', cursor.north, doubleGateSprites(definition, cursor.north))
+    if NativePlacement.hasWallBetweenParts(square, parts) then
+      return false
+    end
+  end
+  
+  return true
+end
+
 local function validHighMetalFence(cursor, square)
-  local parts = offsetsFor('high-metal-fence', cursor.north)
+  local parts = offsetsFor('multi-fence', cursor.north)
   return validateFootprint(cursor, square, parts, validHighMetalFenceTile)
 end
 
@@ -415,7 +438,7 @@ local function createMultiLightKind()
   })
 end
 
-local function createHighMetalFenceKind()
+local function createMultiFenceKind()
   local function sprites(definition, north)
     local data = definition.placement.data
     return north and { data.northSprite1, data.northSprite2 } or { data.sprite1, data.sprite2 }
@@ -423,13 +446,13 @@ local function createHighMetalFenceKind()
   return KindFactory.create({
     dataFields = Support.joinFields(
       Support.THUMPABLE_FIELDS,
-      { 'sprite1', 'sprite2', 'northSprite1', 'northSprite2' }
+      { 'sprite1', 'sprite2', 'northSprite1', 'northSprite2', 'thumpSound' }
     ),
-    id = 'morebuilds:high-metal-fence',
+    id = 'morebuilds:multi-fence',
     requiredFields = { 'sprite1', 'sprite2', 'northSprite1', 'northSprite2', 'health' },
     spriteFields = { 'sprite1', 'sprite2', 'northSprite1', 'northSprite2' },
     footprint = function(definition, cursor)
-      return partsFor('high-metal-fence', cursor.north, sprites(definition, cursor.north))
+      return partsFor('multi-fence', cursor.north, sprites(definition, cursor.north))
     end,
     cursorSettings = { isWallLike = true },
     afterConfigureCursor = function(cursor, definition)
@@ -438,17 +461,86 @@ local function createHighMetalFenceKind()
       cursor:setNorthSprite(data.northSprite1)
     end,
     isValid = validHighMetalFence,
-    isPreviewTileValid = validHighMetalFenceTile,
+    isPreviewTileValid = validDoubleGateTile,
     create = function(plan, context)
       local cursor = context.cursor
       local created = {}
       local spriteNames = sprites(plan.definition, cursor.north)
-      for index, offset in ipairs(offsetsFor('high-metal-fence', cursor.north)) do
+      local data = plan.definition.placement.data
+      for index, offset in ipairs(offsetsFor('multi-fence', cursor.north)) do
         local square = context.worldObjectFactory.getOrCreateSquare(plan.square:getX() + offset.x, plan.square:getY() + offset.y, plan.square:getZ())
         local object = context.worldObjectFactory.makeThumpable(cursor, square, spriteNames[index], cursor.north)
-        object:setThumpSound('ZombieThumpMetal')
+        if data.thumpSound and type(data.thumpSound) == "string" then
+          object:setThumpSound(data.thumpSound)
+        else
+          object:setThumpSound('ZombieThumpGeneric')
+        end
         created[index] = object
       end
+      return created
+    end,
+  })
+end
+
+local function createDoubleGateKind()
+  local function sprites(definition, north)
+    local data = definition.placement.data
+    return north and { data.northSprite1, data.northSprite2 } or { data.sprite1, data.sprite2 }
+  end
+  
+  local function openSprites(definition, north)
+    local data = definition.placement.data
+    return north and { data.openNorthSprite1, data.openNorthSprite2 } or { data.openSprite1, data.openSprite2 }
+  end
+  
+  return KindFactory.create({
+    dataFields = Support.joinFields(
+      Support.THUMPABLE_FIELDS,
+      { 'sprite1', 'sprite2', 'northSprite1', 'northSprite2', 'openSprite1', 'openSprite2', 'openNorthSprite1', 'openNorthSprite2', 'dontNeedFrame', 'thumpSound', 'canBarricade' }
+    ),
+    id = 'morebuilds:double-gate',
+    requiredFields = { 'sprite1', 'sprite2', 'northSprite1', 'northSprite2', 'openSprite1', 'openSprite2', 'openNorthSprite1', 'openNorthSprite2', 'health' },
+    spriteFields = { 'sprite1', 'sprite2', 'northSprite1', 'northSprite2', 'openSprite1', 'openSprite2', 'openNorthSprite1', 'openNorthSprite2' },
+    footprint = function(definition, cursor)
+      return partsFor('multi-fence', cursor.north, sprites(definition, cursor.north))
+    end,
+    cursorSettings = { isWallLike = true },
+    afterConfigureCursor = function(cursor, definition)
+      cursor.isDoor = true
+      cursor.thumpDmg = 5
+      cursor.dontNeedFrame = true
+      local data = definition.placement.data
+      cursor.canBarricade = data.canBarricade == true
+      cursor:setSprite(data.sprite1)
+      cursor:setNorthSprite(data.northSprite1)
+    end,
+    isValid = validHighMetalFence,
+    isPreviewTileValid = validDoubleGateTile,
+    create = function(plan, context)
+      local cursor = context.cursor
+      local created = {}
+      local spriteNames = sprites(plan.definition, cursor.north)
+      local openSpriteNames = openSprites(plan.definition, cursor.north)
+      local data = plan.definition.placement.data
+      local keyId = Support.keyIdFromRecordedItems(context.recordedItems)
+    
+      for index, offset in ipairs(offsetsFor('multi-fence', cursor.north)) do
+        local square = context.worldObjectFactory.getOrCreateSquare(plan.square:getX() + offset.x, plan.square:getY() + offset.y, plan.square:getZ())
+        -- Pass the corresponding open sprite so the engine knows how to animate opening/closing
+        local object = context.worldObjectFactory.makeThumpable(cursor, square, spriteNames[index], cursor.north, openSpriteNames[index])
+        if data.thumpSound and type(data.thumpSound) == "string" then
+          object:setThumpSound(data.thumpSound)
+        else
+          object:setThumpSound('ZombieThumpGeneric')
+        end
+        
+        if keyId then
+          object:setKeyId(keyId)
+        end
+        
+        created[index] = object
+      end
+      
       return created
     end,
   })
@@ -558,7 +650,8 @@ function MultiTileKinds.createAll()
     createMultiStoveKind(),
     createFeedingTroughKind(),
     createMultiLightKind(),
-    createHighMetalFenceKind(),
+    createMultiFenceKind(),
+    createDoubleGateKind(),
     createStairsKind(),
     createGarageDoorKind(),
   }

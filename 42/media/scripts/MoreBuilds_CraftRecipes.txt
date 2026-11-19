@@ -21,7 +21,7 @@ module MoreBuilds
         }
     }
 
-    craftRecipe WallWood
+	craftRecipe WallWeatheredWood
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 200,
@@ -29,6 +29,22 @@ module MoreBuilds
         timedAction = BuildWallHammer,
         SkillRequired = Woodwork:2,
         xpAward = Woodwork:20,
+        inputs
+        {
+            item 2 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
+
+    craftRecipe WallWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 200,
+        category = Carpentry,
+        timedAction = BuildWallHammer,
+        SkillRequired = Woodwork:6,
+        xpAward = Woodwork:60,
         inputs
         {
             item 2 [Base.Plank] flags[RecordInput],
@@ -61,7 +77,7 @@ module MoreBuilds
         time = 240,
         category = Carpentry,
         timedAction = Paint,
-        SkillRequired = Woodwork:4,
+        SkillRequired = Woodwork:6,
         xpAward = Woodwork:40,
         inputs
         {
@@ -81,13 +97,13 @@ module MoreBuilds
         time = 180,
         category = Furniture,
         timedAction = Paint,
-        SkillRequired = Woodwork:3,
+        SkillRequired = Woodwork:6,
         xpAward = Woodwork:20,
         inputs
         {
             item 4 [Base.Plank] flags[RecordInput],
             item 4 [Base.Nails] flags[RecordInput],
-            item 1 tags[base:wallpaper] flags[DontRecordInput],
+            item 1 [Base.Wallpaper_BlueStripe] flags[DontRecordInput],
             item 1 tags[base:wallpaperpaste] flags[DontRecordInput],
             item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
             item 1 tags[base:scissors] mode:keep flags[MayDegradeVeryLight],
@@ -101,13 +117,13 @@ module MoreBuilds
         time = 180,
         category = Furniture,
         timedAction = Paint,
-        SkillRequired = Woodwork:3,
+        SkillRequired = Woodwork:6,
         xpAward = Woodwork:20,
         inputs
         {
             item 4 [Base.Plank] flags[RecordInput],
             item 4 [Base.Nails] flags[RecordInput],
-            item 1 tags[base:wallpaper] flags[DontRecordInput],
+            item 1 [Base.Wallpaper_BeigeStripe] flags[DontRecordInput],
             item 1 tags[base:wallpaperpaste] flags[DontRecordInput],
             item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
             item 1 tags[base:scissors] mode:keep flags[MayDegradeVeryLight],
@@ -121,13 +137,13 @@ module MoreBuilds
         time = 180,
         category = Furniture,
         timedAction = Paint,
-        SkillRequired = Woodwork:3,
+        SkillRequired = Woodwork:6,
         xpAward = Woodwork:20,
         inputs
         {
             item 4 [Base.Plank] flags[RecordInput],
             item 4 [Base.Nails] flags[RecordInput],
-            item 1 tags[base:wallpaper] flags[DontRecordInput],
+            item 1 [Base.Wallpaper_GreenDiamond] flags[DontRecordInput],
             item 1 tags[base:wallpaperpaste] flags[DontRecordInput],
             item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
             item 1 tags[base:scissors] mode:keep flags[MayDegradeVeryLight],
@@ -141,13 +157,13 @@ module MoreBuilds
         time = 180,
         category = Furniture,
         timedAction = Paint,
-        SkillRequired = Woodwork:3,
+        SkillRequired = Woodwork:6,
         xpAward = Woodwork:20,
         inputs
         {
             item 4 [Base.Plank] flags[RecordInput],
             item 4 [Base.Nails] flags[RecordInput],
-            item 1 tags[base:wallpaper] flags[DontRecordInput],
+            item 1 [Base.Wallpaper_BlackFloral] flags[DontRecordInput],
             item 1 tags[base:wallpaperpaste] flags[DontRecordInput],
             item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
             item 1 tags[base:scissors] mode:keep flags[MayDegradeVeryLight],
@@ -161,13 +177,13 @@ module MoreBuilds
         time = 180,
         category = Furniture,
         timedAction = Paint,
-        SkillRequired = Woodwork:3,
+        SkillRequired = Woodwork:6,
         xpAward = Woodwork:20,
         inputs
         {
             item 4 [Base.Plank] flags[RecordInput],
             item 4 [Base.Nails] flags[RecordInput],
-            item 1 tags[base:wallpaper] flags[DontRecordInput],
+            item 1 [Base.Wallpaper_PinkFloral] flags[DontRecordInput],
             item 1 tags[base:wallpaperpaste] flags[DontRecordInput],
             item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
             item 1 tags[base:scissors] mode:keep flags[MayDegradeVeryLight],
@@ -181,7 +197,7 @@ module MoreBuilds
         time = 180,
         category = Furniture,
         timedAction = Paint,
-        SkillRequired = Woodwork:3,
+        SkillRequired = Woodwork:6,
         xpAward = Woodwork:20,
         inputs
         {
@@ -189,6 +205,8 @@ module MoreBuilds
             item 4 [Base.Nails] flags[RecordInput],
             item 1 [Base.PaintRed] flags[DontRecordInput],
             item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+			item 1 tags[base:plasterbucket] flags[DontRecordInput],
+            item 1 tags[base:plastertrowel] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
             item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
         }
     }
@@ -199,14 +217,16 @@ module MoreBuilds
         time = 180,
         category = Furniture,
         timedAction = Paint,
-        SkillRequired = Woodwork:3,
+        SkillRequired = Woodwork:6,
         xpAward = Woodwork:20,
         inputs
         {
             item 4 [Base.Plank] flags[RecordInput],
             item 4 [Base.Nails] flags[RecordInput],
-            item 1 tags[base:paint] flags[DontRecordInput],
+            item 1 [Base.PaintYellow] flags[DontRecordInput],
             item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+			item 1 tags[base:plasterbucket] flags[DontRecordInput],
+            item 1 tags[base:plastertrowel] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
             item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
         }
     }
@@ -217,7 +237,7 @@ module MoreBuilds
         time = 180,
         category = Furniture,
         timedAction = Paint,
-        SkillRequired = Woodwork:3,
+        SkillRequired = Woodwork:6,
         xpAward = Woodwork:20,
         inputs
         {
@@ -225,6 +245,8 @@ module MoreBuilds
             item 4 [Base.Nails] flags[RecordInput],
             item 1 [Base.PaintOrange] flags[DontRecordInput],
             item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+			item 1 tags[base:plasterbucket] flags[DontRecordInput],
+            item 1 tags[base:plastertrowel] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
             item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
         }
     }
@@ -235,7 +257,7 @@ module MoreBuilds
         time = 180,
         category = Furniture,
         timedAction = Paint,
-        SkillRequired = Woodwork:3,
+        SkillRequired = Woodwork:6,
         xpAward = Woodwork:20,
         inputs
         {
@@ -243,6 +265,8 @@ module MoreBuilds
             item 4 [Base.Nails] flags[RecordInput],
             item 1 [Base.PaintBrown] flags[DontRecordInput],
             item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+			item 1 tags[base:plasterbucket] flags[DontRecordInput],
+            item 1 tags[base:plastertrowel] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
             item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
         }
     }
@@ -253,7 +277,7 @@ module MoreBuilds
         time = 180,
         category = Furniture,
         timedAction = Paint,
-        SkillRequired = Woodwork:3,
+        SkillRequired = Woodwork:6,
         xpAward = Woodwork:20,
         inputs
         {
@@ -261,6 +285,8 @@ module MoreBuilds
             item 4 [Base.Nails] flags[RecordInput],
             item 1 [Base.PaintBlue] flags[DontRecordInput],
             item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+			item 1 tags[base:plasterbucket] flags[DontRecordInput],
+            item 1 tags[base:plastertrowel] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
             item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
         }
     }
@@ -271,7 +297,7 @@ module MoreBuilds
         time = 180,
         category = Furniture,
         timedAction = Paint,
-        SkillRequired = Woodwork:3,
+        SkillRequired = Woodwork:6,
         xpAward = Woodwork:20,
         inputs
         {
@@ -279,6 +305,8 @@ module MoreBuilds
             item 4 [Base.Nails] flags[RecordInput],
             item 1 [Base.PaintLightBrown] flags[DontRecordInput],
             item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+			item 1 tags[base:plasterbucket] flags[DontRecordInput],
+            item 1 tags[base:plastertrowel] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
             item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
         }
     }
@@ -289,7 +317,7 @@ module MoreBuilds
         time = 180,
         category = Furniture,
         timedAction = Paint,
-        SkillRequired = Woodwork:3,
+        SkillRequired = Woodwork:6,
         xpAward = Woodwork:20,
         inputs
         {
@@ -297,6 +325,8 @@ module MoreBuilds
             item 4 [Base.Nails] flags[RecordInput],
             item 1 [Base.PaintWhite] flags[DontRecordInput],
             item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+			item 1 tags[base:plasterbucket] flags[DontRecordInput],
+            item 1 tags[base:plastertrowel] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
             item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
         }
     }
@@ -307,7 +337,7 @@ module MoreBuilds
         time = 180,
         category = Furniture,
         timedAction = Paint,
-        SkillRequired = Woodwork:3,
+        SkillRequired = Woodwork:6,
         xpAward = Woodwork:20,
         inputs
         {
@@ -315,6 +345,8 @@ module MoreBuilds
             item 4 [Base.Nails] flags[RecordInput],
             item 1 [Base.PaintLightBlue] flags[DontRecordInput],
             item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+			item 1 tags[base:plasterbucket] flags[DontRecordInput],
+            item 1 tags[base:plastertrowel] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
             item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
         }
     }
@@ -325,7 +357,7 @@ module MoreBuilds
         time = 180,
         category = Furniture,
         timedAction = Paint,
-        SkillRequired = Woodwork:3,
+        SkillRequired = Woodwork:6,
         xpAward = Woodwork:20,
         inputs
         {
@@ -333,6 +365,8 @@ module MoreBuilds
             item 4 [Base.Nails] flags[RecordInput],
             item 1 [Base.PaintBlack] flags[DontRecordInput],
             item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+			item 1 tags[base:plasterbucket] flags[DontRecordInput],
+            item 1 tags[base:plastertrowel] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
             item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
         }
     }
@@ -343,7 +377,7 @@ module MoreBuilds
         time = 180,
         category = Furniture,
         timedAction = Paint,
-        SkillRequired = Woodwork:3,
+        SkillRequired = Woodwork:6,
         xpAward = Woodwork:20,
         inputs
         {
@@ -351,6 +385,8 @@ module MoreBuilds
             item 4 [Base.Nails] flags[RecordInput],
             item 1 [Base.PaintPink] flags[DontRecordInput],
             item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+			item 1 tags[base:plasterbucket] flags[DontRecordInput],
+            item 1 tags[base:plastertrowel] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
             item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
         }
     }
@@ -361,7 +397,7 @@ module MoreBuilds
         time = 180,
         category = Furniture,
         timedAction = Paint,
-        SkillRequired = Woodwork:3,
+        SkillRequired = Woodwork:6,
         xpAward = Woodwork:20,
         inputs
         {
@@ -369,6 +405,8 @@ module MoreBuilds
             item 4 [Base.Nails] flags[RecordInput],
             item 1 [Base.PaintGreen] flags[DontRecordInput],
             item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+			item 1 tags[base:plasterbucket] flags[DontRecordInput],
+            item 1 tags[base:plastertrowel] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
             item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
         }
     }
@@ -379,7 +417,7 @@ module MoreBuilds
         time = 180,
         category = Furniture,
         timedAction = Paint,
-        SkillRequired = Woodwork:3,
+        SkillRequired = Woodwork:6,
         xpAward = Woodwork:20,
         inputs
         {
@@ -387,6 +425,8 @@ module MoreBuilds
             item 4 [Base.Nails] flags[RecordInput],
             item 1 [Base.PaintTurquoise] flags[DontRecordInput],
             item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+			item 1 tags[base:plasterbucket] flags[DontRecordInput],
+            item 1 tags[base:plastertrowel] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
             item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
         }
     }
@@ -397,7 +437,7 @@ module MoreBuilds
         time = 180,
         category = Furniture,
         timedAction = Paint,
-        SkillRequired = Woodwork:3,
+        SkillRequired = Woodwork:6,
         xpAward = Woodwork:20,
         inputs
         {
@@ -405,6 +445,8 @@ module MoreBuilds
             item 4 [Base.Nails] flags[RecordInput],
             item 1 [Base.PaintPurple] flags[DontRecordInput],
             item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+			item 1 tags[base:plasterbucket] flags[DontRecordInput],
+            item 1 tags[base:plastertrowel] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
             item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
         }
     }
@@ -415,7 +457,7 @@ module MoreBuilds
         time = 180,
         category = Furniture,
         timedAction = Paint,
-        SkillRequired = Woodwork:3,
+        SkillRequired = Woodwork:6,
         xpAward = Woodwork:20,
         inputs
         {
@@ -423,6 +465,8 @@ module MoreBuilds
             item 4 [Base.Nails] flags[RecordInput],
             item 1 [Base.PaintGrey] flags[DontRecordInput],
             item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+			item 1 tags[base:plasterbucket] flags[DontRecordInput],
+            item 1 tags[base:plastertrowel] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
             item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
         }
     }
@@ -433,7 +477,7 @@ module MoreBuilds
         time = 180,
         category = Furniture,
         timedAction = Paint,
-        SkillRequired = Woodwork:3,
+        SkillRequired = Woodwork:6,
         xpAward = Woodwork:20,
         inputs
         {
@@ -441,11 +485,13 @@ module MoreBuilds
             item 4 [Base.Nails] flags[RecordInput],
             item 1 [Base.PaintCyan] flags[DontRecordInput],
             item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+			item 1 tags[base:plasterbucket] flags[DontRecordInput],
+            item 1 tags[base:plastertrowel] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
             item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
         }
     }
 
-    craftRecipe WallBrick
+	craftRecipe WallLousyBrick
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 200,
@@ -455,7 +501,23 @@ module MoreBuilds
         xpAward = Masonry:20,
         inputs
         {
-            item 6 [Base.ClayBrick] flags[RecordInput],
+            item 4 [Base.ClayBrick] flags[RecordInput],
+            item 2 tags[base:concrete] flags[DontRecordInput],
+            item 1 tags[base:masonstrowel] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+
+    craftRecipe WallBrick
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 200,
+        category = Masonry,
+        timedAction = Make_With_Brick,
+        SkillRequired = Masonry:5,
+        xpAward = Masonry:35,
+        inputs
+        {
+            item 4 [Base.ClayBrick] flags[RecordInput],
             item 2 tags[base:concrete] flags[DontRecordInput],
             item 1 tags[base:masonstrowel] mode:keep flags[NoBrokenItems;MayDegradeLight],
         }
@@ -499,8 +561,8 @@ module MoreBuilds
         time = 200,
         category = Masonry,
         timedAction = Make_With_Brick,
-        SkillRequired = Masonry:2,
-        xpAward = Masonry:20,
+        SkillRequired = Masonry:5,
+        xpAward = Masonry:35,
         inputs
         {
             item 6 [Base.StoneBlock] flags[RecordInput],
@@ -515,8 +577,8 @@ module MoreBuilds
         time = 220,
         category = Masonry,
         timedAction = Make_With_Brick,
-        SkillRequired = Masonry:3,
-        xpAward = Masonry:25,
+        SkillRequired = Masonry:5,
+        xpAward = Masonry:35,
         inputs
         {
             item 4 [Base.StoneBlock] flags[RecordInput],
@@ -659,7 +721,7 @@ module MoreBuilds
         }
     }
 
-    craftRecipe DoorFrameBrick
+    craftRecipe DoorFrameLousyBrick
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 200,
@@ -667,6 +729,22 @@ module MoreBuilds
         timedAction = Make_With_Brick,
         SkillRequired = Masonry:2,
         xpAward = Masonry:20,
+        inputs
+        {
+            item 4 [Base.ClayBrick] flags[RecordInput],
+            item 2 tags[base:concrete] flags[DontRecordInput],
+            item 1 tags[base:masonstrowel] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+	
+	craftRecipe DoorFrameBrick
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 200,
+        category = Masonry,
+        timedAction = Make_With_Brick,
+        SkillRequired = Masonry:5,
+        xpAward = Masonry:35,
         inputs
         {
             item 4 [Base.ClayBrick] flags[RecordInput],
@@ -697,7 +775,7 @@ module MoreBuilds
         time = 200,
         category = Carpentry,
         timedAction = BuildWoodenStructureMedium,
-        SkillRequired = Woodwork:2,
+        SkillRequired = Woodwork:6,
         xpAward = Woodwork:20,
         inputs
         {
@@ -723,7 +801,7 @@ module MoreBuilds
         }
     }
 
-    craftRecipe WindowFrameBrick
+    craftRecipe WindowFrameLousyBrick
     {
         OnAddToMenu = ignoreFromBuildMenu,
         time = 200,
@@ -731,6 +809,22 @@ module MoreBuilds
         timedAction = Make_With_Brick,
         SkillRequired = Masonry:2,
         xpAward = Masonry:20,
+        inputs
+        {
+            item 4 [Base.ClayBrick] flags[RecordInput],
+            item 2 tags[base:concrete] flags[DontRecordInput],
+            item 1 tags[base:masonstrowel] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+    }
+	
+	craftRecipe WindowFrameBrick
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 200,
+        category = Masonry,
+        timedAction = Make_With_Brick,
+        SkillRequired = Masonry:5,
+        xpAward = Masonry:35,
         inputs
         {
             item 4 [Base.ClayBrick] flags[RecordInput],
@@ -833,6 +927,100 @@ module MoreBuilds
             item 1 [Base.SmallSheetMetal] flags[RecordInput],
             item 2 [Base.BlowTorch] flags[DontRecordInput],
             item 2 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+	
+	craftRecipe FenceMetalGate
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 200,
+        category = Welding,
+        timedAction = BuildMetalStructureMedium,
+        SkillRequired = MetalWelding:3,
+        xpAward = MetalWelding:30,
+        inputs
+        {
+            item 2 [Base.MetalPipe] flags[RecordInput],
+            item 1 [Base.Wire] flags[RecordInput],
+            item 1 [Base.ScrapMetal] flags[RecordInput],
+			item 2 [Base.Hinge] flags[RecordInput],
+            item 2 [Base.BlowTorch] flags[DontRecordInput],
+            item 2 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+	
+	craftRecipe FenceMetalGateHigh
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 230,
+        category = Welding,
+        timedAction = BuildMetalStructureMedium,
+        SkillRequired = MetalWelding:4,
+        xpAward = MetalWelding:55,
+        inputs
+        {
+            item 2 [Base.MetalPipe] flags[RecordInput],
+            item 2 [Base.Wire] flags[RecordInput],
+            item 2 [Base.ScrapMetal] flags[RecordInput],
+			item 2 [Base.Hinge] flags[RecordInput],
+            item 3 [Base.BlowTorch] flags[DontRecordInput],
+            item 3 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+	
+	craftRecipe HighMetalGate
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 200,
+        category = Welding,
+        timedAction = BuildMetalStructureMedium,
+        SkillRequired = MetalWelding:3,
+        xpAward = MetalWelding:40,
+        inputs
+        {
+            item 2 [Base.MetalPipe] flags[RecordInput],
+            item 2 [Base.Wire] flags[RecordInput],
+            item 2 [Base.ScrapMetal] flags[RecordInput],
+			item 2 [Base.Hinge] flags[RecordInput],
+            item 3 [Base.BlowTorch] flags[DontRecordInput],
+            item 3 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+	
+	craftRecipe DoubleMetalGate
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 200,
+        category = Welding,
+        timedAction = BuildMetalStructureMedium,
+        SkillRequired = MetalWelding:4,
+        xpAward = MetalWelding:65,
+        inputs
+        {
+            item 4 [Base.MetalPipe] flags[RecordInput],
+            item 4 [Base.Wire] flags[RecordInput],
+            item 4 [Base.ScrapMetal] flags[RecordInput],
+			item 2 [Base.Hinge] flags[RecordInput],
+            item 4 [Base.BlowTorch] flags[DontRecordInput],
+            item 4 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+	
+	craftRecipe DoubleWoodGate
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 200,
+        category = Carpentry,
+        timedAction = BuildWoodenStructureMedium,
+        SkillRequired = Woodwork:4,
+        xpAward = Woodwork:65,
+        inputs
+        {
+            item 8 [Base.Plank] flags[RecordInput],
+            item 8 [Base.Nails] flags[RecordInput],
+            item 2 [Base.Hinge] flags[RecordInput],
+            item 1 [Base.Doorknob] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
         }
     }
 
@@ -1050,6 +1238,23 @@ module MoreBuilds
             item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
         }
     }
+	
+	craftRecipe WindowStainedGlass
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 100,
+        category = Carpentry,
+        timedAction = BuildWoodenStructureMedium,
+        SkillRequired = Woodwork:5,
+        xpAward = Woodwork:55,
+        inputs
+        {
+            item 8 [Base.GlassPanel] flags[RecordInput],
+            item 2 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
 
     craftRecipe HighFenceMetal
     {
@@ -1066,6 +1271,22 @@ module MoreBuilds
             item 2 [Base.Wire] flags[RecordInput],
             item 4 [Base.BlowTorch] flags[DontRecordInput],
             item 4 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+	
+	craftRecipe HighFenceWooden
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 250,
+        category = Carpentry,
+        timedAction = BuildWoodenStructureMedium,
+        SkillRequired = Woodwork:5,
+        xpAward = Woodwork:45,
+        inputs
+        {
+            item 8 [Base.Plank] flags[RecordInput],
+            item 8 [Base.Nails] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
         }
     }
 
@@ -3602,6 +3823,24 @@ module MoreBuilds
             item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
         }
     }
+	
+	craftRecipe GateWireWood
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 180,
+        category = Carpentry,
+        timedAction = BuildWoodenStructureMedium,
+        SkillRequired = Woodwork:3,
+        xpAward = Woodwork:35,
+        inputs
+        {
+            item 2 [Base.Plank] flags[RecordInput],
+            item 4 [Base.Nails] flags[RecordInput],
+            item 2 [Base.Wire] flags[RecordInput],
+            item 2 [Base.Hinge] flags[RecordInput],
+            item 1 tags[base:hammer] mode:keep flags[NoBrokenItems;MayDegradeVeryLight],
+        }
+    }
 
     craftRecipe FenceChainLink
     {
@@ -3617,6 +3856,24 @@ module MoreBuilds
             item 4 [Base.Wire] flags[RecordInput],
             item 3 [Base.BlowTorch] flags[DontRecordInput],
             item 3 [Base.WeldingRods] flags[DontRecordInput],
+        }
+    }
+	
+	craftRecipe FenceChainLinkDoubleGate
+    {
+        OnAddToMenu = ignoreFromBuildMenu,
+        time = 250,
+        category = Welding,
+        timedAction = BuildMetalStructureMedium,
+        SkillRequired = MetalWelding:4,
+        xpAward = MetalWelding:55,
+        inputs
+        {
+            item 3 [Base.MetalPipe] flags[RecordInput],
+			item 2 [Base.Hinge] flags[RecordInput],
+            item 8 [Base.Wire] flags[RecordInput],
+            item 6 [Base.BlowTorch] flags[DontRecordInput],
+            item 5 [Base.WeldingRods] flags[DontRecordInput],
         }
     }
 
@@ -4175,7 +4432,7 @@ module MoreBuilds
         }
     }
 
-    craftRecipe MakeWallpaperPainted
+    craftRecipe MakeWallpaperBeigeStripe
     {
         time = 80,
         category = Tailoring,
@@ -4185,13 +4442,133 @@ module MoreBuilds
         xpAward = Tailoring:8,
         inputs
         {
-            item 1 [Base.SheetPaper2] flags[RecordInput],
+            item 10 [Base.SheetPaper2;Base.GraphPaper;Base.Journal;Base.Notebook;Base.Notepad] flags[RecordInput],
             item 1 tags[base:paint] flags[DontRecordInput],
             item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
         }
         outputs
         {
             item 1 Base.Wallpaper_BeigeStripe,
+        }
+    }
+	
+	craftRecipe MakeWallpaperBlackFloral
+    {
+        time = 80,
+        category = Tailoring,
+        timedAction = Paint,
+        Tags = AnySurfaceCraft,
+        SkillRequired = Tailoring:1,
+        xpAward = Tailoring:8,
+        inputs
+        {
+            item 1 [Base.SheetPaper2;Base.GraphPaper;Base.Journal;Base.Notebook;Base.Notepad] flags[RecordInput],
+            item 1 [Base.PaintBlack] flags[DontRecordInput],
+            item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+        }
+        outputs
+        {
+            item 1 Base.Wallpaper_BlackFloral,
+        }
+    }
+	
+	craftRecipe MakeWallpaperBlueStripe
+    {
+        time = 80,
+        category = Tailoring,
+        timedAction = Paint,
+        Tags = AnySurfaceCraft,
+        SkillRequired = Tailoring:1,
+        xpAward = Tailoring:8,
+        inputs
+        {
+            item 1 [Base.SheetPaper2;Base.GraphPaper;Base.Journal;Base.Notebook;Base.Notepad] flags[RecordInput],
+            item 1 [Base.PaintBlue] flags[DontRecordInput],
+            item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+        }
+        outputs
+        {
+            item 1 Base.Wallpaper_BlueStripe,
+        }
+    }
+	
+	craftRecipe MakeWallpaperGreenDiamond
+    {
+        time = 80,
+        category = Tailoring,
+        timedAction = Paint,
+        Tags = AnySurfaceCraft,
+        SkillRequired = Tailoring:1,
+        xpAward = Tailoring:8,
+        inputs
+        {
+            item 1 [Base.SheetPaper2;Base.GraphPaper;Base.Journal;Base.Notebook;Base.Notepad] flags[RecordInput],
+            item 1 [Base.PaintGreen] flags[DontRecordInput],
+            item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+        }
+        outputs
+        {
+            item 1 Base.Wallpaper_GreenDiamond,
+        }
+    }
+	
+	craftRecipe MakeWallpaperGreenFloral
+    {
+        time = 80,
+        category = Tailoring,
+        timedAction = Paint,
+        Tags = AnySurfaceCraft,
+        SkillRequired = Tailoring:1,
+        xpAward = Tailoring:8,
+        inputs
+        {
+            item 1 [Base.SheetPaper2;Base.GraphPaper;Base.Journal;Base.Notebook;Base.Notepad] flags[RecordInput],
+            item 1 [Base.PaintGreen] flags[DontRecordInput],
+            item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+        }
+        outputs
+        {
+            item 1 Base.Wallpaper_GreenFloral,
+        }
+    }
+	
+	craftRecipe MakeWallpaperPinkChevron
+    {
+        time = 80,
+        category = Tailoring,
+        timedAction = Paint,
+        Tags = AnySurfaceCraft,
+        SkillRequired = Tailoring:1,
+        xpAward = Tailoring:8,
+        inputs
+        {
+            item 1 [Base.SheetPaper2;Base.GraphPaper;Base.Journal;Base.Notebook;Base.Notepad] flags[RecordInput],
+            item 1 [Base.PaintPink] flags[DontRecordInput],
+            item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+        }
+        outputs
+        {
+            item 1 Base.Wallpaper_PinkChevron,
+        }
+    }
+	
+	craftRecipe MakeWallpaperPinkFloral
+    {
+        time = 80,
+        category = Tailoring,
+        timedAction = Paint,
+        Tags = AnySurfaceCraft,
+        SkillRequired = Tailoring:1,
+        xpAward = Tailoring:8,
+        inputs
+        {
+            item 1 [Base.SheetPaper2;Base.GraphPaper;Base.Journal;Base.Notebook;Base.Notepad] flags[RecordInput],
+            item 1 [Base.PaintPink] flags[DontRecordInput],
+            item 1 tags[base:paintbrush] mode:keep flags[MayDegradeVeryLight],
+        }
+        outputs
+        {
+            item 1 Base.Wallpaper_PinkFloral,
         }
     }
 
